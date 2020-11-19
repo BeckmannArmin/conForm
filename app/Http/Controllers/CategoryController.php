@@ -35,7 +35,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $request->validate([
+            'name'=> 'required|min:3',
+            'image'=> 'required|image|mimes:jpeg,png,jpg'
+        ]);
+
+        $category = new Category();
+        $category->name = $request->name;
+
+        $path = $request->file('image')->store('categories_images');
+
+        $category->image = $path;
+
+        if ($category->save()) {
+            return response()->json($category, 200);
+        } else {
+            return response()->json($category, 500);
+        }
     }
 
     /**
