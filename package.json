@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@smartweb/vue-flash-message": "^0.6.10",
         "bootstrap-vue": "^2.19.0",
         "vue-router": "^3.4.9",
         "vuex": "^4.0.0-rc.1"

@@ -155,6 +155,11 @@ export default {
             try {
                 const response = await axios.post('http://localhost:8000/api/categories', formData);
                 console.log(response);
+                this.hideNewCategoryModal();
+                this.flashMessage.success({
+                    message: 'Category stored succesfully!',
+                    time: 5000
+                });
             } catch (error) {
                 console.log(error.response.status);
                 switch(error.response.status) {
@@ -163,7 +168,10 @@ export default {
                         break;
 
                     default:
-                        alert('some error occured');
+                        this.flashMessage.error({
+                            message: 'Some error occured. Please try again!',
+                            time: 5000
+                        });
                         break;
                 }
             }

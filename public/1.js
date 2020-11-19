@@ -178,31 +178,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 6:
                 response = _context.sent;
                 console.log(response);
-                _context.next = 20;
+                this.hideNewCategoryModal();
+                this.flashMessage.success({
+                  message: 'Category stored succesfully!',
+                  time: 5000
+                });
+                _context.next = 22;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 12:
+                _context.prev = 12;
                 _context.t0 = _context["catch"](3);
                 console.log(_context.t0.response.status);
                 _context.t1 = _context.t0.response.status;
-                _context.next = _context.t1 === 422 ? 16 : 18;
+                _context.next = _context.t1 === 422 ? 18 : 20;
                 break;
 
-              case 16:
-                this.errors = _context.t0.response.data.errors;
-                return _context.abrupt("break", 20);
-
               case 18:
-                alert('some error occured');
-                return _context.abrupt("break", 20);
+                this.errors = _context.t0.response.data.errors;
+                return _context.abrupt("break", 22);
 
               case 20:
+                this.flashMessage.error({
+                  message: 'Some error occured. Please try again!',
+                  time: 5000
+                });
+                return _context.abrupt("break", 22);
+
+              case 22:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[3, 10]]);
+        }, _callee, this, [[3, 12]]);
       }));
 
       function createCategory() {
