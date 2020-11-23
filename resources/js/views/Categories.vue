@@ -6,14 +6,14 @@
                 <li class="breadcrumb-item">
                     <router-link to="/">Dashboard</router-link>
                 </li>
-                <li class="breadcrumb-item active">Categories</li>
+                <li class="breadcrumb-item active">Konzeptpapiere</li>
             </ol>
 
             <div class="card mb-4">
                 <div class="card-header d-flex">
                     <span>
                         <i class="fas fa-chart-area mr-1"></i>
-                        Categories Managment
+                        Übersicht
                     </span>
                     <button
                         class="btn btn-primary btn-sm ml-auto"
@@ -22,7 +22,7 @@
                         <span>
                             <i class="fa fa-plus" />
                         </span>
-                        Create New
+                        Hinzufügen
                     </button>
                 </div>
                 <div class="card-body">
@@ -68,7 +68,7 @@
             <b-modal
                 ref="newCategoryModal"
                 hide-footer
-                title="Add new category"
+                title="Add new concept paper"
             >
                 <div class="d-block">
                     <form v-on:submit.prevent="createCategory">
@@ -79,7 +79,7 @@
                                 v-model="categoryData.name"
                                 class="form-control"
                                 id="name"
-                                placeholder="Enter category name"
+                                placeholder="Enter concept paper name"
                             />
                             <div class="invalid-feedback" v-if="errors.name">
                                 {{ errors.name[0] }}
@@ -252,7 +252,7 @@ export default {
                 this.categories.unshift(response.data);
                 this.hideNewCategoryModal();
                 this.flashMessage.success({
-                    message: "Category stored succesfully!",
+                    message: "Paper stored succesfully!",
                     time: 5000
                 });
                 this.categoryData = {
@@ -295,7 +295,7 @@ export default {
                 });
 
                  this.flashMessage.success({
-                    message: "Category deleted succesfully!",
+                    message: "Paper deleted succesfully!",
                     time: 5000
                 });
             } catch (error) {

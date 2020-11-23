@@ -311,7 +311,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 this.categories.unshift(response.data);
                 this.hideNewCategoryModal();
                 this.flashMessage.success({
-                  message: "Category stored succesfully!",
+                  message: "Paper stored succesfully!",
                   time: 5000
                 });
                 this.categoryData = {
@@ -380,7 +380,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return obj.id != category.id;
                 });
                 this.flashMessage.success({
-                  message: "Category deleted succesfully!",
+                  message: "Paper deleted succesfully!",
                   time: 5000
                 });
                 _context3.next = 12;
@@ -567,7 +567,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("li", { staticClass: "breadcrumb-item active" }, [
-            _vm._v("Categories")
+            _vm._v("Konzeptpapiere")
           ])
         ]),
         _vm._v(" "),
@@ -583,7 +583,7 @@ var render = function() {
               },
               [
                 _vm._m(1),
-                _vm._v("\n                    Create New\n                ")
+                _vm._v("\n                    Hinzufügen\n                ")
               ]
             )
           ]),
@@ -680,7 +680,7 @@ var render = function() {
           "b-modal",
           {
             ref: "newCategoryModal",
-            attrs: { "hide-footer": "", title: "Add new category" }
+            attrs: { "hide-footer": "", title: "Add new concept paper" }
           },
           [
             _c("div", { staticClass: "d-block" }, [
@@ -713,7 +713,7 @@ var render = function() {
                       attrs: {
                         type: "text",
                         id: "name",
-                        placeholder: "Enter category name"
+                        placeholder: "Enter concept paper name"
                       },
                       domProps: { value: _vm.categoryData.name },
                       on: {
@@ -956,7 +956,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _c("i", { staticClass: "fas fa-chart-area mr-1" }),
-      _vm._v("\n                    Categories Managment\n                ")
+      _vm._v("\n                    Übersicht\n                ")
     ])
   },
   function() {

@@ -18,7 +18,12 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: () => import('./components/LoginPage.vue')
+        component: () => import('./views/LoginPage.vue')
+    },
+    {
+        path: '/kanban',
+        name: 'kanban',
+        component: () => import('./views/KanBan.vue')
     }
 ];
 
