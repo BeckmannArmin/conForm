@@ -30,5 +30,7 @@ class AuthServiceProvider extends ServiceProvider
             'do_anything' => 'Adminstrator',
             'can_create' => 'Author',
         ]);
+
+        Passport::routes();
     }
 }

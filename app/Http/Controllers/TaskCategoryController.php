@@ -14,7 +14,7 @@ class TaskCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(TaskCategory::all()->toArray());
     }
 
     /**
@@ -35,7 +35,12 @@ class TaskCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $taskCategory = TaskCategory::create($request->only('name'));
+
+            return response()->json([
+                'status' => (bool) $taskCategory,
+                'message'=> $taskCategory ? 'Category Created' : 'Error Creating Category'
+            ]);
     }
 
     /**
@@ -46,7 +51,12 @@ class TaskCategoryController extends Controller
      */
     public function show(TaskCategory $taskCategory)
     {
-        //
+        return response()->json($taskCategory);
+    }
+
+    public function tasks(TaskCategory $taskCategory)
+    {
+        return response()->json($taskCategory->tasks()->orderBy('order')->get());
     }
 
     /**
@@ -69,7 +79,12 @@ class TaskCategoryController extends Controller
      */
     public function update(Request $request, TaskCategory $taskCategory)
     {
-        //
+        $status = $taskCategory->update($request->only('name'));
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Category Updated!' : 'Error Updating Category'      
+        ]);
     }
 
     /**
@@ -80,6 +95,11 @@ class TaskCategoryController extends Controller
      */
     public function destroy(TaskCategory $taskCategory)
     {
-        //
+        $status  = $taskCategory->delete();
+
+            return response()->json([
+                'status' => $status,
+                'message' => $status ? 'Category Deleted' : 'Error Deleting Category'
+            ]);
     }
 }

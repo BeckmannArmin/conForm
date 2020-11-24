@@ -1,29 +1,68 @@
 <template>
-    <main>
-         <Header />
+  <div>
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+      <div class="container">
+        <router-link :to="{ name: 'welcome' }" class="navbar-brand"
+          >conForm</router-link
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div id="layoutSidenav">
-           <Sidebar />
-
-            <div id="layoutSidenav_content">
-                <router-view></router-view>
-               <Footer />
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left Side Of Navbar -->
+          <ul class="navbar-nav mr-auto"></ul>
+          <!-- Right Side Of Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
+            <router-link
+              :to="{ name: 'login' }"
+              class="nav-link"
+              v-if="!isLoggedIn"
+              >Login</router-link
+            >
+            <router-link
+              :to="{ name: 'register' }"
+              class="nav-link"
+              v-if="!isLoggedIn"
+              >Register</router-link
+            >
+            <li class="nav-link" v-if="isLoggedIn">Hi, {{ name }}</li>
+            <router-link
+              :to="{ name: 'board' }"
+              class="nav-link"
+              v-if="isLoggedIn"
+              >Board</router-link
+            >
+          </ul>
         </div>
-
-        <FlashMessage :position="'right bottom'"></FlashMessage>
+      </div>
+    </nav>
+    <main class="py-4">
+      <router-view></router-view> <!-- Here are the child components of our view-->
     </main>
+  </div>
 </template>
 
-<script>
-import Header from './components/Header.vue';
-import Sidebar from './components/Sidebar.vue';
-import Footer from './components/Footer.vue';
-    export default {
-       components:{
-           Header,
-           Sidebar,
-           Footer
-       }
-    }
+     <script>
+export default {
+  data() {
+    return {
+      isLoggedIn: null,
+      name: null,
+    };
+  },
+  mounted() {
+    this.isLoggedIn = localStorage.getItem("jwt");
+    this.name = localStorage.getItem("user");
+  },
+};
 </script>
