@@ -27,10 +27,16 @@ class UserController extends Controller
             ];
 
             if (Auth::attempt($credentials)) {
-                $success['token'] = Auth::user()->createToken('MyApp')->accessToken;
+
                 $user = Auth::user();
+                if ($user->role == 'adminstrator') {
+                    $success['token'] = $user->createToken('MyApp', ['do_anything'])->accessToken;
+                } else {
+                    $success['token'] = $user->createToken('MyApp', ['can_create'])->accessToken;
+                }
+              
                 return response()->json(['success' => $success,
-                'user' => $user
+                'user' => $user,
                 ]);
             }
 
@@ -40,10 +46,12 @@ class UserController extends Controller
             return response()->json($response, $status);
         }
 
-        public function logout(Request $request)
+        public function logout()
         {
             
-        $request->user()->token()->revoke();
+        //$request->user()->token()->revoke();
+
+        auth()->user()->token()->delete();
         
         return response()->json([
             'message' => 'Logged out successfully!',

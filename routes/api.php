@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 Route::resource('/task', TaskController::class); 
 Route::get('/taskcategory/{taskcategory}/tasks',[TaskCategoryController::class, 'tasks']);
 Route::resource('/taskcategory',TaskCategoryController::class);
-Route::get('logout', 'App\Http\Controllers\UserController@logout');
+Route::post('logout', 'App\Http\Controllers\UserController@logout');
 });
 
 /**
@@ -63,13 +63,13 @@ Route::group(['prefix' => 'user'], function() {
                 'message' => 'Admin access',
                 'status_code' => 200
             ], 200);
-        })->middleware('scope: do_anything');
+        })->middleware('scope:do_anything');
 
         Route::post('create-category', function(){
             return response()->json([
                 'message' => 'Everyone access',
                 'status_code' => 200
             ], 200);
-        })->middleware('scope: do_anything, can_create');
+        })->middleware('scope:do_anything,can_create');
     });
 });
