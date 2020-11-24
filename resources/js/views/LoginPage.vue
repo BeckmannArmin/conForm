@@ -2,23 +2,27 @@
      <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+
+          <!-- Sign in form -->
+          <form method="POST" action="/login" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input v-model="email" type="text" placeholder="E-Mail" required autofocus/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" v-model="password" required/>
             </div>
-            <input type="submit" value="Login" class="btn solid" />
+            <input type="submit" value="Login" class="btn solid" @click="handleSubmit" />
             <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-github"></i>
               </a>
             </div>
           </form>
+
+          <!-- Sign up form -->
           <form action="#" class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
@@ -74,13 +78,47 @@
     </div>
 </template>
 
-<script>
-import * as login_animation from '../login_animation';
+ <script>
+     import axios from 'axios';
 export default {
-    created() {
-        login_animation.addLoginEventListener();
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    handleSubmit(e) {
+      e.preventDefault();
+
+      if (this.password.length > 0) {
+        axios
+          .post("api/login", {
+            email: this.email,
+            password: this.password,
+          })
+          .then((response) => {
+            localStorage.setItem("user", response.data.success.name);
+            localStorage.setItem("jwt", response.data.success.token);
+
+            if (localStorage.getItem("jwt") != null) {
+              this.$router.go("/board");
+            }
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+      }
+    },
+  },
+  beforeRouteEnter(to, from, next) {
+    if (localStorage.getItem("jwt")) {
+      return next("board");
     }
-}
+
+    next();
+  },
+};
 </script>
 
 <style lang="scss" scoped>

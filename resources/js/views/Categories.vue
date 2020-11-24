@@ -4,7 +4,7 @@
             <h1 class="mt-4">Dashboard</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item">
-                    <router-link to="/">Dashboard</router-link>
+                    <router-link to="/">conForm</router-link>
                 </li>
                 <li class="breadcrumb-item active">Konzeptpapiere</li>
             </ol>

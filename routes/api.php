@@ -31,15 +31,14 @@ use App\Http\Controllers\UserController;
 *   POST	/api/login	Log an existing user in
  */
 
-//Route::group(['prefix' => 'auth'], function() {
     //Route::post('register', 'App\Http\Controllers\AuthController@register');
     //Route::post('login', 'App\Http\Controllers\AuthController@login');
-//});
 
 Route::resource('categories', 'App\Http\Controllers\CategoryController');
 
 Route::post('register', 'App\Http\Controllers\UserController@register');
 Route::post('login', 'App\Http\Controllers\UserController@login');
+
 
 /**
  * We can group the routes we need auth for
@@ -49,4 +48,28 @@ Route::group(['middleware' => 'auth:api'], function(){
 Route::resource('/task', TaskController::class); 
 Route::get('/taskcategory/{taskcategory}/tasks',[TaskCategoryController::class, 'tasks']);
 Route::resource('/taskcategory',TaskCategoryController::class);
+Route::get('logout', 'App\Http\Controllers\UserController@logout');
+});
+
+/**
+ * beware that if you use scopes: it MUST have both scopes
+ * scope: it can either have the first or second scope
+ */
+
+Route::group(['prefix' => 'user'], function() {
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::post('edit-category', function(){
+            return response()->json([
+                'message' => 'Admin access',
+                'status_code' => 200
+            ], 200);
+        })->middleware('scope: do_anything');
+
+        Route::post('create-category', function(){
+            return response()->json([
+                'message' => 'Everyone access',
+                'status_code' => 200
+            ], 200);
+        })->middleware('scope: do_anything, can_create');
+    });
 });

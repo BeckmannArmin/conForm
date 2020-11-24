@@ -562,7 +562,7 @@ var render = function() {
           _c(
             "li",
             { staticClass: "breadcrumb-item" },
-            [_c("router-link", { attrs: { to: "/" } }, [_vm._v("Dashboard")])],
+            [_c("router-link", { attrs: { to: "/" } }, [_vm._v("conForm")])],
             1
           ),
           _vm._v(" "),

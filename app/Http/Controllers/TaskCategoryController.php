@@ -54,6 +54,9 @@ class TaskCategoryController extends Controller
         return response()->json($taskCategory);
     }
 
+    /**
+     * return tasks associated with a category
+     */
     public function tasks(TaskCategory $taskCategory)
     {
         return response()->json($taskCategory->tasks()->orderBy('order')->get());

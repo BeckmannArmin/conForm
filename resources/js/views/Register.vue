@@ -75,6 +75,10 @@
                   />
                 </div>
               </div>
+              
+               <!-- we have a handleSubmit method that is called when a 
+               user submits the registration form. It sends all the form data to the API, 
+               takes the response and saves the jwt to localStorage -->
 
               <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
@@ -140,6 +144,10 @@ export default {
       }
     },
   },
+
+  /**
+   * the callback checks if the user is logged in and redirects him to the board
+   */
   beforeRouteEnter(to, from, next) {
     if (localStorage.getItem("jwt")) {
       return next("board");

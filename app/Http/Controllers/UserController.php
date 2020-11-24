@@ -28,14 +28,27 @@ class UserController extends Controller
 
             if (Auth::attempt($credentials)) {
                 $success['token'] = Auth::user()->createToken('MyApp')->accessToken;
-
-                return response()->json(['success' => $success]);
+                $user = Auth::user();
+                return response()->json(['success' => $success,
+                'user' => $user
+                ]);
             }
 
             $status = 401;
             $response = ['error' => 'Unauthorized'];
 
             return response()->json($response, $status);
+        }
+
+        public function logout(Request $request)
+        {
+            
+        $request->user()->token()->revoke();
+        
+        return response()->json([
+            'message' => 'Logged out successfully!',
+            'status_code' => 200
+        ], 200);
         }
 
         public function register(Request $request)
