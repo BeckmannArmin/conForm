@@ -49,6 +49,7 @@ Route::resource('/task', TaskController::class);
 Route::get('/taskcategory/{taskcategory}/tasks',[TaskCategoryController::class, 'tasks']);
 Route::resource('/taskcategory',TaskCategoryController::class);
 Route::post('logout', 'App\Http\Controllers\UserController@logout');
+Route::get('profile', 'App\Http\Controllers\UserController@profile');
 });
 
 /**

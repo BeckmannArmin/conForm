@@ -8,6 +8,7 @@ export function register(user) {
 export function logout() {
     http().post('/logout');
     localStorage.removeItem("jwt");
+    localStorage.removeItem("user");
 }
 
 export function setToken(user) {

@@ -81,6 +81,17 @@ class UserController extends Controller
             return response()->json(['success' => $success]);
         }
 
+        public function profile(Request $request) {
+            if ($request->user()){
+                return response()->json($request->user(),200);
+            }
+
+            return response()->json([
+                'message' => 'Not logged in',
+                'status_code' => 500
+            ],500);
+        }
+
         public function getDetails()
         {
             return response()->json(['success' => Auth::user()]);

@@ -79,7 +79,7 @@ export default {
             password: this.password,
           })
           .then((response) => {
-            localStorage.setItem("user", response.data.success.name);
+            localStorage.setItem("user", response.data.user.name);
             localStorage.setItem("jwt", response.data.success.token);
 
             if (auth.isLoggedIn()) {
