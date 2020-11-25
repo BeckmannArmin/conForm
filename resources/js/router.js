@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import Dashboard from './views/Board.vue'
 import Login from './views/Login'
 import Register from './views/Register'
+import ResetPassword from './views/ResetPassword'
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
         path: '/register',
         name: 'register',
         component: Register,
+    },
+    {
+        path: '/reset-password',
+        name: 'reset',
+        component: ResetPassword
     },
     {
         path: '/board',

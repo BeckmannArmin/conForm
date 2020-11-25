@@ -1,18 +1,19 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card card-default">
-          <div class="card-header">Login</div>
+    <div class="row content">
 
-          <div class="card-body">
+      <!-- left side image -->
+      <div class="col-md-6">
+        <img src="../../assets/account_login.svg" class="img-fluid" alt="image">
+      </div>
+
+      <!-- right side login card -->
+      <div class="col-md-6">
+        <h3 class="signin-text mb-3"> Sign in </h3>
+
             <form method="POST" action="/login">
-              <div class="form-group row">
-                <label for="email" class="col-sm-4 col-form-label text-md-right"
-                  >E-Mail Address</label
-                >
-
-                <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">E-Mail Address</label>
                   <input
                     id="email"
                     type="email"
@@ -21,17 +22,11 @@
                     required
                     autofocus
                   />
-                </div>
               </div>
 
-              <div class="form-group row">
+              <div class="form-group">
                 <label
-                  for="password"
-                  class="col-md-4 col-form-label text-md-right"
-                  >Password</label
-                >
-
-                <div class="col-md-6">
+                  for="password">Password</label>
                   <input
                     id="password"
                     type="password"
@@ -39,25 +34,30 @@
                     v-model="password"
                     required
                   />
-                </div>
               </div>
 
-              <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
+              <!-- submit button -->
+              <div class="form-group">
                   <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="btn btn-class"
                     @click="handleSubmit"
                   >
                     Login
                   </button>
-                </div>
               </div>
+            
             </form>
-          </div>
+            <div class="text-center">
+          <router-link to="/register" class="d-block small mt-3"
+            >Register an account</router-link
+          >
+          <router-link to="/reset-password" class="d-block small mt-3"
+            >Forgot password?</router-link
+          >
         </div>
-      </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -103,3 +103,54 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.content {
+  margin: 8%;
+  background-color: #fff;
+  padding: 4rem 1rem 4rem 1rem;
+  box-shadow: 0 0 5px 5px rgba(0,0,0, .05);
+}
+.signin-text {
+  font-style: normal;
+  font-weight: 600 !important;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-color: #5C55BA !important;
+  border-style: solid !important;
+  border-width: 0 0 2px 0 !important;
+  height: auto;
+  color: #495057;
+  padding: 0px !important;
+  border-radius: 0;
+  background-color: #fff;
+  background-clip: padding-box;
+}
+
+.form-control:focus {
+  color: #495957;
+  background-color: #fff;
+  border-color: #fff;
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-class {
+  border-color: #5C55BA;
+  color: #5C55BA;
+}
+
+.btn-class:hover {
+  background-color: #5C55BA;
+}
+</style>
