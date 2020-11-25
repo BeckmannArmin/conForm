@@ -9,7 +9,7 @@
   </div>
 </template>
 
-      <style scoped>
+  <style scoped>
 .full-height {
   height: 100vh;
 }
@@ -45,8 +45,13 @@
   margin-bottom: 30px;
   color: #000000;
 }
+
 </style>
 
 <script>
-    export default {}
+    export default {
+      components: {
+       
+      }
+    }
 </script>

@@ -18,8 +18,7 @@
                     id="name"
                     type="text"
                     class="form-control"
-                    v-model="name"
-                    required
+                    v-model="user.name"
                     autofocus
                   />
               </div>
@@ -30,8 +29,7 @@
                     id="email"
                     type="email"
                     class="form-control"
-                    v-model="email"
-                    required
+                    v-model="user.email"
                   />
               </div>
 
@@ -43,8 +41,7 @@
                     id="password"
                     type="password"
                     class="form-control"
-                    v-model="password"
-                    required
+                    v-model="user.password"
                   />
               </div>
 
@@ -56,8 +53,7 @@
                     id="password-confirm"
                     type="password"
                     class="form-control"
-                    v-model="password_confirmation"
-                    required
+                    v-model="user.password_confirmation"
                   />
               </div>
               
@@ -87,46 +83,44 @@
 
      <script>
      import axios from 'axios';
+     import * as auth from '../services/auth_service';
 export default {
   data() {
     return {
-      name: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
+      user: {
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+      },
+      errors: {}
     };
   },
   methods: {
-    handleSubmit(e) {
-      e.preventDefault();
+    handleSubmit: async function() {
 
-      if (
-        this.password === this.password_confirmation &&
-        this.password.length > 0
-      ) {
-        axios
-          .post("api/register", {
-            name: this.name,
-            email: this.email,
-            password: this.password,
-            c_password: this.password_confirmation,
-          })
-          .then((response) => {
-            localStorage.setItem("user", response.data.success.name);
-            localStorage.setItem("jwt", response.data.success.token);
-
-            if (localStorage.getItem("jwt") != null) {
-              this.$router.go("/board");
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+      if (this.user.password === this.user.password_confirmation && 
+      this.user.password.length > 0) {
+       try {
+         await auth.register(this.user);
+         this.errors = {};
+         this.$router.push('/login');
+       } catch (error) {
+         switch (error.response.status) {
+           case 422: 
+           this.errors = error.response.data.errors;
+           break;
+           default:
+             this.flashMessage.error({
+               message: 'Some error occured, please try again',
+               time: 5000
+             });
+             break;
+         }
+       }
       } else {
-        this.password = "";
-        this.passwordConfirm = "";
-
-        return alert("Passwords do not match");
+        this.user.password = "";
+        this.user.password_confirmation = "";
       }
     },
   },

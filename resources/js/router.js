@@ -6,6 +6,7 @@ import Dashboard from './views/Board.vue'
 import Login from './views/Login'
 import Register from './views/Register'
 import ResetPassword from './views/ResetPassword'
+import * as auth from './services/auth_service';
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,13 @@ const routes = [
         path: '/login',
         name: 'login',
         component: Login,
+        beforeEnter(to, from , next) {
+            if (!auth.isLoggedIn()) {
+                next();
+             } else {
+                 next('/');
+             }
+        }
     },
     {
         path: '/register',

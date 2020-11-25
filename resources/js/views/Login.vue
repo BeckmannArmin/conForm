@@ -1,54 +1,51 @@
 <template>
   <div class="container">
     <div class="row content">
-
       <!-- left side image -->
       <div class="col-md-6">
-        <img src="../../assets/account_login.svg" class="img-fluid" alt="image">
+        <img
+          src="../../assets/account_login.svg"
+          class="img-fluid"
+          alt="image"
+        />
       </div>
 
       <!-- right side login card -->
       <div class="col-md-6">
-        <h3 class="signin-text mb-3"> Sign in </h3>
+        <h3 class="signin-text mb-3">Sign in</h3>
 
-            <form method="POST" action="/login">
-              <div class="form-group">
-                <label for="email">E-Mail Address</label>
-                  <input
-                    id="email"
-                    type="email"
-                    class="form-control"
-                    v-model="email"
-                    required
-                    autofocus
-                  />
-              </div>
+        <form method="POST" action="/login">
+          <div class="form-group">
+            <label for="email">E-Mail Address</label>
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              v-model="email"
+              required
+              autofocus
+            />
+          </div>
 
-              <div class="form-group">
-                <label
-                  for="password">Password</label>
-                  <input
-                    id="password"
-                    type="password"
-                    class="form-control"
-                    v-model="password"
-                    required
-                  />
-              </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              v-model="password"
+              required
+            />
+          </div>
 
-              <!-- submit button -->
-              <div class="form-group">
-                  <button
-                    type="submit"
-                    class="btn btn-class"
-                    @click="handleSubmit"
-                  >
-                    Login
-                  </button>
-              </div>
-            
-            </form>
-            <div class="text-center">
+          <!-- submit button -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-class" @click="handleSubmit">
+              Login
+            </button>
+          </div>
+        </form>
+        <div class="text-center">
           <router-link to="/register" class="d-block small mt-3"
             >Register an account</router-link
           >
@@ -56,13 +53,14 @@
             >Forgot password?</router-link
           >
         </div>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
      <script>
      import axios from 'axios';
+     import * as auth from '../services/auth_service';
 export default {
   data() {
     return {
@@ -84,7 +82,7 @@ export default {
             localStorage.setItem("user", response.data.success.name);
             localStorage.setItem("jwt", response.data.success.token);
 
-            if (localStorage.getItem("jwt") != null) {
+            if (auth.isLoggedIn()) {
               this.$router.go("/board");
             }
           })
@@ -95,7 +93,7 @@ export default {
     },
   },
   beforeRouteEnter(to, from, next) {
-    if (localStorage.getItem("jwt")) {
+    if (auth.isLoggedIn()) {
       return next("board");
     }
 
@@ -105,15 +103,15 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .content {
   margin: 8%;
   background-color: #fff;
   padding: 4rem 1rem 4rem 1rem;
-  box-shadow: 0 0 5px 5px rgba(0,0,0, .05);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }
 .signin-text {
   font-style: normal;
@@ -126,7 +124,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  border-color: #5C55BA !important;
+  border-color: #5c55ba !important;
   border-style: solid !important;
   border-width: 0 0 2px 0 !important;
   height: auto;
@@ -146,11 +144,11 @@ body {
 }
 
 .btn-class {
-  border-color: #5C55BA;
-  color: #5C55BA;
+  border-color: #5c55ba;
+  color: #5c55ba;
 }
 
 .btn-class:hover {
-  background-color: #5C55BA;
+  background-color: #5c55ba;
 }
 </style>
