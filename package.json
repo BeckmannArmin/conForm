@@ -24,9 +24,12 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.1",
         "@smartweb/vue-flash-message": "^0.6.10",
         "bootstrap-vue": "^2.19.0",
         "jsonwebtoken": "^8.5.1",
+        "query": "^0.2.0",
+        "vue-loading-spinner": "^1.0.11",
         "vue-router": "^3.4.9",
         "vuedraggable": "^2.24.3",
         "vuex": "^3.5.1"

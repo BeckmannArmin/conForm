@@ -28,6 +28,14 @@
                 </transition-group>
             </draggable>
         </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <button class="btn btn-primary" v-on:click="userScope">USER</button>
+            </div>
+            <div class="col-md-6 mb-4">
+                <button class="btn btn-primary" v-on:click="adminScope">ADMIN</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -61,6 +69,7 @@
 
 <script>
 import axios from 'axios';
+import * as user from '../services/user_service';
     import draggable from 'vuedraggable'
     export default {
         components: {
@@ -125,6 +134,22 @@ import axios from 'axios';
             editTask(task) {
                 this.editingTask = task
             },
+            userScope: async function() {
+                try {
+                    const response = await user.userScope();
+                    console.log(response);
+                } catch (error) {
+                    console.log(' '+error, error.response.status);
+                }
+            },
+            adminScope: async function() {
+                  try {
+                    const response = await user.adminScope();
+                    console.log(response);
+                } catch (error) {
+                    console.log(' '+error, error.response.status);
+                }
+            }
         },
         computed: {
             dragOptions () {

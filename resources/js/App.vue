@@ -5,18 +5,21 @@
       <!-- Here are the child components of our view-->
       <router-view></router-view>
     </main>
+    <ResourceSection />
     <Footer />
   </div>
 </template>
 
 <script>
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
+import Footer from "./components/Footer.vue";
+import NavBar from "./components/NavBar.vue";
+import ResourceSection from "./components/sections/ResourceSection.vue";
 
 export default {
   components: {
     Footer,
-    NavBar
+    NavBar,
+    ResourceSection
   },
 };
 </script>
@@ -24,5 +27,9 @@ export default {
 <style scoped>
 .full-height {
   height: 100vh;
+}
+
+.py-4 {
+  padding-top: 180px !important;
 }
 </style>

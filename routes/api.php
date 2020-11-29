@@ -57,20 +57,21 @@ Route::get('profile', 'App\Http\Controllers\UserController@profile');
  * scope: it can either have the first or second scope
  */
 
-Route::group(['prefix' => 'user'], function() {
-    Route::group(['middleware' => 'auth:api'], function(){
-        Route::post('edit-category', function(){
+Route::group(['prefix' => 'user', 'middleware' => 'auth:api'], function() {
+    Route::group(['middleware' => 'scope:do_anything'], function(){
+        Route::get('/admin-scope', function(){
             return response()->json([
                 'message' => 'Admin access',
                 'status_code' => 200
             ], 200);
-        })->middleware('scope:do_anything');
-
-        Route::post('create-category', function(){
+        });
+    });
+    Route::group(['middleware' => 'scope:can_create'], function(){
+        Route::get('/user-scope', function(){
             return response()->json([
-                'message' => 'Everyone access',
+                'message' => 'User access',
                 'status_code' => 200
             ], 200);
-        })->middleware('scope:do_anything,can_create');
+        });
     });
 });
