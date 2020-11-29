@@ -33,6 +33,15 @@
           >
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
+          <a
+        href="https://github.com/BuchholzTim/MTI-Projekt"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header-github-link"
+        aria-label="Github Repository"
+      >
+        <img src="../../assets/images/github-logo.svg" style="height: 25px" />
+      </a>
             <!-- Authentication Links -->
             <router-link
               :to="{ name: 'login' }"
@@ -90,6 +99,11 @@ export default {
 </script>
 
 <style scoped>
+.header-github-link {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
 .navbar {
   box-shadow: 3px 3px 16px 0 #e8e8e8;
   background-color: #fff;
