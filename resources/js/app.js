@@ -11,6 +11,7 @@ import FlashMessage from '@smartweb/vue-flash-message';
 
 Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
+Vue.component("kanban-board", require("./components/KanbanBoard.vue").default);
 
 new Vue({
     el: '#app',

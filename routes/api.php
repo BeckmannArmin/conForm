@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoryController;
 //use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\TaskCategoryController;
 use App\Http\Controllers\UserController;
 
 /**
@@ -45,9 +43,6 @@ Route::post('login', 'App\Http\Controllers\UserController@login');
  * under common middleware. It secures our routes
  */
 Route::group(['middleware' => 'auth:api'], function(){
-Route::resource('/task', TaskController::class); 
-Route::get('/taskcategory/{taskcategory}/tasks',[TaskCategoryController::class, 'tasks']);
-Route::resource('/taskcategory',TaskCategoryController::class);
 Route::post('logout', 'App\Http\Controllers\UserController@logout');
 Route::get('profile', 'App\Http\Controllers\UserController@profile');
 });

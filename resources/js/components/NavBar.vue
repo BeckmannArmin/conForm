@@ -56,12 +56,6 @@
               >Register</router-link
             >
             <li class="nav-link" v-if="isLoggedIn">Hi, {{ name }}</li>
-            <router-link
-              :to="{ name: 'board' }"
-              class="nav-link"
-              v-if="isLoggedIn"
-              >Board</router-link
-            >
 
             <button v-if="isLoggedIn" class="btn btn-logout" @click="logout">
               Logout

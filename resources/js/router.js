@@ -2,11 +2,11 @@ import Welcome from './views/Hello';
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Dashboard from './views/Board.vue'
 import Login from './views/Login'
 import Register from './views/Register'
 import ResetPassword from './views/ResetPassword'
 import * as auth from './services/auth_service';
+import KanBan from './components/KanbanBoard.vue';
 
 Vue.use(VueRouter);
 
@@ -44,9 +44,9 @@ const routes = [
         component: ResetPassword
     },
     {
-        path: '/board',
-        name: 'board',
-        component: Dashboard,
+        path: '/kanban',
+        name: 'kanban',
+        component: KanBan
     }
 ];
 
