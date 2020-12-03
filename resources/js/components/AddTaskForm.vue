@@ -32,7 +32,7 @@
       </button>
       <button
         type="submit"
-        class="px-3 py-1 leading-5 text-white bg-orange-600 hover:bg-orange-500 rounded"
+        class="btn btn-outline-dark btn-sm leading-5 px-3 py-1 rounded"
       >
         Add
       </button>
@@ -42,6 +42,7 @@
 
 <script>
 import axios from 'axios';
+import {http} from "../services/http_service";
 export default {
   props: {
     statusId: Number
@@ -68,7 +69,7 @@ export default {
       }
 
       // Send new task to server
-      axios
+      http()
         .post("/tasks", this.newTask)
         .then(res => {
           // Tell the parent component we've added a new task and include it

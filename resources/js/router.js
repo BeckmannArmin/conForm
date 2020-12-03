@@ -46,7 +46,7 @@ const routes = [
     {
         path: '/kanban',
         name: 'kanban',
-        component: KanBan
+        component: KanBan,
     }
 ];
 

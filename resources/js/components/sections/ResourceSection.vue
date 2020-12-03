@@ -15,7 +15,7 @@
         <div class="col resource-cards-left">
           <a
             class="card card-l1"
-            href="https://github.com/BuchholzTim/MTI-Projekt/wiki"
+            href="https://github.com/BeckmannArmin/laravel-conForm"
           >
             <div class="card--header">
               <div class="card--icon">
@@ -28,11 +28,11 @@
           </a>
           <a
             class="card card-l1"
-            href="https://github.com/BuchholzTim/MTI-Projekt/wiki"
+            href="https://github.com/BeckmannArmin/laravel-conForm"
           >
             <div class="card--header">
               <div class="card--icon">
-                <i class="fas fa-question"></i>
+                <i class="fas fa-wrench"></i>
               </div>
               <div class="card--body">
                 <p>Check out our wiki to see the latest issues and updates</p>
@@ -41,7 +41,7 @@
           </a>
         </div>
         <div class="col resource-cards-middle">
-          <a class="card card-m1">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">
                 <i class="fas fa-book"></i>
@@ -54,7 +54,7 @@
           </a>
         </div>
         <div class="col resource-cards-right">
-          <a href="" class="card card-m1">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">
                 <i class="fab fa-github"></i>
@@ -62,7 +62,7 @@
               <h3>Contribute</h3>
             </div>
             <div class="card--body">
-              <p>If you want to help us improve our project - click here</p>
+              <p>Help us improve with issueing bugs and feature requests</p>
             </div>
           </a>
         </div>
@@ -111,8 +111,9 @@ h3 {
 .card--header {
   padding: 1rem 1rem;
 }
-.card--header {
-  color: #7680d9;
+.card--icon,
+.card--header h3 {
+  color: #9490D2;
 }
 .resource-cards-left,
 .resource-cards-middle a {
@@ -128,6 +129,7 @@ h3 {
   margin: 1rem 0;
   padding: 0.5rem;
   border: 1px solid #eee; /** material */
+      color: #4a4a4a;
 }
 
 .card {

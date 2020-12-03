@@ -28,9 +28,6 @@
             >Categories</router-link
           >
            <ul class="navbar-nav mr-auto"></ul>
-          <router-link :to="{ name: 'whiteboard' }" class=""
-            >Whiteboard</router-link
-          >
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
           <a

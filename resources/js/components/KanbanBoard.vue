@@ -1,147 +1,145 @@
 <template>
 
-  <div class="p-2 bg-blue-100">
+    <div class="p-2 bg-blue-100">
 
-    <!-- Columns (Statuses) -->
-    <div
-      v-for='status in statuses'
-      :key='status.slug'
-      class="mr-6 w-4/5 max-w-xs flex-1 flex-shrink-0"
-    >
-      <div class="rounded-md shadow-md overflow-hidden">
-        <div class="p-3 flex justify-between items-baseline bg-blue-800 ">
-          <h4 class="font-medium text-white">
-            {{ status.title }}
-          </h4>
-          <button class="py-1 px-2 text-sm text-orange-500 hover:underline">
-            Add Task
-          </button>
-        </div>
-        <div class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto bg-blue-100">
-
-          <!-- Tasks -->
-          <div
-            v-for="task in status.tasks"
-            :key="task.id"
-            class="mb-3 p-3 h-24 flex flex-col bg-white rounded-md shadow transform hover:shadow-md cursor-pointer"
-          >
-            <span class="block mb-2 text-xl text-gray-900">
-              {{ task.title }}
-            </span>
-            <p class="text-gray-700 truncate">
-              {{ task.description }}
-            </p>
-          </div>
-
-          <AddTaskForm
-    v-if="newTaskForStatus === status.id"
-    :status-id="status.id"
-    v-on:task-added="handleTaskAdded"
-    v-on:task-canceled="closeAddTaskForm"
-  />
-          <!-- Tasks -->
-
-          <draggable
-      class="flex-1 overflow-hidden"
-      v-model="status.tasks"
-      v-bind="taskDragOptions"
-      @end="handleTaskMoved"
-    >
-      <transition-group
-        class="flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto rounded shadow-xs"
-        tag="div"
-      >
+        <!-- Columns (Statuses) -->
         <div
-          v-for="task in status.tasks"
-          :key="task.id"
-          class="mb-3 p-3 h-24 flex flex-col bg-white rounded-md shadow transform hover:shadow-md cursor-pointer"
+            v-for='status in statuses'
+            :key='status.slug'
+            v-if="statuses.length"
+            class="mr-6 w-4/5 max-w-xs flex-1 flex-shrink-0"
         >
-        </div>
-        <!-- ./Tasks -->
-      </transition-group>
-    </draggable>
+            <div class="rounded-md shadow-md overflow-hidden">
+                <div class="p-3 flex justify-between items-baseline bg-blue-800 ">
+                    <h4 class="font-medium text-white">
+                        {{ status.title }}
+                    </h4>
+                    <button @click="openAddTaskForm(status.id)" class="btn btn-outline-light btn-sm hover:underline px-2 py-1 text-sm">
+                        Add Task
+                    </button>
+                </div>
+                <div class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto bg-blue-100">
 
-          <!-- No Tasks -->
-         <div
-    v-show="!status.tasks.length && newTaskForStatus !== status.id"
-    class="flex-1 p-4 flex flex-col items-center justify-center"
-  >
-    <span class="text-gray-600">No tasks yet</span>
-    <button
-      class="mt-1 text-sm text-orange-600 hover:underline"
-      @click="openAddTaskForm(status.id)"
-    >
-      Add one
-    </button>
-  </div>
-          <!-- No Tasks -->
+                    <!-- Tasks -->
+
+                    <AddTaskForm
+                        v-if="newTaskForStatus === status.id"
+                        :status-id="status.id"
+                        v-on:task-added="handleTaskAdded"
+                        v-on:task-canceled="closeAddTaskForm"
+                    />
+                    <!-- Tasks -->
+
+                    <draggable
+                        class="flex-1 overflow-hidden"
+                        v-model="status.tasks"
+                        v-bind="taskDragOptions"
+                        @end="handleTaskMoved"
+                    >
+                        <transition-group
+                            class="flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto rounded shadow-xs"
+                            tag="div"
+                        >
+                            <div
+                                v-for="task in status.tasks"
+                                :key="task.id"
+                                class="mb-3 p-3 h-24 flex flex-col bg-white rounded-md shadow transform hover:shadow-md cursor-pointer"
+                            >
+                            <span class="block mb-2 text-xl text-gray-900">
+                              {{ task.title }}
+                            </span>
+                                <p class="text-gray-700">
+                                    {{ task.description }}
+                                </p>
+                            </div>
+                            <!-- ./Tasks -->
+                        </transition-group>
+                    </draggable>
+
+                    <!-- No Tasks -->
+                    <div
+                        v-show="!status.tasks.length && newTaskForStatus !== status.id"
+                        class="flex-1 p-4 flex flex-col items-center justify-center"
+                    >
+                        <span class="text-gray-600">No tasks yet</span>
+                        <button
+                            class="mt-1 text-sm text-orange-600 hover:underline"
+                            @click="openAddTaskForm(status.id)"
+                        >
+                            Add one
+                        </button>
+                    </div>
+                    <!-- No Tasks -->
+                </div>
+            </div>
         </div>
-      </div>
+        <!-- Columns -->
+
     </div>
-    <!-- Columns -->
-
-  </div>
 </template>
 
 <script>
 import draggable from "vuedraggable";
 import AddTaskForm from "../components/AddTaskForm.vue";
+import {http} from '../services/http_service';
+
 export default {
-  components: { 
-    AddTaskForm,
-    draggable
+    components: {
+        AddTaskForm,
+        draggable
     },
-     computed: {
-    taskDragOptions() {
-      return {
-        animation: 200,
-        group: "task-list",
-        dragClass: "status-drag"
-      };
-    }
-  },
-  props: {
-    initialData: Array
-  },
-  data() {
-    return {
-      statuses: [],
-      newTaskForStatus: 0
-    };
-  },
-  methods: {
-    openAddTaskForm(statusId) {
-      this.newTaskForStatus = statusId;
+    computed: {
+        taskDragOptions() {
+            return {
+                animation: 200,
+                group: "task-list",
+                dragClass: "status-drag"
+            };
+        }
     },
-    closeAddTaskForm() {
-      this.newTaskForStatus = 0;
+    props: {
+        initialData: Array
     },
-    handleTaskAdded(newTask) {
-      const statusIndex = this.statuses.findIndex(
-        status => status.id === newTask.status_id
-      );
+    data() {
+        return {
+            statuses: [],
+            newTaskForStatus: 0
+        };
+    },
+    methods: {
+        openAddTaskForm(statusId) {
+            this.newTaskForStatus = statusId;
+        },
+        closeAddTaskForm() {
+            this.newTaskForStatus = 0;
+        },
+        handleTaskAdded(newTask) {
+            const statusIndex = this.statuses.findIndex(
+                status => status.id === newTask.status_id
+            );
 
-      this.statuses[statusIndex].tasks.push(newTask);
+            this.statuses[statusIndex].tasks.push(newTask);
 
-      this.closeAddTaskForm();
+            this.closeAddTaskForm();
+        },
+        handleTaskMoved() {
+            // Send the entire list of statuses to the server
+            http().put("/tasks/sync", {columns: this.statuses}).catch(err => {
+                console.log(err.response);
+            });
+        }
     },
-     handleTaskMoved() {
-      // Send the entire list of statuses to the server
-      axios.put("/tasks/sync", {columns: this.statuses}).catch(err => {
-        console.log(err.response);
-      });
+    mounted() {
+        // 'clone' the statuses so we don't alter the prop when making changes
+        http().get('tasks').then(response => this.statuses = response.data.tasks)
+            .catch(error => this.$router.push({name: 'login'}))
     }
-  },
-  mounted() {
-    // 'clone' the statuses so we don't alter the prop when making changes
-    this.statuses = this.initialData;
-  }
 };
 </script>
 
 <style scoped>
 .status-drag {
-  transition: transform 0.5s;
-  transition-property: all;
+    transition: transform 0.5s;
+    transition-property: all;
 }
 </style>
