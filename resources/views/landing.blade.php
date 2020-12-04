@@ -8,7 +8,6 @@
         <title>conForm</title>
         <link href=" {{ mix('css/app.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/f04c8c4f04.js" crossorigin="anonymous"></script>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>

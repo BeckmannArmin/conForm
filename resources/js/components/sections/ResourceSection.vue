@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col resource-cards-left">
+        <div class="col resource-cards-left revealOnScroll delay-1">
           <a
             class="card card-l1"
             href="https://github.com/BeckmannArmin/laravel-conForm"
@@ -21,7 +21,7 @@
               <div class="card--icon">
                 <i class="fas fa-question"></i>
               </div>
-              <div class="card--body">
+              <div class="card--body" style="padding-left: 0 !important">
                 <p>How to get started?</p>
               </div>
             </div>
@@ -34,13 +34,13 @@
               <div class="card--icon">
                 <i class="fas fa-wrench"></i>
               </div>
-              <div class="card--body">
+              <div class="card--body" style="padding-left: 0 !important">
                 <p>Check out our wiki to see the latest issues and updates</p>
               </div>
             </div>
           </a>
         </div>
-        <div class="col resource-cards-middle">
+        <div class="col resource-cards-middle revealOnScroll delay-2">
           <a href="https://github.com/BeckmannArmin/laravel-conForm" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">
@@ -53,7 +53,7 @@
             </div>
           </a>
         </div>
-        <div class="col resource-cards-right">
+        <div class="col resource-cards-right revealOnScroll delay-3">
           <a href="https://github.com/BeckmannArmin/laravel-conForm" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">
@@ -81,9 +81,8 @@
 p {
   margin: 0 0 calc(1.25 * 1rem);
 }
-.card--icon svg {
-  height: 48px;
-  width: 48px;
+.card--icon i {
+  font-size: 2.5rem;
 }
 .card--icon {
   margin-bottom: 1rem;

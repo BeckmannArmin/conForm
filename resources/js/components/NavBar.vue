@@ -24,21 +24,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto"></ul>
-          <router-link :to="{ name: 'categorie' }" class=""
-            >Categories</router-link
-          >
            <ul class="navbar-nav mr-auto"></ul>
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
-          <a
-        href="https://github.com/BuchholzTim/MTI-Projekt"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="header-github-link"
-        aria-label="Github Repository"
-      >
-        <img src="../../assets/images/github-logo.svg" style="height: 25px" />
-      </a>
+        
+           <a href="#resources" class="nav-link"> Resources </a>
+
+            <router-link
+              :to="{ name: 'categorie' }"
+              class="nav-link"
+              v-if="isLoggedIn"
+              >Categories</router-link
+            >
+
+             <router-link
+              :to="{ name: 'kanban' }"
+              class="nav-link"
+              v-if="isLoggedIn"
+              >Task planner</router-link
+            >
             <!-- Authentication Links -->
             <router-link
               :to="{ name: 'login' }"
@@ -131,5 +135,12 @@ text-align: center;
 .btn-logout {
   background-color: #5c55ba;
 color: #fff;
+}
+
+@media (min-width: 768px) {
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
 }
 </style>

@@ -2,9 +2,9 @@ import Welcome from './views/Hello';
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Login from './views/Login'
-import Register from './views/Register'
-import ResetPassword from './views/ResetPassword'
+import Login from './components/Login'
+import Register from './components/Register'
+import ResetPassword from './components/ResetPassword'
 import * as auth from './services/auth_service';
 import KanBan from './components/KanbanBoard.vue';
 

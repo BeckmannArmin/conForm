@@ -21,10 +21,29 @@ export default {
     NavBar,
     ResourceSection
   },
+   beforeMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+     handleScroll() {
+      const elementsToShow = document.querySelectorAll('.revealOnScroll');
+      /** better get the feature section here instead of hard coded values */
+      if (window.scrollY > 390) {
+        elementsToShow.forEach((element) => {
+          element.classList.add('animated');
+          element.classList.add('fadeInLeft');
+        });
+      }
+    },
+  }
 };
 </script>
 
 <style scoped>
+@import '../assets/scss/_animations.scss';
 .full-height {
   height: 100vh;
 }
