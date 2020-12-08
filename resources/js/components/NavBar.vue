@@ -31,6 +31,13 @@
            <a href="#resources" class="nav-link"> Resources </a>
 
             <router-link
+              :to="{ name: 'pusher' }"
+              class="nav-link"
+              v-if="isLoggedIn"
+              >Pusher</router-link
+            >
+
+            <router-link
               :to="{ name: 'categorie' }"
               class="nav-link"
               v-if="isLoggedIn"
