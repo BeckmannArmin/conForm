@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header">Example Comp</div>
           <div class="card-body">
-            <li v-for="user in users">
+            <li v-for="user in users" :key="user.id">
               {{ user.name }}
             </li>
           </div>
@@ -26,6 +26,7 @@ export default {
     Echo.join('users')
       .here((users) => {
         this.users = users;
+        console.log(users);
       })
       .joining((user) => {
         console.log(user.name);

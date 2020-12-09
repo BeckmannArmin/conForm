@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import * as auth from '../js/services/auth_service';
+import UUID from 'vue-uuid'  
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
@@ -29,6 +30,7 @@ window.Echo = new Echo({
     },
 });
 
+Vue.use(UUID);
 Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
 Vue.component("kanban-board", require("./components/KanbanBoard.vue").default);

@@ -9,6 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/index.esm.js");
 //
 //
 //
@@ -26,10 +27,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      users: null
+      users: null,
+      uuid: ''
     };
   },
   mounted: function mounted() {
@@ -37,6 +44,7 @@ __webpack_require__.r(__webpack_exports__);
 
     Echo.join('users').here(function (users) {
       _this.users = users;
+      console.log(users);
     }).joining(function (user) {
       console.log(user.name);
 
@@ -46,6 +54,11 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.users.splice(_this.users.indexOf(user), 1);
     });
+  },
+  methods: {
+    generateUUID: function generateUUID() {
+      this.uuid = vue_uuid__WEBPACK_IMPORTED_MODULE_0__["uuid"].v1();
+    }
   }
 });
 
@@ -76,12 +89,22 @@ var render = function() {
             "div",
             { staticClass: "card-body" },
             _vm._l(_vm.users, function(user) {
-              return _c("li", [
+              return _c("li", { key: user.id }, [
                 _vm._v("\n            " + _vm._s(user.name) + "\n          ")
               ])
             }),
             0
           )
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", on: { click: _vm.generateUUID } },
+            [_vm._v("Generate join code")]
+          ),
+          _vm._v(" "),
+          _c("h3", { staticClass: "uuid" }, [_vm._v(_vm._s(_vm.uuid))])
         ])
       ])
     ])
