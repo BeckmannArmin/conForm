@@ -52,7 +52,12 @@ const routes = [
         path: '/kanban',
         name: 'kanban',
         component: KanBan,
-    }
+    },
+    {
+        path: '/pusher',
+        name: 'pusher',
+        component: () => import('./components/PusherExample.vue')
+    },
 ];
 
 const router = new VueRouter({
