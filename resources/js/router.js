@@ -22,6 +22,11 @@ const routes = [
         component: () => import('./views/Categories.vue')
     },
     {
+        path: '/conceptPaperCreator',
+        name: 'conceptPaperCreator',
+        component: () => import('./views/ConceptPaperCreator.vue')
+    },
+    {
         path: '/login',
         name: 'login',
         component: Login,

@@ -37,6 +37,13 @@
               >Categories</router-link
             >
 
+            <router-link
+              :to="{ name: 'conceptPaperCreator' }"
+              class="nav-link"
+              v-if="isLoggedIn"
+              >Concept Paper Creator</router-link
+            >
+
              <router-link
               :to="{ name: 'kanban' }"
               class="nav-link"
