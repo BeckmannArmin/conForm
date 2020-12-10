@@ -132,8 +132,9 @@ class ConceptPaperController extends Controller
         }
     }
 
-    public function main_conceptPaper($join_code) 
+    public function join($joincode) 
     {
-        return view('conceptPaper');
+        $conceptPaper = ConceptPaper::where('join_code', $joincode)->firstOrFail();
+        return view('conceptPaper',compact('conceptPaper'));
     }
 }
