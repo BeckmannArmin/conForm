@@ -1,4 +1,6 @@
  <template>
+ <div>
+  <NavBar/>
  <div class="hero">
     <div class="container">
       <div class="row">
@@ -17,9 +19,13 @@
       </div>
     </div>
  </div>
+  <ResourceSection />
+  <Footer />
+ </div>
 </template>
 
 <style scoped>
+@import '../../assets/scss/_animations.scss';
 
 .container, .row .col {
     padding: 0 1rem;
@@ -115,10 +121,17 @@
 </style>
 
 <script>
+import Footer from "../components/Footer.vue";
+import NavBar from "../components/NavBar.vue";
 import JoinLobbyModal from "../components/modals/JoinLobbyModal.vue";
+import ResourceSection from "../components/sections/ResourceSection.vue";
+
 export default {
   components: {
-    JoinLobbyModal,
-  },
+    Footer,
+    NavBar,
+    ResourceSection,
+    JoinLobbyModal
+  }
 };
 </script>
