@@ -50,6 +50,9 @@
                                     <img :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`" class="image-wd"/>
                                 </td>
                                 <td>
+                                    <button class="btn btn-primary btn-sm" v-on:click="showPaper(conceptPaper)">
+                                        <span class="far fa-eye"></span>
+                                    </button>
                                     <button class="btn btn-primary btn-sm" v-on:click="editconceptPaper(conceptPaper)">
                                         <span class="fa fa-edit"></span>
                                     </button>
@@ -433,6 +436,11 @@ export default {
         editconceptPaper(conceptPaper) {
             this.editConceptPaperData = {...conceptPaper};
             this.showEditconceptPaperModal();
+        },
+        showPaper(conceptPaper) {
+            const joinCode = conceptPaper.join_code;
+            //this.$router.push({ path: `/conceptPaper/lobby/${joinCode}` })
+            this.$router.push({name: 'conceptPaper', params: { joincode: joinCode }});
         },
         loadMore: async function() {
             try {

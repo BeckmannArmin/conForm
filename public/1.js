@@ -271,6 +271,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -558,6 +561,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.editConceptPaperData = _objectSpread({}, conceptPaper);
       this.showEditconceptPaperModal();
     },
+    showPaper: function showPaper(conceptPaper) {
+      var joinCode = conceptPaper.join_code; //this.$router.push({ path: `/conceptPaper/lobby/${joinCode}` })
+
+      this.$router.push({
+        name: 'conceptPaper',
+        params: {
+          joincode: joinCode
+        }
+      });
+    },
     loadMore: function () {
       var _loadMore = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var _this = this;
@@ -695,6 +708,19 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary btn-sm",
+                          on: {
+                            click: function($event) {
+                              return _vm.showPaper(conceptPaper)
+                            }
+                          }
+                        },
+                        [_c("span", { staticClass: "far fa-eye" })]
+                      ),
+                      _vm._v(" "),
                       _c(
                         "button",
                         {

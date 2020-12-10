@@ -36,7 +36,6 @@ use App\Http\Controllers\UserController;
 Route::resource('categories', 'App\Http\Controllers\CategoryController');
 
 Route::resource('conceptPaper', 'App\Http\Controllers\ConceptPaperController');
-Route::get('conceptPaper/lobby/{joincode}', 'App\Http\Controllers\ConceptPaperController@join')->name('showPaper');
 
 Route::post('register', 'App\Http\Controllers\UserController@register');
 Route::post('login', 'App\Http\Controllers\UserController@login');

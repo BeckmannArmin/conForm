@@ -18,7 +18,9 @@ use App\Http\Controllers\SinglePageController;
     //return view('welcome');
 //});
 
-Route::get('/{any}', [SinglePageController::class, 'index'])->where('any', '.*');
+Route::get('/', [SinglePageController::class, 'index'])->where('any', '.*');
+
+Route::get('/conceptPaper/lobby/{joincode}', 'App\Http\Controllers\ConceptPaperController@join');
 
 Route::get('/home', function () {
     return redirect()->route('tasks.index');

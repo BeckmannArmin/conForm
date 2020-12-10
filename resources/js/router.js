@@ -27,6 +27,11 @@ const routes = [
         component: () => import('./views/ConceptPaperCreator.vue')
     },
     {
+        path: '/conceptPaper/lobby/:joincode',
+        name: 'conceptPaper',
+        component: () => import('./views/ConceptPaper.vue')
+    },
+    {
         path: '/login',
         name: 'login',
         component: Login,
