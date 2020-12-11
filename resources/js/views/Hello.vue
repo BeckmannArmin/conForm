@@ -1,111 +1,238 @@
  <template>
- <div>
-  <NavBar/>
- <div class="hero">
-    <div class="container">
-      <div class="row">
-        <div class="col col--11 col-offset-1">
-          <div class="headline-hero">
-             <h1 class="hero--title">Colloboration war noch nie so einfach.</h1>
+  <div>
+    <NavBar />
+    <div class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col col--11 col-offset-1">
+            <div class="headline-hero">
+              <h1 class="hero--title">
+                Colloboration war noch nie so einfach.
+              </h1>
               <div class="hero--lead">
-               conForm entfesselt dein ganzes Potential.
+                conForm entfesselt dein ganzes Potential.
+              </div>
             </div>
+            <a href="#resources" class="button hero--button">Wie kann ich loslegen?</a>
           </div>
-          <a href="" class="button hero--button">Wie kann ich loslegen?</a>
+          <div class="col">
+            <img src="../../assets/join-lobby.svg" />
+          </div>
         </div>
-        <div class="col">
-          <img src="../../assets/join-lobby.svg" />
-      </div>
       </div>
     </div>
- </div>
-  <ResourceSection />
-  <Footer />
- </div>
+    <div class="cards">
+      <div class="cards-container">
+        <div class="cards-wrapper">
+          <div class="card col row-l revealOnScroll delay-2">
+            <div class="cards-header">
+              <img src="../../assets/idea.svg" />
+            </div>
+            <div class="cards-body">
+              <span class="item-pink">Ideen</span>
+              <p>Sammelt gemeinsam Ideen und arbeitet zusammen</p>
+            </div>
+          </div>
+          <div class="card col row-m revealOnScroll delay-3">
+            <div class="cards-header">
+              <img src="../../assets/brainstorm.svg" />
+            </div>
+            <div class="cards-body">
+              <span class="item-orange">Planung</span>
+              <p>Plant euren Ablauf</p>
+            </div>
+          </div>
+          <div class="card col row-r revealOnScroll delay-4">
+            <div class="cards-header">
+              <img src="../../assets/colloboration.svg" />
+            </div>
+            <div class="cards-body">
+              <span class="item-green">Kolloboration</span>
+              <p>
+                Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <JoinLobbyModal />
+    <ResourceSection />
+    <Footer />
+  </div>
 </template>
 
 <style scoped>
-@import '../../assets/scss/_animations.scss';
+@import "../../assets/scss/_animations.scss";
 
-.container, .row .col {
-    padding: 0 1rem;
-    width: 100%;
+@media (max-width: 1024px) {
+.cards-wrapper {
+    grid-template-columns: 1fr !important;
+    grid-row-gap: 7.8125vmin;
+}
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 50px;
+}
+
+.item-pink {
+  color: #cc68d8;
+}
+.item-orange {
+  color: #fd804e;
+}
+
+.item-green {
+  color: #40ac76;
+}
+
+.cards-body {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 31px;
+  color: #7a7780;
+  letter-spacing: 0;
+}
+
+.cards-container .card {
+  background-color: #fff;
+  border-radius: calc(0.4rem * 2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 25px 27px 28px;
+}
+
+.cards-header {
+  display: flex;
+  justify-content: center;
+}
+
+.cards-container .col {
+  max-width: 100%;
+  flex: 1 0;
+  margin-left: 0;
+}
+
+.cards-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.cards-container .col {
+  max-width: 100%;
+}
+
+.cards-header img {
+  height: 150px;
+  max-width: 100%;
+  margin: 20px 15px;
+}
+
+.row-l,
+.row-m,
+.row-r {
+  display: flex;
+  flex-flow: column;
+}
+
+.cards {
+  margin-bottom: 110px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container,
+.row .col {
+  padding: 0 1rem;
+  width: 100%;
 }
 
 .row .col {
-    max-width: 100%;
-    flex: 1 0;
-    margin-left: 0;
+  max-width: 100%;
+  flex: 1 0;
+  margin-left: 0;
 }
 
-.row .col, img {
-    max-width: 100%;
+.row .col,
+img {
+  max-width: 100%;
 }
 
 .hero--illustration {
-    display: flex;
-    height: 637px;
-    top: -57px;
-    right: 35px;
+  display: flex;
+  height: 637px;
+  top: -57px;
+  right: 35px;
 }
-.hero--button, .hero--lead, .hero--title {
-    transform: translateY(29px) translateX(22px);
+.hero--button,
+.hero--lead,
+.hero--title {
+  transform: translateY(29px) translateX(22px);
 }
 .button {
-    display: inline-block;
-    font-family: "Poppins",sans-serif !important;
-    font-size: 27px;
-    color: #fff;
-    letter-spacing: 0;
-    text-align: center;
-    text-decoration: none;
-    background: #ff7e85;
-    border-radius: 3px;
-    padding: 18px 48px 14px;
-    font-weight: 500;
+  display: inline-block;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 27px;
+  color: #fff;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  background: #ff7e85;
+  border-radius: 3px;
+  padding: 18px 48px 14px;
+  font-weight: 500;
 }
 .hero {
-    position: relative;
-    background-color: #171c5d;
-    height: 785px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0 99px;
+  position: relative;
+  background-color: #171c5d;
+  height: 785px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 99px;
 }
 
 .hero--lead {
   font-size: 36px;
-    line-height: 33px;
-    color: #6c72ae;
-    letter-spacing: 0;
-    max-width: 568px;
-    margin: 0 0 33px;
+  line-height: 33px;
+  color: #6c72ae;
+  letter-spacing: 0;
+  max-width: 568px;
+  margin: 0 0 33px;
 }
 
 .hero--title {
-  font-family: "Poppins",sans-serif !important;
-   font-size: 47px;
-    line-height: 55px;
-    color: #fff;
-    letter-spacing: 0;
-    margin: 0;
-    max-width: 674px;
-    font-weight: 400;
-    margin-bottom: 15px;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 47px;
+  line-height: 55px;
+  color: #fff;
+  letter-spacing: 0;
+  margin: 0;
+  max-width: 674px;
+  font-weight: 400;
+  margin-bottom: 15px;
 }
 
 .headline-hero {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
-.container, .row .col{
-    padding: 0 1rem;
-    width: 100%;
+.container,
+.row .col {
+  padding: 0 1rem;
+  width: 100%;
 }
 .row .col.col--11 {
-    flex: 0 0 50%;
-    max-width: 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 .row {
   display: flex;
@@ -117,7 +244,6 @@
   max-width: 1140px;
   margin: 0 auto;
 }
-
 </style>
 
 <script>
@@ -131,7 +257,7 @@ export default {
     Footer,
     NavBar,
     ResourceSection,
-    JoinLobbyModal
-  }
+    JoinLobbyModal,
+  },
 };
 </script>

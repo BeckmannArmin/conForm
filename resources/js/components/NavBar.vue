@@ -28,8 +28,6 @@
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
         
-           <a href="#resources" class="nav-link"> Resources </a>
-
             <router-link
               :to="{ name: 'pusher' }"
               class="nav-link"
