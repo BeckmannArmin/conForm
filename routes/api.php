@@ -35,8 +35,6 @@ use App\Http\Controllers\UserController;
 
 Route::resource('categories', 'App\Http\Controllers\CategoryController');
 
-Route::resource('conceptPaper', 'App\Http\Controllers\ConceptPaperController');
-
 Route::post('register', 'App\Http\Controllers\UserController@register');
 Route::post('login', 'App\Http\Controllers\UserController@login');
 
@@ -48,6 +46,7 @@ Route::post('login', 'App\Http\Controllers\UserController@login');
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', 'App\Http\Controllers\UserController@logout');
     Route::get('profile', 'App\Http\Controllers\UserController@profile');
+    Route::resource('conceptPaper', 'App\Http\Controllers\ConceptPaperController');
 
     Route::prefix('tasks')->group(function (){
         Route::get('/', 'App\Http\Controllers\TaskController@index')->name('tasks.index');

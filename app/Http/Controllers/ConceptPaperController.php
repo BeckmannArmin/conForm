@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\ConceptPaper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +17,12 @@ class ConceptPaperController extends Controller
      */
     public function index()
     {
-        $conceptPapers = ConceptPaper::orderBy('created_at', 'desc')->paginate(5);
+        $conceptPapers = auth()->user()->conceptPapers()->get();
+
+        /*
+        ConceptPaper::orderBy('created_at', 'desc')->paginate(5);
+        */
+
         return response()->json($conceptPapers,200);
     }
 
@@ -50,7 +56,7 @@ class ConceptPaperController extends Controller
         $conceptPaper->technologies = "";
         $conceptPaper->team = "";
         $conceptPaper->join_code = $request->uuid;
-
+        $conceptPaper->user_id = Auth::user()->id;
 
         if ($conceptPaper->save()) {
             return response()->json($conceptPaper, 200);

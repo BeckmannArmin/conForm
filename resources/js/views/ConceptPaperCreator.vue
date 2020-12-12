@@ -250,6 +250,7 @@
 <script>
 import * as conceptPaperService from "../services/conceptPaper_service";
 import { uuid } from 'vue-uuid'
+import { http } from '../services/http_service';
 export default {
     name: "conceptPaper",
     data() {
@@ -282,7 +283,7 @@ export default {
             try {
                 const response = await conceptPaperService.loadConceptPaper();
                 console.log(response);
-                this.conceptPapers = response.data.data;
+                this.conceptPapers = response.data;
                  if (response.data.current_page < response.data.last_page) {
                     this.moreExists = true;
                     this.nextPage = response.data.current_page + 1;

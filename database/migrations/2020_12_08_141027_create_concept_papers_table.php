@@ -26,6 +26,7 @@ class CreateConceptPapersTable extends Migration
             $table->string('technologies');
             $table->string('team');
             $table->string('join_code');
+            $table->unsignedBigInteger('user_id');
         });
     }
 
