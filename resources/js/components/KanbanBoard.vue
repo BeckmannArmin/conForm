@@ -1,6 +1,6 @@
 <template>
 
-    <div class="p-2 bg-blue-100">
+    <div class="p-2">
 
         <!-- Columns (Statuses) -->
         <div
@@ -10,7 +10,7 @@
             class="mr-6 w-4/5 max-w-xs flex-1 flex-shrink-0"
         >
             <div class="rounded-md shadow-md overflow-hidden">
-                <div class="p-3 flex justify-between items-baseline bg-blue-800 ">
+                <div class="p-3 flex justify-between items-baseline">
                     <h4 class="font-medium text-white">
                         {{ status.title }}
                     </h4>
@@ -138,6 +138,14 @@ export default {
 </script>
 
 <style scoped>
+.p-3 {
+    background-color: #171c5d;
+}
+.p-2 {
+   display: flex;
+   justify-content: center;
+   height: 100%;
+}
 .status-drag {
     transition: transform 0.5s;
     transition-property: all;

@@ -17,11 +17,6 @@ const routes = [
     component: Welcome
     },
     {
-        path: '/categories',
-        name: 'categorie',
-        component: () => import('./views/Categories.vue')
-    },
-    {
         path: '/conceptPaperCreator',
         name: 'conceptPaperCreator',
         component: () => import('./views/ConceptPaperCreator.vue')

@@ -36,13 +36,6 @@
             >
 
             <router-link
-              :to="{ name: 'categorie' }"
-              class="nav-link"
-              v-if="isLoggedIn"
-              >Categories</router-link
-            >
-
-            <router-link
               :to="{ name: 'conceptPaperCreator' }"
               class="nav-link"
               v-if="isLoggedIn"
