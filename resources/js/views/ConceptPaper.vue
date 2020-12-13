@@ -27,8 +27,8 @@
               id="course"
               placeholder="Kurs"
             />
-            <div class="invalid-feedback" v-if="errors.name">
-              {{ errors.name[0] }}
+            <div class="invalid-feedback" v-if="errors.course">
+              {{ errors.course[0] }}
             </div>
           </td>
           <td>
@@ -40,11 +40,31 @@
               id="currentSemester"
               placeholder="Bsp.: WS20/21"
             />
-            <div class="invalid-feedback" v-if="errors.name">
-              {{ errors.name[0] }}
+            <div class="invalid-feedback" v-if="errors.currentSemester">
+              {{ errors.currentSemester[0] }}
             </div>
           </td>
         </table>
+      </div>
+      <div class="form-group">
+        <label for="image">Logo</label>
+        <div>
+          <img
+            :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
+            class="image-wd"
+            ref="editConceptPaperImageDisplay"
+          />
+        </div>
+        <input
+          type="file"
+          v-on:change="editAttachedImage"
+          ref="editConceptPaperImage"
+          class="form-control"
+          id="image"
+        />
+        <div class="invalid-feedback" v-if="errors.image">
+          {{ errors.image[0] }}
+        </div>
       </div>
       <div class="form-group">
         <label for="idea">Grundidee</label>
@@ -55,8 +75,8 @@
           placeholder="Grundidee in ganzen Sätzen beschreiben."
           rows="6"
         />
-        <div class="invalid-feedback" v-if="errors.name">
-          {{ errors.name[0] }}
+        <div class="invalid-feedback" v-if="errors.idea">
+          {{ errors.idea[0] }}
         </div>
       </div>
       <div class="form-group">
@@ -68,8 +88,8 @@
           placeholder="Grundfunktionalitäten in Stichpunkten beschreiben."
           rows="8"
         />
-        <div class="invalid-feedback" v-if="errors.name">
-          {{ errors.name[0] }}
+        <div class="invalid-feedback" v-if="errors.basics">
+          {{ errors.basics[0] }}
         </div>
       </div>
       <div class="form-group">
@@ -81,8 +101,8 @@
           placeholder="Nice-To-Have Features in Stichpunkten beschreiben."
           rows="8"
         />
-        <div class="invalid-feedback" v-if="errors.name">
-          {{ errors.name[0] }}
+        <div class="invalid-feedback" v-if="errors.niceToHave">
+          {{ errors.niceToHave[0] }}
         </div>
       </div>
       <div class="form-group">
@@ -94,8 +114,8 @@
           placeholder="Technologien in Stichpunkten beschreiben."
           rows="5"
         />
-        <div class="invalid-feedback" v-if="errors.name">
-          {{ errors.name[0] }}
+        <div class="invalid-feedback" v-if="errors.technologies">
+          {{ errors.technologies[0] }}
         </div>
       </div>
       <div class="form-group">
@@ -107,15 +127,15 @@
           placeholder="Max Mustermann (matr_Nr)"
           rows="5"
         />
-        <div class="invalid-feedback" v-if="errors.name">
-          {{ errors.name[0] }}
+        <div class="invalid-feedback" v-if="errors.team">
+          {{ errors.team[0] }}
         </div>
       </div>
       <div class="text-right">
         <button type="button" class="btn btn-default">Cancel</button>
-        <button class="btn btn-primary" v-on:click="updateConceptPaper">
+        <button class="btn btn-primary" @click="updateConceptPaper">
           <span class="fa fa-check"></span>
-          Save
+          Update
         </button>
       </div>
     </div>
@@ -157,7 +177,6 @@ export default {
   mounted() {
     console.log(this.joinCode);
     this.loadConceptPaper();
-
   },
   methods: {
     loadConceptPaper: async function () {
@@ -182,7 +201,7 @@ export default {
 
         this.conceptPapers = response.data;
 
-        this.editConceptPaperData = {...response.data};
+        this.editConceptPaperData = { ...response.data };
         console.log(this.editConceptPaperData);
 
         setTimeout(() => {
@@ -200,7 +219,10 @@ export default {
         const formData = new FormData();
         formData.append("name", this.editConceptPaperData.name);
         formData.append("course", this.editConceptPaperData.course);
-        formData.append("currentSemester", this.editConceptPaperData.currentSemester);
+        formData.append(
+          "currentSemester",
+          this.editConceptPaperData.currentSemester
+        );
         formData.append("image", this.editConceptPaperData.image);
         formData.append("idea", this.editConceptPaperData.idea);
         formData.append("basics", this.editConceptPaperData.basics);
@@ -235,6 +257,19 @@ export default {
         });
       }
     },
+    editAttachedImage() {
+      this.editConceptPaperData.image = this.$refs.editConceptPaperImage.files[0];
+      let reader = new FileReader();
+      reader.addEventListener(
+        "load",
+        function() {
+          this.$refs.editConceptPaperImageDisplay.src = reader.result;
+        }.bind(this),
+        false
+      );
+
+      reader.readAsDataURL(this.editConceptPaperData.image);
+    }
   },
 };
 </script>

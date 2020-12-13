@@ -90,7 +90,6 @@ class ConceptPaperController extends Controller
         $conceptPaper->currentSemester = $request->currentSemester;
         $oldPath = $conceptPaper->image;
 
-/*
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,jpg',
@@ -100,10 +99,7 @@ class ConceptPaperController extends Controller
             $conceptPaper->image = $path;
 
             Storage::delete($oldPath);
-        }*/
-
-        $conceptPaper->image = "";
-
+        }
 
         if ($request->idea == "") {
             $conceptPaper->idea = "";

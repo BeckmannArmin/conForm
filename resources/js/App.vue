@@ -4,6 +4,7 @@
     <main class="py-4 full-height">
       <!-- Here are the child components of our view-->
       <router-view></router-view>
+      <FlashMessage position="right bottom"></FlashMessage>
     </main>
   </div>
 </template>
