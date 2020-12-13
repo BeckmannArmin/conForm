@@ -23,7 +23,7 @@ class ConceptPaperController extends Controller
         ConceptPaper::orderBy('created_at', 'desc')->paginate(5);
         */
 
-        return response()->json($conceptPapers,200);
+        return response()->json($conceptPapers, 200);
     }
 
     /**
@@ -35,11 +35,11 @@ class ConceptPaperController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=> 'required|min:3',
-            'course'=>'required|min:3',
-            'currentSemester'=>'required|min:4',
-            'image'=> 'image|mimes:jpeg,png,jpg',
-            'join_code'=> 'min:4'
+            'name' => 'required|min:3',
+            'course' => 'required|min:3',
+            'currentSemester' => 'required|min:4',
+            'image' => 'image|mimes:jpeg,png,jpg',
+            'join_code' => 'min:4'
         ]);
 
         $conceptPaper = new ConceptPaper();
@@ -78,31 +78,66 @@ class ConceptPaperController extends Controller
     public function update(Request $request, ConceptPaper $conceptPaper)
     {
         $request->validate([
-            'name'=> 'required|min:3',
-            
+            'name' => 'required|min:3',
+            'course' => 'required|min:3',
+            'currentSemester' => 'required|min:4',
+            'join_code' => 'min:4',
+
         ]);
 
         $conceptPaper->name = $request->name;
         $conceptPaper->course = $request->course;
         $conceptPaper->currentSemester = $request->currentSemester;
         $oldPath = $conceptPaper->image;
-        
+
+/*
         if ($request->hasFile('image')) {
             $request->validate([
-                'image'=> 'image|mimes:jpeg,png,jpg',
+                'image' => 'image|mimes:jpeg,png,jpg',
             ]);
-            
+
             $path = $request->file('image')->store('conceptPaper_images');
             $conceptPaper->image = $path;
 
             Storage::delete($oldPath);
+        }*/
+
+        $conceptPaper->image = "";
+
+
+        if ($request->idea == "") {
+            $conceptPaper->idea = "";
+        } else {
+            $conceptPaper->idea = $request->idea;
         }
 
-        $conceptPaper->idea = "";
-        $conceptPaper->basics = "";
-        $conceptPaper->niceToHave = "";
-        $conceptPaper->technologies = "";
-        $conceptPaper->team = "";
+        if ($request->basics == "") {
+            $conceptPaper->basics = "";
+        } else {
+            $conceptPaper->basics = $request->basics;
+        }
+
+        if ($request->niceToHave == "") {
+            $conceptPaper->niceToHave = "";
+        } else {
+            $conceptPaper->niceToHave = $request->niceToHave;
+        }
+
+        if ($request->technologies == "") {
+            $conceptPaper->technologies = "";
+        } else {
+            $conceptPaper->technologies = $request->technologies;
+        }
+
+        if ($request->team == "") {
+            $conceptPaper->team = "";
+        } else {
+            $conceptPaper->team = $request->team;
+        }
+
+        $conceptPaper->join_code = $request->join_code;
+
+        $conceptPaper->user_id = $request->user_id;
 
         if ($conceptPaper->save()) {
             return response()->json($conceptPaper, 200);
@@ -138,10 +173,10 @@ class ConceptPaperController extends Controller
         }
     }
 
-    public function join($joincode) 
+    public function join($joincode)
     {
         $conceptPaper = ConceptPaper::where('join_code', $joincode)->firstOrFail();
         //return view('conceptPaper',compact('conceptPaper'));
-        return response()->json($conceptPaper,200);
+        return response()->json($conceptPaper, 200);
     }
 }
