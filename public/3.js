@@ -275,6 +275,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -511,16 +523,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context4.prev = 0;
                 formData = new FormData();
-                formData.append('name', this.editConceptPaperData.name);
-                formData.append('image', this.editConceptPaperData.image);
-                formData.append('course', this.editConceptPaperData.course);
-                formData.append('currentSemester', this.editConceptPaperData.currentSemester); //formData.append('uuid', this.editConceptPaperData.uuid);
+                formData.append("name", this.editConceptPaperData.name);
+                formData.append("image", this.editConceptPaperData.image);
+                formData.append("course", this.editConceptPaperData.course);
+                formData.append("currentSemester", this.editConceptPaperData.currentSemester);
+                formData.append("idea", "");
+                formData.append("basics", "");
+                formData.append("niceToHave", "");
+                formData.append("technologies", "");
+                formData.append("team", ""); //formData.append('uuid', this.editConceptPaperData.uuid);
 
-                formData.append('_method', 'put');
-                _context4.next = 9;
+                formData.append("_method", "put");
+                _context4.next = 14;
                 return _services_conceptPaper_service__WEBPACK_IMPORTED_MODULE_1__["updateConceptPaper"](this.editConceptPaperData.id, formData);
 
-              case 9:
+              case 14:
                 response = _context4.sent;
                 this.conceptPapers.map(function (conceptPaper) {
                   if (conceptPaper.id == response.data.id) {
@@ -534,23 +551,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   message: "conceptPaper updated succesfully!",
                   time: 5000
                 });
-                _context4.next = 18;
+                _context4.next = 23;
                 break;
 
-              case 15:
-                _context4.prev = 15;
+              case 20:
+                _context4.prev = 20;
                 _context4.t0 = _context4["catch"](0);
                 this.flashMessage.error({
                   message: _context4.t0.response.data.message,
                   time: 5000
                 });
 
-              case 18:
+              case 23:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this, [[0, 15]]);
+        }, _callee4, this, [[0, 20]]);
       }));
 
       function updateConceptPaper() {
@@ -567,7 +584,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var joinCode = conceptPaper.join_code; //this.$router.push({ path: `/conceptPaper/lobby/${joinCode}` })
 
       this.$router.push({
-        name: 'conceptPaper',
+        name: "conceptPaper",
         params: {
           joincode: joinCode
         }
@@ -606,7 +623,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context5.prev = 8;
                 _context5.t0 = _context5["catch"](0);
                 this.flashMessage.error({
-                  message: 'Some error occurred during loading more conceptPapers',
+                  message: "Some error occurred during loading more conceptPapers",
                   time: 5000
                 });
 
@@ -674,10 +691,7 @@ var render = function() {
                 staticClass: "btn btn-primary btn-sm ml-auto",
                 on: { click: _vm.showNewconceptPaperModal }
               },
-              [
-                _vm._m(1),
-                _vm._v("\n                    Hinzufügen\n                ")
-              ]
+              [_vm._m(1), _vm._v("\n          Hinzufügen\n        ")]
             )
           ]),
           _vm._v(" "),
@@ -778,7 +792,7 @@ var render = function() {
                   },
                   [
                     _c("span", { staticClass: "fa fa-arrow-down" }),
-                    _vm._v("Load more")
+                    _vm._v("Load more\n          ")
                   ]
                 )
               ]
@@ -843,9 +857,9 @@ var render = function() {
                     _vm.errors.name
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(_vm.errors.name[0]) +
-                              "\n                        "
+                              "\n            "
                           )
                         ])
                       : _vm._e()
@@ -889,9 +903,9 @@ var render = function() {
                     _vm.errors.name
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(_vm.errors.name[0]) +
-                              "\n                        "
+                              "\n            "
                           )
                         ])
                       : _vm._e()
@@ -899,7 +913,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Aktuelles currentSemester eingeben")
+                      _vm._v("Aktuelles Semester eingeben")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -935,9 +949,9 @@ var render = function() {
                     _vm.errors.name
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(_vm.errors.name[0]) +
-                              "\n                        "
+                              "\n            "
                           )
                         ])
                       : _vm._e()
@@ -1006,11 +1020,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.hideNewconceptPaperModal }
                       },
-                      [
-                        _vm._v(
-                          "\n                            Cancel\n                        "
-                        )
-                      ]
+                      [_vm._v("\n              Cancel\n            ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -1021,7 +1031,7 @@ var render = function() {
                       },
                       [
                         _c("span", { staticClass: "fa fa-check" }),
-                        _vm._v("Save\n                        ")
+                        _vm._v("Save\n            ")
                       ]
                     )
                   ])
@@ -1088,9 +1098,9 @@ var render = function() {
                     _vm.errors.name
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(_vm.errors.name[0]) +
-                              "\n                        "
+                              "\n            "
                           )
                         ])
                       : _vm._e()
@@ -1134,9 +1144,9 @@ var render = function() {
                     _vm.errors.name
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(_vm.errors.name[0]) +
-                              "\n                        "
+                              "\n            "
                           )
                         ])
                       : _vm._e()
@@ -1182,9 +1192,9 @@ var render = function() {
                     _vm.errors.name
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(_vm.errors.name[0]) +
-                              "\n                        "
+                              "\n            "
                           )
                         ])
                       : _vm._e()
@@ -1226,11 +1236,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.hideEditconceptPaperModal }
                       },
-                      [
-                        _vm._v(
-                          "\n                            Cancel\n                        "
-                        )
-                      ]
+                      [_vm._v("\n              Cancel\n            ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -1241,7 +1247,7 @@ var render = function() {
                       },
                       [
                         _c("span", { staticClass: "fa fa-check" }),
-                        _vm._v("Update\n                        ")
+                        _vm._v("Update\n            ")
                       ]
                     )
                   ])
@@ -1262,7 +1268,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _c("i", { staticClass: "fas fa-chart-area mr-1" }),
-      _vm._v("\n                    Übersicht\n                ")
+      _vm._v("\n          Übersicht\n        ")
     ])
   },
   function() {
