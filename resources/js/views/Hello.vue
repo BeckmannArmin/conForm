@@ -128,7 +128,7 @@
 }
 
 .cards-header img {
-  height: 150px;
+  height: 125px;
   max-width: 100%;
   margin: 20px 15px;
 }

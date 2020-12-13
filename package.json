@@ -30,6 +30,7 @@
         "@smartweb/vue-flash-message": "^0.6.10",
         "bootstrap-vue": "^2.20.1",
         "jsonwebtoken": "^8.5.1",
+        "jspdf": "^2.2.0",
         "query": "^0.2.0",
         "vue-router": "^3.4.9",
         "vue-uuid": "^2.0.2",
