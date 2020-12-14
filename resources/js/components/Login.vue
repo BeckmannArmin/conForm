@@ -112,6 +112,7 @@ body {
   background-color: #fff;
   padding: 4rem 1rem 4rem 1rem;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
 }
 .signin-text {
   font-style: normal;
