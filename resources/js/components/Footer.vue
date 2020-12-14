@@ -33,7 +33,7 @@
     color: white
 }
 .page-footer {
-    background-color: #9490D2;
+    background-color: #171c5d;
 }
 .list-unstyled a {
     color: white;

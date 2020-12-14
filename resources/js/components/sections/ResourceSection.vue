@@ -112,7 +112,7 @@ h3 {
 }
 .card--icon,
 .card--header h3 {
-  color: #9490D2;
+  color: #5c55ba;
 }
 .resource-cards-left,
 .resource-cards-middle a {
