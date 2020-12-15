@@ -63,7 +63,7 @@
                                                               <table width="170" cellspacing="0" cellpadding="0" border="0" align="center">
                                                                 <tbody>
                                                                   <tr>
-                                                                    <td><a href="#" style="text-decoration:none;">Test</a></multiline></td>
+                                                                    <td><a href="#" style="text-decoration:none;"><img src="{{URL::asset('/images/conForm_logo.png')}}" alt="conform_logo" height="200" width="200"></a></multiline></td>
                                                                   </tr>
                                                                 </tbody>
                                                               </table>

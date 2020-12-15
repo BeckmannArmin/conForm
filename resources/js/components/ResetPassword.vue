@@ -1,5 +1,5 @@
  <template>
-  <div class="container">
+  <div class="container" style="margin-top: -80px !important">
     <div class="row content">
 
       <!-- left side image -->
