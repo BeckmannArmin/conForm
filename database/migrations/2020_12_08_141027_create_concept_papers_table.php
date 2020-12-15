@@ -20,11 +20,11 @@ class CreateConceptPapersTable extends Migration
             $table->string('course');
             $table->string('currentSemester');
             $table->text('image');
-            $table->string('idea');
-            $table->string('basics');
-            $table->string('niceToHave');
-            $table->string('technologies');
-            $table->string('team');
+            $table->text('idea');
+            $table->text('basics');
+            $table->text('niceToHave');
+            $table->text('technologies');
+            $table->text('team');
             $table->string('join_code');
             $table->unsignedBigInteger('user_id');
         });
