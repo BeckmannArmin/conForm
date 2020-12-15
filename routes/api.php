@@ -37,6 +37,8 @@ Route::resource('categories', 'App\Http\Controllers\CategoryController');
 
 Route::post('register', 'App\Http\Controllers\UserController@register');
 Route::post('login', 'App\Http\Controllers\UserController@login');
+Route::post('reset-password-request', 'App\Http\Controllers\UserController@requestPassword');
+Route::post('reset-password', 'App\Http\Controllers\UserController@reset');
 
 
 /**

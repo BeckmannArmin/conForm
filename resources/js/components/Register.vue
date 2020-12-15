@@ -69,7 +69,7 @@
         </form>
       <div class="text-center">
         <router-link to="/login" class="d-block small mt-3">Login</router-link>
-        <router-link to="/reset-password" class="d-block small mt-3"
+        <router-link to="/reset-password-request" class="d-block small mt-3"
           >Reset password</router-link
         >
       </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -81,7 +82,8 @@ class UserController extends Controller
             return response()->json(['success' => $success]);
         }
 
-        public function profile(Request $request) {
+        public function profile(Request $request) 
+        {
             if ($request->user()){
                 return response()->json($request->user(),200);
             }
@@ -95,5 +97,85 @@ class UserController extends Controller
         public function getDetails()
         {
             return response()->json(['success' => Auth::user()]);
+        }
+        
+        public function requestPassword(Request $request) 
+        {
+            $request->validate([
+                'email' => 'required|email'
+            ]);
+
+            $user = User::where('email', $request->email)->first();
+            if (!$user) {
+                return response()->json([
+                    'message' => 'We have sent a verfication code to your email adress',
+                    'status_code' => 200
+                ], 200);
+            } else {
+                $random = rand(11111,99999);
+                $user->verfication_code = $random;
+                if ($user->save()) {
+                    $userData = array(
+                        'email' => $user->email,
+                        'full_name' => $user->name,
+                        'random' => $random
+                    );
+
+                    Mail::send('emails.reset_password', $userData, function ($message) use ($userData) {
+                        $message->from('no-reply@conform.de', 'Password request');
+                        $message->to($userData['email'], $userData['full_name']);
+                        $message->subject('Reset password request (conForm)');
+                    });
+
+                    if (Mail::failures()) {
+                        return response()->json([
+                            'message' => 'Some error occured. Please try it again.',
+                            'status_code' => 500
+                        ], 500);
+                    } else {
+                        return response()->json([
+                            'message' => 'We have sent a verfication code to your email adress',
+                            'status_code' => 200
+                        ], 200);
+                    }
+                } else {
+                    return response()->json([
+                        'message' => 'Some error occured. Please try it again.',
+                        'status_code' => 500
+                    ], 500);
+                }
+            }
+        }
+
+        public function reset(Request $request) 
+        {
+            $request->validate([
+                'email' => 'required|email',
+                'verfication_code' => 'required|integer',
+                'password' => 'required|confirmed|min:4',
+            ]);
+
+            $user = User::where('email', $request->email)->where('verfication_code', $request->verfication_code)->first();
+            if (!$user) {
+                return response()->json([
+                    'message' => 'User not found/Invalid code',
+                    'status_code' => 401
+                ], 401);
+            } else {
+                $user->password = bcrypt(trim($request->password));
+                $user->verfication_code = Null;
+
+                if ($user->save()) {
+                    return response()->json([
+                        'message' => 'Password updated successfully',
+                        'status_code' => 200
+                    ], 200);
+                } else {
+                    return response()->json([
+                        'message' => 'Some error occured. Please try it again.',
+                        'status_code' => 500
+                    ], 500);
+                }
+            }
         }
 }

@@ -49,7 +49,7 @@
           <router-link to="/register" class="d-block small mt-3"
             >Register an account</router-link
           >
-          <router-link to="/reset-password" class="d-block small mt-3"
+          <router-link to="/reset-password-request" class="d-block small mt-3"
             >Forgot password?</router-link
           >
         </div>

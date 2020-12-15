@@ -7,6 +7,7 @@ import Register from './components/Register'
 import ResetPassword from './components/ResetPassword'
 import * as auth from './services/auth_service';
 import KanBan from './components/KanbanBoard.vue';
+import ResetPasswordRequest from './components/ResetPasswordRequest.vue';
 
 Vue.use(VueRouter);
 
@@ -44,9 +45,28 @@ const routes = [
         component: Register,
     },
     {
-        path: '/reset-password',
+        path: '/reset-password/:email',
         name: 'reset',
-        component: ResetPassword
+        component: ResetPassword,
+        beforeEnter(to, from , next) {
+            if (!auth.isLoggedIn()) {
+                next();
+             } else {
+                 next('/');
+             }
+        }
+    },
+    {
+        path: '/reset-password-request',
+        name: 'reset-password-request',
+        component: ResetPasswordRequest,
+        beforeEnter(to, from , next) {
+            if (!auth.isLoggedIn()) {
+                next();
+             } else {
+                 next('/');
+             }
+        }
     },
     {
         path: '/kanban',

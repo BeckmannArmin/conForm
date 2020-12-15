@@ -29,3 +29,11 @@ export function getAccessToken() {
 
     return token;
 }
+
+export function resetPasswordRequest(user) {
+    return http().post('/reset-password-request', user);
+}
+
+export function resetPassword(user) {
+    return http().post('/reset-password', user);
+}
