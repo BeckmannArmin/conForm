@@ -72,6 +72,7 @@ const routes = [
         path: '/kanban',
         name: 'kanban',
         component: KanBan,
+        props: { mode: 'light' }
     },
     {
         path: '/pusher',

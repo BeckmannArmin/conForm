@@ -14,11 +14,11 @@
                     <h4 class="font-medium text-white">
                         {{ status.title }}
                     </h4>
-                    <button @click="openAddTaskForm(status.id)" class="btn btn-outline-light btn-sm hover:underline px-2 py-1 text-sm">
-                        Add Task
+                    <button @click="openAddTaskForm(status.id)" class="btn-wrapper btn btn-outline-light btn-sm hover:underline px-2 py-1 text-sm">
+                        Task hinzufügen
                     </button>
                 </div>
-                <div class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto bg-blue-100">
+                <div class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto task-body">
 
                     <!-- Tasks -->
 
@@ -61,12 +61,12 @@
                         v-show="!status.tasks.length && newTaskForStatus !== status.id"
                         class="flex-1 p-4 flex flex-col items-center justify-center"
                     >
-                        <span class="text-gray-600">No tasks yet</span>
+                        <span class="text-gray-600">Noch keine Tasks vorhanden</span>
                         <button
-                            class="mt-1 text-sm text-orange-600 hover:underline"
+                            class= "mt-1 text-sm text-orange-600 hover:underline"
                             @click="openAddTaskForm(status.id)"
                         >
-                            Add one
+                            Task hinzufügen
                         </button>
                     </div>
                     <!-- No Tasks -->
@@ -84,6 +84,7 @@ import AddTaskForm from "../components/AddTaskForm.vue";
 import {http} from '../services/http_service';
 
 export default {
+    props: ['mode'],
     components: {
         AddTaskForm,
         draggable
@@ -137,9 +138,27 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.dark {
+    .p-3 {
+       background-color: #5c55ba;
+    }
+
+    .task-body {
+       background-color: #f3f3f3;
+    }
+
+    .text-sm {
+        color: black;
+    }
+
+    .btn-wrapper {
+        color: white;
+    }
+}
+
 .p-3 {
-    background-color: #171c5d;
+    background-color: #6a77c4;
 }
 .p-2 {
    display: flex;
