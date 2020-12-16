@@ -227,7 +227,7 @@ img {
   background-color: #20232a;
 
   .hero--title {
-    color: #fff !important;
+    color: #EBEDF0 !important;
   }
 }
 

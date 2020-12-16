@@ -157,14 +157,14 @@ export default {
 }
 
 .nav-link {
-  color: #5c55ba !important;
+  color: #1c1e21 !important;
 }
 .nav-link-login {
   font-weight: 600 !important;
 }
 
 .nav-link-register {
-  border: 1px solid #5c55ba;
+  border: 1px solid #1c1e21;
   border-radius: 5px;
 }
 

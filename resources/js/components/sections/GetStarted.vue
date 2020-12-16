@@ -61,7 +61,7 @@ export default {
     background: #20232a !important;
 
     .title{
-        color: #fff !important;
+        color: #EBEDF0 !important;
     }
 }
 
@@ -81,7 +81,7 @@ export default {
 }
 
 .subtitle {
-    color: #4a4a4a;
+    color: #7a7780;
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.25;
