@@ -16,7 +16,8 @@ import NavBar from "./components/NavBar.vue";
 export default {
   data() {
     return {
-      mode: 'light'
+      mode: localStorage.getItem('theme-color'),
+      currentTheme: ''
     }
   },
   components: {
@@ -25,6 +26,11 @@ export default {
   },
    beforeMount() {
     window.addEventListener('scroll', this.handleScroll);
+    if (localStorage.getItem('theme-color')) {
+      this.currentTheme = localStorage.getItem('theme-color')
+    } else {
+       this.currentTheme = localStorage.setItem('theme-color', 'light')
+    }
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -41,10 +47,15 @@ export default {
       }
     },
     toggle() {
-      if (this.mode === "dark") {
-        this.mode = "light"
+      const storedTheme = localStorage.getItem('theme-color');
+       if(storedTheme === 'dark') {
+        localStorage.setItem('theme-color', 'light');
+         this.mode = "light"
+        this.currentTheme = localStorage.getItem('theme-color');
       } else {
+        localStorage.setItem('theme-color', 'dark');
         this.mode = "dark"
+        this.currentTheme = localStorage.getItem('theme-color');
       }
     }
   }
