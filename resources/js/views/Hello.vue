@@ -285,7 +285,6 @@ import ResourceSection from "../components/sections/ResourceSection.vue";
 import GetStarted from "../components/sections/GetStarted.vue";
 
 export default {
-  props: ['mode'],
   components: {
     Footer,
     NavBar,

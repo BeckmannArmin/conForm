@@ -15,7 +15,7 @@
         <div class="col resource-cards-left revealOnScroll delay-1">
           <a
             class="card card-l1"
-            href="https://github.com/BeckmannArmin/laravel-conForm"
+            href="https://github.com/BeckmannArmin/laravel-conForm/wiki/Getting-started"
           >
             <div class="card--header">
               <div class="card--icon">
@@ -28,7 +28,7 @@
           </a>
           <a
             class="card card-l1"
-            href="https://github.com/BeckmannArmin/laravel-conForm"
+            href="https://github.com/BeckmannArmin/laravel-conForm/issues"
           >
             <div class="card--header">
               <div class="card--icon">
@@ -41,7 +41,7 @@
           </a>
         </div>
         <div class="col resource-cards-middle revealOnScroll delay-2">
-          <a href="https://github.com/BeckmannArmin/laravel-conForm" class="card card-m1">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm/wiki" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">
                 <i class="fas fa-book"></i>
@@ -54,7 +54,7 @@
           </a>
         </div>
         <div class="col resource-cards-right revealOnScroll delay-3">
-          <a href="https://github.com/BeckmannArmin/laravel-conForm" class="card card-m1">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm/pulls" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">
                 <i class="fab fa-github"></i>
