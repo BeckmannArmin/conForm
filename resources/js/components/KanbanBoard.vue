@@ -1,172 +1,214 @@
 <template>
-
-    <div class="p-2">
-
-        <!-- Columns (Statuses) -->
-        <div
-            v-for='status in statuses'
-            :key='status.slug'
-            v-if="statuses.length"
-            class="mr-6 w-4/5 max-w-xs flex-1 flex-shrink-0"
-        >
-            <div class="rounded-md shadow-md overflow-hidden">
-                <div class="p-3 flex justify-between items-baseline">
-                    <h4 class="font-medium text-white">
-                        {{ status.title }}
-                    </h4>
-                    <button @click="openAddTaskForm(status.id)" class="btn-wrapper btn btn-outline-light btn-sm hover:underline px-2 py-1 text-sm">
-                        Task hinzufügen
-                    </button>
-                </div>
-                <div class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto task-body">
-
-                    <!-- Tasks -->
-
-                    <AddTaskForm
-                        v-if="newTaskForStatus === status.id"
-                        :status-id="status.id"
-                        v-on:task-added="handleTaskAdded"
-                        v-on:task-canceled="closeAddTaskForm"
-                    />
-                    <!-- Tasks -->
-
-                    <draggable
-                        class="flex-1 overflow-hidden"
-                        v-model="status.tasks"
-                        v-bind="taskDragOptions"
-                        @end="handleTaskMoved"
-                    >
-                        <transition-group
-                            class="flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto rounded shadow-xs"
-                            tag="div"
-                        >
-                            <div
-                                v-for="task in status.tasks"
-                                :key="task.id"
-                                class="mb-3 p-3 h-24 flex flex-col bg-white rounded-md shadow transform hover:shadow-md cursor-pointer"
-                            >
-                            <span class="block mb-2 text-xl text-gray-900">
-                              {{ task.title }}
-                            </span>
-                                <p class="text-gray-700">
-                                    {{ task.description }}
-                                </p>
-                            </div>
-                            <!-- ./Tasks -->
-                        </transition-group>
-                    </draggable>
-
-                    <!-- No Tasks -->
-                    <div
-                        v-show="!status.tasks.length && newTaskForStatus !== status.id"
-                        class="flex-1 p-4 flex flex-col items-center justify-center"
-                    >
-                        <span class="text-gray-600">Noch keine Tasks vorhanden</span>
-                        <button
-                            class= "mt-1 text-sm text-orange-600 hover:underline"
-                            @click="openAddTaskForm(status.id)"
-                        >
-                            Task hinzufügen
-                        </button>
-                    </div>
-                    <!-- No Tasks -->
-                </div>
-            </div>
+  <div class="p-2">
+    <!-- Columns (Statuses) -->
+    <div
+      v-for="status in statuses"
+      :key="status.slug"
+      v-if="statuses.length"
+      class="mr-6 w-4/5 max-w-xs flex-1 flex-shrink-0"
+    >
+      <div class="rounded-md shadow-md overflow-hidden">
+        <div class="p-3 flex justify-between items-baseline">
+          <h4 class="font-medium text-white">
+            {{ status.title }}
+          </h4>
+          <button
+            @click="openAddTaskForm(status.id)"
+            class="btn-wrapper btn btn-outline-light btn-sm hover:underline px-2 py-1 text-sm"
+          >
+            Task hinzufügen
+          </button>
         </div>
-        <!-- Columns -->
+        <div
+          class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto task-body"
+        >
+          <!-- Tasks -->
 
+          <AddTaskForm
+            v-if="newTaskForStatus === status.id"
+            :status-id="status.id"
+            v-on:task-added="handleTaskAdded"
+            v-on:task-canceled="closeAddTaskForm"
+          />
+          <!-- Tasks -->
+
+          <draggable
+            class="flex-1 overflow-hidden"
+            v-model="status.tasks"
+            v-bind="taskDragOptions"
+            @end="handleTaskMoved"
+          >
+            <transition-group
+              class="flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto rounded shadow-xs"
+              tag="div"
+            >
+              <div
+                v-for="task in status.tasks"
+                :key="task.id"
+                class="mb-3 p-3 h-24 flex flex-col bg-white rounded-md shadow transform hover:shadow-md cursor-pointer task-card"
+              >
+                <span class="block delete-tasks">
+                  <button
+                    class="btn btn-sm btn-danger"
+                    @click="deleteTask(task)"
+                  >
+                    Delete
+                  </button>
+                </span>
+                <span class="block mb-2 text-xl text-gray-900">
+                  {{ task.title }}
+                </span>
+                <p class="text-gray-700">
+                  {{ task.description }}
+                </p>
+              </div>
+              <!-- ./Tasks -->
+            </transition-group>
+          </draggable>
+
+          <!-- No Tasks -->
+          <div
+            v-show="!status.tasks.length && newTaskForStatus !== status.id"
+            class="flex-1 p-4 flex flex-col items-center justify-center"
+          >
+            <span class="text-gray-600">Noch keine Tasks vorhanden</span>
+            <button
+              class="mt-1 text-sm text-orange-600 hover:underline"
+              @click="openAddTaskForm(status.id)"
+            >
+              Task hinzufügen
+            </button>
+          </div>
+          <!-- No Tasks -->
+        </div>
+      </div>
     </div>
+    <!-- Columns -->
+  </div>
 </template>
 
 <script>
 import draggable from "vuedraggable";
 import AddTaskForm from "../components/AddTaskForm.vue";
-import {http} from '../services/http_service';
+import { http } from "../services/http_service";
 
 export default {
-    props: ['mode'],
-    components: {
-        AddTaskForm,
-        draggable
+  props: ["mode"],
+  components: {
+    AddTaskForm,
+    draggable,
+  },
+  computed: {
+    taskDragOptions() {
+      return {
+        animation: 200,
+        group: "task-list",
+        dragClass: "status-drag",
+      };
     },
-    computed: {
-        taskDragOptions() {
-            return {
-                animation: 200,
-                group: "task-list",
-                dragClass: "status-drag"
-            };
-        }
+  },
+  props: {
+    initialData: Array,
+  },
+  data() {
+    return {
+      statuses: [],
+      newTaskForStatus: 0,
+    };
+  },
+  methods: {
+    openAddTaskForm(statusId) {
+      this.newTaskForStatus = statusId;
     },
-    props: {
-        initialData: Array
+    closeAddTaskForm() {
+      this.newTaskForStatus = 0;
     },
-    data() {
-        return {
-            statuses: [],
-            newTaskForStatus: 0
-        };
-    },
-    methods: {
-        openAddTaskForm(statusId) {
-            this.newTaskForStatus = statusId;
-        },
-        closeAddTaskForm() {
-            this.newTaskForStatus = 0;
-        },
-        handleTaskAdded(newTask) {
-            const statusIndex = this.statuses.findIndex(
-                status => status.id === newTask.status_id
-            );
+    handleTaskAdded(newTask) {
+      const statusIndex = this.statuses.findIndex(
+        (status) => status.id === newTask.status_id
+      );
 
-            this.statuses[statusIndex].tasks.push(newTask);
+      this.statuses[statusIndex].tasks.push(newTask);
 
-            this.closeAddTaskForm();
-        },
-        handleTaskMoved() {
-            // Send the entire list of statuses to the server
-            http().put("/tasks/sync", {columns: this.statuses}).catch(err => {
-                console.log(err.response);
-            });
-        }
+      this.closeAddTaskForm();
     },
-    mounted() {
-        // 'clone' the statuses so we don't alter the prop when making changes
-        http().get('tasks').then(response => this.statuses = response.data.tasks)
-            .catch(error => this.$router.push({name: 'login'}))
-    }
+    handleTaskMoved() {
+      // Send the entire list of statuses to the server
+      http()
+        .put("/tasks/sync", { columns: this.statuses })
+        .catch((err) => {
+          console.log(err.response);
+        });
+    },
+    deleteTask: async function (task) {
+      if (
+        !window.confirm(
+          `Bist du sicher, dass du den Task ${task.title} löschen willst?`
+        )
+      ) {
+        return;
+      }
+
+      try {
+        await http().delete(`tasks/${task.id}`);
+
+        /** TODO: update the table */
+
+        this.flashMessage.success({
+          message: "Task erfolgreich gelöscht!",
+          time: 5000,
+        });
+      } catch (error) {
+        this.flashMessage.error({
+          message: error.response.data.message,
+          time: 5000,
+        });
+      }
+    },
+  },
+  mounted() {
+    // 'clone' the statuses so we don't alter the prop when making changes
+    http()
+      .get("tasks")
+      .then((response) => (this.statuses = response.data.tasks))
+      .catch((error) => this.$router.push({ name: "login" }));
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.task-card {
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+}
+
 .dark {
-    .p-3 {
-       background-color: #5c55ba;
-    }
+  .p-3 {
+    background-color: #5c55ba;
+  }
 
-    .task-body {
-       background-color: #f3f3f3;
-    }
+  .task-body {
+    background-color: #f3f3f3;
+  }
 
-    .text-sm {
-        color: black;
-    }
+  .text-sm {
+    color: black;
+  }
 
-    .btn-wrapper {
-        color: white;
-    }
+  .btn-wrapper {
+    color: white;
+  }
 }
 
 .p-3 {
-    background-color: #6a77c4;
+  background-color: #6a77c4;
 }
 .p-2 {
-   display: flex;
-   justify-content: center;
-   height: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 .status-drag {
-    transition: transform 0.5s;
-    transition-property: all;
+  transition: transform 0.5s;
+  transition-property: all;
 }
 </style>

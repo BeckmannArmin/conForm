@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::post('/', 'App\Http\Controllers\TaskController@store')->name('tasks.store');
         Route::put('sync', 'App\Http\Controllers\TaskController@sync')->name('tasks.sync');
         Route::put('{task}', 'App\Http\Controllers\TaskController@update')->name('tasks.update');
+        Route::delete('{task}', 'App\Http\Controllers\TaskController@destroy')->name('tasks.destroy');
     });
 
     Route::prefix('statuses')->group(function (){

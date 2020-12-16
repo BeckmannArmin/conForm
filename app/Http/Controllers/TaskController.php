@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Task;
 
 use Illuminate\Http\Request;
 
@@ -43,5 +44,20 @@ class TaskController extends Controller
         }
 
         return $request->user()->statuses()->with('tasks')->get();
+    }
+
+    public function destroy(Task $task) {
+        if ($task->delete()) {
+            
+            return response()->json([
+                'message' => 'Task was deleted successfully',
+                'status_code' => 200
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Some error occured, please try again',
+                'status_code' => 500
+            ], 500);
+        }
     }
 }

@@ -452,7 +452,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                if (window.confirm("Are you sure you want to delete ".concat(conceptPaper.name, "?"))) {
+                if (window.confirm("Bist du sicher, dass du das Paper ".concat(conceptPaper.name, " l\xF6schen willst?"))) {
                   _context3.next = 2;
                   break;
                 }
@@ -472,7 +472,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return obj.id != conceptPaper.id;
                 });
                 this.flashMessage.success({
-                  message: "Paper deleted succesfully!",
+                  message: "Paper erfolgreich gelöscht!",
                   time: 5000
                 });
                 _context3.next = 12;

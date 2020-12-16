@@ -368,7 +368,7 @@ export default {
     },
     deleteConceptPaper: async function (conceptPaper) {
       if (
-        !window.confirm(`Are you sure you want to delete ${conceptPaper.name}?`)
+        !window.confirm(`Bist du sicher, dass du das Paper ${conceptPaper.name} löschen willst?`)
       ) {
         return;
       }
@@ -384,7 +384,7 @@ export default {
         });
 
         this.flashMessage.success({
-          message: "Paper deleted succesfully!",
+          message: "Paper erfolgreich gelöscht!",
           time: 5000,
         });
       } catch (error) {
