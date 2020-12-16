@@ -32,6 +32,9 @@
               <span class="item-pink">Ideen</span>
               <p>Sammelt gemeinsam Ideen und arbeitet zusammen</p>
             </div>
+             <div class="cards-action">
+              <button class="btn btn-sm"></button>
+            </div>
           </div>
           <div class="card col row-m revealOnScroll delay-3">
             <div class="cards-header">
@@ -39,7 +42,10 @@
             </div>
             <div class="cards-body">
               <span class="item-orange">Planung</span>
-              <p>Plant euren Ablauf</p>
+              <p>Plant euren Ablauf und erstellt Tasks</p>
+            </div>
+            <div class="cards-action">
+              <button class="btn btn-sm"></button>
             </div>
           </div>
           <div class="card col row-r revealOnScroll delay-4">
@@ -52,10 +58,14 @@
                 Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper
               </p>
             </div>
+             <div class="cards-action">
+              <button class="btn">Jetzt registrieren</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <GetStarted />
     <JoinLobbyModal />
     <ResourceSection />
     <Footer />
@@ -70,6 +80,10 @@
     grid-template-columns: 1fr !important;
     grid-row-gap: 7.8125vmin;
 }
+}
+
+.cards-action {
+  margin-top: 10px;
 }
 
 .cards-wrapper {
@@ -251,6 +265,7 @@ import Footer from "../components/Footer.vue";
 import NavBar from "../components/NavBar.vue";
 import JoinLobbyModal from "../components/modals/JoinLobbyModal.vue";
 import ResourceSection from "../components/sections/ResourceSection.vue";
+import GetStarted from "../components/sections/GetStarted.vue";
 
 export default {
   components: {
@@ -258,6 +273,7 @@ export default {
     NavBar,
     ResourceSection,
     JoinLobbyModal,
+    GetStarted
   },
 };
 </script>
