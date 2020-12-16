@@ -1,6 +1,6 @@
 <template>
-  <div>
-     <NavBar/>
+  <div class="app" :class="mode">
+     <NavBar :mode="mode" @toggle="toggle"/>
     <main class="py-4 full-height">
       <!-- Here are the child components of our view-->
       <router-view></router-view>
@@ -14,6 +14,11 @@ import Footer from "./components/Footer.vue";
 import NavBar from "./components/NavBar.vue";
 
 export default {
+  data() {
+    return {
+      mode: 'light'
+    }
+  },
   components: {
     Footer,
     NavBar,
@@ -35,6 +40,13 @@ export default {
         });
       }
     },
+    toggle() {
+      if (this.mode === "dark") {
+        this.mode = "light"
+      } else {
+        this.mode = "dark"
+      }
+    }
   }
 };
 </script>
@@ -46,6 +58,6 @@ export default {
 }
 
 .py-4 {
-  padding-top: 180px !important;
+  padding-top: 160px !important;
 }
 </style>

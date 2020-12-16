@@ -6,7 +6,7 @@
       <!-- Grid column -->
       <div class="col-md-3 mx-auto">
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: white">Resources</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: black">Resources</h5>
         <ul class="list-unstyled">
           <li>
             <a href="#!">Docs</a>
@@ -21,22 +21,50 @@
   </div>
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a style="color: white"> conForm</a>
+    <a style="color: black"> conForm</a>
   </div>
   <!-- Copyright -->
 
 </footer>
 </template>
 
-<style scoped>
-.footer-copyright {
-    color: white
+<script>
+export default {
+  props: ['mode']
 }
+</script>
+
+<style lang="scss" scoped>
+.footer-copyright {
+    color: black;
+}
+
+.dark .page-footer {
+  background-color: #20232a ;
+
+  .text-uppercase {
+    color: white !important;
+  }
+
+  .list-unstyled a {
+    color: white !important;
+  }
+
+  .footer-copyright {
+    color: white !important;
+
+    a {
+      color: white !important;
+    }
+
+}
+}
+
 .page-footer {
-    background-color: #171c5d;
+    background-color: #fff;
 }
 .list-unstyled a {
-    color: white;
+    color: black;
 }
 .row {
     margin: 0 auto 0;

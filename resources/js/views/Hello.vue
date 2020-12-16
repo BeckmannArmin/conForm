@@ -1,6 +1,6 @@
  <template>
-  <div>
-    <NavBar />
+  <div class="main-content-wrapper">
+    <section id="hero" class="hero-section">
     <div class="hero">
       <div class="container">
         <div class="row">
@@ -21,6 +21,8 @@
         </div>
       </div>
     </div>
+    </section>
+    <section id="cards" class="cards-section">
     <div class="cards">
       <div class="cards-container">
         <div class="cards-wrapper">
@@ -56,14 +58,15 @@
         </div>
       </div>
     </div>
-    <GetStarted />
+    </section>
+    <GetStarted :mode="mode" />
     <JoinLobbyModal />
-    <ResourceSection />
+    <ResourceSection :mode="mode"/>
     <Footer />
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @import "../../assets/scss/_animations.scss";
 
 @media (max-width: 1024px) {
@@ -71,6 +74,22 @@
     grid-template-columns: 1fr !important;
     grid-row-gap: 7.8125vmin;
 }
+}
+
+.hero-section {
+  background-color: #f2f6fa;
+}
+
+.dark .main-content-wrapper {
+  background-color: #121212;
+
+  .card {
+    background-color: #20232a;
+  }
+
+  .cards-body p {
+    color: white;
+  }
 }
 
 .cards-action {
@@ -197,12 +216,19 @@ img {
 }
 .hero {
   position: relative;
-  background-color: #171c5d;
   height: 785px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 0 99px;
+}
+
+.dark .hero-section {
+  background-color: #20232a;
+
+  .hero--title {
+    color: #fff !important;
+  }
 }
 
 .hero--lead {
@@ -218,7 +244,7 @@ img {
   font-family: "Poppins", sans-serif !important;
   font-size: 47px;
   line-height: 55px;
-  color: #fff;
+  color: #000;
   letter-spacing: 0;
   margin: 0;
   max-width: 674px;
@@ -259,6 +285,7 @@ import ResourceSection from "../components/sections/ResourceSection.vue";
 import GetStarted from "../components/sections/GetStarted.vue";
 
 export default {
+  props: ['mode'],
   components: {
     Footer,
     NavBar,
@@ -266,5 +293,19 @@ export default {
     JoinLobbyModal,
     GetStarted
   },
+  data() {
+    return {
+      mode: 'light'
+    }
+  },
+  methods: {
+    toggle() {
+      if (this.mode === "dark") {
+        this.mode = "light"
+      } else {
+        this.mode = "dark"
+      }
+    }
+  }
 };
 </script>

@@ -45,7 +45,25 @@
     </section>
 </template>
 
-<style scoped>
+<script>
+export default {
+    props: ['mode']
+}
+</script>
+
+<style lang="scss" scoped>
+
+.section-getStarted {
+    background: white !important
+}
+
+.dark .section-getStarted {
+    background: #20232a !important;
+
+    .title{
+        color: #fff !important;
+    }
+}
 
 .section-getStarted {
     padding: 3rem 1.5rem;

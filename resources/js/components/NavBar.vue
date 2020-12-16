@@ -48,6 +48,9 @@
               v-if="isLoggedIn"
               >Task planner</router-link
             >
+
+            <!-- Dark Mode toggle -->
+            <Toggle :mode="mode" @toggle="$emit('toggle')" />
             <!-- Authentication Links -->
             <router-link
               :to="{ name: 'login' }"
@@ -74,7 +77,12 @@
 
 <script>
 import * as auth from "../services/auth_service";
+import Toggle from '../components/Toggler.vue';
 export default {
+  props: ['mode'],
+  components: {
+    Toggle
+  },
   data() {
     return {
       isLoggedIn: null,

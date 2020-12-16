@@ -71,7 +71,13 @@
   </section>
 </template>
 
-<style scoped>
+<script>
+export default {
+  props: ['mode']
+}
+</script>
+
+<style lang="scss" scoped>
 .resource-cards-left,
 .resource-cards-middle,
 .resource-cards-right {
@@ -197,5 +203,33 @@ img {
 .resources {
   padding: 5rem 0;
   background-color: #f2f6fa;
+}
+
+.dark .resources {
+  background-color: #121212;
+
+  .card {
+    background-color: #20232a;
+    border: none;
+
+    .card--body {
+      p {
+        color: white;
+      }
+    }
+
+    .card--header {
+      h3 {
+        color: white;
+      }
+      .card--icon {
+        color: #b2beff;
+      }
+    }
+
+    h2 {
+      color: white;
+    }
+  }
 }
 </style>

@@ -2,6 +2,12 @@
 body {
   height: 100%;
   font-family: "Poppins", sans-serif !important;
+  background-color: #fff;
+}
+
+.dark {
+  background-color: #20232a !important;
+  color: #F3F3F3 !important;
 }
 
 .container,
