@@ -32,9 +32,6 @@
               <span class="item-pink">Ideen</span>
               <p>Sammelt gemeinsam Ideen und arbeitet zusammen</p>
             </div>
-             <div class="cards-action">
-              <button class="btn btn-sm"></button>
-            </div>
           </div>
           <div class="card col row-m revealOnScroll delay-3">
             <div class="cards-header">
@@ -43,9 +40,6 @@
             <div class="cards-body">
               <span class="item-orange">Planung</span>
               <p>Plant euren Ablauf und erstellt Tasks</p>
-            </div>
-            <div class="cards-action">
-              <button class="btn btn-sm"></button>
             </div>
           </div>
           <div class="card col row-r revealOnScroll delay-4">
@@ -57,9 +51,6 @@
               <p>
                 Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper
               </p>
-            </div>
-             <div class="cards-action">
-              <button class="btn">Jetzt registrieren</button>
             </div>
           </div>
         </div>
