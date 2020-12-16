@@ -55,7 +55,8 @@ class TaskController extends Controller
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Some error occured, please try again',
+                'message' => 'Some error occured, pleas
+                gite try again',
                 'status_code' => 500
             ], 500);
         }
