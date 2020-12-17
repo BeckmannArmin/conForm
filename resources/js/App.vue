@@ -1,6 +1,6 @@
 <template>
   <div class="app" :class="mode">
-     <NavBar :mode="mode" @toggle="toggle" :isActive="active"/>
+     <NavBar :mode="mode" @toggle="toggle"/>
     <main class="full-height">
       <!-- Here are the child components of our view-->
       <router-view></router-view>
@@ -44,13 +44,6 @@ export default {
         navBar.classList.add('active');
       } else {
         navBar.classList.remove('active');
-      }
-      /** better get the feature section here instead of hard coded values */
-      if (window.scrollY > 390) {
-        elementsToShow.forEach((element) => {
-          element.classList.add('animated');
-          element.classList.add('fadeInLeft');
-        });
       }
     },
     toggle() {

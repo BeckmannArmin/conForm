@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col resource-cards-left revealOnScroll delay-1">
+        <div v-scrollanimation class="col resource-cards-left">
           <a
             class="card card-l1"
             href="https://github.com/BeckmannArmin/laravel-conForm/wiki/Getting-started"
@@ -40,7 +40,7 @@
             </div>
           </a>
         </div>
-        <div class="col resource-cards-middle revealOnScroll delay-2">
+        <div v-scrollanimation class="col resource-cards-middle">
           <a href="https://github.com/BeckmannArmin/laravel-conForm/wiki" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">
@@ -53,7 +53,7 @@
             </div>
           </a>
         </div>
-        <div class="col resource-cards-right revealOnScroll delay-3">
+        <div v-scrollanimation class="col resource-cards-right">
           <a href="https://github.com/BeckmannArmin/laravel-conForm/pulls" class="card card-m1">
             <div class="card--header">
               <div class="card--icon">

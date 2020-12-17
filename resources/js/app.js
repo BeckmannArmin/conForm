@@ -7,6 +7,7 @@ import UUID from 'vue-uuid'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
+import ScrollAnimation from './directives/scrollanimation';
 
 import BootstrapVue from 'bootstrap-vue';
 import FlashMessage from '@smartweb/vue-flash-message';
@@ -34,6 +35,7 @@ Vue.use(UUID);
 Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
 Vue.component("kanban-board", require("./components/KanbanBoard.vue").default);
+Vue.directive('scrollanimation', ScrollAnimation);
 
 new Vue({
     el: '#app',

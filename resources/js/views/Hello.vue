@@ -22,11 +22,12 @@
       </div>
     </div>
     </section>
+    <JoinLobbySection v-if="!isLoggedIn"/>
     <section id="cards" class="cards-section py-16">
     <div class="cards">
       <div class="cards-container">
         <div class="cards-wrapper">
-          <div class="card col row-l revealOnScroll delay-2">
+          <div v-scrollanimation class="card col row-l">
             <div class="cards-header">
               <img src="../../assets/idea.svg" />
             </div>
@@ -35,7 +36,7 @@
               <p>Sammelt gemeinsam Ideen und arbeitet zusammen</p>
             </div>
           </div>
-          <div class="card col row-m revealOnScroll delay-3">
+          <div v-scrollanimation class="card col row-m">
             <div class="cards-header">
               <img src="../../assets/brainstorm.svg" />
             </div>
@@ -44,7 +45,7 @@
               <p>Plant euren Ablauf und erstellt Tasks</p>
             </div>
           </div>
-          <div class="card col row-r revealOnScroll delay-4">
+          <div v-scrollanimation class="card col row-r">
             <div class="cards-header">
               <img src="../../assets/colloboration.svg" />
             </div>
@@ -239,7 +240,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 99px;
+  margin: 0;
 }
 
 .dark .hero-section {
@@ -302,6 +303,7 @@ import NavBar from "../components/NavBar.vue";
 import JoinLobbyModal from "../components/modals/JoinLobbyModal.vue";
 import ResourceSection from "../components/sections/ResourceSection.vue";
 import GetStarted from "../components/sections/GetStarted.vue";
+import JoinLobbySection from "../components/sections/JoinLobbySection.vue";
 
 export default {
   components: {
@@ -309,12 +311,17 @@ export default {
     NavBar,
     ResourceSection,
     JoinLobbyModal,
-    GetStarted
+    GetStarted,
+    JoinLobbySection
   },
   data() {
     return {
-      mode: 'light'
+      mode: 'light',
+      isLoggedIn: null,
     }
+  },
+  mounted() {
+    this.isLoggedIn = localStorage.getItem("jwt");
   },
   methods: {
     toggle() {
