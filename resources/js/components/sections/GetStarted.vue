@@ -158,7 +158,7 @@ export default {
 }
 
 .title {
-    color: #363636;
+    color: #4a4a4a;
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.125;

@@ -7,7 +7,7 @@
           <div class="col col--11 col-offset-1">
             <div class="headline-hero">
               <h1 class="hero--title">
-                Colloboration war noch nie so einfach.
+                Kolloboration war noch nie so einfach.
               </h1>
               <div class="hero--lead">
                 conForm entfesselt dein ganzes Potential.
@@ -244,7 +244,7 @@ img {
   font-family: "Poppins", sans-serif !important;
   font-size: 47px;
   line-height: 55px;
-  color: #000;
+  color: #4a4a4a;
   letter-spacing: 0;
   margin: 0;
   max-width: 674px;

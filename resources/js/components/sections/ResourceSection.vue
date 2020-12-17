@@ -143,6 +143,12 @@ h3 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+
+  .card--body {
+    p {
+      color: #7a7780;
+    }
+  }
 }
 
 .card {
@@ -170,6 +176,7 @@ img {
   line-height: 1.5;
   word-spacing: -0.25rem;
   font-weight: 600;
+  color: #4a4a4a;
 }
 .headline-resources {
   margin-bottom: 2rem;

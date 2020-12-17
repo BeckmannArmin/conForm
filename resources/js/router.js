@@ -79,6 +79,10 @@ const routes = [
         name: 'pusher',
         component: () => import('./components/PusherExample.vue')
     },
+    {
+        path: '*',
+        component: () => import('./views/404.vue')
+    }
 ];
 
 const router = new VueRouter({
