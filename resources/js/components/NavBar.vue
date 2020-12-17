@@ -33,7 +33,7 @@
           <Toggle :mode="mode" @toggle="$emit('toggle')" />
           
           <!-- Dropdown -->
-          <li class="nav-item dropdown">
+          <li v-if="isLoggedIn" class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -50,7 +50,6 @@
                 <router-link
                   :to="{ name: 'pusher' }"
                   class="nav-link"
-                  v-if="isLoggedIn"
                   >Pusher</router-link
                 >
               </a>
@@ -58,7 +57,6 @@
                 <router-link
                   :to="{ name: 'conceptPaperCreator' }"
                   class="nav-link"
-                  v-if="isLoggedIn"
                   >Konzeptpapier Creator</router-link
                 ></a
               >
@@ -67,7 +65,6 @@
                 <router-link
                   :to="{ name: 'kanban' }"
                   class="nav-link"
-                  v-if="isLoggedIn"
                   >Kanban Board</router-link
                 ></a
               >

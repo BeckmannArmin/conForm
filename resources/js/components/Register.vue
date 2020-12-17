@@ -1,5 +1,5 @@
  <template>
-  <div class="container register">
+  <div class="container register" style="padding-top: 160px !important">
     <div class="row content">
       <!-- left side image -->
       <div class="col-md-6 img-left">
