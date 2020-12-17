@@ -40,7 +40,7 @@ export default {
 }
 
 .dark .page-footer {
-  background-color: #20232a ;
+  background: #20232a;
 
   .text-uppercase {
     color: white !important;
@@ -61,7 +61,9 @@ export default {
 }
 
 .page-footer {
-    background-color: #fff;
+    background: url('../../assets/footer-bg.png') no-repeat;
+    background-size: 40% 100%;
+    background-position: right center;
 }
 .list-unstyled a {
     color: black;
