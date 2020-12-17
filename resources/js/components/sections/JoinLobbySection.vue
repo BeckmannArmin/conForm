@@ -1,44 +1,34 @@
 <template>
-  <section id="joinLobby" class="join-section">
-    <div class="join-container py-16 mover">
-      <div class="column">
-        <div class="col">
-          <img src="../../../assets/welcome-cats.svg" />
-        </div>
-        <div class="col">
+  <section id="joinLobby" class="join-section pb-16">
+    <div class="container">
+      <div class="inner py-5 px-3 px-md-6 text-center text-white">
+        <h3>Tritt jetzt einer Lobby bei.</h3>
+        <p>Deine teamkollegen warten bereits auf dich.</p>
+        <p>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-join"
             data-toggle="modal"
             data-target="#joinLobbyModal"
           >
             Launch demo modal
           </button>
-        </div>
+        </p>
       </div>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
-.join-section {
-  .join-container {
-       display: flex;
-      justify-content: center;
-      align-content: center;
-    .column {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-      .col {
-          max-width: 50%;
-      }
-    }
+#joinLobby .inner {
+      background: #42548e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#42548e), to(#5c55ba));
+    background: linear-gradient(180deg, #42548e 0%, #6b668c 100%);
+    border-radius: 12px;
 
-    .col:last-child {
-        display: flex;
-        justify-content: center;
+    .btn-join {
+      background: #ff7e85;
+      color: #fff;
     }
-  }
 }
 </style>
