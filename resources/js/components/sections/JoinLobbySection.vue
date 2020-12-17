@@ -11,7 +11,7 @@
             data-toggle="modal"
             data-target="#joinLobbyModal"
           >
-            Launch demo modal
+            Jetzt beitreten
           </button>
         </p>
       </div>
