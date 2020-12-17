@@ -16,13 +16,17 @@
 
     <div class="card mb-4">
       <div class="card-header d-flex">
-         <button
-      class="btn btn-info text-white copy-btn ml-auto"
-      @click.stop.prevent="copyTestingCode"
-    >
-      Lade dein Team ein
-    </button>
-    <input type="hidden" id="testing-code" :value="conceptPaper.joinCodeDB" />
+        <button
+          class="btn btn-info text-white copy-btn ml-auto"
+          @click.stop.prevent="copyTestingCode"
+        >
+          Lade dein Team ein
+        </button>
+        <input
+          type="hidden"
+          id="testing-code"
+          :value="conceptPaper.joinCodeDB"
+        />
       </div>
       <div class="card-body">
         <div>
@@ -154,8 +158,8 @@
               {{ errors.team[0] }}
             </div>
           </div>
-        
           <div class="text-right">
+            <button class="button" @click="exportAsDOCX">Export DOCX</button>
             <button type="button" class="btn btn-default">Cancel</button>
             <button class="btn btn-primary" @click="updateConceptPaper">
               <span class="fa fa-check"></span>
@@ -175,6 +179,12 @@ import PageLoader from "../components/PageLoader/PageLoader.vue";
 import * as conceptPaperService from "../services/conceptPaper_service";
 import { uuid } from "vue-uuid";
 import { http } from "../services/http_service";
+
+import { saveAs } from "file-saver";
+import { Packer } from "docx";
+
+import { DocumentCreator } from "../../ts/conceptPaperGenerator";
+
 export default {
   data() {
     return {
@@ -315,6 +325,26 @@ export default {
       /* unselect the range */
       testingCodeToCopy.setAttribute("type", "hidden");
       window.getSelection().removeAllRanges();
+    },
+    exportAsDOCX: function () {
+      const documentCreator = new DocumentCreator();
+      const {name, course, currentSemester, idea, basics, niceToHave, technologies, team} = this.editConceptPaperData
+      const document = documentCreator.create([
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team
+        ]);
+
+      Packer.toBlob(document).then((blob) => {
+        console.log(blob);
+        saveAs(blob, "Konzeptpapier_" + this.editConceptPaperData.name +  ".docx");
+        console.log("Document created successfully");
+      });
     },
   },
 };
