@@ -156,9 +156,44 @@ export default {
 }
 
 .navbar {
-      transition: all 0.3s;
+    transition: all 0.3s;
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
+}
+
+.navbar-collapse a {
+  text-align: center;
+}
+
+.nav-link {
+  color: #1c1e21 !important;
+}
+.nav-link-login {
+  font-weight: 600 !important;
+}
+
+.nav-link-register {
+  border: 1px solid #1c1e21;
+  border-radius: 5px;
+}
+
+.btn-logout {
+  background-color: #5c55ba;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+ .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
 }
 
 </style>

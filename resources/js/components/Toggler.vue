@@ -6,7 +6,14 @@
             :checked="(mode === 'dark') ? 'checked' : false" 
             @change="$emit('toggle')"
             />
-            <span class="toggler round"></span>
+            <span class="toggler round">
+                <div class="toggler-left">
+                  <span>🌞</span>
+                </div>
+                <div class="toggler-right">
+                    <span>🌙</span>
+                </div>
+            </span>
         </label>
     </div>
 </template>
@@ -17,11 +24,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .toggle {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 75px;
     height: 34px;
 }
 
@@ -56,7 +63,7 @@ export default {
 }
 
 input:checked + .toggler {
-    background: #2196F3;
+    background: #4d4d4d;
 
 }
 
@@ -64,15 +71,59 @@ input:focus + .toggler {
     box-shadow: 0 0 2px #2196F3;
 }
 input:checked + .toggler:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(41px);
+    -ms-transform: translateX(41px);
+    transform: translateX(41px);
 }
 
 .toggler.round {
     border-radius: 24px;
+    background: #4d4d4d;
+
+    .toggler-left, .toggler-right {
+        height: 10px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        position: absolute;
+    }
+
+    .toggler-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 14px;
+        left: 8px;
+        opacity: 0;
+        transition: opacity .25s;
+    }
+
+    .toggler-right {
+        width: 10px;
+        right: 10px;
+    }
+
+    .toggler-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: opacity .25s;
+    }
 }
 .toggler.round:before {
     border-radius: 50%
+}
+
+.dark {
+    .toggler.round {
+        .toggler-left {
+            opacity: 1;
+            transition: opacity .25s;
+        }
+        .toggler-right {
+            opacity: 0;
+        }
+    }
 }
 </style>
