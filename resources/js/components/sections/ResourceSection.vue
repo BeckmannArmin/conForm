@@ -214,6 +214,12 @@ img {
 
 .dark .resources {
   background-color: #121212;
+  
+  .headline-resources {
+    .title-msts {
+      color: #EBEDF0;
+    }
+  }
 
   .card {
     background-color: #20232a;

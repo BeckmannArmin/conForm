@@ -1,7 +1,7 @@
 <template>
   <div class="app" :class="mode">
-     <NavBar :mode="mode" @toggle="toggle"/>
-    <main class="py-4 full-height">
+     <NavBar :mode="mode" @toggle="toggle" :isActive="active"/>
+    <main class="full-height">
       <!-- Here are the child components of our view-->
       <router-view></router-view>
       <FlashMessage position="right bottom"></FlashMessage>
@@ -37,7 +37,14 @@ export default {
   },
   methods: {
      handleScroll() {
+      const navBar = document.querySelector('.navbar');
       const elementsToShow = document.querySelectorAll('.revealOnScroll');
+
+      if (window.scrollY > 0) {
+        navBar.classList.add('active');
+      } else {
+        navBar.classList.remove('active');
+      }
       /** better get the feature section here instead of hard coded values */
       if (window.scrollY > 390) {
         elementsToShow.forEach((element) => {
@@ -68,7 +75,4 @@ export default {
   height: 100vh;
 }
 
-.py-4 {
-  padding-top: 160px !important;
-}
 </style>

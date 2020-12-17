@@ -1,7 +1,9 @@
 <template>
-  <nav class="navbar sticky-top navbar-expand-md navbar-light navbar-laravel">
+<header class="header">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <router-link :to="{ name: 'welcome' }" class="navbar-brand">
+      <a class="navbar-brand">
+         <router-link :to="{ name: 'welcome' }" class="navbar-brand">
         <img
           src="../../assets/conForm_logo.png"
           width="80"
@@ -9,6 +11,8 @@
           alt=""
         />
       </router-link>
+      </a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -22,9 +26,6 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav mr-auto"></ul>
-        <ul class="navbar-nav mr-auto"></ul>
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
 
@@ -96,6 +97,7 @@
       </div>
     </div>
   </nav>
+</header>
 </template>
 
 <script>
@@ -129,54 +131,34 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header-github-link {
   display: flex;
   align-items: center;
   margin-right: 10px;
 }
-.navbar {
-  box-shadow: 3px 3px 16px 0 #e8e8e8;
-  background-color: #fff;
-  border-radius: 5px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  left: 0%;
-  top: 16px;
-  right: 0%;
-  bottom: auto;
-  width: 90%;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
-}
 
-.navbar-collapse a {
-  text-align: center;
-}
-
-.nav-link {
-  color: #1c1e21 !important;
-}
-.nav-link-login {
-  font-weight: 600 !important;
-}
-
-.nav-link-register {
-  border: 1px solid #1c1e21;
-  border-radius: 5px;
-}
-
-.btn-logout {
-  background-color: #5c55ba;
-  color: #fff;
-}
-
-@media (min-width: 768px) {
-  .navbar-expand-md .navbar-nav .nav-link {
-    padding-right: 1rem;
-    padding-left: 1rem;
+.dark {
+  .navbar {
+    background: #fff;
   }
 }
+
+.navbar.active {
+    background: #fff;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    padding: .5rem 1rem;
+}
+
+.navbar {
+      transition: all 0.3s;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
 </style>

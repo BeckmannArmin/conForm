@@ -1,6 +1,6 @@
  <template>
   <div class="main-content-wrapper">
-    <section id="hero" class="hero-section">
+    <section id="hero" class="hero-section hero bg-top">
     <div class="hero">
       <div class="container">
         <div class="row">
@@ -77,7 +77,9 @@
 }
 
 .hero-section {
-  background-color: #f2f6fa;
+ // background-color: #f2f6fa;
+  background: url('../../assets/background-banner.png') no-repeat;
+  background-size: 100% 80%;
 }
 
 .dark .main-content-wrapper {
