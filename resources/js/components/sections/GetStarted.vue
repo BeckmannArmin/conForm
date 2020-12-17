@@ -70,11 +70,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section-getStarted {
-  background: white !important;
-}
 
-.dark .section-getStarted {
+.dark  {
   background: #20232a !important;
 
   .title {

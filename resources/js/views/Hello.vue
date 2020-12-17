@@ -22,7 +22,7 @@
       </div>
     </div>
     </section>
-    <section id="cards" class="cards-section">
+    <section id="cards" class="cards-section py-16">
     <div class="cards">
       <div class="cards-container">
         <div class="cards-wrapper">
@@ -93,6 +93,10 @@
 
 .dark .main-content-wrapper {
   background-color: #121212;
+
+  .cards-section {
+     background: #20232a !important;
+  }
 
   .hero-section {
     background: none !important;

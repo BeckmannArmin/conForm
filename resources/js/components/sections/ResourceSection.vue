@@ -209,11 +209,15 @@ img {
 }
 .resources {
   padding: 5rem 0;
-  background-color: #f2f6fa;
+  //background-color: #f2f6fa;
+  background: url('../../../assets/features-background.png') no-repeat;
+  background-size: 40% 100%;
+  background-position: left center ;
 }
 
 .dark .resources {
   background-color: #121212;
+  background: none !important;
   
   .headline-resources {
     .title-msts {
