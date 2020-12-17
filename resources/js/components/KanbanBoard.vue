@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2">
+  <div class="p-2 kanban-container">
     <!-- Columns (Statuses) -->
     <div
       v-for="status in statuses"
@@ -46,6 +46,7 @@
                 v-for="task in status.tasks"
                 :key="task.id"
                 class="mb-3 p-3 h-24 flex flex-col bg-white rounded-md shadow transform hover:shadow-md cursor-pointer task-card"
+                style="height: auto"
               >
                 <span class="block delete-tasks">
                   <button
@@ -141,6 +142,10 @@ export default {
         });
     },
     deleteTask: async function (task) {
+      const statusIndex = this.statuses.findIndex(
+        (status) => status.id === task.status_id
+      );
+
       if (
         !window.confirm(
           `Bist du sicher, dass du den Task ${task.title} löschen willst?`
@@ -152,7 +157,7 @@ export default {
       try {
         await http().delete(`tasks/${task.id}`);
 
-        /** TODO: update the table */
+        this.statuses[statusIndex].tasks.pop(task);
 
         this.flashMessage.success({
           message: "Task erfolgreich gelöscht!",
@@ -177,38 +182,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.task-card {
-  border: 0.5px solid rgba(0, 0, 0, 0.2);
-}
-
-.dark {
-  .p-3 {
-    background-color: #5c55ba;
-  }
-
-  .task-body {
-    background-color: #f3f3f3;
-  }
-
-  .text-sm {
-    color: black;
-  }
-
-  .btn-wrapper {
-    color: white;
-  }
-}
-
-.p-3 {
-  background-color: #6a77c4;
-}
-.p-2 {
+.p-2.kanban-container {
   display: flex;
   justify-content: center;
   height: 100%;
-}
-.status-drag {
-  transition: transform 0.5s;
-  transition-property: all;
+  padding-top: 160px !important;
+
+  .delete-tasks {
+    align-self: flex-end;
+  }
+
+  .task-card {
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .dark {
+    .p-3 {
+      background-color: #5c55ba;
+    }
+
+    .task-body {
+      background-color: #f3f3f3;
+    }
+
+    .text-sm {
+      color: black;
+    }
+
+    .btn-wrapper {
+      color: white;
+    }
+  }
+
+  .p-3 {
+    background-color: #6a77c4;
+  }
+
+  .status-drag {
+    transition: transform 0.5s;
+    transition-property: all;
+  }
 }
 </style>

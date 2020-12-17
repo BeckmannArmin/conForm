@@ -664,7 +664,10 @@ var render = function() {
   return _c("main", [
     _c(
       "div",
-      { staticClass: "container-fluid" },
+      {
+        staticClass: "container-fluid",
+        staticStyle: { "margin-top": "160px !important" }
+      },
       [
         _c("h1", { staticClass: "mt-4" }, [_vm._v("Dashboard")]),
         _vm._v(" "),
