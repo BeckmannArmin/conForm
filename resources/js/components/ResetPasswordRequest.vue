@@ -100,10 +100,26 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 body {
   font-family: 'Poppins', sans-serif;
+}
+
+.dark {
+  .col-md-6 {
+  .signin-text {
+    color: #7a7780;
+  }
+    p {
+      color: #7a7780;
+    }
+  }
+  .form-group {
+    label {
+      color: #7a7780
+    }
+  }
 }
 .content {
   margin: 8%;

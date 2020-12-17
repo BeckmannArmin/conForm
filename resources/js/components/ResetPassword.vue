@@ -1,5 +1,5 @@
  <template>
-  <div class="container" style="margin-top: -80px !important">
+  <div class="container" style="padding-top: 120px !important">
     <div class="row content">
 
       <!-- left side image -->
@@ -10,7 +10,7 @@
       <!-- right side register card -->
       <div class="col-md-6">
          <h3 class="signin-text mb-3">Passwort zurücksetzen</h3>
-          <p style="font-weight:100">Kein Problem. Gib deine E-Mail in das unten stehende Formular ein und wir senden die Anweisungen wie du deine E-Mail zurücksetzen kannst.</p>
+          <p style="font-weight:100">Gib den Verifizierungscode aus deiner E-Mail ein und ändere dein Passwort.</p>
             <form method="POST" action="/forgotpassword">
             
               <div class="form-group">
@@ -146,11 +146,28 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+.dark {
+  .col-md-6 {
+  .signin-text {
+    color: #7a7780;
+  }
+    p {
+      color: #7a7780;
+    }
+  }
+  .form-group {
+    label {
+      color: #7a7780
+    }
+  }
+}
+
 .content {
   margin: 8%;
   background-color: #fff;
