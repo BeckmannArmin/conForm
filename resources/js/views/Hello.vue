@@ -58,8 +58,8 @@
         </div>
       </div>
     </div>
-    </section>
     <GetStarted :mode="mode" />
+    </section>
     <JoinLobbyModal />
     <ResourceSection :mode="mode"/>
     <Footer />
@@ -82,8 +82,21 @@
   background-size: 100% 80%;
 }
 
+.cards-section {
+  background: url('../../assets/feature-background.svg') no-repeat;
+  background-size: cover;
+}
+
+.hero {
+    padding-top: 40px !important; 
+}
+
 .dark .main-content-wrapper {
   background-color: #121212;
+
+  .hero-section {
+    background: none !important;
+  }
 
   .card {
     background-color: #20232a;
