@@ -25,6 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     error: {
@@ -49,7 +50,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".error-container.vertical-center[data-v-d215c3ee] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-flow: column;\n  min-height: 100%;\n  min-height: 100vh;\n}\n.error-container.vertical-center .img-wrapper[data-v-d215c3ee] {\n  display: flex;\n  justify-content: center;\n}\n.error-container.vertical-center .img-wrapper img[data-v-d215c3ee] {\n  max-width: 75%;\n}\n.error-container.vertical-center .content-wrapper[data-v-d215c3ee] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  margin-top: 40px;\n}\n.error-container.vertical-center .content-wrapper .is-bold[data-v-d215c3ee] {\n  font-size: 28px;\n  font-weight: 700;\n  color: #4a4a4a;\n}\n.error-container.vertical-center .content-wrapper button[data-v-d215c3ee] {\n  margin-top: 10px;\n  background-color: #5c55ba;\n  color: #fff;\n}", ""]);
+exports.push([module.i, ".error-container.vertical-center[data-v-d215c3ee] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-flow: column;\n  min-height: 100%;\n  min-height: 100vh;\n}\n.error-container.vertical-center .img-wrapper[data-v-d215c3ee] {\n  display: flex;\n  justify-content: center;\n}\n.error-container.vertical-center .img-wrapper img[data-v-d215c3ee] {\n  max-width: 75%;\n}\n.error-container.vertical-center .content-wrapper[data-v-d215c3ee] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  margin-top: 40px;\n}\n.error-container.vertical-center .content-wrapper .is-bold[data-v-d215c3ee] {\n  font-size: 28px;\n  font-weight: 700;\n  color: #4a4a4a;\n}\n.error-container.vertical-center .content-wrapper button[data-v-d215c3ee] {\n  margin-top: 10px;\n  background-color: #5c55ba;\n  color: #fff;\n}\n.dark .error-container.vertical-center .img-wrapper .img-light[data-v-d215c3ee] {\n  display: none;\n}\n.dark .error-container.vertical-center .img-wrapper .img-dark[data-v-d215c3ee] {\n  display: block !important;\n}\n.dark .error-container.vertical-center .is-bold[data-v-d215c3ee] {\n  color: #EBEDF0;\n}", ""]);
 
 // exports
 
@@ -129,7 +130,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "img-wrapper" }, [
       _c("img", {
+        staticClass: "img-light",
         attrs: { src: __webpack_require__(/*! ../../assets/images/page-not-found.svg */ "./resources/assets/images/page-not-found.svg") }
+      }),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "img-dark",
+        staticStyle: { display: "none" },
+        attrs: { src: __webpack_require__(/*! ../../assets/images/page-not-found_dark.svg */ "./resources/assets/images/page-not-found_dark.svg") }
       })
     ])
   }
@@ -148,6 +156,17 @@ render._withStripped = true
 /***/ (function(module, exports) {
 
 module.exports = "/images/page-not-found.svg?c025a94ca4d0a9e5cff62c75894efa3e";
+
+/***/ }),
+
+/***/ "./resources/assets/images/page-not-found_dark.svg":
+/*!*********************************************************!*\
+  !*** ./resources/assets/images/page-not-found_dark.svg ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/page-not-found_dark.svg?286a4d1f202a2d6d6878fc79e6625109";
 
 /***/ }),
 

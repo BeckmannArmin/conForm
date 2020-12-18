@@ -1,7 +1,8 @@
 <template>
   <div class="error-container vertical-center">
     <div class="img-wrapper">
-      <img src="../../assets/images/page-not-found.svg" />
+      <img class="img-light" src="../../assets/images/page-not-found.svg" />
+      <img class="img-dark" src="../../assets/images/page-not-found_dark.svg" style="display: none" />
     </div>
     <div class="content-wrapper">
       <h1 class="has-text-centered is-bold">
@@ -62,6 +63,22 @@ export default {
       color: #fff;
     }
 
+  }
+}
+
+.dark {
+  .error-container.vertical-center {
+    .img-wrapper {
+      .img-light {
+        display: none;
+      }
+      .img-dark {
+        display: block !important;
+      }
+    }
+    .is-bold {
+      color: #EBEDF0;
+    }
   }
 }
 </style>
