@@ -42,5 +42,20 @@
         "plan": "Plan your process with the task planner",
         "concept": "Create concept papers and collaborate",
         "conceptPaper": "Conceptpaper"
+    },
+    "login": {
+        "signin": "Sign in",
+        "email": "E-Mail Address",
+        "password": "Password",
+        "register": "Register an account",
+        "forgotpw": "Forgot password",
+        "confirm": "Confirm password",
+        "reset": "Reset password",
+        "code": "Enter the verification code from your email and change your password",
+        "vercode": "Verfication code",
+        "enterpw": "Enter password",
+        "confirmpw": "Confirm your password",
+        "resend": "Resend code",
+        "noprob": "No problem. Enter your email in the field below and we will send you instructions to reset your password"
     }
 }

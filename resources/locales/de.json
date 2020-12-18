@@ -26,7 +26,7 @@
     },
     "resources": {
         "browse": "Durchsuche unsere Ressourcen um direkt loslegen zu können",
-        "howto": "Wie man loslegt",
+        "howto": "Wie kann ich loslegen",
         "updates": "In unserem Wiki findest du die neuesten Updates und Probleme",
         "docs": "Dokumentation",
         "checkdocs": "Schau dir unsere Doku an",
@@ -43,5 +43,21 @@
         "plan": "Plant euren Ablauf mit dem Task Planner",
         "concept": "Erstellt Konzeptpapiere und arbeitet zusammen",
         "conceptPaper": "Konzeptpapier"
+    },
+    "login": {
+        "signin": "Anmelden",
+        "email": "E-Mail Addresse",
+        "password": "Passwort",
+        "register": "Registrieren",
+        "forgotpw": "Passwort vergessen",
+        "confirm": "Passwort bestätigen",
+        "reset": "Passwort zurücksetzen",
+        "code": "Gib den Verifizierungscode aus deiner E-Mail ein und ändere dein Passwort",
+        "vercode": "Verfizierungscode",
+        "enterpw": "Passwort eingeben",
+        "confirmpw": "Bestätige dein Passwort",
+        "resend": "Code nachmal senden",
+        "noprob": "Kein Problem. Gib deine E-Mail in das unten stehende Feld ein und wir senden dir Anweisungen um dein Passwort zurückzusetzen"
+
     }
 }

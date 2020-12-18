@@ -12,11 +12,11 @@
 
       <!-- right side login card -->
       <div class="col-md-6">
-        <h3 class="signin-text mb-3">Sign in</h3>
+        <h3 class="signin-text mb-3">{{ $t("login.signin")}}</h3>
 
         <form method="POST" action="/login">
           <div class="form-group">
-            <label for="email">E-Mail Address</label>
+            <label for="email">{{ $t("login.email")}}</label>
             <input
               id="email"
               type="email"
@@ -28,7 +28,7 @@
           </div>
 
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">{{ $t("login.password")}}</label>
             <input
               id="password"
               type="password"
@@ -41,16 +41,16 @@
           <!-- submit button -->
           <div class="form-group">
             <button type="submit" class="btn btn-class" @click="handleSubmit">
-              Login
+              {{ $t("login.signin")}}
             </button>
           </div>
         </form>
         <div class="text-center">
           <router-link to="/register" class="d-block small mt-3"
-            >Register an account</router-link
+            >{{ $t("login.register")}}</router-link
           >
           <router-link to="/reset-password-request" class="d-block small mt-3"
-            >Forgot password?</router-link
+            >{{ $t("login.forgotpw")}}?</router-link
           >
         </div>
       </div>

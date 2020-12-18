@@ -9,12 +9,12 @@
 
       <!-- right side register card -->
       <div class="col-md-6">
-         <h3 class="signin-text mb-3">Passwort vergessen?</h3>
-          <p style="font-weight:100">Kein Problem. Gib deine E-Mail in das unten stehende Feld ein und wir senden dir Anweisungen um dein Passwort zurückzusetzen.</p>
+         <h3 class="signin-text mb-3">{{ $t("login.forgotpw")}}</h3>
+          <p style="font-weight:100">{{ $t("login.noprob")}}.</p>
             <form method="POST" action="/forgotpassword">
             
               <div class="form-group">
-                <label for="email">E-Mail Adresse</label>
+                <label for="email">{{ $t("login.email")}}</label>
                   <input
                     id="email"
                     type="email"
@@ -38,8 +38,8 @@
               </div>
             </form>
             <div class="text-center">
-              <router-link to="/login" class="d-block small mt-3">Login</router-link>
-              <router-link to="/register" class="d-block small mt-3">Register</router-link>
+              <router-link to="/login" class="d-block small mt-3">{{ $t("login.signin")}}</router-link>
+              <router-link to="/register" class="d-block small mt-3">{{ $t("login.register")}}</router-link>
             </div>
       </div>
     </div>

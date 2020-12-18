@@ -42,7 +42,7 @@ Vue.directive('scrollanimation', ScrollAnimation);
 Vue.use(VueI18n);
 
  const i18n = new VueI18n({
-    locale: 'en', // set locale
+    locale: 'de', // set locale
     messages: {
         en,
         de
