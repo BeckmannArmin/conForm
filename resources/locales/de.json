@@ -1,3 +1,13 @@
 {
-    "hello": "hallo"
+    "hello": {
+        "conform_slogan": "Kolloboration war noch nie so einfach",
+        "conform_potential": "conForm entfesselt dein ganzes Potential",
+        "button_start": "Wie kann ich loslegen",
+        "ideas": "Ideen",
+        "ideas_msg": "Sammelt gemeinsam Ideen und arbeitet zusammen",
+        "plan": "Planung",
+        "plan_msg": "Plant euren Ablauf und erstellt Tasks",
+        "colloboration": "Kolloboration",
+        "colloboration_msg": "Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper"
+    }
 }

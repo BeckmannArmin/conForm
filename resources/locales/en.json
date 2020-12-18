@@ -1,3 +1,13 @@
 {
-    "hello": "hello"
+    "hello": {
+        "conform_slogan": "Colloboration has never been so easy",
+        "conform_potential": "conForm unleashes your full potential",
+        "button_start": "How do i get started",
+        "ideas": "Ideas",
+        "ideas_msg": "Collect ideas and work together",
+        "plan": "Planning",
+        "plan_msg": "Plan your process and create tasks",
+        "colloboration": "Colloboration",
+        "colloboration_msg": "Good ideas come from everyone. Work together on your paper"
+    }
 }
