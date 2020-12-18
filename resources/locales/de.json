@@ -1,0 +1,63 @@
+{
+    "hello": {
+        "conform_slogan": "Kolloboration war noch nie so einfach",
+        "conform_potential": "conForm entfesselt dein ganzes Potential",
+        "button_start": "Wie kann ich loslegen",
+        "ideas": "Ideen",
+        "ideas_msg": "Sammelt gemeinsam Ideen und arbeitet zusammen",
+        "plan": "Planung",
+        "plan_msg": "Plant euren Ablauf und erstellt Tasks",
+        "colloboration": "Kolloboration",
+        "colloboration_msg": "Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper"
+    },
+    "joinlobby": {
+        "createPaper": "Erstelle dein erstes Konzeptpapier",
+        "steps": "In nur wenigen Schritten",
+        "btn": "Jetzt erstellen",
+        "join": "Tritt jetzt einer Lobby bei",
+        "waiting": "Deine teamkollegen warten bereits auf dich",
+        "btn_join": "Jetzt beitreten"
+    },
+    "lobbyModal": {
+        "join": "Lobby beitreten",
+        "cancel": "Abbrechen",
+        "submit": "Beitreten",
+        "placeholder": "Gib hier deinen Join Code ein"
+    },
+    "resources": {
+        "browse": "Durchsuche unsere Ressourcen um direkt loslegen zu können",
+        "howto": "Wie kann ich loslegen",
+        "updates": "In unserem Wiki findest du die neuesten Updates und Probleme",
+        "docs": "Dokumentation",
+        "checkdocs": "Schau dir unsere Doku an",
+        "contribute": "Beitragen",
+        "improve": "Hilf uns Fehler zu beheben und neue Features zu integrieren"
+    },
+    "404": {
+        "lost": "Verloren im Weltall",
+        "home": "Zurück nach Hause"
+
+    },
+    "getstarted": {
+        "create": "Was könnt ihr erstellen",
+        "plan": "Plant euren Ablauf mit dem Task Planner",
+        "concept": "Erstellt Konzeptpapiere und arbeitet zusammen",
+        "conceptPaper": "Konzeptpapier"
+    },
+    "login": {
+        "signin": "Anmelden",
+        "email": "E-Mail Addresse",
+        "password": "Passwort",
+        "register": "Registrieren",
+        "forgotpw": "Passwort vergessen",
+        "confirm": "Passwort bestätigen",
+        "reset": "Passwort zurücksetzen",
+        "code": "Gib den Verifizierungscode aus deiner E-Mail ein und ändere dein Passwort",
+        "vercode": "Verfizierungscode",
+        "enterpw": "Passwort eingeben",
+        "confirmpw": "Bestätige dein Passwort",
+        "resend": "Code nachmal senden",
+        "noprob": "Kein Problem. Gib deine E-Mail in das unten stehende Feld ein und wir senden dir Anweisungen um dein Passwort zurückzusetzen"
+
+    }
+}

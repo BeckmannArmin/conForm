@@ -9,7 +9,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Lobby beitreten</h5>
+          <h5 class="modal-title" id="exampleModalLabel"> {{ $t('lobbyModal.join') }}</h5>
           <button
             type="button"
             class="close"
@@ -24,15 +24,15 @@
             v-model="joinCode"
             class="form-control"
             type="text"
-            placeholder="Gib hier deinen Join Code ein"
+            :placeholder="$t('lobbyModal.placeholder')"
           />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Abbrechen
+            {{ $t('lobbyModal.cancel') }}
           </button>
           <button type="button" class="btn btn-primary" @click="joinLobby">
-            Beitreten
+            {{ $t('lobbyModal.submit') }}
           </button>
         </div>
       </div>

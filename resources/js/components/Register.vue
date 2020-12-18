@@ -12,7 +12,7 @@
 
       <!-- right side register card -->
       <div class="col-md-6">
-        <h3 class="signin-text mb-3">Register</h3>
+        <h3 class="signin-text mb-3">{{ $t("login.register")}}</h3>
 
         <form method="POST" action="/register">
           <div class="form-group">
@@ -27,7 +27,7 @@
           </div>
 
           <div class="form-group">
-            <label for="email">E-Mail Address</label>
+            <label for="email">{{ $t("login.email")}}</label>
             <input
               id="email"
               type="email"
@@ -37,7 +37,7 @@
           </div>
 
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">{{ $t("login.password")}}</label>
             <input
               id="password"
               type="password"
@@ -47,7 +47,7 @@
           </div>
 
           <div class="form-group">
-            <label for="password-confirm">Confirm Password</label>
+            <label for="password-confirm">{{ $t("login.confirm")}}</label>
             <input
               id="password-confirm"
               type="password"
@@ -63,14 +63,14 @@
           <!-- register button -->
           <div class="form-group">
             <button type="submit" class="btn btn-class" @click="handleSubmit">
-              Register
+              {{ $t("login.register")}}
             </button>
           </div>
         </form>
       <div class="text-center">
-        <router-link to="/login" class="d-block small mt-3">Login</router-link>
+        <router-link to="/login" class="d-block small mt-3">{{ $t("login.signin")}}</router-link>
         <router-link to="/reset-password-request" class="d-block small mt-3"
-          >Reset password</router-link
+          >{{ $t("login.reset")}}</router-link
         >
       </div>
        </div>

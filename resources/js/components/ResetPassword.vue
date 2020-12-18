@@ -9,12 +9,12 @@
 
       <!-- right side register card -->
       <div class="col-md-6">
-         <h3 class="signin-text mb-3">Passwort zurücksetzen</h3>
-          <p style="font-weight:100">Gib den Verifizierungscode aus deiner E-Mail ein und ändere dein Passwort.</p>
+         <h3 class="signin-text mb-3">{{ $t("login.reset")}}</h3>
+          <p style="font-weight:100">{{ $t("login.code")}}.</p>
             <form method="POST" action="/forgotpassword">
             
               <div class="form-group">
-                <label for="email">E-Mail Address</label>
+                <label for="email">{{ $t("login.email")}}</label>
                   <input
                     id="email"
                     type="email"
@@ -26,7 +26,7 @@
               </div>
 
               <div class="form-group">
-                <label for="verficationCode">Verfizierungscode</label>
+                <label for="verficationCode">{{ $t("login.vercode")}}</label>
                   <input
                     type="number"
                     class="form-control"
@@ -37,7 +37,7 @@
               </div>
 
               <div class="form-group">
-                <label for="password">Passwort eingeben</label>
+                <label for="password">{{ $t("login.forgotpw")}}</label>
                   <input
                     id="password"
                     type="password"
@@ -49,7 +49,7 @@
               </div>
 
               <div class="form-group">
-                <label for="password_confirmation">Bestätige dein Passwort</label>
+                <label for="password_confirmation">{{ $t("login.confirmpw")}}</label>
                   <input
                     id="password_confirm"
                     type="password"
@@ -68,13 +68,13 @@
                     @click="resetPassword"
                     ref="btnSubmit"
                   >
-                    Reset password
+                    {{ $t("login.reset")}}
                   </button>
               </div>
             </form>
             <div class="text-center">
-              <router-link to="/login" class="d-block small mt-3">Login</router-link>
-              <router-link to="/reset-password-request" class="d-block small mt-3">Code nachmal senden</router-link>
+              <router-link to="/login" class="d-block small mt-3">{{ $t("login.signin")}}</router-link>
+              <router-link to="/reset-password-request" class="d-block small mt-3">{{ $t("login.resend")}}</router-link>
             </div>
       </div>
     </div>

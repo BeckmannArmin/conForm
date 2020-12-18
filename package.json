@@ -32,6 +32,7 @@
         "jsonwebtoken": "^8.5.1",
         "jspdf": "^2.2.0",
         "query": "^0.2.0",
+        "vue-i18n": "^8.22.2",
         "vue-router": "^3.4.9",
         "vue-uuid": "^2.0.2",
         "vuedraggable": "^2.24.3",

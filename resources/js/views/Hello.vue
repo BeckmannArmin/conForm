@@ -7,13 +7,13 @@
           <div class="col col--11 col-offset-1">
             <div class="headline-hero">
               <h1 class="hero--title">
-                Kolloboration war noch nie so einfach.
+                {{ $t('hello.conform_slogan') }}
               </h1>
               <div class="hero--lead">
-                conForm entfesselt dein ganzes Potential.
+                 {{ $t('hello.conform_potential') }}
               </div>
             </div>
-            <a href="#resources" class="button hero--button">Wie kann ich loslegen?</a>
+            <a href="#resources" class="button hero--button"> {{ $t('hello.button_start') }}?</a>
           </div>
           <div class="col">
             <img src="../../assets/join-lobby.svg" />
@@ -32,8 +32,8 @@
               <img src="../../assets/idea.svg" />
             </div>
             <div class="cards-body">
-              <span class="item-pink">Ideen</span>
-              <p>Sammelt gemeinsam Ideen und arbeitet zusammen</p>
+              <span class="item-pink">{{ $t('hello.ideas') }}</span>
+              <p>{{ $t('hello.ideas_msg') }}</p>
             </div>
           </div>
           <div v-scrollanimation class="card col row-m">
@@ -41,8 +41,8 @@
               <img src="../../assets/brainstorm.svg" />
             </div>
             <div class="cards-body">
-              <span class="item-orange">Planung</span>
-              <p>Plant euren Ablauf und erstellt Tasks</p>
+              <span class="item-orange">{{ $t('hello.plan') }}</span>
+              <p>{{ $t('hello.plan_msg') }}</p>
             </div>
           </div>
           <div v-scrollanimation class="card col row-r">
@@ -50,9 +50,9 @@
               <img src="../../assets/colloboration.svg" />
             </div>
             <div class="cards-body">
-              <span class="item-green">Kolloboration</span>
+              <span class="item-green">{{ $t('hello.colloboration') }}</span>
               <p>
-                Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper
+                {{ $t('hello.colloboration_msg') }}
               </p>
             </div>
           </div>

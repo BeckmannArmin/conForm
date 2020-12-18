@@ -109,12 +109,12 @@ var render = function() {
       { staticClass: "content-wrapper" },
       [
         _c("h1", { staticClass: "has-text-centered is-bold" }, [
-          _vm._v("\n      Ooops! Lost in space?\n    ")
+          _vm._v("\n      Ooops!  " + _vm._s(_vm.$t("404.lost")) + "?\n    ")
         ]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: "/" } }, [
           _c("button", { staticClass: "btn btn-lg" }, [
-            _vm._v("Get me back home")
+            _vm._v(_vm._s(_vm.$t("404.home")))
           ])
         ])
       ],

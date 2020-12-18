@@ -1,7 +1,7 @@
 <template>
   <div v-scrollanimation  class="demo-container" id="demo">
     <div class="column has-text-centered" id="demo-top">
-      <h1 class="title is-2">Was könnt ihr erstellen?</h1>
+      <h1 class="title is-2">{{ $t("getstarted.create") }}?</h1>
     </div>
     <br />
     <div class="columns">
@@ -41,7 +41,7 @@
       <!-- click here to show the vid´s -->
       <div class="column has-text-centered is-4">
         <div class="box">
-          <p class="subtitle">Plant euren Ablauf mit dem Task Planner</p>
+          <p class="subtitle">{{ $t("getstarted.plan") }}</p>
           <hr />
           <button class="btn btn-block is-blue btn-lg">
             <a target="_blank" rel="noopener" style="color: white !important"
@@ -50,11 +50,11 @@
           </button>
         </div>
         <div class="box">
-          <p class="subtitle">Erstellt Konzeptpapiere und arbeitet zusammen</p>
+          <p class="subtitle">{{ $t("getstarted.concept") }}</p>
           <hr />
           <button class="btn btn-block btn-lg is-yellow">
             <a target="_blank" rel="noopener" style="color: black !important"
-              >Konzeptpapier Creator</a
+              >{{ $t("getstarted.conceptPaper") }} Creator</a
             >
           </button>
         </div>
