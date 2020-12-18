@@ -57,5 +57,8 @@
         "confirmpw": "Confirm your password",
         "resend": "Resend code",
         "noprob": "No problem. Enter your email in the field below and we will send you instructions to reset your password"
+    },
+    "footer": {
+        "chooselang": "Choose language"
     }
 }

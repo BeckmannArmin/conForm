@@ -231,13 +231,13 @@ img {
 
     .card--body {
       p {
-        color: white;
+        color: #EBEDF0;
       }
     }
 
     .card--header {
       h3 {
-        color: white;
+        color: #EBEDF0;
       }
       .card--icon {
         color: #b2beff;
@@ -245,7 +245,7 @@ img {
     }
 
     h2 {
-      color: white;
+      color: #EBEDF0;
     }
   }
 }

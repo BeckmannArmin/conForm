@@ -14,6 +14,7 @@
           <li>
             <a href="#!">{{ $t('resources.howto') }}</a>
           </li>
+          <LocaleSwitcher />
         </ul>
       </div>
     </div>
@@ -29,8 +30,12 @@
 </template>
 
 <script>
+import LocaleSwitcher from "../components/LocaleSwitcher.vue";
 export default {
-  props: ['mode']
+  props: ['mode'],
+  components: {
+    LocaleSwitcher
+  }
 }
 </script>
 
@@ -43,18 +48,18 @@ export default {
   background: #20232a;
 
   .text-uppercase {
-    color: white !important;
+    color: #EBEDF0 !important;
   }
 
   .list-unstyled a {
-    color: white !important;
+    color: #EBEDF0 !important;
   }
 
   .footer-copyright {
-    color: white !important;
+    color: #EBEDF0 !important;
 
     a {
-      color: white !important;
+      color: #EBEDF0 !important;
     }
 
 }

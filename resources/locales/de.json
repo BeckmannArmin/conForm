@@ -59,5 +59,8 @@
         "resend": "Code nachmal senden",
         "noprob": "Kein Problem. Gib deine E-Mail in das unten stehende Feld ein und wir senden dir Anweisungen um dein Passwort zurückzusetzen"
 
+    },
+    "footer": {
+        "chooselang": "Sprache auswählen"
     }
 }
