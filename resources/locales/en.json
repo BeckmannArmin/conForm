@@ -9,5 +9,13 @@
         "plan_msg": "Plan your process and create tasks",
         "colloboration": "Colloboration",
         "colloboration_msg": "Good ideas come from everyone. Work together on your paper"
+    },
+    "joinlobby": {
+        "createPaper": "Create your first concept paper",
+        "steps": "In a few steps",
+        "btn": "Create it now",
+        "join": "Join a lobby now",
+        "waiting": "Your teammates are already waiting for you",
+        "btn_join": "join now"
     }
 }

@@ -3,8 +3,8 @@
     <!-- only for logged in users -->
     <div v-if="isLoggedIn" class="container">
       <div class="inner py-5 px-3 px-md-6 text-center text-white">
-        <h3>Tritt jetzt einer Lobby bei.</h3>
-        <p>Deine teamkollegen warten bereits auf dich.</p>
+        <h3>{{ $t('joinlobby.join') }}.</h3>
+        <p>{{ $t('joinlobby.waiting') }}.</p>
         <p>
           <button
             type="button"
@@ -12,7 +12,7 @@
             data-toggle="modal"
             data-target="#joinLobbyModal"
           >
-            Jetzt beitreten
+            {{ $t('joinlobby.btn_join') }}
           </button>
         </p>
       </div>
@@ -20,8 +20,8 @@
     <!-- guest -->
     <div v-if="!isLoggedIn" class="container">
       <div class="inner py-5 px-3 px-md-6 text-center text-white">
-        <h3>Erstelle dein erstes Konzeptpapier.</h3>
-        <p>In nur wenigen Schritten.</p>
+        <h3>{{ $t('joinlobby.createPaper') }}.</h3>
+        <p>{{ $t('joinlobby.steps') }}.</p>
         <p>
           <button
             type="button"
@@ -29,7 +29,7 @@
             data-toggle="modal"
             data-target="#joinLobbyModal"
           >
-            Jetzt erstellen
+            {{ $t('joinlobby.btn') }}
           </button>
         </p>
       </div>

@@ -9,5 +9,13 @@
         "plan_msg": "Plant euren Ablauf und erstellt Tasks",
         "colloboration": "Kolloboration",
         "colloboration_msg": "Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper"
+    },
+    "joinlobby": {
+        "createPaper": "Erstelle dein erstes Konzeptpapier",
+        "steps": "In nur wenigen Schritten",
+        "btn": "Jetzt erstellen",
+        "join": "Tritt jetzt einer Lobby bei",
+        "waiting": "Deine teamkollegen warten bereits auf dich",
+        "btn_join": "Jetzt beitreten"
     }
 }
