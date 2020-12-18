@@ -7,7 +7,7 @@
           <div class="col col--11 col-offset-1">
             <div class="headline-hero">
               <h1 class="hero--title">
-                Kolloboration war noch nie so einfach.
+                {{  $t("hello") }}
               </h1>
               <div class="hero--lead">
                 conForm entfesselt dein ganzes Potential.

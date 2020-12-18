@@ -3,7 +3,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import * as auth from '../js/services/auth_service';
-import UUID from 'vue-uuid'  
+import UUID from 'vue-uuid';
+import VueI18n from 'vue-i18n';
+import en from '../locales/en.json';
+import de from '../locales/de.json';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
@@ -36,10 +39,21 @@ Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
 Vue.component("kanban-board", require("./components/KanbanBoard.vue").default);
 Vue.directive('scrollanimation', ScrollAnimation);
+Vue.use(VueI18n);
+
+ const i18n = new VueI18n({
+    locale: 'de', // set locale
+    messages: {
+        en,
+        de
+    }
+  })
+
 
 new Vue({
     el: '#app',
     router,
+    i18n,
     store,
     render: h => h(App)
 });
