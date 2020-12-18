@@ -17,5 +17,30 @@
         "join": "Join a lobby now",
         "waiting": "Your teammates are already waiting for you",
         "btn_join": "join now"
+    },
+    "lobbyModal": {
+        "join": "Join lobby",
+        "cancel": "Cancel",
+        "submit": "Enter",
+        "placeholder": "Enter your code here"
+    },
+    "resources": {
+        "browse": "Browse through our resources to see how to get started",
+        "howto": "How to get started",
+        "updates": "Check out our wiki to see the latest issues and updates",
+        "docs": "Documentation",
+        "checkdocs": "Check out our docs",
+        "contribute": "Contribute",
+        "improve": "Help us improve with issueing bugs and feature requests"
+    },
+    "404": {
+        "lost": "Lost in space",
+        "home": "Get me back home"
+    },
+    "getstarted": {
+        "create": "What can you create",
+        "plan": "Plan your process with the task planner",
+        "concept": "Create concept papers and collaborate",
+        "conceptPaper": "Conceptpaper"
     }
 }

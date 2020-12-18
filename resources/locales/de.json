@@ -17,5 +17,31 @@
         "join": "Tritt jetzt einer Lobby bei",
         "waiting": "Deine teamkollegen warten bereits auf dich",
         "btn_join": "Jetzt beitreten"
+    },
+    "lobbyModal": {
+        "join": "Lobby beitreten",
+        "cancel": "Abbrechen",
+        "submit": "Beitreten",
+        "placeholder": "Gib hier deinen Join Code ein"
+    },
+    "resources": {
+        "browse": "Durchsuche unsere Ressourcen um direkt loslegen zu können",
+        "howto": "Wie man loslegt",
+        "updates": "In unserem Wiki findest du die neuesten Updates und Probleme",
+        "docs": "Dokumentation",
+        "checkdocs": "Schau dir unsere Doku an",
+        "contribute": "Beitragen",
+        "improve": "Hilf uns Fehler zu beheben und neue Features zu integrieren"
+    },
+    "404": {
+        "lost": "Verloren im Weltall",
+        "home": "Zurück nach Hause"
+
+    },
+    "getstarted": {
+        "create": "Was könnt ihr erstellen",
+        "plan": "Plant euren Ablauf mit dem Task Planner",
+        "concept": "Erstellt Konzeptpapiere und arbeitet zusammen",
+        "conceptPaper": "Konzeptpapier"
     }
 }

@@ -5,10 +5,10 @@
     </div>
     <div class="content-wrapper">
       <h1 class="has-text-centered is-bold">
-        Ooops! Lost in space?
+        Ooops!  {{ $t('404.lost') }}?
       </h1>
       <router-link to="/">
-        <button class="btn btn-lg">Get me back home</button>
+        <button class="btn btn-lg">{{ $t('404.home') }}</button>
       </router-link>
     </div>
   </div>

@@ -9,10 +9,10 @@
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4" style="color: black">Resources</h5>
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Docs</a>
+            <a href="#!">{{ $t('resources.docs') }}</a>
           </li>
           <li>
-            <a href="#!">How to get started</a>
+            <a href="#!">{{ $t('resources.howto') }}</a>
           </li>
         </ul>
       </div>
