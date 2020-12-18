@@ -10,11 +10,11 @@
       <!-- right side register card -->
       <div class="col-md-6">
          <h3 class="signin-text mb-3">Passwort vergessen?</h3>
-          <p style="font-weight:100">Kein Problem. Gib deine E-Mail in das unten stehende Formular ein und wir senden die Anweisungen wie du deine E-Mail zurücksetzen kannst.</p>
+          <p style="font-weight:100">Kein Problem. Gib deine E-Mail in das unten stehende Feld ein und wir senden dir Anweisungen um dein Passwort zurückzusetzen.</p>
             <form method="POST" action="/forgotpassword">
             
               <div class="form-group">
-                <label for="email">E-Mail Address</label>
+                <label for="email">E-Mail Adresse</label>
                   <input
                     id="email"
                     type="email"
