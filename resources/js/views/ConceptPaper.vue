@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container-fluid" style="margin-top: 160px !important">
     <PageLoader :loaded="isLoading" />
-    <h1 class="mt-4">Konzeptpapier: {{ conceptPaper.name }}</h1>
+    <h1 class="mt-4"></h1>
     <ol class="breadcrumb mb-4">
       <li class="breadcrumb-item">
         <router-link to="/">conForm</router-link>
@@ -11,160 +11,166 @@
           >Konzeptpapier Creator</router-link
         >
       </li>
-      <li class="breadcrumb-item active">Konzeptpapiere</li>
+      <li class="breadcrumb-item active">{{ $t("conceptPaper.conceptPaper")}}</li>
     </ol>
-
-    <div class="card mb-4">
-      <div class="card-header d-flex">
-        <button
-          class="btn btn-info text-white copy-btn ml-auto"
-          @click.stop.prevent="copyTestingCode"
-        >
-          Lade dein Team ein
-        </button>
-        <input
-          type="hidden"
-          id="testing-code"
-          :value="conceptPaper.joinCodeDB"
-        />
-      </div>
-      <div class="card-body">
-        <div>
-          <div class="form-group">
-            <table class="table">
-              <td>
-                <label for="name">Projektname eingeben</label>
-                <input
-                  type="text"
-                  v-model="editConceptPaperData.name"
-                  class="form-control"
-                  id="name"
-                  placeholder="Name"
+    <div class="container">
+       <!-- active users -->
+    <ActiveUsers />
+    <h1 class="mt-4">{{ $t("conceptPaper.conceptPaper")}}: {{ conceptPaper.name }}</h1>
+      <div class="card mb-4">
+        <div class="card-header d-flex">
+          <button
+            class="btn btn-info text-white copy-btn ml-auto"
+            @click.stop.prevent="copyTestingCode"
+          >
+            {{ $t("conceptPaper.inviteTeam")}}
+          </button>
+          <input
+            type="hidden"
+            id="testing-code"
+            :value="conceptPaper.joinCodeDB"
+          />
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="form-group">
+              <table class="table">
+                <td>
+                  <label for="name">{{ $t("conceptPaper.projectName")}}</label>
+                  <input
+                    type="text"
+                    v-model="editConceptPaperData.name"
+                    class="form-control"
+                    id="name"
+                    :placeholder="$t('conceptPaper.placeholders.name')"
+                  />
+                  <div class="invalid-feedback" v-if="errors.name">
+                    {{ errors.name[0] }}
+                  </div>
+                </td>
+                <td>
+                  <label for="course">{{ $t("conceptPaper.courseName")}}</label>
+                  <input
+                    type="text"
+                    v-model="editConceptPaperData.course"
+                    class="form-control"
+                    id="course"
+                    :placeholder="$t('conceptPaper.placeholders.course')"
+                  />
+                  <div class="invalid-feedback" v-if="errors.course">
+                    {{ errors.course[0] }}
+                  </div>
+                </td>
+                <td>
+                  <label for="currentSemester"
+                    >{{ $t("conceptPaper.semester")}}</label
+                  >
+                  <input
+                    type="text"
+                    v-model="editConceptPaperData.currentSemester"
+                    class="form-control"
+                    id="currentSemester"
+                    :placeholder="$t('conceptPaper.placeholders.semester')"
+                  />
+                  <div class="invalid-feedback" v-if="errors.currentSemester">
+                    {{ errors.currentSemester[0] }}
+                  </div>
+                </td>
+              </table>
+            </div>
+            <div class="form-group">
+              <label for="image">{{ $t("conceptPaper.logo")}}</label>
+              <div>
+                <img
+                  :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
+                  class="image-wd"
+                  ref="editConceptPaperImageDisplay"
                 />
-                <div class="invalid-feedback" v-if="errors.name">
-                  {{ errors.name[0] }}
-                </div>
-              </td>
-              <td>
-                <label for="course">Kurs eingeben</label>
-                <input
-                  type="text"
-                  v-model="editConceptPaperData.course"
-                  class="form-control"
-                  id="course"
-                  placeholder="Kurs"
-                />
-                <div class="invalid-feedback" v-if="errors.course">
-                  {{ errors.course[0] }}
-                </div>
-              </td>
-              <td>
-                <label for="currentSemester">Aktuelles Semester eingeben</label>
-                <input
-                  type="text"
-                  v-model="editConceptPaperData.currentSemester"
-                  class="form-control"
-                  id="currentSemester"
-                  placeholder="Bsp.: WS20/21"
-                />
-                <div class="invalid-feedback" v-if="errors.currentSemester">
-                  {{ errors.currentSemester[0] }}
-                </div>
-              </td>
-            </table>
-          </div>
-          <div class="form-group">
-            <label for="image">Logo</label>
-            <div>
-              <img
-                :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
-                class="image-wd"
-                ref="editConceptPaperImageDisplay"
+              </div>
+              <input
+                type="file"
+                v-on:change="editAttachedImage"
+                ref="editConceptPaperImage"
+                class="form-control"
+                id="image"
               />
+              <div class="invalid-feedback" v-if="errors.image">
+                {{ errors.image[0] }}
+              </div>
             </div>
-            <input
-              type="file"
-              v-on:change="editAttachedImage"
-              ref="editConceptPaperImage"
-              class="form-control"
-              id="image"
-            />
-            <div class="invalid-feedback" v-if="errors.image">
-              {{ errors.image[0] }}
+            <div class="form-group">
+              <label for="idea">{{ $t("conceptPaper.idea")}}</label>
+              <textarea
+                v-model="editConceptPaperData.idea"
+                class="form-control"
+                id="idea"
+                :placeholder="$t('conceptPaper.placeholders.idea')"
+                rows="6"
+              />
+              <div class="invalid-feedback" v-if="errors.idea">
+                {{ errors.idea[0] }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="idea">Grundidee</label>
-            <textarea
-              v-model="editConceptPaperData.idea"
-              class="form-control"
-              id="idea"
-              placeholder="Grundidee in ganzen Sätzen beschreiben."
-              rows="6"
-            />
-            <div class="invalid-feedback" v-if="errors.idea">
-              {{ errors.idea[0] }}
+            <div class="form-group">
+              <label for="basics">{{ $t("conceptPaper.mustHave")}}</label>
+              <textarea
+                v-model="editConceptPaperData.basics"
+                class="form-control"
+                id="basics"
+                :placeholder="$t('conceptPaper.placeholders.basics')"
+                rows="8"
+              />
+              <div class="invalid-feedback" v-if="errors.basics">
+                {{ errors.basics[0] }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="basics">Grundfunktionalitäten (Must-Have)</label>
-            <textarea
-              v-model="editConceptPaperData.basics"
-              class="form-control"
-              id="basics"
-              placeholder="Grundfunktionalitäten in Stichpunkten beschreiben."
-              rows="8"
-            />
-            <div class="invalid-feedback" v-if="errors.basics">
-              {{ errors.basics[0] }}
+            <div class="form-group">
+              <label for="niceToHave">{{ $t("conceptPaper.niceToHave")}}</label>
+              <textarea
+                v-model="editConceptPaperData.niceToHave"
+                class="form-control"
+                id="niceToHave"
+                :placeholder="$t('conceptPaper.placeholders.niceToHave')"
+                rows="8"
+              />
+              <div class="invalid-feedback" v-if="errors.niceToHave">
+                {{ errors.niceToHave[0] }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="niceToHave">Nice-To-Have Features</label>
-            <textarea
-              v-model="editConceptPaperData.niceToHave"
-              class="form-control"
-              id="niceToHave"
-              placeholder="Nice-To-Have Features in Stichpunkten beschreiben."
-              rows="8"
-            />
-            <div class="invalid-feedback" v-if="errors.niceToHave">
-              {{ errors.niceToHave[0] }}
+            <div class="form-group">
+              <label for="technologies">{{ $t("conceptPaper.technologies")}}</label>
+              <textarea
+                v-model="editConceptPaperData.technologies"
+                class="form-control"
+                id="technologies"
+                :placeholder="$t('conceptPaper.placeholders.tech')"
+                rows="5"
+              />
+              <div class="invalid-feedback" v-if="errors.technologies">
+                {{ errors.technologies[0] }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="technologies">Technologien</label>
-            <textarea
-              v-model="editConceptPaperData.technologies"
-              class="form-control"
-              id="technologies"
-              placeholder="Technologien in Stichpunkten beschreiben."
-              rows="5"
-            />
-            <div class="invalid-feedback" v-if="errors.technologies">
-              {{ errors.technologies[0] }}
+            <div class="form-group">
+              <label for="team">{{ $t("conceptPaper.team")}}</label>
+              <textarea
+                v-model="editConceptPaperData.team"
+                class="form-control"
+                id="team"
+                :placeholder="$t('conceptPaper.placeholders.team')"
+                rows="5"
+              />
+              <div class="invalid-feedback" v-if="errors.team">
+                {{ errors.team[0] }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="team">Team</label>
-            <textarea
-              v-model="editConceptPaperData.team"
-              class="form-control"
-              id="team"
-              placeholder="Max Mustermann (matr_Nr)"
-              rows="5"
-            />
-            <div class="invalid-feedback" v-if="errors.team">
-              {{ errors.team[0] }}
+            <div class="text-right">
+              <button class="button" @click="exportAsDOCX">{{ $t("conceptPaper.exportDocx")}}</button>
+              <button type="button" class="btn btn-default">{{ $t("conceptPaper.cancel")}}</button>
+              <button class="btn btn-primary" @click="updateConceptPaper">
+                <span class="fa fa-check"></span>
+                {{ $t("conceptPaper.update")}}
+              </button>
             </div>
-          </div>
-          <div class="text-right">
-            <button class="button" @click="exportAsDOCX">Export DOCX</button>
-            <button type="button" class="btn btn-default">Cancel</button>
-            <button class="btn btn-primary" @click="updateConceptPaper">
-              <span class="fa fa-check"></span>
-              Update
-            </button>
           </div>
         </div>
       </div>
@@ -179,11 +185,10 @@ import PageLoader from "../components/PageLoader/PageLoader.vue";
 import * as conceptPaperService from "../services/conceptPaper_service";
 import { uuid } from "vue-uuid";
 import { http } from "../services/http_service";
-
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
-
 import { DocumentCreator } from "../services/conceptPaperGenerator_service";
+import ActiveUsers from "../components/PusherExample.vue";
 
 export default {
   data() {
@@ -209,6 +214,7 @@ export default {
   },
   components: {
     PageLoader,
+    ActiveUsers,
   },
   mounted() {
     this.loadConceptPaper();
@@ -328,7 +334,16 @@ export default {
     },
     exportAsDOCX: function () {
       const documentCreator = new DocumentCreator();
-      const {name, course, currentSemester, idea, basics, niceToHave, technologies, team} = this.editConceptPaperData
+      const {
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      } = this.editConceptPaperData;
       const document = documentCreator.create([
         name,
         course,
@@ -337,12 +352,15 @@ export default {
         basics,
         niceToHave,
         technologies,
-        team
-        ]);
+        team,
+      ]);
 
       Packer.toBlob(document).then((blob) => {
         console.log(blob);
-        saveAs(blob, "Konzeptpapier_" + this.editConceptPaperData.name +  ".docx");
+        saveAs(
+          blob,
+          "Konzeptpapier_" + this.editConceptPaperData.name + ".docx"
+        );
         console.log("Document created successfully");
       });
     },

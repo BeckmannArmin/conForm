@@ -62,5 +62,33 @@
     },
     "footer": {
         "chooselang": "Sprache auswählen"
+    },
+    "conceptPaper": {
+        "conceptPaper": "Konzeptpapier",
+        "inviteTeam": "Lade dein Team ein",
+        "projectName": "Projektname eingeben",
+        "courseName": "Kursnamen eingaben",
+        "semester": "Aktuelles Semester eingeben",
+        "logo": "Logo",
+        "idea": "Grundidee",
+        "mustHave": "Grundfunktionalitäten (Must-Have)",
+        "niceToHave": "Nice-To-Have Features",
+        "team": "Team",
+        "exportDocx": "Als DOCX exportieren",
+        "cancel": "Abbrechen",
+        "update": "Aktualisieren",
+        "pdfExport": "Als PDF exportieren",
+        "jsonExport": "Als JSON exportiere",
+        "technologies": "Technologien",
+        "placeholders": {
+            "name": "Name",
+            "course": "Kurs",
+            "semester": "Beispiel: WS20/21",
+            "idea": "Grundidee in ganzen Sätzen beschreiben.",
+            "basics": "Grundfunktionalitäten in Stichpunkten beschreiben.",
+            "niceToHave": "Nice-To-Have Features in Stichpunkten beschreiben.",
+            "tech": "Technologien in Stichpunkten beschreiben.",
+            "team": "Max Mustermann (matr_Nr)"
+        }
     }
 }

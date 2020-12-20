@@ -26,16 +26,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      users: null
+      users: null,
+      showUsers: false
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    Echo.join('users').here(function (users) {
+    Echo.join("users").here(function (users) {
       _this.users = users;
       console.log(users);
     }).joining(function (user) {
@@ -47,6 +52,9 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.users.splice(_this.users.indexOf(user), 1);
     });
+  },
+  methods: {
+    showActiveUsersList: function showActiveUsersList() {}
   }
 });
 
@@ -71,18 +79,35 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Example Comp")]),
+          _c("div", { staticClass: "card-header" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    _vm.showUsers = !_vm.showUsers
+                  }
+                }
+              },
+              [_c("i", { staticClass: "fas fa-users" })]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            _vm._l(_vm.users, function(user) {
-              return _c("li", { key: user.id }, [
-                _vm._v("\n            " + _vm._s(user.name) + "\n          ")
-              ])
-            }),
-            0
-          )
+          _vm.showUsers
+            ? _c(
+                "div",
+                { staticClass: "card-body" },
+                _vm._l(_vm.users, function(user) {
+                  return _c("li", { key: user.id }, [
+                    _vm._v(
+                      "\n            " + _vm._s(user.name) + "\n          "
+                    )
+                  ])
+                }),
+                0
+              )
+            : _vm._e()
         ])
       ])
     ])

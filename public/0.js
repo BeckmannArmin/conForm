@@ -26,6 +26,66 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PusherExample.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PusherExample.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      users: null,
+      showUsers: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    Echo.join("users").here(function (users) {
+      _this.users = users;
+      console.log(users);
+    }).joining(function (user) {
+      console.log(user.name);
+
+      _this.users.push(user);
+    }).leaving(function (user) {
+      console.log(user.name);
+
+      _this.users.splice(_this.users.indexOf(user), 1);
+    });
+  },
+  methods: {
+    showActiveUsersList: function showActiveUsersList() {}
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaper.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ConceptPaper.vue?vue&type=script&lang=js& ***!
@@ -48,6 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _services_conceptPaperGenerator_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/conceptPaperGenerator_service */ "./resources/js/services/conceptPaperGenerator_service.js");
+/* harmony import */ var _components_PusherExample_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/PusherExample.vue */ "./resources/js/components/PusherExample.vue");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -235,6 +296,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -266,7 +334,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   components: {
-    PageLoader: _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    PageLoader: _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ActiveUsers: _components_PusherExample_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   mounted: function mounted() {
     this.loadConceptPaper();
@@ -583,6 +652,66 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PusherExample.vue?vue&type=template&id=2e8d1f70&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PusherExample.vue?vue&type=template&id=2e8d1f70& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    _vm.showUsers = !_vm.showUsers
+                  }
+                }
+              },
+              [_c("i", { staticClass: "fas fa-users" })]
+            )
+          ]),
+          _vm._v(" "),
+          _vm.showUsers
+            ? _c(
+                "div",
+                { staticClass: "card-body" },
+                _vm._l(_vm.users, function(user) {
+                  return _c("li", { key: user.id }, [
+                    _vm._v(
+                      "\n            " + _vm._s(user.name) + "\n          "
+                    )
+                  ])
+                }),
+                0
+              )
+            : _vm._e()
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaper.vue?vue&type=template&id=22c7a2ba&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ConceptPaper.vue?vue&type=template&id=22c7a2ba&scoped=true& ***!
@@ -600,13 +729,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
+    {
+      staticClass: "container-fluid",
+      staticStyle: { "margin-top": "160px !important" }
+    },
     [
       _c("PageLoader", { attrs: { loaded: _vm.isLoading } }),
       _vm._v(" "),
-      _c("h1", { staticClass: "mt-4" }, [
-        _vm._v("Konzeptpapier: " + _vm._s(_vm.conceptPaper.name))
-      ]),
+      _c("h1", { staticClass: "mt-4" }),
       _vm._v(" "),
       _c("ol", { staticClass: "breadcrumb mb-4" }, [
         _c(
@@ -628,144 +758,260 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("li", { staticClass: "breadcrumb-item active" }, [
-          _vm._v("Konzeptpapiere")
+          _vm._v(_vm._s(_vm.$t("conceptPaper.conceptPaper")))
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card mb-4" }, [
-        _c("div", { staticClass: "card-header d-flex" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-info text-white copy-btn ml-auto",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  $event.preventDefault()
-                  return _vm.copyTestingCode($event)
-                }
-              }
-            },
-            [_vm._v("\n        Lade dein Team ein\n      ")]
-          ),
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("ActiveUsers"),
           _vm._v(" "),
-          _c("input", {
-            attrs: { type: "hidden", id: "testing-code" },
-            domProps: { value: _vm.conceptPaper.joinCodeDB }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", [
-            _c("div", { staticClass: "form-group" }, [
-              _c("table", { staticClass: "table" }, [
-                _c("td", [
-                  _c("label", { attrs: { for: "name" } }, [
-                    _vm._v("Projektname eingeben")
+          _c("h1", { staticClass: "mt-4" }, [
+            _vm._v(
+              _vm._s(_vm.$t("conceptPaper.conceptPaper")) +
+                ": " +
+                _vm._s(_vm.conceptPaper.name)
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card mb-4" }, [
+            _c("div", { staticClass: "card-header d-flex" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-info text-white copy-btn ml-auto",
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      $event.preventDefault()
+                      return _vm.copyTestingCode($event)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n          " +
+                      _vm._s(_vm.$t("conceptPaper.inviteTeam")) +
+                      "\n        "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", id: "testing-code" },
+                domProps: { value: _vm.conceptPaper.joinCodeDB }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("table", { staticClass: "table" }, [
+                    _c("td", [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v(_vm._s(_vm.$t("conceptPaper.projectName")))
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editConceptPaperData.name,
+                            expression: "editConceptPaperData.name"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "name",
+                          placeholder: _vm.$t("conceptPaper.placeholders.name")
+                        },
+                        domProps: { value: _vm.editConceptPaperData.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editConceptPaperData,
+                              "name",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.errors.name
+                        ? _c("div", { staticClass: "invalid-feedback" }, [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.errors.name[0]) +
+                                "\n                "
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { attrs: { for: "course" } }, [
+                        _vm._v(_vm._s(_vm.$t("conceptPaper.courseName")))
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editConceptPaperData.course,
+                            expression: "editConceptPaperData.course"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "course",
+                          placeholder: _vm.$t(
+                            "conceptPaper.placeholders.course"
+                          )
+                        },
+                        domProps: { value: _vm.editConceptPaperData.course },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editConceptPaperData,
+                              "course",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.errors.course
+                        ? _c("div", { staticClass: "invalid-feedback" }, [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.errors.course[0]) +
+                                "\n                "
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { attrs: { for: "currentSemester" } }, [
+                        _vm._v(_vm._s(_vm.$t("conceptPaper.semester")))
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editConceptPaperData.currentSemester,
+                            expression: "editConceptPaperData.currentSemester"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "currentSemester",
+                          placeholder: _vm.$t(
+                            "conceptPaper.placeholders.semester"
+                          )
+                        },
+                        domProps: {
+                          value: _vm.editConceptPaperData.currentSemester
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editConceptPaperData,
+                              "currentSemester",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.errors.currentSemester
+                        ? _c("div", { staticClass: "invalid-feedback" }, [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.errors.currentSemester[0]) +
+                                "\n                "
+                            )
+                          ])
+                        : _vm._e()
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "image" } }, [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.logo")))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("img", {
+                      ref: "editConceptPaperImageDisplay",
+                      staticClass: "image-wd",
+                      attrs: {
+                        src:
+                          _vm.$store.state.serverPath +
+                          "/storage/" +
+                          _vm.editConceptPaperData.image
+                      }
+                    })
                   ]),
                   _vm._v(" "),
                   _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.editConceptPaperData.name,
-                        expression: "editConceptPaperData.name"
-                      }
-                    ],
+                    ref: "editConceptPaperImage",
                     staticClass: "form-control",
-                    attrs: { type: "text", id: "name", placeholder: "Name" },
-                    domProps: { value: _vm.editConceptPaperData.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.editConceptPaperData,
-                          "name",
-                          $event.target.value
-                        )
-                      }
-                    }
+                    attrs: { type: "file", id: "image" },
+                    on: { change: _vm.editAttachedImage }
                   }),
                   _vm._v(" "),
-                  _vm.errors.name
+                  _vm.errors.image
                     ? _c("div", { staticClass: "invalid-feedback" }, [
                         _vm._v(
-                          "\n                " +
-                            _vm._s(_vm.errors.name[0]) +
-                            "\n              "
+                          "\n              " +
+                            _vm._s(_vm.errors.image[0]) +
+                            "\n            "
                         )
                       ])
                     : _vm._e()
                 ]),
                 _vm._v(" "),
-                _c("td", [
-                  _c("label", { attrs: { for: "course" } }, [
-                    _vm._v("Kurs eingeben")
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "idea" } }, [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.idea")))
                   ]),
                   _vm._v(" "),
-                  _c("input", {
+                  _c("textarea", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.editConceptPaperData.course,
-                        expression: "editConceptPaperData.course"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", id: "course", placeholder: "Kurs" },
-                    domProps: { value: _vm.editConceptPaperData.course },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.editConceptPaperData,
-                          "course",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.errors.course
-                    ? _c("div", { staticClass: "invalid-feedback" }, [
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(_vm.errors.course[0]) +
-                            "\n              "
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("label", { attrs: { for: "currentSemester" } }, [
-                    _vm._v("Aktuelles Semester eingeben")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.editConceptPaperData.currentSemester,
-                        expression: "editConceptPaperData.currentSemester"
+                        value: _vm.editConceptPaperData.idea,
+                        expression: "editConceptPaperData.idea"
                       }
                     ],
                     staticClass: "form-control",
                     attrs: {
-                      type: "text",
-                      id: "currentSemester",
-                      placeholder: "Bsp.: WS20/21"
+                      id: "idea",
+                      placeholder: _vm.$t("conceptPaper.placeholders.idea"),
+                      rows: "6"
                     },
-                    domProps: {
-                      value: _vm.editConceptPaperData.currentSemester
-                    },
+                    domProps: { value: _vm.editConceptPaperData.idea },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
@@ -773,316 +1019,248 @@ var render = function() {
                         }
                         _vm.$set(
                           _vm.editConceptPaperData,
-                          "currentSemester",
+                          "idea",
                           $event.target.value
                         )
                       }
                     }
                   }),
                   _vm._v(" "),
-                  _vm.errors.currentSemester
+                  _vm.errors.idea
                     ? _c("div", { staticClass: "invalid-feedback" }, [
                         _vm._v(
-                          "\n                " +
-                            _vm._s(_vm.errors.currentSemester[0]) +
-                            "\n              "
+                          "\n              " +
+                            _vm._s(_vm.errors.idea[0]) +
+                            "\n            "
                         )
                       ])
                     : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "basics" } }, [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.mustHave")))
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editConceptPaperData.basics,
+                        expression: "editConceptPaperData.basics"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "basics",
+                      placeholder: _vm.$t("conceptPaper.placeholders.basics"),
+                      rows: "8"
+                    },
+                    domProps: { value: _vm.editConceptPaperData.basics },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.editConceptPaperData,
+                          "basics",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.basics
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.errors.basics[0]) +
+                            "\n            "
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "niceToHave" } }, [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.niceToHave")))
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editConceptPaperData.niceToHave,
+                        expression: "editConceptPaperData.niceToHave"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "niceToHave",
+                      placeholder: _vm.$t(
+                        "conceptPaper.placeholders.niceToHave"
+                      ),
+                      rows: "8"
+                    },
+                    domProps: { value: _vm.editConceptPaperData.niceToHave },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.editConceptPaperData,
+                          "niceToHave",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.niceToHave
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.errors.niceToHave[0]) +
+                            "\n            "
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "technologies" } }, [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.technologies")))
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editConceptPaperData.technologies,
+                        expression: "editConceptPaperData.technologies"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "technologies",
+                      placeholder: _vm.$t("conceptPaper.placeholders.tech"),
+                      rows: "5"
+                    },
+                    domProps: { value: _vm.editConceptPaperData.technologies },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.editConceptPaperData,
+                          "technologies",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.technologies
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.errors.technologies[0]) +
+                            "\n            "
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "team" } }, [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.team")))
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editConceptPaperData.team,
+                        expression: "editConceptPaperData.team"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "team",
+                      placeholder: _vm.$t("conceptPaper.placeholders.team"),
+                      rows: "5"
+                    },
+                    domProps: { value: _vm.editConceptPaperData.team },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.editConceptPaperData,
+                          "team",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.team
+                    ? _c("div", { staticClass: "invalid-feedback" }, [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.errors.team[0]) +
+                            "\n            "
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    { staticClass: "button", on: { click: _vm.exportAsDOCX } },
+                    [_vm._v(_vm._s(_vm.$t("conceptPaper.exportDocx")))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-default",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v(_vm._s(_vm.$t("conceptPaper.cancel")))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.updateConceptPaper }
+                    },
+                    [
+                      _c("span", { staticClass: "fa fa-check" }),
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.$t("conceptPaper.update")) +
+                          "\n            "
+                      )
+                    ]
+                  )
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "image" } }, [_vm._v("Logo")]),
-              _vm._v(" "),
-              _c("div", [
-                _c("img", {
-                  ref: "editConceptPaperImageDisplay",
-                  staticClass: "image-wd",
-                  attrs: {
-                    src:
-                      _vm.$store.state.serverPath +
-                      "/storage/" +
-                      _vm.editConceptPaperData.image
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                ref: "editConceptPaperImage",
-                staticClass: "form-control",
-                attrs: { type: "file", id: "image" },
-                on: { change: _vm.editAttachedImage }
-              }),
-              _vm._v(" "),
-              _vm.errors.image
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.errors.image[0]) +
-                        "\n          "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "idea" } }, [_vm._v("Grundidee")]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.editConceptPaperData.idea,
-                    expression: "editConceptPaperData.idea"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "idea",
-                  placeholder: "Grundidee in ganzen Sätzen beschreiben.",
-                  rows: "6"
-                },
-                domProps: { value: _vm.editConceptPaperData.idea },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.editConceptPaperData,
-                      "idea",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.errors.idea
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.errors.idea[0]) +
-                        "\n          "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "basics" } }, [
-                _vm._v("Grundfunktionalitäten (Must-Have)")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.editConceptPaperData.basics,
-                    expression: "editConceptPaperData.basics"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "basics",
-                  placeholder:
-                    "Grundfunktionalitäten in Stichpunkten beschreiben.",
-                  rows: "8"
-                },
-                domProps: { value: _vm.editConceptPaperData.basics },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.editConceptPaperData,
-                      "basics",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.errors.basics
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.errors.basics[0]) +
-                        "\n          "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "niceToHave" } }, [
-                _vm._v("Nice-To-Have Features")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.editConceptPaperData.niceToHave,
-                    expression: "editConceptPaperData.niceToHave"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "niceToHave",
-                  placeholder:
-                    "Nice-To-Have Features in Stichpunkten beschreiben.",
-                  rows: "8"
-                },
-                domProps: { value: _vm.editConceptPaperData.niceToHave },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.editConceptPaperData,
-                      "niceToHave",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.errors.niceToHave
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.errors.niceToHave[0]) +
-                        "\n          "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "technologies" } }, [
-                _vm._v("Technologien")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.editConceptPaperData.technologies,
-                    expression: "editConceptPaperData.technologies"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "technologies",
-                  placeholder: "Technologien in Stichpunkten beschreiben.",
-                  rows: "5"
-                },
-                domProps: { value: _vm.editConceptPaperData.technologies },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.editConceptPaperData,
-                      "technologies",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.errors.technologies
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.errors.technologies[0]) +
-                        "\n          "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "team" } }, [_vm._v("Team")]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.editConceptPaperData.team,
-                    expression: "editConceptPaperData.team"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "team",
-                  placeholder: "Max Mustermann (matr_Nr)",
-                  rows: "5"
-                },
-                domProps: { value: _vm.editConceptPaperData.team },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.editConceptPaperData,
-                      "team",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.errors.team
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.errors.team[0]) +
-                        "\n          "
-                    )
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-right" }, [
-              _c(
-                "button",
-                { staticClass: "button", on: { click: _vm.exportAsDOCX } },
-                [_vm._v("Export DOCX")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-default", attrs: { type: "button" } },
-                [_vm._v("Cancel")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  on: { click: _vm.updateConceptPaper }
-                },
-                [
-                  _c("span", { staticClass: "fa fa-check" }),
-                  _vm._v("\n            Update\n          ")
-                ]
-              )
             ])
           ])
-        ])
-      ])
+        ],
+        1
+      )
     ],
     1
   )
@@ -1176,6 +1354,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageLoader_vue_vue_type_template_id_4caf7118_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageLoader_vue_vue_type_template_id_4caf7118_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PusherExample.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/PusherExample.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PusherExample_vue_vue_type_template_id_2e8d1f70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PusherExample.vue?vue&type=template&id=2e8d1f70& */ "./resources/js/components/PusherExample.vue?vue&type=template&id=2e8d1f70&");
+/* harmony import */ var _PusherExample_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PusherExample.vue?vue&type=script&lang=js& */ "./resources/js/components/PusherExample.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PusherExample_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PusherExample_vue_vue_type_template_id_2e8d1f70___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PusherExample_vue_vue_type_template_id_2e8d1f70___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PusherExample.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PusherExample.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/PusherExample.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PusherExample_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PusherExample.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PusherExample.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PusherExample_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PusherExample.vue?vue&type=template&id=2e8d1f70&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/PusherExample.vue?vue&type=template&id=2e8d1f70& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PusherExample_vue_vue_type_template_id_2e8d1f70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PusherExample.vue?vue&type=template&id=2e8d1f70& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PusherExample.vue?vue&type=template&id=2e8d1f70&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PusherExample_vue_vue_type_template_id_2e8d1f70___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PusherExample_vue_vue_type_template_id_2e8d1f70___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
