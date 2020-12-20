@@ -183,7 +183,7 @@ import { http } from "../services/http_service";
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
 
-import { DocumentCreator } from "../../ts/conceptPaperGenerator";
+import { DocumentCreator } from "../services/conceptPaperGenerator_service";
 
 export default {
   data() {
