@@ -729,7 +729,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("td", [
-                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.semeser")))
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.semester")))
                   ]),
                   _vm._v(" "),
                   _c("td", [

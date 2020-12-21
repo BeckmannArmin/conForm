@@ -32,7 +32,7 @@
                 <td>#id</td>
                 <td> {{ $t('conceptPaper.placeholders.name') }}</td>
                 <td>{{ $t('conceptPaper.placeholders.course') }}</td>
-                <td>{{ $t('conceptPaper.placeholders.semeser') }}</td>
+                <td>{{ $t('conceptPaper.placeholders.semester') }}</td>
                 <td>{{ $t('conceptPaper.placeholders.image') }}</td>
                 <td>{{ $t('conceptPaper.placeholders.actions') }}</td>
               </tr>
