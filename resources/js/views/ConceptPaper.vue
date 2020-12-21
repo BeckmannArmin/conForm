@@ -11,19 +11,47 @@
           >Konzeptpapier Creator</router-link
         >
       </li>
-      <li class="breadcrumb-item active">{{ $t("conceptPaper.conceptPaper")}}</li>
+      <li class="breadcrumb-item active">
+        {{ $t("conceptPaper.conceptPaper") }}
+      </li>
     </ol>
+    <div class="right-sidebar-mini" :class="{ rightSidebar: rightToggled }">
+      <div class="right-sidebar-panel p-0">
+        <div class="iq-card shadow-none">
+          <div class="iq-card-body p-0">
+            <!-- users -->
+            <div class="media-height p-3">
+              <ActiveUsers />
+            </div>
+            <!-- the toggle -->
+            <div class="right-sidebar-toggle bg-primary mt-3">
+              <i
+                class="fas fa-chevron-left"
+                v-if="leftToggled"
+                @click="toggleLeft"
+              ></i>
+              <i
+                class="fas fa-chevron-right"
+                v-if="rightToggled"
+                @click="toggleRight"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
-       <!-- active users -->
-    <ActiveUsers />
-    <h1 class="mt-4">{{ $t("conceptPaper.conceptPaper")}}: {{ conceptPaper.name }}</h1>
+      <h1 class="mt-4">
+        {{ $t("conceptPaper.conceptPaper") }}: {{ conceptPaper.name }}
+      </h1>
       <div class="card mb-4">
         <div class="card-header d-flex">
+          <RingBell />
           <button
             class="btn btn-info text-white copy-btn ml-auto"
             @click.stop.prevent="copyTestingCode"
           >
-            {{ $t("conceptPaper.inviteTeam")}}
+            {{ $t("conceptPaper.inviteTeam") }}
           </button>
           <input
             type="hidden"
@@ -36,7 +64,7 @@
             <div class="form-group">
               <table class="table">
                 <td>
-                  <label for="name">{{ $t("conceptPaper.projectName")}}</label>
+                  <label for="name">{{ $t("conceptPaper.projectName") }}</label>
                   <input
                     type="text"
                     v-model="editConceptPaperData.name"
@@ -49,7 +77,9 @@
                   </div>
                 </td>
                 <td>
-                  <label for="course">{{ $t("conceptPaper.courseName")}}</label>
+                  <label for="course">{{
+                    $t("conceptPaper.courseName")
+                  }}</label>
                   <input
                     type="text"
                     v-model="editConceptPaperData.course"
@@ -62,9 +92,9 @@
                   </div>
                 </td>
                 <td>
-                  <label for="currentSemester"
-                    >{{ $t("conceptPaper.semester")}}</label
-                  >
+                  <label for="currentSemester">{{
+                    $t("conceptPaper.semester")
+                  }}</label>
                   <input
                     type="text"
                     v-model="editConceptPaperData.currentSemester"
@@ -79,7 +109,7 @@
               </table>
             </div>
             <div class="form-group">
-              <label for="image">{{ $t("conceptPaper.logo")}}</label>
+              <label for="image">{{ $t("conceptPaper.logo") }}</label>
               <div>
                 <img
                   :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
@@ -99,7 +129,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="idea">{{ $t("conceptPaper.idea")}}</label>
+              <label for="idea">{{ $t("conceptPaper.idea") }}</label>
               <textarea
                 v-model="editConceptPaperData.idea"
                 class="form-control"
@@ -112,7 +142,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="basics">{{ $t("conceptPaper.mustHave")}}</label>
+              <label for="basics">{{ $t("conceptPaper.mustHave") }}</label>
               <textarea
                 v-model="editConceptPaperData.basics"
                 class="form-control"
@@ -125,7 +155,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="niceToHave">{{ $t("conceptPaper.niceToHave")}}</label>
+              <label for="niceToHave">{{
+                $t("conceptPaper.niceToHave")
+              }}</label>
               <textarea
                 v-model="editConceptPaperData.niceToHave"
                 class="form-control"
@@ -138,7 +170,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="technologies">{{ $t("conceptPaper.technologies")}}</label>
+              <label for="technologies">{{
+                $t("conceptPaper.technologies")
+              }}</label>
               <textarea
                 v-model="editConceptPaperData.technologies"
                 class="form-control"
@@ -151,7 +185,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="team">{{ $t("conceptPaper.team")}}</label>
+              <label for="team">{{ $t("conceptPaper.team") }}</label>
               <textarea
                 v-model="editConceptPaperData.team"
                 class="form-control"
@@ -164,11 +198,19 @@
               </div>
             </div>
             <div class="text-right">
-              <button class="button" @click="exportAsDOCX">{{ $t("conceptPaper.exportDocx")}}</button>
-              <button type="button" class="btn btn-default">{{ $t("conceptPaper.cancel")}}</button>
-              <button class="btn btn-primary" @click="updateConceptPaper">
+              <button class="button" @click="exportAsDOCX">
+                {{ $t("conceptPaper.exportDocx") }}
+              </button>
+              <button type="button" class="btn btn-default">
+                {{ $t("conceptPaper.cancel") }}
+              </button>
+              <button
+                id="notifyBtn"
+                class="btn btn-primary"
+                @click="updateConceptPaper"
+              >
                 <span class="fa fa-check"></span>
-                {{ $t("conceptPaper.update")}}
+                {{ $t("conceptPaper.update") }}
               </button>
             </div>
           </div>
@@ -189,6 +231,7 @@ import { saveAs } from "file-saver";
 import { Packer } from "docx";
 import { DocumentCreator } from "../services/conceptPaperGenerator_service";
 import ActiveUsers from "../components/ActiveUsers.vue";
+import RingBell from "../components/RingBell.vue";
 
 export default {
   data() {
@@ -210,11 +253,14 @@ export default {
       isLoading: false,
       editConceptPaperData: {},
       errors: {},
+      leftToggled: true,
+      rightToggled: false,
     };
   },
   components: {
     PageLoader,
     ActiveUsers,
+    RingBell,
   },
   mounted() {
     this.loadConceptPaper();
@@ -257,34 +303,35 @@ export default {
     updateConceptPaper: async function () {
       try {
         const formData = new FormData();
-        formData.append("name", this.editConceptPaperData.name);
-        formData.append("course", this.editConceptPaperData.course);
+        formData.append('name', this.editConceptPaperData.name);
+        formData.append('course', this.editConceptPaperData.course);
         formData.append(
-          "currentSemester",
+          'currentSemester',
           this.editConceptPaperData.currentSemester
         );
-        formData.append("image", this.editConceptPaperData.image);
-        formData.append("idea", this.editConceptPaperData.idea);
-        formData.append("basics", this.editConceptPaperData.basics);
-        formData.append("niceToHave", this.editConceptPaperData.niceToHave);
-        formData.append("technologies", this.editConceptPaperData.technologies);
-        formData.append("team", this.editConceptPaperData.team);
-        formData.append("join_code", this.conceptPaper.joinCodeDB);
-        formData.append("user_id", this.conceptPaper.userID);
-        formData.append("_method", "put");
+        formData.append('image', this.editConceptPaperData.image);
+        formData.append('idea', this.editConceptPaperData.idea);
+        formData.append('basics', this.editConceptPaperData.basics);
+        formData.append('niceToHave', this.editConceptPaperData.niceToHave);
+        formData.append('technologies', this.editConceptPaperData.technologies);
+        formData.append('team', this.editConceptPaperData.team);
+        formData.append('join_code', this.conceptPaper.joinCodeDB);
+        formData.append('user_id', this.conceptPaper.userID);
+        formData.append('_method', "put");
 
-        //const response = await axios.post(`conceptPaper/lobby/${this.conceptPaper.joinCodeDB}`, formData);
         const response = await conceptPaperService.updateConceptPaper(
           this.editConceptPaperData.id,
           formData
         );
+        /**
         this.conceptPapers.map((conceptPaper) => {
           if (conceptPaper.id == response.data.id) {
             for (let key in response.data) {
               conceptPaper[key] = response.data[key];
             }
           }
-        });
+        }); */
+
         this.flashMessage.success({
           message: "Konzeptpapier wurde erfolgreich geupdated!",
           time: 5000,
@@ -295,6 +342,7 @@ export default {
           time: 5000,
         });
       }
+      this.notify();
     },
     editAttachedImage() {
       this.editConceptPaperData.image = this.$refs.editConceptPaperImage.files[0];
@@ -364,11 +412,92 @@ export default {
         console.log("Document created successfully");
       });
     },
+    toggleLeft() {
+      this.leftToggled = false;
+      this.rightToggled = true;
+    },
+    toggleRight() {
+      this.leftToggled = true;
+      this.rightToggled = false;
+    },
+    notify() {
+      const $button = document.getElementById("notifyBtn");
+      const $bell = document.getElementById("notification");
+
+      $button.addEventListener("click", function (event) {
+        const count = Number($bell.getAttribute("data-count")) || 0;
+
+        $bell.setAttribute("data-count", count + 1);
+        $bell.classList.add("show-count");
+        $bell.classList.add("notify");
+      });
+
+      $bell.addEventListener("animationend", function (event) {
+        $bell.classList.remove("notify");
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
+.mt-3 {
+  margin-top: 1rem !important;
+}
+.right-sidebar-toggle {
+  position: absolute;
+  margin-left: -44px;
+  background: #fff;
+  padding: 15px;
+  display: inline;
+  top: 0;
+  z-index: 99;
+  border-radius: 30px 0px 0px 30px;
+  box-shadow: -10px 5px 20px rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+.bg-primary {
+  color: #fff;
+  background: #6c72ae !important;
+}
+.iq-card-body {
+  padding: 15px;
+}
+.shadow-none {
+  box-shadow: none !important;
+}
+.iq-card {
+  background: #fff;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: none;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1);
+  box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1);
+}
+.p-0 {
+  padding: 0 !important;
+}
+.right-sidebar-panel {
+  background-color: var(--iq-white);
+  box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1);
+  height: 91vh;
+  padding: 15px;
+  overflow-y: scroll;
+}
+.rightSidebar {
+  transform: translateX(calc(10% + -1em)) !important;
+}
+.right-sidebar-mini {
+  z-index: 100;
+  position: fixed;
+  width: 260px;
+  right: 0;
+  transform: translateX(calc(111% + -2em));
+  transition: all 0.5s ease;
+}
+
 .container {
   display: flex;
   justify-content: center;

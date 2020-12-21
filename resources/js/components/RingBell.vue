@@ -1,0 +1,64 @@
+<template>
+    <div id="notification" class="notification"></div>
+</template>
+
+<style scoped>
+.notification {
+  width: 50px;
+  height: inherit;
+  color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.notification::after {
+  min-width: 20px;
+  height: 20px;
+  content: attr(data-count);
+  background-color: #ed657d;
+  font-family: monospace;
+  font-weight: bolt;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  transition: .3s;
+  opacity: 0;
+  transform: scale(.5);
+  will-change: opacity, transform;
+}
+
+.notification.show-count::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.notification::before {
+  content: "\f0f3";
+  font-family: "FontAwesome";
+  display: block;
+  color: #ed657d;
+}
+
+.notification.notify::before {
+  animation: bell 1s ease-out;
+  transform-origin: center top;
+}
+
+@keyframes bell {
+  0% {transform: rotate(35deg);}
+  12.5% {transform: rotate(-30deg);}
+  25% {transform: rotate(25deg);}
+  37.5% {transform: rotate(-20deg);}
+  50% {transform: rotate(15deg);}
+  62.5% {transform: rotate(-10deg)}
+  75% {transform: rotate(5deg)}
+  100% {transform: rotate(0);}  
+}
+</style>
