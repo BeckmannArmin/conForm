@@ -22,10 +22,11 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.30.0",
         "sass-loader": "^8.0.0",
-        "vue": "^2.5.17",
+        "vue": "^2.6.12",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@chenfengyuan/vue-qrcode": "^1.0.2",
         "@fortawesome/fontawesome-free": "^5.15.1",
         "@smartweb/vue-flash-message": "^0.6.10",
         "@syncfusion/ej2-vue-documenteditor": "^18.3.53",
