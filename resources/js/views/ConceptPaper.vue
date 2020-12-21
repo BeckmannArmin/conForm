@@ -160,6 +160,7 @@
           </div>
           <div class="text-right">
             <button class="button" @click="exportAsDOCX">Export DOCX</button>
+            <button class="button" @click="exportAsPDF">Export PDF</button>
             <button type="button" class="btn btn-default">Cancel</button>
             <button class="btn btn-primary" @click="updateConceptPaper">
               <span class="fa fa-check"></span>
@@ -183,7 +184,11 @@ import { http } from "../services/http_service";
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
 
-import { DocumentCreator } from "../services/conceptPaperGenerator_service";
+import { DocumentCreatorDOCX } from "../services/conceptPaperDOCXGenerator_service";
+
+import { DocumentCreatorPDF } from "../services/conceptPaperPDFGenerator_service";
+
+import { jsPDF } from "jspdf";
 
 export default {
   data() {
@@ -327,9 +332,8 @@ export default {
       window.getSelection().removeAllRanges();
     },
     exportAsDOCX: function () {
-      const documentCreator = new DocumentCreator();
-      const {name, course, currentSemester, idea, basics, niceToHave, technologies, team} = this.editConceptPaperData
-      const document = documentCreator.create([
+      const documentCreatorDOCX = new DocumentCreatorDOCX();
+      const {
         name,
         course,
         currentSemester,
@@ -337,14 +341,51 @@ export default {
         basics,
         niceToHave,
         technologies,
-        team
-        ]);
+        team,
+      } = this.editConceptPaperData;
+      const document = documentCreatorDOCX.create([
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      ]);
 
       Packer.toBlob(document).then((blob) => {
         console.log(blob);
-        saveAs(blob, "Konzeptpapier_" + this.editConceptPaperData.name +  ".docx");
+        saveAs(
+          blob,
+          "Konzeptpapier_" + this.editConceptPaperData.name + ".docx"
+        );
         console.log("Document created successfully");
       });
+    },
+    exportAsPDF: function () {
+        const documentCreatorPDF = new DocumentCreatorPDF();
+        const {
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      } = this.editConceptPaperData;
+      const document = documentCreatorPDF.create([
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      ]);
+      document.save("Konzeptpapier_" + name + ".pdf");
     },
   },
 };

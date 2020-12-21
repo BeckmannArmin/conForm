@@ -47,7 +47,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _services_conceptPaperGenerator_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/conceptPaperGenerator_service */ "./resources/js/services/conceptPaperGenerator_service.js");
+/* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
+/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -235,6 +237,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+
+
 
 
 
@@ -429,7 +434,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     exportAsDOCX: function exportAsDOCX() {
       var _this2 = this;
 
-      var documentCreator = new _services_conceptPaperGenerator_service__WEBPACK_IMPORTED_MODULE_8__["DocumentCreator"]();
+      var documentCreatorDOCX = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_8__["DocumentCreatorDOCX"]();
       var _this$editConceptPape = this.editConceptPaperData,
           name = _this$editConceptPape.name,
           course = _this$editConceptPape.course,
@@ -439,12 +444,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           niceToHave = _this$editConceptPape.niceToHave,
           technologies = _this$editConceptPape.technologies,
           team = _this$editConceptPape.team;
-      var document = documentCreator.create([name, course, currentSemester, idea, basics, niceToHave, technologies, team]);
+      var document = documentCreatorDOCX.create([name, course, currentSemester, idea, basics, niceToHave, technologies, team]);
       docx__WEBPACK_IMPORTED_MODULE_7__["Packer"].toBlob(document).then(function (blob) {
         console.log(blob);
         Object(file_saver__WEBPACK_IMPORTED_MODULE_6__["saveAs"])(blob, "Konzeptpapier_" + _this2.editConceptPaperData.name + ".docx");
         console.log("Document created successfully");
       });
+    },
+    exportAsPDF: function exportAsPDF() {
+      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_9__["DocumentCreatorPDF"]();
+      var _this$editConceptPape2 = this.editConceptPaperData,
+          name = _this$editConceptPape2.name,
+          course = _this$editConceptPape2.course,
+          currentSemester = _this$editConceptPape2.currentSemester,
+          idea = _this$editConceptPape2.idea,
+          basics = _this$editConceptPape2.basics,
+          niceToHave = _this$editConceptPape2.niceToHave,
+          technologies = _this$editConceptPape2.technologies,
+          team = _this$editConceptPape2.team;
+      var document = documentCreatorPDF.create([name, course, currentSemester, idea, basics, niceToHave, technologies, team]);
+      document.save("Konzeptpapier_" + name + ".pdf");
     }
   }
 });
@@ -1064,6 +1083,12 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "button",
+                { staticClass: "button", on: { click: _vm.exportAsPDF } },
+                [_vm._v("Export PDF")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
                 { staticClass: "btn btn-default", attrs: { type: "button" } },
                 [_vm._v("Cancel")]
               ),
@@ -1181,16 +1206,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/services/conceptPaperGenerator_service.js":
-/*!****************************************************************!*\
-  !*** ./resources/js/services/conceptPaperGenerator_service.js ***!
-  \****************************************************************/
-/*! exports provided: DocumentCreator */
+/***/ "./resources/js/services/conceptPaperDOCXGenerator_service.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/services/conceptPaperDOCXGenerator_service.js ***!
+  \********************************************************************/
+/*! exports provided: DocumentCreatorDOCX */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreator", function() { return DocumentCreator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreatorDOCX", function() { return DocumentCreatorDOCX; });
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_0__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -1212,12 +1237,12 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
-var DocumentCreator = /*#__PURE__*/function () {
-  function DocumentCreator() {
-    _classCallCheck(this, DocumentCreator);
+var DocumentCreatorDOCX = /*#__PURE__*/function () {
+  function DocumentCreatorDOCX() {
+    _classCallCheck(this, DocumentCreatorDOCX);
   }
 
-  _createClass(DocumentCreator, [{
+  _createClass(DocumentCreatorDOCX, [{
     key: "create",
     // tslint:disable-next-line: typedef
     value: function create(_ref) {
@@ -1333,7 +1358,135 @@ var DocumentCreator = /*#__PURE__*/function () {
     }
   }]);
 
-  return DocumentCreator;
+  return DocumentCreatorDOCX;
+}();
+
+/***/ }),
+
+/***/ "./resources/js/services/conceptPaperPDFGenerator_service.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/services/conceptPaperPDFGenerator_service.js ***!
+  \*******************************************************************/
+/*! exports provided: DocumentCreatorPDF */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreatorPDF", function() { return DocumentCreatorPDF; });
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+var DocumentCreatorPDF = /*#__PURE__*/function () {
+  function DocumentCreatorPDF() {
+    _classCallCheck(this, DocumentCreatorPDF);
+  }
+
+  _createClass(DocumentCreatorPDF, [{
+    key: "create",
+    // tslint:disable-next-line: typedef
+    value: function create(_ref) {
+      var _ref2 = _slicedToArray(_ref, 8),
+          name = _ref2[0],
+          course = _ref2[1],
+          currentSemester = _ref2[2],
+          idea = _ref2[3],
+          basics = _ref2[4],
+          niceToHave = _ref2[5],
+          technologies = _ref2[6],
+          team = _ref2[7];
+
+      var doc = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+        putOnlyUsedFonts: true,
+        floatPrecision: 16 // or "smart", default is 16
+
+      });
+      var left = 25;
+      var leftTab1 = 35;
+      var leftTab2 = 45;
+      var top = 50;
+      var textSizeHeader = 14;
+      var textSizeHeading = 16;
+      var textSizeSubHeading = 13;
+      var textSizeText = 11;
+      doc.setFont('times', 'bold');
+      doc.setFontSize(textSizeHeader);
+      doc.text(left, 30, name);
+      doc.setFont('times', 'normal');
+      doc.setFontSize(textSizeHeader);
+      doc.text(left, 35, course);
+      doc.text(left, 40, currentSemester);
+      var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, ideaHeadingLine);
+      top = top + doc.getTextDimensions(ideaHeadingLine).h;
+      var ideaLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(idea, 160);
+      doc.setTextColor('#000000');
+      doc.text(left, top, ideaLines);
+      top = top + doc.getTextDimensions(ideaLines).h + 5; //---------------------
+
+      var featuresHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, featuresHeadingLine);
+      top = top + doc.getTextDimensions(featuresHeadingLine).h;
+      var basicsHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
+      doc.setTextColor('#2E74B5');
+      doc.text(leftTab1, top, basicsHeadingLine);
+      top = top + doc.getTextDimensions(basicsHeadingLine).h;
+      var basicsLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(basics, 140);
+      doc.setTextColor('#000000');
+      doc.text(leftTab2, top, basicsLines); //-----------------------
+
+      top = top + doc.getTextDimensions(basicsLines).h + 5;
+      var niceToHaveHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
+      doc.setTextColor('#2E74B5');
+      doc.text(leftTab1, top, niceToHaveHeadingLine);
+      top = top + doc.getTextDimensions(niceToHaveHeadingLine).h;
+      var niceToHaveLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(niceToHave, 140);
+      doc.setTextColor('#000000');
+      doc.text(leftTab2, top, niceToHaveLines); //-----------------------
+
+      top = top + doc.getTextDimensions(niceToHaveLines).h + 5;
+      var technologiesHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, technologiesHeadingLine);
+      top = top + doc.getTextDimensions(technologiesHeadingLine).h;
+      var technologiesLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(technologies, 150);
+      doc.setTextColor('#000000');
+      doc.text(leftTab1, top, technologiesLines); //-----------------------
+
+      top = top + doc.getTextDimensions(technologiesLines).h + 5;
+      var teamHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, teamHeadingLine);
+      top = top + doc.getTextDimensions(teamHeadingLine).h;
+      var teamLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(team, 150);
+      doc.setTextColor('#000000');
+      doc.text(leftTab1, top, teamLines);
+      return doc;
+    }
+  }]);
+
+  return DocumentCreatorPDF;
 }();
 
 /***/ }),
