@@ -16,7 +16,7 @@
             @click="openAddTaskForm(status.id)"
             class="btn-wrapper btn btn-outline-light btn-sm hover:underline px-2 py-1 text-sm"
           >
-            Task hinzufügen
+            {{ $t('kanban.addTask') }}
           </button>
         </div>
         <div
@@ -53,7 +53,7 @@
                     class="btn btn-sm btn-danger"
                     @click="deleteTask(task)"
                   >
-                    Delete
+                    {{ $t('kanban.delete') }}
                   </button>
                 </span>
                 <span class="block mb-2 text-xl text-gray-900">
@@ -72,12 +72,12 @@
             v-show="!status.tasks.length && newTaskForStatus !== status.id"
             class="flex-1 p-4 flex flex-col items-center justify-center"
           >
-            <span class="text-gray-600">Noch keine Tasks vorhanden</span>
+            <span class="text-gray-600">{{ $t('kanban.notasks') }}</span>
             <button
               class="mt-1 text-sm text-orange-600 hover:underline"
               @click="openAddTaskForm(status.id)"
             >
-              Task hinzufügen
+              {{ $t('kanban.addTask') }}
             </button>
           </div>
           <!-- No Tasks -->

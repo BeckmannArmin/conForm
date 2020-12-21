@@ -188,7 +188,7 @@ import { http } from "../services/http_service";
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
 import { DocumentCreator } from "../services/conceptPaperGenerator_service";
-import ActiveUsers from "../components/PusherExample.vue";
+import ActiveUsers from "../components/ActiveUsers.vue";
 
 export default {
   data() {

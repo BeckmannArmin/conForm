@@ -75,11 +75,6 @@ const routes = [
         props: { mode: 'light' }
     },
     {
-        path: '/pusher',
-        name: 'pusher',
-        component: () => import('./components/PusherExample.vue')
-    },
-    {
         path: '*',
         component: () => import('./views/404.vue')
     }

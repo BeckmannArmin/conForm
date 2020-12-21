@@ -680,13 +680,20 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("li", { staticClass: "breadcrumb-item active" }, [
-            _vm._v("Konzeptpapiere")
+            _vm._v(" " + _vm._s(_vm.$t("conceptPaper.conceptPapers")))
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card mb-4" }, [
           _c("div", { staticClass: "card-header d-flex" }, [
-            _vm._m(0),
+            _c("span", [
+              _c("i", { staticClass: "fas fa-chart-area mr-1" }),
+              _vm._v(
+                "\n          " +
+                  _vm._s(_vm.$t("conceptPaper.overview")) +
+                  "\n        "
+              )
+            ]),
             _vm._v(" "),
             _c(
               "button",
@@ -694,13 +701,46 @@ var render = function() {
                 staticClass: "btn btn-primary btn-sm ml-auto",
                 on: { click: _vm.showNewconceptPaperModal }
               },
-              [_vm._m(1), _vm._v("\n          Hinzufügen\n        ")]
+              [
+                _vm._m(0),
+                _vm._v(
+                  "\n          " +
+                    _vm._s(_vm.$t("conceptPaper.addNew")) +
+                    "\n        "
+                )
+              ]
             )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("table", { staticClass: "table" }, [
-              _vm._m(2),
+              _c("thead", [
+                _c("tr", [
+                  _c("td", [_vm._v("#id")]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      " " + _vm._s(_vm.$t("conceptPaper.placeholders.name"))
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.course")))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.semeser")))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.image")))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.actions")))
+                  ])
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -795,7 +835,10 @@ var render = function() {
                   },
                   [
                     _c("span", { staticClass: "fa fa-arrow-down" }),
-                    _vm._v("Load more\n          ")
+                    _vm._v(
+                      _vm._s(_vm.$t("conceptPaper.placeholders.actions")) +
+                        "\n          "
+                    )
                   ]
                 )
               ]
@@ -824,7 +867,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Projektname eingeben")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.projectName")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -870,7 +913,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Kurs eingeben")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.courseName")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -916,7 +959,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Aktuelles Semester eingeben")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.semester")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -962,7 +1005,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "image" } }, [
-                      _vm._v("Logo hochladen (Optional)")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.addLogo")))
                     ]),
                     _vm._v(" "),
                     _vm.conceptPaperData.image.name
@@ -1023,7 +1066,13 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.hideNewconceptPaperModal }
                       },
-                      [_vm._v("\n              Cancel\n            ")]
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.$t("conceptPaper.cancel")) +
+                            "\n            "
+                        )
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -1034,7 +1083,10 @@ var render = function() {
                       },
                       [
                         _c("span", { staticClass: "fa fa-check" }),
-                        _vm._v("Save\n            ")
+                        _vm._v(
+                          _vm._s(_vm.$t("conceptPaper.update")) +
+                            "\n            "
+                        )
                       ]
                     )
                   ])
@@ -1065,7 +1117,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Projektname eingeben")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.projectName")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -1111,7 +1163,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Kurs eingeben")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.courseName")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -1157,7 +1209,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "name" } }, [
-                      _vm._v("Aktuelles currentSemester eingeben")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.semester")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -1205,7 +1257,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "image" } }, [
-                      _vm._v("Choose an image")
+                      _vm._v(_vm._s(_vm.$t("conceptPaper.addLogo")))
                     ]),
                     _vm._v(" "),
                     _c("div", [
@@ -1239,7 +1291,13 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.hideEditconceptPaperModal }
                       },
-                      [_vm._v("\n              Cancel\n            ")]
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.$t("conceptPaper.cancel")) +
+                            "\n            "
+                        )
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -1250,7 +1308,10 @@ var render = function() {
                       },
                       [
                         _c("span", { staticClass: "fa fa-check" }),
-                        _vm._v("Update\n            ")
+                        _vm._v(
+                          _vm._s(_vm.$t("conceptPaper.update")) +
+                            "\n            "
+                        )
                       ]
                     )
                   ])
@@ -1269,36 +1330,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", [
-      _c("i", { staticClass: "fas fa-chart-area mr-1" }),
-      _vm._v("\n          Übersicht\n        ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("span", [_c("i", { staticClass: "fa fa-plus" })])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("td", [_vm._v("#id")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Kurs")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Aktuelles currentSemester")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Image")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Action")])
-      ])
-    ])
   }
 ]
 render._withStripped = true

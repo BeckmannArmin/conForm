@@ -65,11 +65,15 @@
     },
     "conceptPaper": {
         "conceptPaper": "Konzeptpapier",
+        "conceptPapers": "Konzeptpapiere",
+        "overview": "Übersicht",
+        "addNew": "Hinzufügen",
         "inviteTeam": "Lade dein Team ein",
         "projectName": "Projektname eingeben",
         "courseName": "Kursnamen eingaben",
         "semester": "Aktuelles Semester eingeben",
         "logo": "Logo",
+        "addLogo": "Logo hochladen (optional)",
         "idea": "Grundidee",
         "mustHave": "Grundfunktionalitäten (Must-Have)",
         "niceToHave": "Nice-To-Have Features",
@@ -80,6 +84,8 @@
         "pdfExport": "Als PDF exportieren",
         "jsonExport": "Als JSON exportiere",
         "technologies": "Technologien",
+        "chooseFile": "Datei auswählen",
+        "noneSelected": "Keine ausgewählt",
         "placeholders": {
             "name": "Name",
             "course": "Kurs",
@@ -88,7 +94,19 @@
             "basics": "Grundfunktionalitäten in Stichpunkten beschreiben.",
             "niceToHave": "Nice-To-Have Features in Stichpunkten beschreiben.",
             "tech": "Technologien in Stichpunkten beschreiben.",
-            "team": "Max Mustermann (matr_Nr)"
+            "team": "Max Mustermann (matr_Nr)",
+            "image": "Bild",
+            "actions": "Aktionen",
+            "loadMore": "Lade mehr"
         }
+    },
+    "kanban": {
+        "addTask": "Task hinzufügen",
+        "delete": "Löschen",
+        "notasks": "Noch keine Tasks vorhanden",
+        "cancel": "Abbrechen",
+        "add": "Hinzufügen",
+        "title": "Füge einen Titel hinzu",
+        "description": "Füge eine Beschreibung hinzu (optional)"
     }
 }

@@ -48,13 +48,6 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item">
                 <router-link
-                  :to="{ name: 'pusher' }"
-                  class="nav-link"
-                  >Pusher</router-link
-                >
-              </a>
-              <a class="dropdown-item">
-                <router-link
                   :to="{ name: 'conceptPaperCreator' }"
                   class="nav-link"
                   >Konzeptpapier Creator</router-link
