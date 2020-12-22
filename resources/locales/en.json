@@ -16,7 +16,7 @@
         "btn": "Create it now",
         "join": "Join a lobby now",
         "waiting": "Your teammates are already waiting for you",
-        "btn_join": "join now"
+        "btn_join": "Join now"
     },
     "lobbyModal": {
         "join": "Join lobby",
