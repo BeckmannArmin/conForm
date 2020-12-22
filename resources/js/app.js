@@ -4,7 +4,6 @@ import router from './router';
 import store from './store';
 import * as auth from '../js/services/auth_service';
 import UUID from 'vue-uuid';
-import VueQrcode from '@chenfengyuan/vue-qrcode';
 import VueI18n from 'vue-i18n';
 import en from '../locales/en.json';
 import de from '../locales/de.json';
@@ -38,7 +37,6 @@ window.Echo = new Echo({
 Vue.use(UUID);
 Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
-Vue.component(VueQrcode.name, VueQrcode);
 Vue.directive('scrollanimation', ScrollAnimation);
 Vue.use(VueI18n);
 

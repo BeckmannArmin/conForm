@@ -6,8 +6,8 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Share this paper</h5>
         <p class="text-muted">Here you can share your concept paper with other people and enable them to colloborate with you.</p>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="button-close r-10" data-dismiss="modal" aria-label="Close">
+            <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="modal-body">
@@ -39,8 +39,10 @@
                 </div>
                 <div class="modal-popup js-qr-popup" :class="{ isvisible : generated  }" v-if="generated">
                     <div class="modal-content-qr">
-                    <button type="button" @click="generated = false">x</button>
-                    <qrcode :value="`${$store.state.serverPath}/#/conceptPaper/lobby/${joinCode}`" :options="{ width: 320 }"></qrcode>
+                    <button type="button" class="button-close" @click="generated = false">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <qrcode-vue :value="`${$store.state.serverPath}/#/conceptPaper/lobby/${joinCode}`" :size="320" level="H" foreground="#6c72ae" renderAs="svg"></qrcode-vue>
                     </div>
                 </div>
             </div>
@@ -56,6 +58,8 @@
 </template>
 
 <script>
+import QrcodeVue from 'qrcode.vue';
+
 export default {
 props: ['joinCode'],
   data() {
@@ -63,6 +67,9 @@ props: ['joinCode'],
         isToggled: false,
         generated: false
       }
+  },
+  components: {
+    QrcodeVue
   },
   methods: {
       copyLink() {
@@ -83,6 +90,25 @@ props: ['joinCode'],
 </script>
 
 <style scoped>
+.btn-primary {
+    background-color: #6c72ae;
+    border-color: #6c72ae;
+}
+.button-close {
+    position: absolute;
+    right: 42px;
+    top: 10px;
+    color: #333;
+    background-color: #EDEDED;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 24px;
+}
+
+.button-close.r-10 {
+    right: 10px;
+}
 .modal-popup .modal-content-qr {
     max-width: 320px;
     max-height: 320px;
@@ -171,10 +197,15 @@ props: ['joinCode'],
 }
 .modal-content {
     border-radius: 24px;
+    height: 450px;
 }
 .modal-header {
     display: flex;
     flex-flow: column;
+}
+
+.modal-body {
+    display: flex;
 }
 
 .modal-body .grid  {
