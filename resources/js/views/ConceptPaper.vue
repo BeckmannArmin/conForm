@@ -165,6 +165,9 @@
               </div>
             </div>
             <div class="text-right">
+               <button class="button" @click="exportAsPDF">
+                {{ $t("conceptPaper.pdfExport") }}
+              </button>
               <button class="button" @click="exportAsDOCX">
                 {{ $t("conceptPaper.exportDocx") }}
               </button>
@@ -197,7 +200,12 @@ import { uuid } from "vue-uuid";
 import { http } from "../services/http_service";
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
-import { DocumentCreator } from "../services/conceptPaperGenerator_service";
+
+import { DocumentCreatorDOCX } from "../services/conceptPaperDOCXGenerator_service";
+
+import { DocumentCreatorPDF } from "../services/conceptPaperPDFGenerator_service";
+
+import { jsPDF } from "jspdf";
 import RingBell from "../components/RingBell.vue";
 import RightSideBar from "../components/RightSidebar.vue";
 import InviteTeam from "../components/modals/InviteYourTeam.vue";
@@ -379,6 +387,30 @@ export default {
         );
         console.log("Document created successfully");
       });
+    },
+    exportAsPDF: function () {
+        const documentCreatorPDF = new DocumentCreatorPDF();
+        const {
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      } = this.editConceptPaperData;
+      const document = documentCreatorPDF.create([
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      ]);
+      document.save("Konzeptpapier_" + name + ".pdf");
     },
     notify() {
       const $button = document.getElementById("notifyBtn");
