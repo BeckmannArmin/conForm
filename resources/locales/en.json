@@ -60,5 +60,51 @@
     },
     "footer": {
         "chooselang": "Choose language"
+    },
+    "conceptPaper": {
+        "conceptPaper": "Concept paper",
+        "conceptPapers": "Concept papers",
+        "overview": "Overview",
+        "addNew": "Add new",
+        "inviteTeam": "Invite your team",
+        "projectName": "Add a project name",
+        "courseName": "Add a course",
+        "semester": "Add a semester",
+        "logo": "Logo",
+        "addLogo": "Upload logo (optional)",
+        "idea": "Ground idea",
+        "mustHave": "Ground functionality (Must-Have)",
+        "niceToHave": "Nice-To-Have Features",
+        "team": "Team",
+        "exportDocx": "Export as DOCX",
+        "cancel": "Cancel",
+        "update": "Update",
+        "pdfExport": "Export as PDF",
+        "jsonExport": "Export as JSON",
+        "technologies": "Technologies",
+        "chooseFile": "Choose file",
+        "noneSelected": "None selected",
+        "placeholders": {
+            "name": "Name",
+            "course": "Course",
+            "semester": "Example: WS20/21",
+            "idea": "Describe your idea in sentences.",
+            "basics": "Describe your ground functionaility in sentences.",
+            "niceToHave": "Describe your Nice-to-have features in bullet points.",
+            "tech": "Describe your used technologies in bullet points.",
+            "team": "Max Mustermann (matr_Nr)",
+            "image": "Image",
+            "actions": "Actions",
+            "loadMore": "Load more"
+        }
+    },
+    "kanban": {
+        "addTask": "Add task",
+        "delete": "Delete",
+        "notasks": "No tasks yet",
+        "cancel": "Cancel",
+        "add": "Add",
+        "title": "Add a task",
+        "description": "Add a description (optional)"
     }
 }

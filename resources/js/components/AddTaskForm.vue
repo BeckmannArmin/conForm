@@ -7,13 +7,13 @@
       <input
         class="block w-full px-2 py-1 text-lg border-b border-blue-800 rounded"
         type="text"
-        placeholder="Enter a title"
+        :placeholder="$t('kanban.title')"
         v-model.trim="newTask.title"
       />
       <textarea
         class="mt-3 p-2 block w-full p-1 border text-sm rounded"
         rows="2"
-        placeholder="Add a description (optional)"
+        :placeholder="$t('kanban.description')"
         v-model.trim="newTask.description"
       ></textarea>
       <div v-show="errorMessage">
@@ -28,13 +28,13 @@
         type="reset"
         class="py-1 leading-5 text-gray-600 hover:text-gray-700"
       >
-        cancel
+        {{ $t('kanban.cancel') }}
       </button>
       <button
         type="submit"
         class="btn btn-outline-dark btn-sm leading-5 px-3 py-1 rounded"
       >
-        Add
+       {{$t('kanban.add')}}
       </button>
     </div>
   </form>
