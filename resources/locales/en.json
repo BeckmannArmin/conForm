@@ -106,5 +106,16 @@
         "add": "Add",
         "title": "Add a task",
         "description": "Add a description (optional)"
+    },
+    "inviteTeam": {
+        "share": "Share your paper",
+        "shareText": "Here you can share your concept paper with other people and enable them to colloborate with you",
+        "shareLink": "Share via link",
+        "copyLink": "Copy link",
+        "copied": "Copied",
+        "shareQr": "Share via QR-Code",
+        "generateQr": "Generate Code",
+        "close": "Close",
+        "save": "Got it"
     }
 }

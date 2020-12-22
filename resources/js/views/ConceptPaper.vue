@@ -21,10 +21,18 @@
         {{ $t("conceptPaper.conceptPaper") }}: {{ conceptPaper.name }}
       </h1>
       <div class="card mb-4">
-        <div class="card-header d-flex">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inviteModal">
+        <div class="card-header d-flex flex-row-reverse">
+          <button type="button" class="btn btn-invite" data-toggle="modal" data-target="#inviteModal">
          {{ $t("conceptPaper.inviteTeam") }}
         </button>
+          <div style="padding-right: 20px">
+               <button class="btn btn-pdf" @click="exportAsPDF">
+                {{ $t("conceptPaper.pdfExport") }}
+              </button>
+              <button class="btn btn-docx" @click="exportAsDOCX">
+                {{ $t("conceptPaper.exportDocx") }}
+              </button>
+          </div>
         </div>
         <div class="card-body">
           <div>
@@ -165,12 +173,6 @@
               </div>
             </div>
             <div class="text-right">
-               <button class="button" @click="exportAsPDF">
-                {{ $t("conceptPaper.pdfExport") }}
-              </button>
-              <button class="button" @click="exportAsDOCX">
-                {{ $t("conceptPaper.exportDocx") }}
-              </button>
               <button type="button" class="btn btn-default">
                 {{ $t("conceptPaper.cancel") }}
               </button>
@@ -433,6 +435,18 @@ export default {
 </script>
 
 <style scoped>
+
+.btn-invite, .btn-pdf, .btn-docx {
+  color: #fff;
+}
+
+.btn-invite {
+  background-color: #5c55ba;
+}
+
+.btn-pdf, .btn-docx {
+  background-color: #ff7e85;
+}
 
 .container {
   display: flex;

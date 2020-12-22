@@ -108,5 +108,16 @@
         "add": "Hinzufügen",
         "title": "Füge einen Titel hinzu",
         "description": "Füge eine Beschreibung hinzu (optional)"
+    },
+    "inviteTeam": {
+        "share": "Teile dein Konzeptpapier",
+        "shareText": "Hier kannst du dein Konzeptpapier teilen und mit anderen zusammenarbeiten.",
+        "shareLink": "Teile es über einen Link",
+        "copyLink": "Kopieren",
+        "copied": "Kopiert",
+        "shareQr": "Teile es über einen QR-Code",
+        "generateQr": "Code generieren",
+        "close": "Schließen",
+        "save": "Ich hab´s"
     }
 }

@@ -4,8 +4,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Share this paper</h5>
-        <p class="text-muted">Here you can share your concept paper with other people and enable them to colloborate with you.</p>
+        <h5 class="modal-title" id="exampleModalLabel">{{ $t('inviteTeam.share') }}</h5>
+        <p class="text-muted">{{ $t('inviteTeam.shareText') }}.</p>
         <button type="button" class="button-close r-10" data-dismiss="modal" aria-label="Close">
             <i class="fas fa-times"></i>
         </button>
@@ -15,27 +15,27 @@
             <!-- Join code -->
             <div class="flex-middle wh-100 mb-2">
                 <div class="grid grid-column-3">
-                    <p class="text-muted"> Share via link:</p>
+                    <p class="text-muted"> {{ $t('inviteTeam.shareLink') }}:</p>
                 </div>
                 <div class="grid grid-column-7">
                     <input id="join-code" class="input js-board-link input-readonly" type="text" readonly :value="joinCode">
                 </div>
                 <div class="grid grid-column-2">
                      <button ref="btnCopy" class="btn btn-sm btn-copy" @click.stop.prevent="copyLink">
-                        <span v-if="!isToggled">Copy link</span>
-                        <span v-if="isToggled">Copied</span>
+                        <span v-if="!isToggled">{{ $t('inviteTeam.copyLink') }}</span>
+                        <span v-if="isToggled">{{ $t('inviteTeam.copied') }}</span>
                     </button>
                 </div>
             </div>
             <!-- QR Code -->
             <div class="flex-middle wh-100 mb-2">
                 <div class="grid grid-column-3">
-                    <p class="text-muted"> Share via QR-Code:</p>
+                    <p class="text-muted"> {{ $t('inviteTeam.shareQr') }}:</p>
                 </div>
                  <div class="grid grid-column-7">
                 </div>
                 <div class="grid grid-column-2">
-                    <button class="btn btn-sm btn-copy" @click="generateQRCode">Generate Code</button>
+                    <button class="btn btn-sm btn-copy" @click="generateQRCode">{{ $t('inviteTeam.generateQr') }}</button>
                 </div>
                 <div class="modal-popup js-qr-popup" :class="{ isvisible : generated  }" v-if="generated">
                     <div class="modal-content-qr">
@@ -49,8 +49,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Got it</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $t('inviteTeam.close') }}</button>
+        <button type="button" class="btn btn-primary">{{ $t('inviteTeam.save') }}</button>
       </div>
     </div>
   </div>

@@ -478,6 +478,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -840,7 +842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container[data-v-22c7a2ba] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-content: center;\r\n  flex-flow: column;\n}\r\n", ""]);
+exports.push([module.i, "\n.btn-invite[data-v-22c7a2ba], .btn-pdf[data-v-22c7a2ba], .btn-docx[data-v-22c7a2ba] {\r\n  color: #fff;\n}\n.btn-invite[data-v-22c7a2ba] {\r\n  background-color: #5c55ba;\n}\n.btn-pdf[data-v-22c7a2ba], .btn-docx[data-v-22c7a2ba] {\r\n  background-color: #ff7e85;\n}\n.container[data-v-22c7a2ba] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-content: center;\r\n  flex-flow: column;\n}\r\n", ""]);
 
 // exports
 
@@ -1212,12 +1214,31 @@ var render = function() {
     [
       _c("div", { staticClass: "modal-dialog" }, [
         _c("div", { staticClass: "modal-content" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "modal-header" }, [
+            _c(
+              "h5",
+              {
+                staticClass: "modal-title",
+                attrs: { id: "exampleModalLabel" }
+              },
+              [_vm._v(_vm._s(_vm.$t("inviteTeam.share")))]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted" }, [
+              _vm._v(_vm._s(_vm.$t("inviteTeam.shareText")) + ".")
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "modal-body" }, [
             _c("div", { staticClass: "grid" }, [
               _c("div", { staticClass: "flex-middle wh-100 mb-2" }, [
-                _vm._m(1),
+                _c("div", { staticClass: "grid grid-column-3" }, [
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v(" " + _vm._s(_vm.$t("inviteTeam.shareLink")) + ":")
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "grid grid-column-7" }, [
                   _c("input", {
@@ -1243,17 +1264,27 @@ var render = function() {
                     },
                     [
                       !_vm.isToggled
-                        ? _c("span", [_vm._v("Copy link")])
+                        ? _c("span", [
+                            _vm._v(_vm._s(_vm.$t("inviteTeam.copyLink")))
+                          ])
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.isToggled ? _c("span", [_vm._v("Copied")]) : _vm._e()
+                      _vm.isToggled
+                        ? _c("span", [
+                            _vm._v(_vm._s(_vm.$t("inviteTeam.copied")))
+                          ])
+                        : _vm._e()
                     ]
                   )
                 ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex-middle wh-100 mb-2" }, [
-                _vm._m(2),
+                _c("div", { staticClass: "grid grid-column-3" }, [
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v(" " + _vm._s(_vm.$t("inviteTeam.shareQr")) + ":")
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "grid grid-column-7" }),
                 _vm._v(" "),
@@ -1264,7 +1295,7 @@ var render = function() {
                       staticClass: "btn btn-sm btn-copy",
                       on: { click: _vm.generateQRCode }
                     },
-                    [_vm._v("Generate Code")]
+                    [_vm._v(_vm._s(_vm.$t("inviteTeam.generateQr")))]
                   )
                 ]),
                 _vm._v(" "),
@@ -1316,7 +1347,22 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(3)
+          _c("div", { staticClass: "modal-footer" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary",
+                attrs: { type: "button", "data-dismiss": "modal" }
+              },
+              [_vm._v(_vm._s(_vm.$t("inviteTeam.close")))]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "button" } },
+              [_vm._v(_vm._s(_vm.$t("inviteTeam.save")))]
+            )
+          ])
         ])
       ])
     ]
@@ -1327,69 +1373,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Share this paper")]
-      ),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-muted" }, [
-        _vm._v(
-          "Here you can share your concept paper with other people and enable them to colloborate with you."
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "button-close r-10",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("i", { staticClass: "fas fa-times" })]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "grid grid-column-3" }, [
-      _c("p", { staticClass: "text-muted" }, [_vm._v(" Share via link:")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "grid grid-column-3" }, [
-      _c("p", { staticClass: "text-muted" }, [_vm._v(" Share via QR-Code:")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Got it")]
-      )
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "button-close r-10",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("i", { staticClass: "fas fa-times" })]
+    )
   }
 ]
 render._withStripped = true
@@ -1464,11 +1459,11 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card mb-4" }, [
-          _c("div", { staticClass: "card-header d-flex" }, [
+          _c("div", { staticClass: "card-header d-flex flex-row-reverse" }, [
             _c(
               "button",
               {
-                staticClass: "btn btn-primary",
+                staticClass: "btn btn-invite",
                 attrs: {
                   type: "button",
                   "data-toggle": "modal",
@@ -1482,7 +1477,36 @@ var render = function() {
                     "\n      "
                 )
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("div", { staticStyle: { "padding-right": "20px" } }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-pdf", on: { click: _vm.exportAsPDF } },
+                [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(_vm.$t("conceptPaper.pdfExport")) +
+                      "\n            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-docx",
+                  on: { click: _vm.exportAsDOCX }
+                },
+                [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(_vm.$t("conceptPaper.exportDocx")) +
+                      "\n            "
+                  )
+                ]
+              )
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -1900,30 +1924,6 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "text-right" }, [
-                _c(
-                  "button",
-                  { staticClass: "button", on: { click: _vm.exportAsPDF } },
-                  [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.$t("conceptPaper.pdfExport")) +
-                        "\n            "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "button", on: { click: _vm.exportAsDOCX } },
-                  [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.$t("conceptPaper.exportDocx")) +
-                        "\n            "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
                 _c(
                   "button",
                   { staticClass: "btn btn-default", attrs: { type: "button" } },
