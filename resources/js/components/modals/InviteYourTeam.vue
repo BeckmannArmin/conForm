@@ -167,6 +167,7 @@ props: ['joinCode'],
     text-decoration: none;
     outline: 0;
     overflow: hidden;
+    min-width: 90px;
     font-weight: 700;
     text-align: center;
     border-radius: 24px;
@@ -180,6 +181,7 @@ props: ['joinCode'],
 .grid-column-2 {
     flex-basis: 16.66667%;
     max-width: 16.66667%;
+    justify-content: flex-end;
 }
 .grid-column-7 {
     flex-basis: 58.33333%;
@@ -188,6 +190,7 @@ props: ['joinCode'],
 .grid-column-3 {
     flex-basis: 25%;
     max-width: 25%;
+    justify-content: flex-start;
 }
 .modal {
     border-radius: 24px;
