@@ -31,7 +31,7 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             {{ $t('lobbyModal.cancel') }}
           </button>
-          <button type="button" class="btn btn-primary" @click="joinLobby">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" @click="joinLobby">
             {{ $t('lobbyModal.submit') }}
           </button>
         </div>
@@ -50,16 +50,9 @@ export default {
   },
   methods: {
     joinLobby() {
-      console.log("lobby joined");
-      console.log(this.joinCode);
       this.$router.push({
         name: "conceptPaper",
         params: { joincode: this.joinCode },
-      });
-      this.flashMessage.error({
-        message:
-          "Ups, es scheint, dass der Join Code nicht korrekt ist. Probier es noch einmal.",
-        time: 5000,
       });
     },
   },

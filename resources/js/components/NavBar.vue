@@ -6,8 +6,8 @@
          <router-link :to="{ name: 'welcome' }" class="navbar-brand">
         <img
           src="../../assets/conForm_logo.png"
-          width="80"
-          height="80"
+          width="100"
+          height="100"
           alt=""
         />
       </router-link>
@@ -149,6 +149,7 @@ export default {
     transition: all 0.3s;
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
+    height: 100px;
 }
 
 .navbar-collapse a {

@@ -22,7 +22,7 @@
       </div>
     </div>
     </section>
-    <JoinLobbySection v-if="!isLoggedIn"/>
+    <JoinLobbySection />
     <section id="cards" class="cards-section py-16">
     <div class="cards">
       <div class="cards-container">
