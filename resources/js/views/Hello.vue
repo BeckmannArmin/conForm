@@ -1,5 +1,5 @@
  <template>
-  <div class="main-content-wrapper">
+  <div class="main-content-wrapper h-100">
     <section id="hero" class="hero-section hero bg-top">
     <div class="hero">
       <div class="container">
@@ -62,8 +62,7 @@
     <GetStarted :mode="mode" />
     </section>
     <JoinLobbyModal />
-    <ResourceSection :mode="mode"/>
-    <Footer />
+    <ResourceSection :mode="mode"/>   
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <footer class="page-footer font-small blue">
+  <footer class="page-footer footer mt-auto py-3">
     <div class="container text-center">
     <div class="row">
       <hr class="clearfix w-100 d-md-none">

@@ -1,11 +1,12 @@
 <template>
-  <div class="app" :class="mode">
+  <div class="app d-flex flex-column h-100" :class="mode">
      <NavBar :mode="mode" @toggle="toggle"/>
-    <main class="full-height">
+    <main class="flex-shrink-0">
       <!-- Here are the child components of our view-->
       <router-view></router-view>
       <FlashMessage position="right bottom"></FlashMessage>
     </main>
+    <Footer />
   </div>
 </template>
 
@@ -64,8 +65,4 @@ export default {
 
 <style scoped>
 @import '../assets/scss/_animations.scss';
-.full-height {
-  height: 100vh;
-}
-
 </style>
