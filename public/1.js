@@ -686,7 +686,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     exportAsDOCX: function exportAsDOCX() {
       var _this2 = this;
 
-      var documentCreator = new DocumentCreator();
+      var documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_8__["DocumentCreatorDOCX"]();
       var _this$editConceptPape = this.editConceptPaperData,
           name = _this$editConceptPape.name,
           course = _this$editConceptPape.course,

@@ -359,7 +359,7 @@ export default {
       window.getSelection().removeAllRanges();
     },
     exportAsDOCX: function () {
-      const documentCreator = new DocumentCreator();
+      const documentCreator = new DocumentCreatorDOCX();
       const {
         name,
         course,
