@@ -5,7 +5,7 @@ export class DocumentCreatorPDF {
     // tslint:disable-next-line: typedef
 
     create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]) {
-        
+
         const { width, height } = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30);
 
         const doc = new jsPDF({
@@ -15,6 +15,7 @@ export class DocumentCreatorPDF {
             putOnlyUsedFonts: true,
             floatPrecision: 16 // or "smart", default is 16
         });
+
 
         var left = 25;
         var leftTab1 = 35;
@@ -37,6 +38,8 @@ export class DocumentCreatorPDF {
 
         doc.addImage(logo, left, top, width, height);
 
+        //---------------------
+
         top = top + 40;
 
         var ideaHeadingLine = doc.setFont('times', 'normal')
@@ -55,45 +58,63 @@ export class DocumentCreatorPDF {
 
         top = top + doc.getTextDimensions(ideaLines).h + 5;
 
+
         //---------------------
 
         var featuresHeadingLine = doc.setFont('times', 'normal')
             .setFontSize(textSizeHeading)
             .splitTextToSize("Features", 160);
+        var basicsHeadingLine = doc.setFont('times', 'normal')
+            .setFontSize(textSizeSubHeading)
+            .splitTextToSize("Grundfunktionalitäten", 150);
+        var basicsLines = doc.setFont('times', 'normal')
+            .setFontSize(textSizeText)
+            .splitTextToSize(basics, 140);
+
+        var niceToHaveHeadingLine = doc.setFont('times', 'normal')
+            .setFontSize(textSizeSubHeading)
+            .splitTextToSize("Nice-To-Have Features", 150);
+        var niceToHaveLines = doc.setFont('times', 'normal')
+            .setFontSize(textSizeText)
+            .splitTextToSize(niceToHave, 140);
+
+        helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h + doc.getTextDimensions(featuresHeadingLine).h;
+
+        if (helperTop > 267) {
+            doc.addPage();
+            top = 30;
+        }
+
+        //setText FeatureHeading
+        doc.setFontSize(textSizeHeading);
         doc.setTextColor('#2E74B5');
         doc.text(left, top, featuresHeadingLine);
 
         top = top + doc.getTextDimensions(featuresHeadingLine).h;
 
-        var basicsHeadingLine = doc.setFont('times', 'normal')
-            .setFontSize(textSizeSubHeading)
-            .splitTextToSize("Grundfunktionalitäten", 150);
+        //setText BasicsHeading
+        doc.setFontSize(textSizeSubHeading);
         doc.setTextColor('#2E74B5');
         doc.text(leftTab1, top, basicsHeadingLine);
 
         top = top + doc.getTextDimensions(basicsHeadingLine).h;
 
-        var basicsLines = doc.setFont('times', 'normal')
-            .setFontSize(textSizeText)
-            .splitTextToSize(basics, 140);
+        //setText Basics
+        doc.setFontSize(textSizeText);
         doc.setTextColor('#000000');
         doc.text(leftTab2, top, basicsLines);
 
-        //-----------------------
-
         top = top + doc.getTextDimensions(basicsLines).h + 5;
 
-        var niceToHaveHeadingLine = doc.setFont('times', 'normal')
-            .setFontSize(textSizeSubHeading)
-            .splitTextToSize("Nice-To-Have Features", 150);
+        //-----------------------
+
+        doc.setFontSize(textSizeSubHeading)
         doc.setTextColor('#2E74B5');
         doc.text(leftTab1, top, niceToHaveHeadingLine);
 
         top = top + doc.getTextDimensions(niceToHaveHeadingLine).h;
 
-        var niceToHaveLines = doc.setFont('times', 'normal')
-            .setFontSize(textSizeText)
-            .splitTextToSize(niceToHave, 140);
+        doc.setFontSize(textSizeText)
         doc.setTextColor('#000000');
         doc.text(leftTab2, top, niceToHaveLines);
 
