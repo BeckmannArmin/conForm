@@ -117,5 +117,8 @@
         "generateQr": "Generate Code",
         "close": "Close",
         "save": "Got it"
+    },
+    "joincode": {
+        "incorrect": "The join code you entered is incorrect"
     }
 }

@@ -22,16 +22,21 @@
       </h1>
       <div class="card mb-4">
         <div class="card-header d-flex flex-row-reverse">
-          <button type="button" class="btn btn-invite" data-toggle="modal" data-target="#inviteModal">
-         {{ $t("conceptPaper.inviteTeam") }}
-        </button>
+          <button
+            type="button"
+            class="btn btn-invite"
+            data-toggle="modal"
+            data-target="#inviteModal"
+          >
+            {{ $t("conceptPaper.inviteTeam") }}
+          </button>
           <div style="padding-right: 20px">
-               <button class="btn btn-pdf" @click="exportAsPDF">
-                {{ $t("conceptPaper.pdfExport") }}
-              </button>
-              <button class="btn btn-docx" @click="exportAsDOCX">
-                {{ $t("conceptPaper.exportDocx") }}
-              </button>
+            <button class="btn btn-pdf" @click="exportAsPDF">
+              {{ $t("conceptPaper.pdfExport") }}
+            </button>
+            <button class="btn btn-docx" @click="exportAsDOCX">
+              {{ $t("conceptPaper.exportDocx") }}
+            </button>
           </div>
         </div>
         <div class="card-body">
@@ -189,7 +194,7 @@
         </div>
       </div>
     </div>
-    <InviteTeam :joinCode="conceptPaper.joinCodeDB"/>
+    <InviteTeam :joinCode="conceptPaper.joinCodeDB" />
   </div>
 </template>
 
@@ -238,7 +243,7 @@ export default {
     PageLoader,
     RingBell,
     RightSideBar,
-    InviteTeam
+    InviteTeam,
   },
   mounted() {
     this.loadConceptPaper();
@@ -281,21 +286,21 @@ export default {
     updateConceptPaper: async function () {
       try {
         const formData = new FormData();
-        formData.append('name', this.editConceptPaperData.name);
-        formData.append('course', this.editConceptPaperData.course);
+        formData.append("name", this.editConceptPaperData.name);
+        formData.append("course", this.editConceptPaperData.course);
         formData.append(
-          'currentSemester',
+          "currentSemester",
           this.editConceptPaperData.currentSemester
         );
-        formData.append('image', this.editConceptPaperData.image);
-        formData.append('idea', this.editConceptPaperData.idea);
-        formData.append('basics', this.editConceptPaperData.basics);
-        formData.append('niceToHave', this.editConceptPaperData.niceToHave);
-        formData.append('technologies', this.editConceptPaperData.technologies);
-        formData.append('team', this.editConceptPaperData.team);
-        formData.append('join_code', this.conceptPaper.joinCodeDB);
-        formData.append('user_id', this.conceptPaper.userID);
-        formData.append('_method', "put");
+        formData.append("image", this.editConceptPaperData.image);
+        formData.append("idea", this.editConceptPaperData.idea);
+        formData.append("basics", this.editConceptPaperData.basics);
+        formData.append("niceToHave", this.editConceptPaperData.niceToHave);
+        formData.append("technologies", this.editConceptPaperData.technologies);
+        formData.append("team", this.editConceptPaperData.team);
+        formData.append("join_code", this.conceptPaper.joinCodeDB);
+        formData.append("user_id", this.conceptPaper.userID);
+        formData.append("_method", "put");
 
         const response = await conceptPaperService.updateConceptPaper(
           this.editConceptPaperData.id,
@@ -391,8 +396,8 @@ export default {
       });
     },
     exportAsPDF: function () {
-        const documentCreatorPDF = new DocumentCreatorPDF();
-        const {
+      const documentCreatorPDF = new DocumentCreatorPDF();
+      const {
         name,
         course,
         currentSemester,
@@ -435,8 +440,9 @@ export default {
 </script>
 
 <style scoped>
-
-.btn-invite, .btn-pdf, .btn-docx {
+.btn-invite,
+.btn-pdf,
+.btn-docx {
   color: #fff;
 }
 
@@ -444,7 +450,8 @@ export default {
   background-color: #5c55ba;
 }
 
-.btn-pdf, .btn-docx {
+.btn-pdf,
+.btn-docx {
   background-color: #ff7e85;
 }
 
