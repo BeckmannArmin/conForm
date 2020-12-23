@@ -22,16 +22,21 @@
       </h1>
       <div class="card mb-4">
         <div class="card-header d-flex flex-row-reverse">
-          <button type="button" class="btn btn-invite" data-toggle="modal" data-target="#inviteModal">
-         {{ $t("conceptPaper.inviteTeam") }}
-        </button>
+          <button
+            type="button"
+            class="btn btn-invite"
+            data-toggle="modal"
+            data-target="#inviteModal"
+          >
+            {{ $t("conceptPaper.inviteTeam") }}
+          </button>
           <div style="padding-right: 20px">
-               <button class="btn btn-pdf" @click="exportAsPDF">
-                {{ $t("conceptPaper.pdfExport") }}
-              </button>
-              <button class="btn btn-docx" @click="exportAsDOCX">
-                {{ $t("conceptPaper.exportDocx") }}
-              </button>
+            <button class="btn btn-pdf" @click="exportAsPDF">
+              {{ $t("conceptPaper.pdfExport") }}
+            </button>
+            <button class="btn btn-docx" @click="exportAsDOCX">
+              {{ $t("conceptPaper.exportDocx") }}
+            </button>
           </div>
         </div>
         <div class="card-body">
@@ -75,7 +80,7 @@
                     v-model="editConceptPaperData.currentSemester"
                     class="form-control"
                     id="currentSemester"
-                    :placeholder="$t('conceptPaper.placeholders.semester')"
+                    :placeholder="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
                   />
                   <div class="invalid-feedback" v-if="errors.currentSemester">
                     {{ errors.currentSemester[0] }}
@@ -88,6 +93,7 @@
               <div>
                 <img
                   :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
+                  id="logo_image"
                   class="image-wd"
                   ref="editConceptPaperImageDisplay"
                 />
@@ -189,7 +195,7 @@
         </div>
       </div>
     </div>
-    <InviteTeam :joinCode="conceptPaper.joinCodeDB"/>
+    <InviteTeam :joinCode="conceptPaper.joinCodeDB" />
   </div>
 </template>
 
@@ -238,7 +244,7 @@ export default {
     PageLoader,
     RingBell,
     RightSideBar,
-    InviteTeam
+    InviteTeam,
   },
   mounted() {
     this.loadConceptPaper();
@@ -281,21 +287,21 @@ export default {
     updateConceptPaper: async function () {
       try {
         const formData = new FormData();
-        formData.append('name', this.editConceptPaperData.name);
-        formData.append('course', this.editConceptPaperData.course);
+        formData.append("name", this.editConceptPaperData.name);
+        formData.append("course", this.editConceptPaperData.course);
         formData.append(
-          'currentSemester',
+          "currentSemester",
           this.editConceptPaperData.currentSemester
         );
-        formData.append('image', this.editConceptPaperData.image);
-        formData.append('idea', this.editConceptPaperData.idea);
-        formData.append('basics', this.editConceptPaperData.basics);
-        formData.append('niceToHave', this.editConceptPaperData.niceToHave);
-        formData.append('technologies', this.editConceptPaperData.technologies);
-        formData.append('team', this.editConceptPaperData.team);
-        formData.append('join_code', this.conceptPaper.joinCodeDB);
-        formData.append('user_id', this.conceptPaper.userID);
-        formData.append('_method', "put");
+        formData.append("image", this.editConceptPaperData.image);
+        formData.append("idea", this.editConceptPaperData.idea);
+        formData.append("basics", this.editConceptPaperData.basics);
+        formData.append("niceToHave", this.editConceptPaperData.niceToHave);
+        formData.append("technologies", this.editConceptPaperData.technologies);
+        formData.append("team", this.editConceptPaperData.team);
+        formData.append("join_code", this.conceptPaper.joinCodeDB);
+        formData.append("user_id", this.conceptPaper.userID);
+        formData.append("_method", "put");
 
         const response = await conceptPaperService.updateConceptPaper(
           this.editConceptPaperData.id,
@@ -358,7 +364,55 @@ export default {
       testingCodeToCopy.setAttribute("type", "hidden");
       window.getSelection().removeAllRanges();
     },
-    exportAsDOCX: function () {
+    exportAsDOCX: async function () {
+      var img = document.getElementById("logo_image");
+
+      function calculateAspectRatioFit(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+      ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { width: srcWidth * ratio, height: srcHeight * ratio };
+      }
+
+      var globalWidth;
+      var globalHeight;
+
+      async function imageToUint8Array(image) {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+
+        return new Promise((resolve, reject) => {
+          const { width, height } = calculateAspectRatioFit(
+            image.naturalWidth || image.width,
+            image.naturalHeight || image.height,
+            540,
+            120
+          );
+          globalWidth = width;
+          globalHeight = height;
+          canvas.width = width;
+          canvas.height = height;
+          context.width = width;
+          context.height = height;
+          console.log(width, height, image);
+          context.drawImage(image, 0, 0, width, height);
+          context.canvas.toBlob((blob) =>
+            blob
+              .arrayBuffer()
+              .then((buffer) => resolve(new Uint8Array(buffer)))
+              .catch(reject)
+          );
+        });
+      }
+
+      const logo = await imageToUint8Array(img);
+
+      console.log(globalWidth, globalHeight);
+
       const documentCreator = new DocumentCreatorDOCX();
       const {
         name,
@@ -370,10 +424,13 @@ export default {
         technologies,
         team,
       } = this.editConceptPaperData;
-      const document = documentCreator.create([
+      const doc = documentCreator.create([
         name,
         course,
         currentSemester,
+        logo,
+        globalWidth,
+        globalHeight,
         idea,
         basics,
         niceToHave,
@@ -381,7 +438,7 @@ export default {
         team,
       ]);
 
-      Packer.toBlob(document).then((blob) => {
+      Packer.toBlob(doc).then((blob) => {
         console.log(blob);
         saveAs(
           blob,
@@ -391,28 +448,32 @@ export default {
       });
     },
     exportAsPDF: function () {
-        const documentCreatorPDF = new DocumentCreatorPDF();
-        const {
+      var logo = document.getElementById("logo_image");
+
+      const documentCreatorPDF = new DocumentCreatorPDF();
+      const {
         name,
         course,
         currentSemester,
+        image,
         idea,
         basics,
         niceToHave,
         technologies,
         team,
       } = this.editConceptPaperData;
-      const document = documentCreatorPDF.create([
+      const doc = documentCreatorPDF.create([
         name,
         course,
         currentSemester,
+        logo,
         idea,
         basics,
         niceToHave,
         technologies,
         team,
       ]);
-      document.save("Konzeptpapier_" + name + ".pdf");
+      doc.save("Konzeptpapier_" + name + ".pdf");
     },
     notify() {
       const $button = document.getElementById("notifyBtn");
@@ -435,8 +496,9 @@ export default {
 </script>
 
 <style scoped>
-
-.btn-invite, .btn-pdf, .btn-docx {
+.btn-invite,
+.btn-pdf,
+.btn-docx {
   color: #fff;
 }
 
@@ -444,7 +506,8 @@ export default {
   background-color: #5c55ba;
 }
 
-.btn-pdf, .btn-docx {
+.btn-pdf,
+.btn-docx {
   background-color: #ff7e85;
 }
 

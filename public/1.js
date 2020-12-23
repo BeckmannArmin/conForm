@@ -480,6 +480,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -594,18 +600,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.prev = 0;
                 formData = new FormData();
-                formData.append('name', this.editConceptPaperData.name);
-                formData.append('course', this.editConceptPaperData.course);
-                formData.append('currentSemester', this.editConceptPaperData.currentSemester);
-                formData.append('image', this.editConceptPaperData.image);
-                formData.append('idea', this.editConceptPaperData.idea);
-                formData.append('basics', this.editConceptPaperData.basics);
-                formData.append('niceToHave', this.editConceptPaperData.niceToHave);
-                formData.append('technologies', this.editConceptPaperData.technologies);
-                formData.append('team', this.editConceptPaperData.team);
-                formData.append('join_code', this.conceptPaper.joinCodeDB);
-                formData.append('user_id', this.conceptPaper.userID);
-                formData.append('_method', "put");
+                formData.append("name", this.editConceptPaperData.name);
+                formData.append("course", this.editConceptPaperData.course);
+                formData.append("currentSemester", this.editConceptPaperData.currentSemester);
+                formData.append("image", this.editConceptPaperData.image);
+                formData.append("idea", this.editConceptPaperData.idea);
+                formData.append("basics", this.editConceptPaperData.basics);
+                formData.append("niceToHave", this.editConceptPaperData.niceToHave);
+                formData.append("technologies", this.editConceptPaperData.technologies);
+                formData.append("team", this.editConceptPaperData.team);
+                formData.append("join_code", this.conceptPaper.joinCodeDB);
+                formData.append("user_id", this.conceptPaper.userID);
+                formData.append("_method", "put");
                 _context2.next = 16;
                 return _services_conceptPaper_service__WEBPACK_IMPORTED_MODULE_3__["updateConceptPaper"](this.editConceptPaperData.id, formData);
 
@@ -683,39 +689,112 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       testingCodeToCopy.setAttribute("type", "hidden");
       window.getSelection().removeAllRanges();
     },
-    exportAsDOCX: function exportAsDOCX() {
-      var _this2 = this;
+    exportAsDOCX: function () {
+      var _exportAsDOCX = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this2 = this;
 
-      var documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_8__["DocumentCreatorDOCX"]();
-      var _this$editConceptPape = this.editConceptPaperData,
-          name = _this$editConceptPape.name,
-          course = _this$editConceptPape.course,
-          currentSemester = _this$editConceptPape.currentSemester,
-          idea = _this$editConceptPape.idea,
-          basics = _this$editConceptPape.basics,
-          niceToHave = _this$editConceptPape.niceToHave,
-          technologies = _this$editConceptPape.technologies,
-          team = _this$editConceptPape.team;
-      var document = documentCreator.create([name, course, currentSemester, idea, basics, niceToHave, technologies, team]);
-      docx__WEBPACK_IMPORTED_MODULE_7__["Packer"].toBlob(document).then(function (blob) {
-        console.log(blob);
-        Object(file_saver__WEBPACK_IMPORTED_MODULE_6__["saveAs"])(blob, "Konzeptpapier_" + _this2.editConceptPaperData.name + ".docx");
-        console.log("Document created successfully");
-      });
-    },
+        var img, calculateAspectRatioFit, globalWidth, globalHeight, imageToUint8Array, _imageToUint8Array, logo, documentCreator, _this$editConceptPape, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _imageToUint8Array = function _imageToUint8Array3() {
+                  _imageToUint8Array = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(image) {
+                    var canvas, context;
+                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+                      while (1) {
+                        switch (_context3.prev = _context3.next) {
+                          case 0:
+                            canvas = document.createElement("canvas");
+                            context = canvas.getContext("2d");
+                            return _context3.abrupt("return", new Promise(function (resolve, reject) {
+                              var _calculateAspectRatio = calculateAspectRatioFit(image.naturalWidth || image.width, image.naturalHeight || image.height, 540, 120),
+                                  width = _calculateAspectRatio.width,
+                                  height = _calculateAspectRatio.height;
+
+                              globalWidth = width;
+                              globalHeight = height;
+                              canvas.width = width;
+                              canvas.height = height;
+                              context.width = width;
+                              context.height = height;
+                              console.log(width, height, image);
+                              context.drawImage(image, 0, 0, width, height);
+                              context.canvas.toBlob(function (blob) {
+                                return blob.arrayBuffer().then(function (buffer) {
+                                  return resolve(new Uint8Array(buffer));
+                                })["catch"](reject);
+                              });
+                            }));
+
+                          case 3:
+                          case "end":
+                            return _context3.stop();
+                        }
+                      }
+                    }, _callee3);
+                  }));
+                  return _imageToUint8Array.apply(this, arguments);
+                };
+
+                imageToUint8Array = function _imageToUint8Array2(_x) {
+                  return _imageToUint8Array.apply(this, arguments);
+                };
+
+                calculateAspectRatioFit = function _calculateAspectRatio2(srcWidth, srcHeight, maxWidth, maxHeight) {
+                  var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+                  return {
+                    width: srcWidth * ratio,
+                    height: srcHeight * ratio
+                  };
+                };
+
+                img = document.getElementById("logo_image");
+                _context4.next = 6;
+                return imageToUint8Array(img);
+
+              case 6:
+                logo = _context4.sent;
+                console.log(globalWidth, globalHeight);
+                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_8__["DocumentCreatorDOCX"]();
+                _this$editConceptPape = this.editConceptPaperData, name = _this$editConceptPape.name, course = _this$editConceptPape.course, currentSemester = _this$editConceptPape.currentSemester, idea = _this$editConceptPape.idea, basics = _this$editConceptPape.basics, niceToHave = _this$editConceptPape.niceToHave, technologies = _this$editConceptPape.technologies, team = _this$editConceptPape.team;
+                doc = documentCreator.create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
+                docx__WEBPACK_IMPORTED_MODULE_7__["Packer"].toBlob(doc).then(function (blob) {
+                  console.log(blob);
+                  Object(file_saver__WEBPACK_IMPORTED_MODULE_6__["saveAs"])(blob, "Konzeptpapier_" + _this2.editConceptPaperData.name + ".docx");
+                  console.log("Document created successfully");
+                });
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function exportAsDOCX() {
+        return _exportAsDOCX.apply(this, arguments);
+      }
+
+      return exportAsDOCX;
+    }(),
     exportAsPDF: function exportAsPDF() {
+      var logo = document.getElementById("logo_image");
       var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_9__["DocumentCreatorPDF"]();
       var _this$editConceptPape2 = this.editConceptPaperData,
           name = _this$editConceptPape2.name,
           course = _this$editConceptPape2.course,
           currentSemester = _this$editConceptPape2.currentSemester,
+          image = _this$editConceptPape2.image,
           idea = _this$editConceptPape2.idea,
           basics = _this$editConceptPape2.basics,
           niceToHave = _this$editConceptPape2.niceToHave,
           technologies = _this$editConceptPape2.technologies,
           team = _this$editConceptPape2.team;
-      var document = documentCreatorPDF.create([name, course, currentSemester, idea, basics, niceToHave, technologies, team]);
-      document.save("Konzeptpapier_" + name + ".pdf");
+      var doc = documentCreatorPDF.create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]);
+      doc.save("Konzeptpapier_" + name + ".pdf");
     },
     notify: function notify() {
       var $button = document.getElementById("notifyBtn");
@@ -842,7 +921,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn-invite[data-v-22c7a2ba], .btn-pdf[data-v-22c7a2ba], .btn-docx[data-v-22c7a2ba] {\r\n  color: #fff;\n}\n.btn-invite[data-v-22c7a2ba] {\r\n  background-color: #5c55ba;\n}\n.btn-pdf[data-v-22c7a2ba], .btn-docx[data-v-22c7a2ba] {\r\n  background-color: #ff7e85;\n}\n.container[data-v-22c7a2ba] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-content: center;\r\n  flex-flow: column;\n}\r\n", ""]);
+exports.push([module.i, "\n.btn-invite[data-v-22c7a2ba],\r\n.btn-pdf[data-v-22c7a2ba],\r\n.btn-docx[data-v-22c7a2ba] {\r\n  color: #fff;\n}\n.btn-invite[data-v-22c7a2ba] {\r\n  background-color: #5c55ba;\n}\n.btn-pdf[data-v-22c7a2ba],\r\n.btn-docx[data-v-22c7a2ba] {\r\n  background-color: #ff7e85;\n}\n.container[data-v-22c7a2ba] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-content: center;\r\n  flex-flow: column;\n}\r\n", ""]);
 
 // exports
 
@@ -1472,9 +1551,9 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n       " +
+                  "\n          " +
                     _vm._s(_vm.$t("conceptPaper.inviteTeam")) +
-                    "\n      "
+                    "\n        "
                 )
               ]
             ),
@@ -1485,9 +1564,9 @@ var render = function() {
                 { staticClass: "btn btn-pdf", on: { click: _vm.exportAsPDF } },
                 [
                   _vm._v(
-                    "\n              " +
+                    "\n            " +
                       _vm._s(_vm.$t("conceptPaper.pdfExport")) +
-                      "\n            "
+                      "\n          "
                   )
                 ]
               ),
@@ -1500,9 +1579,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n              " +
+                    "\n            " +
                       _vm._s(_vm.$t("conceptPaper.exportDocx")) +
-                      "\n            "
+                      "\n          "
                   )
                 ]
               )
@@ -1623,9 +1702,10 @@ var render = function() {
                       attrs: {
                         type: "text",
                         id: "currentSemester",
-                        placeholder: _vm.$t(
-                          "conceptPaper.placeholders.semester"
-                        )
+                        placeholder:
+                          _vm.$store.state.serverPath +
+                          "/storage/" +
+                          _vm.editConceptPaperData.image
                       },
                       domProps: {
                         value: _vm.editConceptPaperData.currentSemester
@@ -1670,7 +1750,8 @@ var render = function() {
                       src:
                         _vm.$store.state.serverPath +
                         "/storage/" +
-                        _vm.editConceptPaperData.image
+                        _vm.editConceptPaperData.image,
+                      id: "logo_image"
                     }
                   })
                 ]),
@@ -2429,18 +2510,21 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
     key: "create",
     // tslint:disable-next-line: typedef
     value: function create(_ref) {
-      var _ref2 = _slicedToArray(_ref, 8),
+      var _ref2 = _slicedToArray(_ref, 11),
           name = _ref2[0],
           course = _ref2[1],
           currentSemester = _ref2[2],
-          idea = _ref2[3],
-          basics = _ref2[4],
-          niceToHave = _ref2[5],
-          technologies = _ref2[6],
-          team = _ref2[7];
+          logo = _ref2[3],
+          globalWidth = _ref2[4],
+          globalHeight = _ref2[5],
+          idea = _ref2[6],
+          basics = _ref2[7],
+          niceToHave = _ref2[8],
+          technologies = _ref2[9],
+          team = _ref2[10];
 
-      var document = new docx__WEBPACK_IMPORTED_MODULE_0__["Document"](); //const image = Media.addImage(document, );
-
+      var document = new docx__WEBPACK_IMPORTED_MODULE_0__["Document"]();
+      var image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, logo, globalWidth, globalHeight);
       console.log(basics);
       document.addSection({
         children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
@@ -2460,8 +2544,7 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
           spacing: {
             after: 200
           }
-        }), //new Paragraph(image),
-        this.createHeading("Grundidee"), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](image), this.createHeading("Grundidee"), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
           children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: idea,
             size: 22
@@ -2585,15 +2668,20 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
     key: "create",
     // tslint:disable-next-line: typedef
     value: function create(_ref) {
-      var _ref2 = _slicedToArray(_ref, 8),
+      var _ref2 = _slicedToArray(_ref, 9),
           name = _ref2[0],
           course = _ref2[1],
           currentSemester = _ref2[2],
-          idea = _ref2[3],
-          basics = _ref2[4],
-          niceToHave = _ref2[5],
-          technologies = _ref2[6],
-          team = _ref2[7];
+          logo = _ref2[3],
+          idea = _ref2[4],
+          basics = _ref2[5],
+          niceToHave = _ref2[6],
+          technologies = _ref2[7],
+          team = _ref2[8];
+
+      var _this$calculateAspect = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30),
+          width = _this$calculateAspect.width,
+          height = _this$calculateAspect.height;
 
       var doc = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]({
         orientation: 'p',
@@ -2618,6 +2706,8 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
       doc.setFontSize(textSizeHeader);
       doc.text(left, 35, course);
       doc.text(left, 40, currentSemester);
+      doc.addImage(logo, left, top, width, height);
+      top = top + 40;
       var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
       doc.setTextColor('#2E74B5');
       doc.text(left, top, ideaHeadingLine);
@@ -2665,7 +2755,17 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
       var teamLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(team, 150);
       doc.setTextColor('#000000');
       doc.text(leftTab1, top, teamLines);
+      top = top + doc.getTextDimensions(teamLines).h;
       return doc;
+    }
+  }, {
+    key: "calculateAspectRatioFit",
+    value: function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+      var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+      return {
+        width: srcWidth * ratio,
+        height: srcHeight * ratio
+      };
     }
   }]);
 

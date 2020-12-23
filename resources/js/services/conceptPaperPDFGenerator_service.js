@@ -3,7 +3,11 @@ import { jsPDF } from "jspdf";
 
 export class DocumentCreatorPDF {
     // tslint:disable-next-line: typedef
-    create([name, course, currentSemester, idea, basics, niceToHave, technologies, team]) {
+
+    create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]) {
+        
+        const { width, height } = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30);
+
         const doc = new jsPDF({
             orientation: 'p',
             unit: 'mm',
@@ -31,6 +35,10 @@ export class DocumentCreatorPDF {
         doc.text(left, 35, course);
         doc.text(left, 40, currentSemester);
 
+        doc.addImage(logo, left, top, width, height);
+
+        top = top + 40;
+
         var ideaHeadingLine = doc.setFont('times', 'normal')
             .setFontSize(textSizeHeading)
             .splitTextToSize("Grundidee", 160);
@@ -42,11 +50,11 @@ export class DocumentCreatorPDF {
         var ideaLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(idea, 160);
-            doc.setTextColor('#000000');
+        doc.setTextColor('#000000');
         doc.text(left, top, ideaLines);
 
         top = top + doc.getTextDimensions(ideaLines).h + 5;
-        
+
         //---------------------
 
         var featuresHeadingLine = doc.setFont('times', 'normal')
@@ -68,7 +76,7 @@ export class DocumentCreatorPDF {
         var basicsLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(basics, 140);
-            doc.setTextColor('#000000');
+        doc.setTextColor('#000000');
         doc.text(leftTab2, top, basicsLines);
 
         //-----------------------
@@ -86,7 +94,7 @@ export class DocumentCreatorPDF {
         var niceToHaveLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(niceToHave, 140);
-            doc.setTextColor('#000000');
+        doc.setTextColor('#000000');
         doc.text(leftTab2, top, niceToHaveLines);
 
         //-----------------------
@@ -104,7 +112,7 @@ export class DocumentCreatorPDF {
         var technologiesLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(technologies, 150);
-            doc.setTextColor('#000000');
+        doc.setTextColor('#000000');
         doc.text(leftTab1, top, technologiesLines);
 
         //-----------------------
@@ -122,11 +130,26 @@ export class DocumentCreatorPDF {
         var teamLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(team, 150);
-            doc.setTextColor('#000000');
+        doc.setTextColor('#000000');
         doc.text(leftTab1, top, teamLines);
+
+        top = top + doc.getTextDimensions(teamLines).h;
+
+
 
 
         return doc;
 
+    }
+
+    calculateAspectRatioFit(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+    ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { width: srcWidth * ratio, height: srcHeight * ratio };
     }
 }
