@@ -21,6 +21,7 @@ export class DocumentCreatorPDF {
         var leftTab1 = 35;
         var leftTab2 = 45;
         var top = 50;
+        var helperTop = top;
 
         const textSizeHeader = 14;
         const textSizeHeading = 16;
@@ -78,7 +79,24 @@ export class DocumentCreatorPDF {
             .setFontSize(textSizeText)
             .splitTextToSize(niceToHave, 140);
 
-        helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h + doc.getTextDimensions(featuresHeadingLine).h;
+        var technologiesHeadingLine = doc.setFont('times', 'normal')
+            .setFontSize(textSizeHeading)
+            .splitTextToSize("Technologien", 160);
+        var technologiesLines = doc.setFont('times', 'normal')
+            .setFontSize(textSizeText)
+            .splitTextToSize(technologies, 150);
+
+        var teamHeadingLine = doc.setFont('times', 'normal')
+            .setFontSize(textSizeHeading)
+            .splitTextToSize("Team", 160);
+        var teamLines = doc.setFont('times', 'normal')
+            .setFontSize(textSizeText)
+            .splitTextToSize(team, 150);
+
+        helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h;
+            /* + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h
+            + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h
+            + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h; */
 
         if (helperTop > 267) {
             doc.addPage();
@@ -108,56 +126,70 @@ export class DocumentCreatorPDF {
 
         //-----------------------
 
+        helperTop = top + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h;
+
+        if (helperTop > 267) {
+            doc.addPage();
+            top = 30;
+        }
+
+        //setText NiceToHaveHeading
         doc.setFontSize(textSizeSubHeading)
         doc.setTextColor('#2E74B5');
         doc.text(leftTab1, top, niceToHaveHeadingLine);
 
         top = top + doc.getTextDimensions(niceToHaveHeadingLine).h;
 
+        //setText NiceToHave
         doc.setFontSize(textSizeText)
         doc.setTextColor('#000000');
         doc.text(leftTab2, top, niceToHaveLines);
 
-        //-----------------------
-
         top = top + doc.getTextDimensions(niceToHaveLines).h + 5;
 
-        var technologiesHeadingLine = doc.setFont('times', 'normal')
-            .setFontSize(textSizeHeading)
-            .splitTextToSize("Technologien", 160);
+        //-----------------------
+
+        helperTop = top + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h;
+            
+        if (helperTop > 267) {
+            doc.addPage();
+            top = 30;
+        }
+
+        //setText TechHeading
+        doc.setFontSize(textSizeHeading);
         doc.setTextColor('#2E74B5');
         doc.text(left, top, technologiesHeadingLine);
 
         top = top + doc.getTextDimensions(technologiesHeadingLine).h;
 
-        var technologiesLines = doc.setFont('times', 'normal')
-            .setFontSize(textSizeText)
-            .splitTextToSize(technologies, 150);
+        //setText Tech
+        doc.setFontSize(textSizeText);
         doc.setTextColor('#000000');
         doc.text(leftTab1, top, technologiesLines);
 
-        //-----------------------
-
         top = top + doc.getTextDimensions(technologiesLines).h + 5;
 
-        var teamHeadingLine = doc.setFont('times', 'normal')
-            .setFontSize(textSizeHeading)
-            .splitTextToSize("Team", 160);
+        //-----------------------
+
+        helperTop = top + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h;
+
+        if (helperTop > 267) {
+            doc.addPage();
+            top = 30;
+        }
+
+        //setText TeamHeading
+        doc.setFontSize(textSizeHeading);
         doc.setTextColor('#2E74B5');
         doc.text(left, top, teamHeadingLine);
 
         top = top + doc.getTextDimensions(teamHeadingLine).h;
 
-        var teamLines = doc.setFont('times', 'normal')
-            .setFontSize(textSizeText)
-            .splitTextToSize(team, 150);
+        //setText Team
+        doc.setFontSize(textSizeText);
         doc.setTextColor('#000000');
         doc.text(leftTab1, top, teamLines);
-
-        top = top + doc.getTextDimensions(teamLines).h;
-
-
-
 
         return doc;
 
