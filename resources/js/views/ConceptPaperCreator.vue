@@ -263,6 +263,8 @@
 import * as conceptPaperService from "../services/conceptPaper_service";
 import { uuid } from "vue-uuid";
 import { http } from "../services/http_service";
+import axios from 'axios';
+
 export default {
   name: "conceptPaper",
   data() {
