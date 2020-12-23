@@ -80,7 +80,7 @@
                     v-model="editConceptPaperData.currentSemester"
                     class="form-control"
                     id="currentSemester"
-                    :placeholder="$t('conceptPaper.placeholders.semester')"
+                    :placeholder="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
                   />
                   <div class="invalid-feedback" v-if="errors.currentSemester">
                     {{ errors.currentSemester[0] }}
@@ -93,6 +93,7 @@
               <div>
                 <img
                   :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
+                  id="logo_image"
                   class="image-wd"
                   ref="editConceptPaperImageDisplay"
                 />
@@ -363,7 +364,55 @@ export default {
       testingCodeToCopy.setAttribute("type", "hidden");
       window.getSelection().removeAllRanges();
     },
-    exportAsDOCX: function () {
+    exportAsDOCX: async function () {
+      var img = document.getElementById("logo_image");
+
+      function calculateAspectRatioFit(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+      ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { width: srcWidth * ratio, height: srcHeight * ratio };
+      }
+
+      var globalWidth;
+      var globalHeight;
+
+      async function imageToUint8Array(image) {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+
+        return new Promise((resolve, reject) => {
+          const { width, height } = calculateAspectRatioFit(
+            image.naturalWidth || image.width,
+            image.naturalHeight || image.height,
+            540,
+            120
+          );
+          globalWidth = width;
+          globalHeight = height;
+          canvas.width = width;
+          canvas.height = height;
+          context.width = width;
+          context.height = height;
+          console.log(width, height, image);
+          context.drawImage(image, 0, 0, width, height);
+          context.canvas.toBlob((blob) =>
+            blob
+              .arrayBuffer()
+              .then((buffer) => resolve(new Uint8Array(buffer)))
+              .catch(reject)
+          );
+        });
+      }
+
+      const logo = await imageToUint8Array(img);
+
+      console.log(globalWidth, globalHeight);
+
       const documentCreator = new DocumentCreatorDOCX();
       const {
         name,
@@ -375,10 +424,13 @@ export default {
         technologies,
         team,
       } = this.editConceptPaperData;
-      const document = documentCreator.create([
+      const doc = documentCreator.create([
         name,
         course,
         currentSemester,
+        logo,
+        globalWidth,
+        globalHeight,
         idea,
         basics,
         niceToHave,
@@ -386,7 +438,7 @@ export default {
         team,
       ]);
 
-      Packer.toBlob(document).then((blob) => {
+      Packer.toBlob(doc).then((blob) => {
         console.log(blob);
         saveAs(
           blob,
@@ -396,28 +448,32 @@ export default {
       });
     },
     exportAsPDF: function () {
+      var logo = document.getElementById("logo_image");
+
       const documentCreatorPDF = new DocumentCreatorPDF();
       const {
         name,
         course,
         currentSemester,
+        image,
         idea,
         basics,
         niceToHave,
         technologies,
         team,
       } = this.editConceptPaperData;
-      const document = documentCreatorPDF.create([
+      const doc = documentCreatorPDF.create([
         name,
         course,
         currentSemester,
+        logo,
         idea,
         basics,
         niceToHave,
         technologies,
         team,
       ]);
-      document.save("Konzeptpapier_" + name + ".pdf");
+      doc.save("Konzeptpapier_" + name + ".pdf");
     },
     notify() {
       const $button = document.getElementById("notifyBtn");
