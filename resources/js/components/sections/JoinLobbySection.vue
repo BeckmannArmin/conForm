@@ -33,7 +33,7 @@
         </p>
       </div>
     </div>
-    <p class="or-divider">OR</p>
+    <p v-if="isLoggedIn" class="or-divider">OR</p>
     <div v-if="isLoggedIn" class="container">
       <div class="inner py-5 px-3 px-md-6 text-center">
         <h3>{{ $t('joinlobby.join') }}.</h3>
