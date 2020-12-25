@@ -38,6 +38,7 @@
               {{ $t("conceptPaper.exportDocx") }}
             </button>
           </div>
+          <RingBell />
         </div>
         <div class="card-body">
           <div>

@@ -44,6 +44,7 @@
             id="joinlby"
             type="button"
             class="btn btn-primary"
+            data-dismiss="modal"
             @click="joinLobby"
           >
             {{ $t("lobbyModal.submit") }}
@@ -69,6 +70,10 @@ export default {
     joinLobby: async function () {
       try {
         const response = await axios.get(`conceptPaper/lobby/${this.joinCode}`);
+         this.$router.push({
+        name: "conceptPaper",
+        params: { joincode: this.joinCode },
+      });
       } catch (error) {
         if (error.response.status === 404) {
           this.animated = true;
