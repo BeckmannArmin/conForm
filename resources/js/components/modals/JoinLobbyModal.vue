@@ -44,7 +44,6 @@
             id="joinlby"
             type="button"
             class="btn btn-primary"
-            data-dismiss="modal"
             @click="joinLobby"
           >
             {{ $t("lobbyModal.submit") }}
@@ -81,11 +80,6 @@ export default {
           setTimeout(() => {
             this.animated = false;
           }, 2000);
-          this.flashMessage.error({
-            message:
-              "Die Id scheint es nicht zu geben. Versuch es noch einmal.",
-            time: 5000,
-          });
         }
       }
     },

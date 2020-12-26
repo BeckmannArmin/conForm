@@ -258,21 +258,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PageLoader/PageLoader.vue */ "./resources/js/components/PageLoader/PageLoader.vue");
-/* harmony import */ var _services_conceptPaper_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/conceptPaper_service */ "./resources/js/services/conceptPaper_service.js");
-/* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/index.esm.js");
-/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/http_service */ "./resources/js/services/http_service.js");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! file-saver */ "./node_modules/file-saver/dist/FileSaver.min.js");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
-/* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
-/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
-/* harmony import */ var _components_RingBell_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/RingBell.vue */ "./resources/js/components/RingBell.vue");
-/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
-/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../router */ "./resources/js/router.js");
+/* harmony import */ var _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PageLoader/PageLoader.vue */ "./resources/js/components/PageLoader/PageLoader.vue");
+/* harmony import */ var _services_conceptPaper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/conceptPaper_service */ "./resources/js/services/conceptPaper_service.js");
+/* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/index.esm.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/http_service */ "./resources/js/services/http_service.js");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! file-saver */ "./node_modules/file-saver/dist/FileSaver.min.js");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
+/* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
+/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+/* harmony import */ var _components_RingBell_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/RingBell.vue */ "./resources/js/components/RingBell.vue");
+/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
+/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
 
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -280,213 +285,213 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -523,83 +528,51 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   components: {
-    PageLoader: _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    RingBell: _components_RingBell_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
-    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
-    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+    PageLoader: _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    RingBell: _components_RingBell_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
   },
   mounted: function mounted() {
     this.loadConceptPaper();
   },
   methods: {
-    loadConceptPaper: function () {
-      var _loadConceptPaper = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this = this;
+    loadConceptPaper: function loadConceptPaper() {
+      var _this = this;
 
-        var response;
+      this.isLoading = true;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("conceptPaper/lobby/".concat(this.joinCode)).then(function (response) {
+        _this.conceptPaper.name = response.data.name;
+        _this.conceptPaper.course = response.data.course;
+        _this.conceptPaper.currentSemester = response.data.currentSemester;
+        _this.conceptPaper.image = response.data.image;
+        _this.conceptPaper.idea = response.data.idea;
+        _this.conceptPaper.basics = response.data.basics;
+        _this.conceptPaper.niceToHave = response.data.niceToHave;
+        _this.conceptPaper.technologies = response.data.technologies;
+        _this.conceptPaper.team = response.data.team;
+        _this.conceptPaper.joinCodeDB = response.data.join_code;
+        _this.conceptPaper.userID = response.data.user_id;
+        _this.conceptPapers = response.data;
+        _this.editConceptPaperData = _objectSpread({}, response.data);
+        console.log(_this.editConceptPaperData);
+        setTimeout(function () {
+          _this.isLoading = false;
+        }, 500);
+      })["catch"](function (error) {
+        if (error.response.status === 404) {
+          _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/notFound');
+        }
+      });
+    },
+    updateConceptPaper: function () {
+      var _updateConceptPaper = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                this.isLoading = true;
-                _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("conceptPaper/lobby/".concat(this.joinCode));
-
-              case 4:
-                response = _context.sent;
-                //const responseAllPapers = await conceptPaperService.loadConceptPaper();
-                //this.conceptPapers = responseAllPapers.data;
-                this.conceptPaper.name = response.data.name;
-                this.conceptPaper.course = response.data.course;
-                this.conceptPaper.currentSemester = response.data.currentSemester;
-                this.conceptPaper.image = response.data.image;
-                this.conceptPaper.idea = response.data.idea;
-                this.conceptPaper.basics = response.data.basics;
-                this.conceptPaper.niceToHave = response.data.niceToHave;
-                this.conceptPaper.technologies = response.data.technologies;
-                this.conceptPaper.team = response.data.team;
-                this.conceptPaper.joinCodeDB = response.data.join_code;
-                this.conceptPaper.userID = response.data.user_id;
-                this.conceptPapers = response.data;
-                this.editConceptPaperData = _objectSpread({}, response.data);
-                console.log(this.editConceptPaperData);
-                setTimeout(function () {
-                  _this.isLoading = false;
-                }, 500);
-                _context.next = 25;
-                break;
-
-              case 22:
-                _context.prev = 22;
-                _context.t0 = _context["catch"](0);
-                this.flashMessage.error({
-                  message: "Oops, etwas ist schiefgelaufen. Bitte lade die Seite neu.",
-                  time: 5000
-                });
-
-              case 25:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this, [[0, 22]]);
-      }));
-
-      function loadConceptPaper() {
-        return _loadConceptPaper.apply(this, arguments);
-      }
-
-      return loadConceptPaper;
-    }(),
-    updateConceptPaper: function () {
-      var _updateConceptPaper = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var formData, response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
                 formData = new FormData();
                 formData.append("name", this.editConceptPaperData.name);
                 formData.append("course", this.editConceptPaperData.course);
@@ -613,11 +586,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.append("join_code", this.conceptPaper.joinCodeDB);
                 formData.append("user_id", this.conceptPaper.userID);
                 formData.append("_method", "put");
-                _context2.next = 16;
-                return _services_conceptPaper_service__WEBPACK_IMPORTED_MODULE_3__["updateConceptPaper"](this.editConceptPaperData.id, formData);
+                _context.next = 16;
+                return _services_conceptPaper_service__WEBPACK_IMPORTED_MODULE_4__["updateConceptPaper"](this.editConceptPaperData.id, formData);
 
               case 16:
-                response = _context2.sent;
+                response = _context.sent;
 
                 /**
                 this.conceptPapers.map((conceptPaper) => {
@@ -631,14 +604,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   message: "Konzeptpapier wurde erfolgreich geupdated!",
                   time: 5000
                 });
-                _context2.next = 23;
+                _context.next = 23;
                 break;
 
               case 20:
-                _context2.prev = 20;
-                _context2.t0 = _context2["catch"](0);
+                _context.prev = 20;
+                _context.t0 = _context["catch"](0);
                 this.flashMessage.error({
-                  message: _context2.t0.response.data.message,
+                  message: _context.t0.response.data.message,
                   time: 5000
                 });
 
@@ -647,10 +620,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 24:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2, this, [[0, 20]]);
+        }, _callee, this, [[0, 20]]);
       }));
 
       function updateConceptPaper() {
@@ -691,25 +664,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       window.getSelection().removeAllRanges();
     },
     exportAsDOCX: function () {
-      var _exportAsDOCX = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+      var _exportAsDOCX = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var _this2 = this;
 
         var img, calculateAspectRatioFit, globalWidth, globalHeight, imageToUint8Array, _imageToUint8Array, logo, documentCreator, _this$editConceptPape, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 _imageToUint8Array = function _imageToUint8Array3() {
-                  _imageToUint8Array = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(image) {
+                  _imageToUint8Array = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(image) {
                     var canvas, context;
-                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
                       while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context2.prev = _context2.next) {
                           case 0:
                             canvas = document.createElement("canvas");
                             context = canvas.getContext("2d");
-                            return _context3.abrupt("return", new Promise(function (resolve, reject) {
+                            return _context2.abrupt("return", new Promise(function (resolve, reject) {
                               var _calculateAspectRatio = calculateAspectRatioFit(image.naturalWidth || image.width, image.naturalHeight || image.height, 540, 120),
                                   width = _calculateAspectRatio.width,
                                   height = _calculateAspectRatio.height;
@@ -731,10 +704,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                           case 3:
                           case "end":
-                            return _context3.stop();
+                            return _context2.stop();
                         }
                       }
-                    }, _callee3);
+                    }, _callee2);
                   }));
                   return _imageToUint8Array.apply(this, arguments);
                 };
@@ -752,27 +725,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
 
                 img = document.getElementById("logo_image");
-                _context4.next = 6;
+                _context3.next = 6;
                 return imageToUint8Array(img);
 
               case 6:
-                logo = _context4.sent;
+                logo = _context3.sent;
                 console.log(globalWidth, globalHeight);
-                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_8__["DocumentCreatorDOCX"]();
+                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__["DocumentCreatorDOCX"]();
                 _this$editConceptPape = this.editConceptPaperData, name = _this$editConceptPape.name, course = _this$editConceptPape.course, currentSemester = _this$editConceptPape.currentSemester, idea = _this$editConceptPape.idea, basics = _this$editConceptPape.basics, niceToHave = _this$editConceptPape.niceToHave, technologies = _this$editConceptPape.technologies, team = _this$editConceptPape.team;
                 doc = documentCreator.create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
-                docx__WEBPACK_IMPORTED_MODULE_7__["Packer"].toBlob(doc).then(function (blob) {
+                docx__WEBPACK_IMPORTED_MODULE_8__["Packer"].toBlob(doc).then(function (blob) {
                   console.log(blob);
-                  Object(file_saver__WEBPACK_IMPORTED_MODULE_6__["saveAs"])(blob, "Konzeptpapier_" + _this2.editConceptPaperData.name + ".docx");
+                  Object(file_saver__WEBPACK_IMPORTED_MODULE_7__["saveAs"])(blob, "Konzeptpapier_" + _this2.editConceptPaperData.name + ".docx");
                   console.log("Document created successfully");
                 });
 
               case 12:
               case "end":
-                return _context4.stop();
+                return _context3.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee3, this);
       }));
 
       function exportAsDOCX() {
@@ -783,7 +756,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }(),
     exportAsPDF: function exportAsPDF() {
       var logo = document.getElementById("logo_image");
-      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_9__["DocumentCreatorPDF"]();
+      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_10__["DocumentCreatorPDF"]();
       var _this$editConceptPape2 = this.editConceptPaperData,
           name = _this$editConceptPape2.name,
           course = _this$editConceptPape2.course,
@@ -796,6 +769,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           team = _this$editConceptPape2.team;
       var doc = documentCreatorPDF.create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]);
       doc.save("Konzeptpapier_" + name + ".pdf");
+    },
+    exportAsJSON: function exportAsJSON() {
+      console.log('json');
     },
     notify: function notify() {
       var $button = document.getElementById("notifyBtn");
@@ -1563,6 +1539,21 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("div", { staticStyle: { "padding-right": "20px" } }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-json",
+                    on: { click: _vm.exportAsJSON }
+                  },
+                  [
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(_vm.$t("conceptPaper.jsonExport")) +
+                        "\n          "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
                 _c(
                   "button",
                   {

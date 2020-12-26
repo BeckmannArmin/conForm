@@ -31,6 +31,9 @@
             {{ $t("conceptPaper.inviteTeam") }}
           </button>
           <div style="padding-right: 20px">
+             <button class="btn btn-json" @click="exportAsJSON">
+              {{ $t("conceptPaper.jsonExport") }}
+            </button>
             <button class="btn btn-pdf" @click="exportAsPDF">
               {{ $t("conceptPaper.pdfExport") }}
             </button>
@@ -203,6 +206,7 @@
 
 <script>
 import axios from "axios";
+import router from "../router";
 import PageLoader from "../components/PageLoader/PageLoader.vue";
 import * as conceptPaperService from "../services/conceptPaper_service";
 import { uuid } from "vue-uuid";
@@ -251,12 +255,10 @@ export default {
     this.loadConceptPaper();
   },
   methods: {
-    loadConceptPaper: async function () {
-      try {
+    loadConceptPaper() {
         this.isLoading = true;
-        const response = await axios.get(`conceptPaper/lobby/${this.joinCode}`);
-        //const responseAllPapers = await conceptPaperService.loadConceptPaper();
-        //this.conceptPapers = responseAllPapers.data;
+        axios.get(`conceptPaper/lobby/${this.joinCode}`)
+        .then((response) => {
 
         this.conceptPaper.name = response.data.name;
         this.conceptPaper.course = response.data.course;
@@ -278,12 +280,12 @@ export default {
         setTimeout(() => {
           this.isLoading = false;
         }, 500);
-      } catch (error) {
-        this.flashMessage.error({
-          message: "Oops, etwas ist schiefgelaufen. Bitte lade die Seite neu.",
-          time: 5000,
+        })
+        .catch(function (error) {
+          if (error.response.status === 404) {
+             router.push('/notFound');
+          }
         });
-      }
     },
     updateConceptPaper: async function () {
       try {
@@ -475,6 +477,9 @@ export default {
         team,
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
+    },
+    exportAsJSON: function () {
+      console.log('json');
     },
     notify() {
       const $button = document.getElementById("notifyBtn");

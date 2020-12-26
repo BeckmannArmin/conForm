@@ -75,6 +75,11 @@ const routes = [
         props: { mode: 'light' }
     },
     {
+        path: '/notFound',
+        name: 'notFound',
+        component: () => import('./views/NotFound.vue')
+    },
+    {
         path: '*',
         component: () => import('./views/404.vue')
     }

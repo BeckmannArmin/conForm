@@ -35,7 +35,9 @@
     },
     "404": {
         "lost": "Lost in space",
-        "home": "Get me back home"
+        "home": "Get me back home",
+        "notexist": "The paper with the corresponding id does not exist",
+        "topapers": "To my concept papers"
     },
     "getstarted": {
         "create": "What can you create",

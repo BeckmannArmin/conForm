@@ -35,7 +35,9 @@
     },
     "404": {
         "lost": "Verloren im Weltall",
-        "home": "Zurück nach Hause"
+        "home": "Zurück nach Hause",
+        "notexist": "Das Konzeptpapier mit der eingegebenen Id existiert nicht",
+        "topapers": "Zu meinen Konzeptpapieren"
 
     },
     "getstarted": {
