@@ -98,7 +98,10 @@
             "image": "Image",
             "actions": "Actions",
             "loadMore": "Load more"
-        }
+        },
+        "notloggedin": "In order to be able to use all functions to the full extent, you have to create an account",
+        "signin": "I already have an account",
+        "signup": "Sign me up"
     },
     "kanban": {
         "addTask": "Add task",

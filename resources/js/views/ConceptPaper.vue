@@ -41,7 +41,6 @@
               {{ $t("conceptPaper.exportDocx") }}
             </button>
           </div>
-          <RingBell />
         </div>
         <div class="card-body">
           <div>
@@ -200,6 +199,7 @@
       </div>
     </div>
     <InviteTeam :joinCode="conceptPaper.joinCodeDB" />
+    <CreateAccountModal v-if="showModal" @close="showModal = false"/>
   </div>
 </template>
 
@@ -219,9 +219,9 @@ import { DocumentCreatorDOCX } from "../services/conceptPaperDOCXGenerator_servi
 import { DocumentCreatorPDF } from "../services/conceptPaperPDFGenerator_service";
 
 import { jsPDF } from "jspdf";
-import RingBell from "../components/RingBell.vue";
 import RightSideBar from "../components/RightSidebar.vue";
 import InviteTeam from "../components/modals/InviteYourTeam.vue";
+import CreateAccountModal from "../components/modals/CreateAccountModal.vue"
 
 export default {
   data() {
@@ -243,13 +243,14 @@ export default {
       isLoading: false,
       editConceptPaperData: {},
       errors: {},
+      showModal: false
     };
   },
   components: {
     PageLoader,
-    RingBell,
     RightSideBar,
     InviteTeam,
+    CreateAccountModal
   },
   mounted() {
     this.loadConceptPaper();
@@ -324,12 +325,14 @@ export default {
           time: 5000,
         });
       } catch (error) {
+        if (error.response.status === 401) {
+          this.showModal = true;
+        }
         this.flashMessage.error({
           message: error.response.data.message,
           time: 5000,
         });
       }
-      this.notify();
     },
     editAttachedImage() {
       this.editConceptPaperData.image = this.$refs.editConceptPaperImage.files[0];

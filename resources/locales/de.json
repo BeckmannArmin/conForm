@@ -100,7 +100,10 @@
             "image": "Bild",
             "actions": "Aktionen",
             "loadMore": "Lade mehr"
-        }
+        },
+        "notloggedin": "Um alle Features vollumfämglich nutzen zu können, musst du dir einen Account erstellen",
+        "signin": "Ich habe bereits einen Account",
+        "signup": "Registrieren"
     },
     "kanban": {
         "addTask": "Task hinzufügen",
