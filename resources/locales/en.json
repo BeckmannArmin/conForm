@@ -101,7 +101,13 @@
         },
         "notloggedin": "In order to be able to use all functions to the full extent, you have to create an account",
         "signin": "I already have an account",
-        "signup": "Sign me up"
+        "signup": "Sign me up",
+        "pdfwatermark": "PDF without watermark",
+        "pdfdefault": "By default your PDF export has an conForm watermark. To have a PDF file without the watermark hit the register button",
+        "downloadPdf": "Download PDF",
+        "docxwatermark": "DOCX without watermark",
+        "docxdefault": "By default your DOCX export has an conForm watermark. To have a DOCX file without the watermark hit the register button",
+        "downloadDocx": "Download DOCX"
     },
     "kanban": {
         "addTask": "Add task",

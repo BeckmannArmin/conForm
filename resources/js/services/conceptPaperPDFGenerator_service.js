@@ -1,6 +1,5 @@
 import { jsPDF } from "jspdf";
 
-
 export class DocumentCreatorPDF {
     // tslint:disable-next-line: typedef
 

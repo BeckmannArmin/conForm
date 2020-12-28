@@ -103,7 +103,13 @@
         },
         "notloggedin": "Um alle Features vollumfänglich nutzen zu können, musst du dir einen Account erstellen",
         "signin": "Ich habe bereits einen Account",
-        "signup": "Registrieren"
+        "signup": "Registrieren",
+        "pdfwatermark": "PDF ohne Wasserzeichen",
+        "pdfdefault": " Standardmäßig hat dein PDF-Export ein conForm-Wasserzeichen. Um eine PDF-Datei ohne Wasserzeichen zu erhalten, klicke bitte auf die Schaltfläche Registrieren",
+        "downloadPdf": "PDF herunterladen",
+        "docxwatermark": "DOCX ohne Wasszeichen",
+        "docxdefault": "Standardmäßig hat dein DOCX-Export ein conForm-Wasserzeichen. Um eine DOCX-Datei ohne Wasserzeichen zu erhalten, klicke bitte auf die Schaltfläche Registrieren",
+        "downloadDocx": "DOCX herunterladen"
     },
     "kanban": {
         "addTask": "Task hinzufügen",

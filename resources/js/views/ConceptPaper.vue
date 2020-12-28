@@ -34,10 +34,16 @@
              <button class="btn btn-json" @click="exportAsJSON">
               {{ $t("conceptPaper.jsonExport") }}
             </button>
-            <button class="btn btn-pdf" @click="exportAsPDF">
+            <button v-if="isLoggedIn" class="btn btn-pdf" @click="exportAsPDF">
               {{ $t("conceptPaper.pdfExport") }}
             </button>
-            <button class="btn btn-docx" @click="exportAsDOCX">
+            <button v-if="!isLoggedIn" class="btn btn-pdf" @click="showWatermark = true">
+              {{ $t("conceptPaper.pdfExport") }}
+            </button>
+             <button v-if="!isLoggedIn" class="btn btn-docx" @click="showDocxWatermark = true">
+              {{ $t("conceptPaper.exportDocx") }}
+            </button>
+            <button v-if="isLoggedIn" class="btn btn-docx" @click="exportAsDOCX">
               {{ $t("conceptPaper.exportDocx") }}
             </button>
           </div>
@@ -200,6 +206,8 @@
     </div>
     <InviteTeam :joinCode="conceptPaper.joinCodeDB" />
     <CreateAccountModal v-if="showModal" @close="showModal = false"/>
+    <PDFWatermark v-if="showWatermark" @close="showWatermark = false"/>
+    <DOCXWatermark v-if="showDocxWatermark" @close="showDocxWatermark = false" />
   </div>
 </template>
 
@@ -221,7 +229,9 @@ import { DocumentCreatorPDF } from "../services/conceptPaperPDFGenerator_service
 import { jsPDF } from "jspdf";
 import RightSideBar from "../components/RightSidebar.vue";
 import InviteTeam from "../components/modals/InviteYourTeam.vue";
-import CreateAccountModal from "../components/modals/CreateAccountModal.vue"
+import CreateAccountModal from "../components/modals/CreateAccountModal.vue";
+import PDFWatermark from "../components/modals/PdfWatermark.vue";
+import DOCXWatermark from "../components/modals/DocxWatermark.vue";
 
 export default {
   data() {
@@ -243,17 +253,23 @@ export default {
       isLoading: false,
       editConceptPaperData: {},
       errors: {},
-      showModal: false
+      showModal: false,
+      showWatermark: false,
+      showDocxWatermark: false,
+      isLoggedIn: null,
     };
   },
   components: {
     PageLoader,
     RightSideBar,
     InviteTeam,
-    CreateAccountModal
+    CreateAccountModal,
+    PDFWatermark,
+    DOCXWatermark
   },
   mounted() {
     this.loadConceptPaper();
+    this.isLoggedIn = localStorage.getItem("jwt");
   },
   methods: {
     loadConceptPaper() {
@@ -457,6 +473,34 @@ export default {
       var logo = document.getElementById("logo_image");
 
       const documentCreatorPDF = new DocumentCreatorPDF();
+      const {
+        name,
+        course,
+        currentSemester,
+        image,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      } = this.editConceptPaperData;
+      const doc = documentCreatorPDF.create([
+        name,
+        course,
+        currentSemester,
+        logo,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      ]);
+      doc.save("Konzeptpapier_" + name + ".pdf");
+    },
+    exportAsPDFWithWatermark: function () {
+      var logo = document.getElementById("logo_image");
+
+      const documentCreatorPDF = new DocumentCreatorPDFWithWatermark();
       const {
         name,
         course,
