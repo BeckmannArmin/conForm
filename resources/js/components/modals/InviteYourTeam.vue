@@ -50,7 +50,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $t('inviteTeam.close') }}</button>
-        <button type="button" class="btn btn-primary">{{ $t('inviteTeam.save') }}</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">{{ $t('inviteTeam.save') }}</button>
       </div>
     </div>
   </div>
