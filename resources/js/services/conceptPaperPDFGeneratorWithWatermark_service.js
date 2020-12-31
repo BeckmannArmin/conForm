@@ -38,7 +38,7 @@ export class DocumentCreatorPDFWithWatermark {
 
         var fwidth = doc.internal.pageSize.getWidth();
         var fheight = doc.internal.pageSize.getHeight();
-        doc.addImage(logo, 0, 0, fwidth, fheight);
+        doc.addImage(logo, fwidth / 3, fheight / 3, width, height);
 
         //---------------------
 
