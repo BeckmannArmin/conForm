@@ -546,7 +546,8 @@ export default {
         })
     },
     exportAsDOCXWithWatermark: async function () {
-      var img = document.getElementById("docx_watermark");
+      var img = document.getElementById("logo_image");
+      var watermark = document.getElementById("docx_watermark");
 
       function calculateAspectRatioFit(
         srcWidth,
@@ -594,7 +595,7 @@ export default {
 
       console.log(globalWidth, globalHeight);
 
-      const documentCreator = new DocumentCreatorDOCX();
+      const documentCreator = new DocumentCreatorDOCXWithWatermark();
       const {
         name,
         course,
@@ -610,6 +611,7 @@ export default {
         course,
         currentSemester,
         logo,
+        watermark,
         globalWidth,
         globalHeight,
         idea,

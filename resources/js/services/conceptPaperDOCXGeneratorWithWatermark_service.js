@@ -3,7 +3,7 @@ import { AlignmentType, Document, HeadingLevel, Packer, Paragraph, TabStopPositi
 
 export class DocumentCreatorDOCXWithWatermark {
     // tslint:disable-next-line: typedef
-    create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]) {
+    create([name, course, currentSemester, logo, watermark, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]) {
         const document = new Document();
         const image = Media.addImage(document, logo, globalWidth, globalHeight);
 

@@ -966,7 +966,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _exportAsDOCXWithWatermark = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var _this3 = this;
 
-        var img, calculateAspectRatioFit, globalWidth, globalHeight, imageToUint8Array, _imageToUint8Array4, logo, documentCreator, _this$editConceptPape4, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
+        var img, watermark, calculateAspectRatioFit, globalWidth, globalHeight, imageToUint8Array, _imageToUint8Array4, logo, documentCreator, _this$editConceptPape4, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
@@ -1023,16 +1023,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   };
                 };
 
-                img = document.getElementById("docx_watermark");
-                _context5.next = 6;
+                img = document.getElementById("logo_image");
+                watermark = document.getElementById("docx_watermark");
+                _context5.next = 7;
                 return imageToUint8Array(img);
 
-              case 6:
+              case 7:
                 logo = _context5.sent;
                 console.log(globalWidth, globalHeight);
-                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_10__["DocumentCreatorDOCX"]();
+                documentCreator = new _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_11__["DocumentCreatorDOCXWithWatermark"]();
                 _this$editConceptPape4 = this.editConceptPaperData, name = _this$editConceptPape4.name, course = _this$editConceptPape4.course, currentSemester = _this$editConceptPape4.currentSemester, idea = _this$editConceptPape4.idea, basics = _this$editConceptPape4.basics, niceToHave = _this$editConceptPape4.niceToHave, technologies = _this$editConceptPape4.technologies, team = _this$editConceptPape4.team;
-                doc = documentCreator.create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
+                doc = documentCreator.create([name, course, currentSemester, logo, watermark, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
                 docx__WEBPACK_IMPORTED_MODULE_8__["Packer"].toBlob(doc).then(function (blob) {
                   console.log(blob);
                   Object(file_saver__WEBPACK_IMPORTED_MODULE_7__["saveAs"])(blob, "Konzeptpapier_" + _this3.editConceptPaperData.name + ".docx");
@@ -1043,7 +1044,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   });
                 });
 
-              case 12:
+              case 13:
               case "end":
                 return _context5.stop();
             }
@@ -3473,18 +3474,19 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
     key: "create",
     // tslint:disable-next-line: typedef
     value: function create(_ref) {
-      var _ref2 = _slicedToArray(_ref, 11),
+      var _ref2 = _slicedToArray(_ref, 12),
           name = _ref2[0],
           course = _ref2[1],
           currentSemester = _ref2[2],
           logo = _ref2[3],
-          globalWidth = _ref2[4],
-          globalHeight = _ref2[5],
-          idea = _ref2[6],
-          basics = _ref2[7],
-          niceToHave = _ref2[8],
-          technologies = _ref2[9],
-          team = _ref2[10];
+          watermark = _ref2[4],
+          globalWidth = _ref2[5],
+          globalHeight = _ref2[6],
+          idea = _ref2[7],
+          basics = _ref2[8],
+          niceToHave = _ref2[9],
+          technologies = _ref2[10],
+          team = _ref2[11];
 
       var document = new docx__WEBPACK_IMPORTED_MODULE_0__["Document"]();
       var image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, logo, globalWidth, globalHeight);
