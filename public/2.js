@@ -143,6 +143,71 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/DocxWatermark.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/modals/DocxWatermark.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    downloadDOCX: function downloadDOCX() {
+      this.$emit('downloaddocx');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/InviteYourTeam.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/modals/InviteYourTeam.vue?vue&type=script&lang=js& ***!
@@ -245,6 +310,71 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/PdfWatermark.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/modals/PdfWatermark.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    downloadPDF: function downloadPDF() {
+      this.$emit('downloadpdf');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaper.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ConceptPaper.vue?vue&type=script&lang=js& ***!
@@ -268,13 +398,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
-/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
-/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
-/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
-/* harmony import */ var _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/modals/CreateAccountModal.vue */ "./resources/js/components/modals/CreateAccountModal.vue");
-/* harmony import */ var _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/modals/PdfWatermark.vue */ "./resources/js/components/modals/PdfWatermark.vue");
-/* harmony import */ var _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/modals/DocxWatermark.vue */ "./resources/js/components/modals/DocxWatermark.vue");
+/* harmony import */ var _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/conceptPaperDOCXGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperDOCXGeneratorWithWatermark_service.js");
+/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
+/* harmony import */ var _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/conceptPaperPDFGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperPDFGeneratorWithWatermark_service.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
+/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
+/* harmony import */ var _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/modals/CreateAccountModal.vue */ "./resources/js/components/modals/CreateAccountModal.vue");
+/* harmony import */ var _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/modals/PdfWatermark.vue */ "./resources/js/components/modals/PdfWatermark.vue");
+/* harmony import */ var _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/modals/DocxWatermark.vue */ "./resources/js/components/modals/DocxWatermark.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -517,6 +649,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -545,11 +679,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   components: {
     PageLoader: _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
-    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
-    CreateAccountModal: _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
-    PDFWatermark: _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
-    DOCXWatermark: _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    CreateAccountModal: _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
+    PDFWatermark: _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
+    DOCXWatermark: _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_18__["default"]
   },
   mounted: function mounted() {
     this.loadConceptPaper();
@@ -777,7 +911,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }(),
     exportAsPDF: function exportAsPDF() {
       var logo = document.getElementById("logo_image");
-      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_10__["DocumentCreatorPDF"]();
+      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_11__["DocumentCreatorPDF"]();
       var _this$editConceptPape2 = this.editConceptPaperData,
           name = _this$editConceptPape2.name,
           course = _this$editConceptPape2.course,
@@ -793,7 +927,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     exportAsPDFWithWatermark: function exportAsPDFWithWatermark() {
       var logo = document.getElementById("logo_image");
-      var documentCreatorPDF = new DocumentCreatorPDFWithWatermark();
+      var documentCreatorPDF = new _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_12__["DocumentCreatorPDFWithWatermark"]();
       var _this$editConceptPape3 = this.editConceptPaperData,
           name = _this$editConceptPape3.name,
           course = _this$editConceptPape3.course,
@@ -806,6 +940,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           team = _this$editConceptPape3.team;
       var doc = documentCreatorPDF.create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]);
       doc.save("Konzeptpapier_" + name + ".pdf");
+    },
+    exportAsDOCXWithWatermark: function exportAsDOCXWithWatermark() {
+      console.log('docxwatermark');
     },
     exportAsJSON: function exportAsJSON() {
       console.log('json');
@@ -1535,11 +1672,18 @@ var render = function() {
                 [_vm._v("\n          Cancel\n        ")]
               ),
               _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _vm._v(
-                  _vm._s(_vm.$t("conceptPaper.downloadDocx")) + "\n        "
-                )
-              ]),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: { click: _vm.downloadDOCX }
+                },
+                [
+                  _vm._v(
+                    _vm._s(_vm.$t("conceptPaper.downloadDocx")) + "\n        "
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "router-link",
@@ -1853,11 +1997,18 @@ var render = function() {
                 [_vm._v("\n          Cancel\n        ")]
               ),
               _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _vm._v(
-                  _vm._s(_vm.$t("conceptPaper.downloadPdf")) + "\n        "
-                )
-              ]),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: { click: _vm.downloadPDF }
+                },
+                [
+                  _vm._v(
+                    _vm._s(_vm.$t("conceptPaper.downloadPdf")) + "\n        "
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "router-link",
@@ -2530,7 +2681,8 @@ var render = function() {
             on: {
               close: function($event) {
                 _vm.showWatermark = false
-              }
+              },
+              downloadpdf: _vm.exportAsPDFWithWatermark
             }
           })
         : _vm._e(),
@@ -2540,7 +2692,8 @@ var render = function() {
             on: {
               close: function($event) {
                 _vm.showDocxWatermark = false
-              }
+              },
+              downloaddocx: _vm.exportAsDOCXWithWatermark
             }
           })
         : _vm._e()
@@ -2897,17 +3050,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DocxWatermark_vue_vue_type_template_id_90c62b74_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DocxWatermark.vue?vue&type=template&id=90c62b74&scoped=true& */ "./resources/js/components/modals/DocxWatermark.vue?vue&type=template&id=90c62b74&scoped=true&");
-/* harmony import */ var _DocxWatermark_vue_vue_type_style_index_0_id_90c62b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DocxWatermark.vue?vue&type=style&index=0&id=90c62b74&lang=scss&scoped=true& */ "./resources/js/components/modals/DocxWatermark.vue?vue&type=style&index=0&id=90c62b74&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _DocxWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DocxWatermark.vue?vue&type=script&lang=js& */ "./resources/js/components/modals/DocxWatermark.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _DocxWatermark_vue_vue_type_style_index_0_id_90c62b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DocxWatermark.vue?vue&type=style&index=0&id=90c62b74&lang=scss&scoped=true& */ "./resources/js/components/modals/DocxWatermark.vue?vue&type=style&index=0&id=90c62b74&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _DocxWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _DocxWatermark_vue_vue_type_template_id_90c62b74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _DocxWatermark_vue_vue_type_template_id_90c62b74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -2921,6 +3076,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/modals/DocxWatermark.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/modals/DocxWatermark.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/modals/DocxWatermark.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DocxWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DocxWatermark.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/DocxWatermark.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DocxWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -3055,17 +3224,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PdfWatermark_vue_vue_type_template_id_d6b34f80_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PdfWatermark.vue?vue&type=template&id=d6b34f80&scoped=true& */ "./resources/js/components/modals/PdfWatermark.vue?vue&type=template&id=d6b34f80&scoped=true&");
-/* harmony import */ var _PdfWatermark_vue_vue_type_style_index_0_id_d6b34f80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PdfWatermark.vue?vue&type=style&index=0&id=d6b34f80&lang=scss&scoped=true& */ "./resources/js/components/modals/PdfWatermark.vue?vue&type=style&index=0&id=d6b34f80&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _PdfWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PdfWatermark.vue?vue&type=script&lang=js& */ "./resources/js/components/modals/PdfWatermark.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _PdfWatermark_vue_vue_type_style_index_0_id_d6b34f80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PdfWatermark.vue?vue&type=style&index=0&id=d6b34f80&lang=scss&scoped=true& */ "./resources/js/components/modals/PdfWatermark.vue?vue&type=style&index=0&id=d6b34f80&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _PdfWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _PdfWatermark_vue_vue_type_template_id_d6b34f80_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _PdfWatermark_vue_vue_type_template_id_d6b34f80_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -3079,6 +3250,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/modals/PdfWatermark.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/modals/PdfWatermark.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/modals/PdfWatermark.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PdfWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PdfWatermark.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/PdfWatermark.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PdfWatermark_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -3113,6 +3298,165 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PdfWatermark_vue_vue_type_template_id_d6b34f80_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/services/conceptPaperDOCXGeneratorWithWatermark_service.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/services/conceptPaperDOCXGeneratorWithWatermark_service.js ***!
+  \*********************************************************************************/
+/*! exports provided: DocumentCreatorDOCXWithWatermark */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreatorDOCXWithWatermark", function() { return DocumentCreatorDOCXWithWatermark; });
+/* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
+/* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
+  function DocumentCreatorDOCXWithWatermark() {
+    _classCallCheck(this, DocumentCreatorDOCXWithWatermark);
+  }
+
+  _createClass(DocumentCreatorDOCXWithWatermark, [{
+    key: "create",
+    // tslint:disable-next-line: typedef
+    value: function create(_ref) {
+      var _ref2 = _slicedToArray(_ref, 11),
+          name = _ref2[0],
+          course = _ref2[1],
+          currentSemester = _ref2[2],
+          logo = _ref2[3],
+          globalWidth = _ref2[4],
+          globalHeight = _ref2[5],
+          idea = _ref2[6],
+          basics = _ref2[7],
+          niceToHave = _ref2[8],
+          technologies = _ref2[9],
+          team = _ref2[10];
+
+      var document = new docx__WEBPACK_IMPORTED_MODULE_0__["Document"]();
+      var image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, logo, globalWidth, globalHeight);
+      console.log(basics);
+      document.addSection({
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: name,
+            bold: true,
+            size: 28
+          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: course,
+            bold: false,
+            size: 28
+          })["break"](), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: currentSemester,
+            bold: false,
+            size: 28
+          })["break"]()],
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](image), this.createHeading("Grundidee"), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: idea,
+            size: 22
+          })],
+          spacing: {
+            after: 200
+          }
+        }), this.createHeading("Features"), this.createSubHeading("\tGrundfunktionalitäten"), this.createList(basics, true), this.createSubHeading("\tNice-To-Have Features"), this.createList(niceToHave, true), this.createHeading("Technologien"), this.createList(technologies, false), this.createHeading("Team"), this.createList(team, false)]
+      });
+      return document;
+    }
+  }, {
+    key: "createList",
+    value: function createList(stringArrayInput, tabBool) {
+      var stringArray = stringArrayInput.split("\n");
+      var children = new Array();
+      var i;
+
+      for (i = 0; i < stringArray.length; i++) {
+        if (i == 0) {
+          if (tabBool == true) {
+            var text = new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+              text: "\t" + "\t" + stringArray[i],
+              size: 22
+            });
+          } else {
+            var text = new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+              text: "\t" + stringArray[i],
+              size: 22
+            });
+          }
+        } else {
+          if (tabBool == true) {
+            var text = new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+              text: "\t" + "\t" + stringArray[i],
+              size: 22
+            })["break"]();
+          } else {
+            var text = new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+              text: "\t" + stringArray[i],
+              size: 22
+            })["break"]();
+          }
+        }
+
+        console.log(text);
+        children.push(text);
+      }
+
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        children: children,
+        spacing: {
+          after: 200
+        }
+      });
+    }
+  }, {
+    key: "createSubHeading",
+    value: function createSubHeading(text) {
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        text: text,
+        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_2
+      });
+    }
+  }, {
+    key: "createHeading",
+    value: function createHeading(text) {
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        text: text,
+        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_1
+      });
+    }
+  }, {
+    key: "createSpace",
+    value: function createSpace() {
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({});
+    }
+  }]);
+
+  return DocumentCreatorDOCXWithWatermark;
+}();
 
 /***/ }),
 
@@ -3271,6 +3615,203 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
   }]);
 
   return DocumentCreatorDOCX;
+}();
+
+/***/ }),
+
+/***/ "./resources/js/services/conceptPaperPDFGeneratorWithWatermark_service.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/services/conceptPaperPDFGeneratorWithWatermark_service.js ***!
+  \********************************************************************************/
+/*! exports provided: DocumentCreatorPDFWithWatermark */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreatorPDFWithWatermark", function() { return DocumentCreatorPDFWithWatermark; });
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
+  function DocumentCreatorPDFWithWatermark() {
+    _classCallCheck(this, DocumentCreatorPDFWithWatermark);
+  }
+
+  _createClass(DocumentCreatorPDFWithWatermark, [{
+    key: "create",
+    // tslint:disable-next-line: typedef
+    value: function create(_ref) {
+      var _ref2 = _slicedToArray(_ref, 9),
+          name = _ref2[0],
+          course = _ref2[1],
+          currentSemester = _ref2[2],
+          logo = _ref2[3],
+          idea = _ref2[4],
+          basics = _ref2[5],
+          niceToHave = _ref2[6],
+          technologies = _ref2[7],
+          team = _ref2[8];
+
+      var _this$calculateAspect = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30),
+          width = _this$calculateAspect.width,
+          height = _this$calculateAspect.height;
+
+      var doc = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+        putOnlyUsedFonts: true,
+        floatPrecision: 16 // or "smart", default is 16
+
+      });
+      var left = 25;
+      var leftTab1 = 35;
+      var leftTab2 = 45;
+      var top = 50;
+      var helperTop = top;
+      var textSizeHeader = 14;
+      var textSizeHeading = 16;
+      var textSizeSubHeading = 13;
+      var textSizeText = 11;
+      doc.setFont('times', 'bold');
+      doc.setFontSize(textSizeHeader);
+      doc.text(left, 30, name);
+      doc.setFont('times', 'normal');
+      doc.setFontSize(textSizeHeader);
+      doc.text(left, 35, course);
+      doc.text(left, 40, currentSemester);
+      var fwidth = doc.internal.pageSize.getWidth();
+      var fheight = doc.internal.pageSize.getHeight();
+      doc.addImage(logo, 0, 0, fwidth, fheight); //---------------------
+
+      top = top + 40;
+      var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, ideaHeadingLine);
+      top = top + doc.getTextDimensions(ideaHeadingLine).h;
+      var ideaLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(idea, 160);
+      doc.setTextColor('#000000');
+      doc.text(left, top, ideaLines);
+      top = top + doc.getTextDimensions(ideaLines).h + 5; //---------------------
+
+      var featuresHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
+      var basicsHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
+      var basicsLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(basics, 140);
+      var niceToHaveHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
+      var niceToHaveLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(niceToHave, 140);
+      var technologiesHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
+      var technologiesLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(technologies, 150);
+      var teamHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
+      var teamLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(team, 150);
+      helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h;
+      /* + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h
+      + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h
+      + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h; */
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText FeatureHeading
+
+
+      doc.setFontSize(textSizeHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, featuresHeadingLine);
+      top = top + doc.getTextDimensions(featuresHeadingLine).h; //setText BasicsHeading
+
+      doc.setFontSize(textSizeSubHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(leftTab1, top, basicsHeadingLine);
+      top = top + doc.getTextDimensions(basicsHeadingLine).h; //setText Basics
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab2, top, basicsLines);
+      top = top + doc.getTextDimensions(basicsLines).h + 5; //-----------------------
+
+      helperTop = top + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h;
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText NiceToHaveHeading
+
+
+      doc.setFontSize(textSizeSubHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(leftTab1, top, niceToHaveHeadingLine);
+      top = top + doc.getTextDimensions(niceToHaveHeadingLine).h; //setText NiceToHave
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab2, top, niceToHaveLines);
+      top = top + doc.getTextDimensions(niceToHaveLines).h + 5; //-----------------------
+
+      helperTop = top + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h;
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText TechHeading
+
+
+      doc.setFontSize(textSizeHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, technologiesHeadingLine);
+      top = top + doc.getTextDimensions(technologiesHeadingLine).h; //setText Tech
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab1, top, technologiesLines);
+      top = top + doc.getTextDimensions(technologiesLines).h + 5; //-----------------------
+
+      helperTop = top + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h;
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText TeamHeading
+
+
+      doc.setFontSize(textSizeHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, teamHeadingLine);
+      top = top + doc.getTextDimensions(teamHeadingLine).h; //setText Team
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab1, top, teamLines);
+      return doc;
+    }
+  }, {
+    key: "calculateAspectRatioFit",
+    value: function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+      var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+      return {
+        width: srcWidth * ratio,
+        height: srcHeight * ratio
+      };
+    }
+  }]);
+
+  return DocumentCreatorPDFWithWatermark;
 }();
 
 /***/ }),

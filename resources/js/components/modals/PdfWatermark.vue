@@ -33,7 +33,7 @@
           >
             Cancel
           </button>
-         <button class="btn btn-primary">{{ $t('conceptPaper.downloadPdf') }}
+         <button class="btn btn-primary" @click="downloadPDF">{{ $t('conceptPaper.downloadPdf') }}
           </button>
           <router-link
           :to="{ name: 'register' }" class="btn btn-primary">{{ $t('conceptPaper.signup') }}
@@ -43,6 +43,16 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    downloadPDF() {
+      this.$emit('downloadpdf');
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .modal {

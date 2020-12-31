@@ -206,8 +206,8 @@
     </div>
     <InviteTeam :joinCode="conceptPaper.joinCodeDB" />
     <CreateAccountModal v-if="showModal" @close="showModal = false"/>
-    <PDFWatermark v-if="showWatermark" @close="showWatermark = false"/>
-    <DOCXWatermark v-if="showDocxWatermark" @close="showDocxWatermark = false" />
+    <PDFWatermark v-if="showWatermark" @close="showWatermark = false" @downloadpdf="exportAsPDFWithWatermark"/>
+    <DOCXWatermark v-if="showDocxWatermark" @close="showDocxWatermark = false" @downloaddocx="exportAsDOCXWithWatermark"/>
   </div>
 </template>
 
@@ -223,8 +223,10 @@ import { saveAs } from "file-saver";
 import { Packer } from "docx";
 
 import { DocumentCreatorDOCX } from "../services/conceptPaperDOCXGenerator_service";
+import { DocumentCreatorDOCXWithWatermark } from "../services/conceptPaperDOCXGeneratorWithWatermark_service";
 
 import { DocumentCreatorPDF } from "../services/conceptPaperPDFGenerator_service";
+import { DocumentCreatorPDFWithWatermark } from "../services/conceptPaperPDFGeneratorWithWatermark_service";
 
 import { jsPDF } from "jspdf";
 import RightSideBar from "../components/RightSidebar.vue";
@@ -524,6 +526,9 @@ export default {
         team,
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
+    },
+    exportAsDOCXWithWatermark: function () {
+      console.log('docxwatermark');
     },
     exportAsJSON: function () {
       console.log('json');
