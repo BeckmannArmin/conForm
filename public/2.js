@@ -397,16 +397,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
-/* harmony import */ var _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/conceptPaperDOCXGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperDOCXGeneratorWithWatermark_service.js");
-/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
-/* harmony import */ var _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/conceptPaperPDFGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperPDFGeneratorWithWatermark_service.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
-/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
-/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
-/* harmony import */ var _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/modals/CreateAccountModal.vue */ "./resources/js/components/modals/CreateAccountModal.vue");
-/* harmony import */ var _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/modals/PdfWatermark.vue */ "./resources/js/components/modals/PdfWatermark.vue");
-/* harmony import */ var _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/modals/DocxWatermark.vue */ "./resources/js/components/modals/DocxWatermark.vue");
+/* harmony import */ var _assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/conForm_watermark.png */ "./resources/assets/conForm_watermark.png");
+/* harmony import */ var _assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
+/* harmony import */ var _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/conceptPaperDOCXGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperDOCXGeneratorWithWatermark_service.js");
+/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
+/* harmony import */ var _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../services/conceptPaperPDFGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperPDFGeneratorWithWatermark_service.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
+/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
+/* harmony import */ var _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/modals/CreateAccountModal.vue */ "./resources/js/components/modals/CreateAccountModal.vue");
+/* harmony import */ var _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/modals/PdfWatermark.vue */ "./resources/js/components/modals/PdfWatermark.vue");
+/* harmony import */ var _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/modals/DocxWatermark.vue */ "./resources/js/components/modals/DocxWatermark.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -651,6 +653,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -679,11 +682,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   components: {
     PageLoader: _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
-    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
-    CreateAccountModal: _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
-    PDFWatermark: _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
-    DOCXWatermark: _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_18__["default"]
+    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
+    CreateAccountModal: _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
+    PDFWatermark: _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
+    DOCXWatermark: _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_19__["default"]
   },
   mounted: function mounted() {
     this.loadConceptPaper();
@@ -886,7 +889,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 6:
                 logo = _context3.sent;
                 console.log(globalWidth, globalHeight);
-                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__["DocumentCreatorDOCX"]();
+                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_10__["DocumentCreatorDOCX"]();
                 _this$editConceptPape = this.editConceptPaperData, name = _this$editConceptPape.name, course = _this$editConceptPape.course, currentSemester = _this$editConceptPape.currentSemester, idea = _this$editConceptPape.idea, basics = _this$editConceptPape.basics, niceToHave = _this$editConceptPape.niceToHave, technologies = _this$editConceptPape.technologies, team = _this$editConceptPape.team;
                 doc = documentCreator.create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
                 docx__WEBPACK_IMPORTED_MODULE_8__["Packer"].toBlob(doc).then(function (blob) {
@@ -911,7 +914,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }(),
     exportAsPDF: function exportAsPDF() {
       var logo = document.getElementById("logo_image");
-      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_11__["DocumentCreatorPDF"]();
+      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_12__["DocumentCreatorPDF"]();
       var _this$editConceptPape2 = this.editConceptPaperData,
           name = _this$editConceptPape2.name,
           course = _this$editConceptPape2.course,
@@ -926,8 +929,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       doc.save("Konzeptpapier_" + name + ".pdf");
     },
     exportAsPDFWithWatermark: function exportAsPDFWithWatermark() {
-      var logo = document.getElementById("logo_image");
-      var documentCreatorPDF = new _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_12__["DocumentCreatorPDFWithWatermark"]();
+      //var logo = document.getElementById("logo_image");
+      var logo = _assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9___default.a;
+      var documentCreatorPDF = new _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_13__["DocumentCreatorPDFWithWatermark"]();
       var _this$editConceptPape3 = this.editConceptPaperData,
           name = _this$editConceptPape3.name,
           course = _this$editConceptPape3.course,
@@ -2705,6 +2709,17 @@ var staticRenderFns = []
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/assets/conForm_watermark.png":
+/*!************************************************!*\
+  !*** ./resources/assets/conForm_watermark.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/conForm_watermark.png?da852b39f7b72e6e53ac4b2b70621355";
 
 /***/ }),
 

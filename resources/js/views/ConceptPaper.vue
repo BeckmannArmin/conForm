@@ -222,6 +222,7 @@ import { http } from "../services/http_service";
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
 
+import watermarkLogo from "../../assets/conForm_watermark.png";
 import { DocumentCreatorDOCX } from "../services/conceptPaperDOCXGenerator_service";
 import { DocumentCreatorDOCXWithWatermark } from "../services/conceptPaperDOCXGeneratorWithWatermark_service";
 
@@ -500,8 +501,8 @@ export default {
       doc.save("Konzeptpapier_" + name + ".pdf");
     },
     exportAsPDFWithWatermark: function () {
-      var logo = document.getElementById("logo_image");
-
+      //var logo = document.getElementById("logo_image");
+      var logo = watermarkLogo;
       const documentCreatorPDF = new DocumentCreatorPDFWithWatermark();
       const {
         name,
