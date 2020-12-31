@@ -513,8 +513,8 @@ export default {
         })
     },
     exportAsPDFWithWatermark: function () {
-      //var logo = document.getElementById("logo_image");
-      var logo = watermarkLogo;
+      var logo = document.getElementById("logo_image");
+      var watermark = watermarkLogo;
       const documentCreatorPDF = new DocumentCreatorPDFWithWatermark();
       const {
         name,
@@ -532,6 +532,7 @@ export default {
         course,
         currentSemester,
         logo,
+        watermark,
         idea,
         basics,
         niceToHave,

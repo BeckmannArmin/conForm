@@ -3,9 +3,10 @@ import { jsPDF } from "jspdf";
 export class DocumentCreatorPDFWithWatermark {
     // tslint:disable-next-line: typedef
 
-    create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]) {
+    create([name, course, currentSemester, logo, watermark, idea, basics, niceToHave, technologies, team]) {
 
         const { width, height } = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30);
+        const { watermarkWidth, watermarkHeight } = this.calculateAspectRatioFit(watermark.naturalWidth || watermark.width, watermark.naturalHeight || watermark.height, 160, 30);
 
         const doc = new jsPDF({
             orientation: 'p',
@@ -36,9 +37,11 @@ export class DocumentCreatorPDFWithWatermark {
         doc.text(left, 35, course);
         doc.text(left, 40, currentSemester);
 
+        doc.addImage(logo, left, top, width, height);
+
         var fwidth = doc.internal.pageSize.getWidth();
         var fheight = doc.internal.pageSize.getHeight();
-        doc.addImage(logo, fwidth / 3, fheight / 3, width, height);
+        doc.addImage(watermark, fwidth / 3, fheight / 3, watermarkWidth, watermarkHeight);
 
         //---------------------
 
