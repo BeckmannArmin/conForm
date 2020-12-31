@@ -208,6 +208,11 @@
     <CreateAccountModal v-if="showModal" @close="showModal = false"/>
     <PDFWatermark v-if="showWatermark" @close="showWatermark = false" @downloadpdf="exportAsPDFWithWatermark"/>
     <DOCXWatermark v-if="showDocxWatermark" @close="showDocxWatermark = false" @downloaddocx="exportAsDOCXWithWatermark"/>
+     <img
+        src="../../assets/conForm_watermark.png"
+        id="docx_watermark"
+        style="display: none"
+    />
   </div>
 </template>
 
@@ -469,7 +474,10 @@ export default {
           blob,
           "Konzeptpapier_" + this.editConceptPaperData.name + ".docx"
         );
-        console.log("Document created successfully");
+        this.flashMessage.success({
+          message: 'DOCX Document created successfully',
+          time: 5000
+        })
       });
     },
     exportAsPDF: function () {
@@ -499,6 +507,10 @@ export default {
         team,
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
+      this.flashMessage.success({
+          message: 'PDF Document created successfully',
+          time: 5000
+        })
     },
     exportAsPDFWithWatermark: function () {
       //var logo = document.getElementById("logo_image");
@@ -527,9 +539,96 @@ export default {
         team,
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
+      this.flashMessage.success({
+          message: 'PDF Document created successfully',
+          time: 5000
+        })
     },
-    exportAsDOCXWithWatermark: function () {
-      console.log('docxwatermark');
+    exportAsDOCXWithWatermark: async function () {
+      var img = document.getElementById("docx_watermark");
+
+      function calculateAspectRatioFit(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+      ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { width: srcWidth * ratio, height: srcHeight * ratio };
+      }
+
+      var globalWidth;
+      var globalHeight;
+
+      async function imageToUint8Array(image) {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+
+        return new Promise((resolve, reject) => {
+          const { width, height } = calculateAspectRatioFit(
+            image.naturalWidth || image.width,
+            image.naturalHeight || image.height,
+            540,
+            120
+          );
+          globalWidth = width;
+          globalHeight = height;
+          canvas.width = width;
+          canvas.height = height;
+          context.width = width;
+          context.height = height;
+          console.log(width, height, image);
+          context.drawImage(image, 0, 0, width, height);
+          context.canvas.toBlob((blob) =>
+            blob
+              .arrayBuffer()
+              .then((buffer) => resolve(new Uint8Array(buffer)))
+              .catch(reject)
+          );
+        });
+      }
+
+      const logo = await imageToUint8Array(img);
+
+      console.log(globalWidth, globalHeight);
+
+      const documentCreator = new DocumentCreatorDOCX();
+      const {
+        name,
+        course,
+        currentSemester,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      } = this.editConceptPaperData;
+      const doc = documentCreator.create([
+        name,
+        course,
+        currentSemester,
+        logo,
+        globalWidth,
+        globalHeight,
+        idea,
+        basics,
+        niceToHave,
+        technologies,
+        team,
+      ]);
+
+      Packer.toBlob(doc).then((blob) => {
+        console.log(blob);
+        saveAs(
+          blob,
+          "Konzeptpapier_" + this.editConceptPaperData.name + ".docx"
+        );
+        this.flashMessage.success({
+          message: 'DOCX Document created successfully',
+          time: 5000
+        });
+      });
     },
     exportAsJSON: function () {
       console.log('json');
