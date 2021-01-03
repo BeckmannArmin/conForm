@@ -640,6 +640,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -682,7 +708,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showModal: false,
       showWatermark: false,
       showDocxWatermark: false,
-      isLoggedIn: null
+      isLoggedIn: null,
+      fields: ['name', 'course', 'currentSemester', 'idea', 'basics', 'niceToHave', 'technologies', 'team']
     };
   },
   components: {
@@ -722,7 +749,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, 500);
       })["catch"](function (error) {
         if (error.response.status === 404) {
-          _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/notFound');
+          _router__WEBPACK_IMPORTED_MODULE_2__["default"].push("/notFound");
         }
       });
     },
@@ -902,7 +929,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   Object(file_saver__WEBPACK_IMPORTED_MODULE_7__["saveAs"])(blob, "Konzeptpapier_" + _this2.editConceptPaperData.name + ".docx");
 
                   _this2.flashMessage.success({
-                    message: 'DOCX Document created successfully',
+                    message: "DOCX Document created successfully",
                     time: 5000
                   });
                 });
@@ -937,7 +964,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var doc = documentCreatorPDF.create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]);
       doc.save("Konzeptpapier_" + name + ".pdf");
       this.flashMessage.success({
-        message: 'PDF Document created successfully',
+        message: "PDF Document created successfully",
         time: 5000
       });
     },
@@ -958,7 +985,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var doc = documentCreatorPDF.create([name, course, currentSemester, logo, watermark, idea, basics, niceToHave, technologies, team]);
       doc.save("Konzeptpapier_" + name + ".pdf");
       this.flashMessage.success({
-        message: 'PDF Document created successfully',
+        message: "PDF Document created successfully",
         time: 5000
       });
     },
@@ -1039,7 +1066,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   Object(file_saver__WEBPACK_IMPORTED_MODULE_7__["saveAs"])(blob, "Konzeptpapier_" + _this3.editConceptPaperData.name + ".docx");
 
                   _this3.flashMessage.success({
-                    message: 'DOCX Document created successfully',
+                    message: "DOCX Document created successfully",
                     time: 5000
                   });
                 });
@@ -1059,7 +1086,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return exportAsDOCXWithWatermark;
     }(),
     exportAsJSON: function exportAsJSON() {
-      console.log('json');
+      console.log("json");
     },
     notify: function notify() {
       var $button = document.getElementById("notifyBtn");
@@ -2233,98 +2260,108 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticStyle: { "padding-right": "20px" } }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-json",
-                  on: { click: _vm.exportAsJSON }
-                },
-                [
-                  _vm._v(
-                    "\n            " +
-                      _vm._s(_vm.$t("conceptPaper.jsonExport")) +
-                      "\n          "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm.isLoggedIn
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-pdf",
-                      on: { click: _vm.exportAsPDF }
-                    },
-                    [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.$t("conceptPaper.pdfExport")) +
-                          "\n          "
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              !_vm.isLoggedIn
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-pdf",
-                      on: {
-                        click: function($event) {
-                          _vm.showWatermark = true
+            _c(
+              "div",
+              { staticStyle: { "padding-right": "20px" } },
+              [
+                _c(
+                  "download-csv",
+                  {
+                    staticClass: "btn btn-json",
+                    attrs: {
+                      data: [_vm.editConceptPaperData],
+                      fields: _vm.fields,
+                      "separator-excel": true,
+                      name: _vm.conceptPaper.name + ".csv"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(_vm.$t("conceptPaper.jsonExport")) +
+                        "\n          "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.isLoggedIn
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-pdf",
+                        on: { click: _vm.exportAsPDF }
+                      },
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(_vm.$t("conceptPaper.pdfExport")) +
+                            "\n          "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.isLoggedIn
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-pdf",
+                        on: {
+                          click: function($event) {
+                            _vm.showWatermark = true
+                          }
                         }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.$t("conceptPaper.pdfExport")) +
-                          "\n          "
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              !_vm.isLoggedIn
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-docx",
-                      on: {
-                        click: function($event) {
-                          _vm.showDocxWatermark = true
+                      },
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(_vm.$t("conceptPaper.pdfExport")) +
+                            "\n          "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.isLoggedIn
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-docx",
+                        on: {
+                          click: function($event) {
+                            _vm.showDocxWatermark = true
+                          }
                         }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.$t("conceptPaper.exportDocx")) +
-                          "\n          "
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.isLoggedIn
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-docx",
-                      on: { click: _vm.exportAsDOCX }
-                    },
-                    [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.$t("conceptPaper.exportDocx")) +
-                          "\n          "
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ])
+                      },
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(_vm.$t("conceptPaper.exportDocx")) +
+                            "\n          "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.isLoggedIn
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-docx",
+                        on: { click: _vm.exportAsDOCX }
+                      },
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(_vm.$t("conceptPaper.exportDocx")) +
+                            "\n          "
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [

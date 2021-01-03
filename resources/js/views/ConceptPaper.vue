@@ -31,19 +31,37 @@
             {{ $t("conceptPaper.inviteTeam") }}
           </button>
           <div style="padding-right: 20px">
-             <button class="btn btn-json" @click="exportAsJSON">
+            <download-csv
+              class="btn btn-json"
+              :data="[editConceptPaperData]"
+              :fields="fields"
+              :separator-excel="true"
+              :name="conceptPaper.name + '.csv'"
+            >
               {{ $t("conceptPaper.jsonExport") }}
-            </button>
+            </download-csv>
             <button v-if="isLoggedIn" class="btn btn-pdf" @click="exportAsPDF">
               {{ $t("conceptPaper.pdfExport") }}
             </button>
-            <button v-if="!isLoggedIn" class="btn btn-pdf" @click="showWatermark = true">
+            <button
+              v-if="!isLoggedIn"
+              class="btn btn-pdf"
+              @click="showWatermark = true"
+            >
               {{ $t("conceptPaper.pdfExport") }}
             </button>
-             <button v-if="!isLoggedIn" class="btn btn-docx" @click="showDocxWatermark = true">
+            <button
+              v-if="!isLoggedIn"
+              class="btn btn-docx"
+              @click="showDocxWatermark = true"
+            >
               {{ $t("conceptPaper.exportDocx") }}
             </button>
-            <button v-if="isLoggedIn" class="btn btn-docx" @click="exportAsDOCX">
+            <button
+              v-if="isLoggedIn"
+              class="btn btn-docx"
+              @click="exportAsDOCX"
+            >
               {{ $t("conceptPaper.exportDocx") }}
             </button>
           </div>
@@ -205,13 +223,21 @@
       </div>
     </div>
     <InviteTeam :joinCode="conceptPaper.joinCodeDB" />
-    <CreateAccountModal v-if="showModal" @close="showModal = false"/>
-    <PDFWatermark v-if="showWatermark" @close="showWatermark = false" @downloadpdf="exportAsPDFWithWatermark"/>
-    <DOCXWatermark v-if="showDocxWatermark" @close="showDocxWatermark = false" @downloaddocx="exportAsDOCXWithWatermark"/>
-     <img
-        src="../../assets/conForm_watermark.png"
-        id="docx_watermark"
-        style="display: none"
+    <CreateAccountModal v-if="showModal" @close="showModal = false" />
+    <PDFWatermark
+      v-if="showWatermark"
+      @close="showWatermark = false"
+      @downloadpdf="exportAsPDFWithWatermark"
+    />
+    <DOCXWatermark
+      v-if="showDocxWatermark"
+      @close="showDocxWatermark = false"
+      @downloaddocx="exportAsDOCXWithWatermark"
+    />
+    <img
+      src="../../assets/conForm_watermark.png"
+      id="docx_watermark"
+      style="display: none"
     />
   </div>
 </template>
@@ -265,6 +291,7 @@ export default {
       showWatermark: false,
       showDocxWatermark: false,
       isLoggedIn: null,
+      fields: ['name', 'course', 'currentSemester', 'idea', 'basics', 'niceToHave', 'technologies', 'team'],
     };
   },
   components: {
@@ -273,7 +300,7 @@ export default {
     InviteTeam,
     CreateAccountModal,
     PDFWatermark,
-    DOCXWatermark
+    DOCXWatermark,
   },
   mounted() {
     this.loadConceptPaper();
@@ -281,34 +308,34 @@ export default {
   },
   methods: {
     loadConceptPaper() {
-        this.isLoading = true;
-        axios.get(`conceptPaper/lobby/${this.joinCode}`)
+      this.isLoading = true;
+      axios
+        .get(`conceptPaper/lobby/${this.joinCode}`)
         .then((response) => {
+          this.conceptPaper.name = response.data.name;
+          this.conceptPaper.course = response.data.course;
+          this.conceptPaper.currentSemester = response.data.currentSemester;
+          this.conceptPaper.image = response.data.image;
+          this.conceptPaper.idea = response.data.idea;
+          this.conceptPaper.basics = response.data.basics;
+          this.conceptPaper.niceToHave = response.data.niceToHave;
+          this.conceptPaper.technologies = response.data.technologies;
+          this.conceptPaper.team = response.data.team;
+          this.conceptPaper.joinCodeDB = response.data.join_code;
+          this.conceptPaper.userID = response.data.user_id;
 
-        this.conceptPaper.name = response.data.name;
-        this.conceptPaper.course = response.data.course;
-        this.conceptPaper.currentSemester = response.data.currentSemester;
-        this.conceptPaper.image = response.data.image;
-        this.conceptPaper.idea = response.data.idea;
-        this.conceptPaper.basics = response.data.basics;
-        this.conceptPaper.niceToHave = response.data.niceToHave;
-        this.conceptPaper.technologies = response.data.technologies;
-        this.conceptPaper.team = response.data.team;
-        this.conceptPaper.joinCodeDB = response.data.join_code;
-        this.conceptPaper.userID = response.data.user_id;
+          this.conceptPapers = response.data;
 
-        this.conceptPapers = response.data;
+          this.editConceptPaperData = { ...response.data };
+          console.log(this.editConceptPaperData);
 
-        this.editConceptPaperData = { ...response.data };
-        console.log(this.editConceptPaperData);
-
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 500);
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 500);
         })
         .catch(function (error) {
           if (error.response.status === 404) {
-             router.push('/notFound');
+            router.push("/notFound");
           }
         });
     },
@@ -475,9 +502,9 @@ export default {
           "Konzeptpapier_" + this.editConceptPaperData.name + ".docx"
         );
         this.flashMessage.success({
-          message: 'DOCX Document created successfully',
-          time: 5000
-        })
+          message: "DOCX Document created successfully",
+          time: 5000,
+        });
       });
     },
     exportAsPDF: function () {
@@ -508,9 +535,9 @@ export default {
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
       this.flashMessage.success({
-          message: 'PDF Document created successfully',
-          time: 5000
-        })
+        message: "PDF Document created successfully",
+        time: 5000,
+      });
     },
     exportAsPDFWithWatermark: function () {
       var logo = document.getElementById("logo_image");
@@ -541,9 +568,9 @@ export default {
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
       this.flashMessage.success({
-          message: 'PDF Document created successfully',
-          time: 5000
-        })
+        message: "PDF Document created successfully",
+        time: 5000,
+      });
     },
     exportAsDOCXWithWatermark: async function () {
       var img = document.getElementById("logo_image");
@@ -628,13 +655,13 @@ export default {
           "Konzeptpapier_" + this.editConceptPaperData.name + ".docx"
         );
         this.flashMessage.success({
-          message: 'DOCX Document created successfully',
-          time: 5000
+          message: "DOCX Document created successfully",
+          time: 5000,
         });
       });
     },
     exportAsJSON: function () {
-      console.log('json');
+      console.log("json");
     },
     notify() {
       const $button = document.getElementById("notifyBtn");

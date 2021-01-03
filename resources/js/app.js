@@ -14,6 +14,7 @@ import ScrollAnimation from './directives/scrollanimation';
 
 import BootstrapVue from 'bootstrap-vue';
 import FlashMessage from '@smartweb/vue-flash-message';
+import JsonCSV from 'vue-json-csv'
 
 import Echo from "laravel-echo"
 
@@ -39,6 +40,7 @@ Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
 Vue.directive('scrollanimation', ScrollAnimation);
 Vue.use(VueI18n);
+Vue.component('downloadCsv', JsonCSV);
 
  const i18n = new VueI18n({
     locale: 'en', // set locale
