@@ -13,35 +13,7 @@
       </div>
       <div class="row">
         <div v-scrollanimation class="col resource-cards-left">
-          <a
-            class="card card-l1"
-            href="https://github.com/BeckmannArmin/laravel-conForm/wiki/Getting-started"
-          >
-            <div class="card--header">
-              <div class="card--icon">
-                <i class="fas fa-question"></i>
-              </div>
-              <div class="card--body" style="padding-left: 0 !important">
-                <p> {{ $t('resources.howto') }}?</p>
-              </div>
-            </div>
-          </a>
-          <a
-            class="card card-l1"
-            href="https://github.com/BeckmannArmin/laravel-conForm/issues"
-          >
-            <div class="card--header">
-              <div class="card--icon">
-                <i class="fas fa-wrench"></i>
-              </div>
-              <div class="card--body" style="padding-left: 0 !important">
-                <p> {{ $t('resources.updates') }}</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div v-scrollanimation class="col resource-cards-middle">
-          <a href="https://github.com/BeckmannArmin/laravel-conForm/wiki" class="card card-m1">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm/wiki/Getting-started" class="card card-l1">
             <div class="card--header">
               <div class="card--icon">
                 <i class="fas fa-book"></i>
@@ -51,6 +23,22 @@
             <div class="card--body">
               <p> {{ $t('resources.checkdocs') }}</p>
             </div>
+          </a>
+        </div>
+        <div v-scrollanimation class="col resource-cards-middle">
+          <a
+            class="card card-m1"
+            href="https://github.com/BeckmannArmin/laravel-conForm/issues"
+          >
+            <div class="card--header">
+              <div class="card--icon">
+                <i class="fas fa-wrench"></i>
+              </div>
+              <h3> {{ $t('resources.fixes') }}</h3>
+            </div>
+              <div class="card--body">
+                <p> {{ $t('resources.updates') }}</p>
+              </div>
           </a>
         </div>
         <div v-scrollanimation class="col resource-cards-right">
@@ -143,6 +131,7 @@ h3 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  height: 350px;
 
   .card--body {
     p {

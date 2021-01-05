@@ -15,7 +15,7 @@
         "steps": "In nur wenigen Schritten",
         "btn": "Jetzt erstellen",
         "join": "Tritt jetzt einer Lobby bei",
-        "waiting": "Deine teamkollegen warten bereits auf dich",
+        "waiting": "Deine Teamkollegen warten bereits auf dich",
         "btn_join": "Jetzt beitreten"
     },
     "lobbyModal": {
@@ -26,12 +26,13 @@
     },
     "resources": {
         "browse": "Durchsuche unsere Ressourcen um direkt loslegen zu können",
-        "howto": "Wie kann ich loslegen",
+        "howto": "Häufig gestellte Fragen",
         "updates": "In unserem Wiki findest du die neuesten Updates und Probleme",
         "docs": "Dokumentation",
         "checkdocs": "Schau dir unsere Doku an",
         "contribute": "Beitragen",
-        "improve": "Hilf uns Fehler zu beheben und neue Features zu integrieren"
+        "improve": "Hilf uns Fehler zu beheben und neue Features zu integrieren",
+        "fixes": "Updates"
     },
     "404": {
         "lost": "Verloren im Weltall",

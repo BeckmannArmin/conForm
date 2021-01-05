@@ -26,12 +26,13 @@
     },
     "resources": {
         "browse": "Browse through our resources to see how to get started",
-        "howto": "How to get started",
+        "howto": "Frequently asked questions",
         "updates": "Check out our wiki to see the latest issues and updates",
         "docs": "Documentation",
         "checkdocs": "Check out our docs",
         "contribute": "Contribute",
-        "improve": "Help us improve with issueing bugs and feature requests"
+        "improve": "Help us improve with issueing bugs and feature requests",
+        "fixes": "Updates"
     },
     "404": {
         "lost": "Lost in space",
