@@ -21,7 +21,7 @@
 
   </div>
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+  <div class="footer-copyright text-center py-3">© 2021 Copyright:
     <a style="color: black"> conForm</a>
   </div>
   <!-- Copyright -->
