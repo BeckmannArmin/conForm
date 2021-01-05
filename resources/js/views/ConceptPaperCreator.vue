@@ -87,7 +87,7 @@
       <b-modal
         ref="newconceptPaperModal"
         hide-footer
-        title="Add new concept paper"
+        :title="$t('conceptPaper.addnew')"
       >
         <div class="d-block">
           <form v-on:submit.prevent="createConceptPaper">
@@ -178,7 +178,7 @@
       <b-modal
         ref="editconceptPaperModal"
         hide-footer
-        title="Edit conceptPaper"
+        :title="$t('conceptPaper.edit')"
       >
         <div class="d-block">
           <form v-on:submit.prevent="updateConceptPaper">

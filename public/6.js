@@ -869,7 +869,7 @@ var render = function() {
           "b-modal",
           {
             ref: "newconceptPaperModal",
-            attrs: { "hide-footer": "", title: "Add new concept paper" }
+            attrs: { "hide-footer": "", title: _vm.$t("conceptPaper.addnew") }
           },
           [
             _c("div", { staticClass: "d-block" }, [
@@ -1126,7 +1126,7 @@ var render = function() {
           "b-modal",
           {
             ref: "editconceptPaperModal",
-            attrs: { "hide-footer": "", title: "Edit conceptPaper" }
+            attrs: { "hide-footer": "", title: _vm.$t("conceptPaper.edit") }
           },
           [
             _c("div", { staticClass: "d-block" }, [

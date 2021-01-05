@@ -11,7 +11,7 @@
         "colloboration_msg": "Good ideas come from everyone. Work together on your paper"
     },
     "joinlobby": {
-        "createPaper": "Create your first concept paper",
+        "createPaper": "Create a concept paper",
         "steps": "In a few steps",
         "btn": "Create it now",
         "join": "Join a lobby now",
@@ -81,7 +81,7 @@
         "team": "Team",
         "exportDocx": "Export as DOCX",
         "cancel": "Cancel",
-        "update": "Update",
+        "update": "Update and save",
         "pdfExport": "Export as PDF",
         "jsonExport": "Export as JSON",
         "technologies": "Technologies",
@@ -108,7 +108,9 @@
         "downloadPdf": "Download PDF",
         "docxwatermark": "DOCX without watermark",
         "docxdefault": "By default your DOCX export has an conForm watermark. To have a DOCX file without the watermark hit the register button",
-        "downloadDocx": "Download DOCX"
+        "downloadDocx": "Download DOCX",
+        "addnew": "Add a new concept paper",
+        "edit": "Edit your concept paper"
     },
     "kanban": {
         "addTask": "Add task",

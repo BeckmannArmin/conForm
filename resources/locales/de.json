@@ -11,7 +11,7 @@
         "colloboration_msg": "Gute Ideen kommen von allen. Arbeitet gemeinsam an eurem Paper"
     },
     "joinlobby": {
-        "createPaper": "Erstelle dein erstes Konzeptpapier",
+        "createPaper": "Erstelle ein Konzeptpapier",
         "steps": "In nur wenigen Schritten",
         "btn": "Jetzt erstellen",
         "join": "Tritt jetzt einer Lobby bei",
@@ -83,7 +83,7 @@
         "team": "Team",
         "exportDocx": "Als DOCX exportieren",
         "cancel": "Abbrechen",
-        "update": "Aktualisieren",
+        "update": "Aktualisieren und speichern",
         "pdfExport": "Als PDF exportieren",
         "jsonExport": "Als JSON exportiere",
         "technologies": "Technologien",
@@ -110,7 +110,9 @@
         "downloadPdf": "PDF herunterladen",
         "docxwatermark": "DOCX ohne Wasszeichen",
         "docxdefault": "Standardmäßig hat dein DOCX-Export ein conForm-Wasserzeichen. Um eine DOCX-Datei ohne Wasserzeichen zu erhalten, klicke bitte auf die Schaltfläche Registrieren",
-        "downloadDocx": "DOCX herunterladen"
+        "downloadDocx": "DOCX herunterladen",
+        "addnew": "Füge ein neues Konzeptpapier hinzu",
+        "edit": "Editiere dein Konzeptpapier"
     },
     "kanban": {
         "addTask": "Task hinzufügen",
