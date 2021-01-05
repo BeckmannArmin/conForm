@@ -15,10 +15,7 @@
           <ul class="list-unstyled">
             <li>
               <a href="https://github.com/BeckmannArmin/laravel-conForm">
-                <img
-                  src="../../assets/images/github-logo.svg"
-                  class="header-github-link"
-                />
+                <i class="fab fa-github header-github-link"></i>
               </a>
             </li>
             <LocaleSwitcher />
@@ -46,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 .header-github-link {
-  width: 25px;
+  font-size: 2rem;
 }
 
 .footer-copyright {
@@ -60,8 +57,13 @@ export default {
     color: #ebedf0 !important;
   }
 
-  .list-unstyled a {
-    color: #ebedf0 !important;
+  .list-unstyled {
+    .header-github-link {
+      color: #fff
+    }
+    a {
+      color: #ebedf0 !important;
+    }
   }
 
   .footer-copyright {
