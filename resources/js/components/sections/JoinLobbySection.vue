@@ -1,24 +1,6 @@
 <template>
   <section id="joinLobby" class="join-section pb-16">
-    <!-- guests can join a lobby but not crate a paper -->
-    <div v-if="!isLoggedIn" class="container">
-      <div class="inner py-5 px-3 px-md-6 text-center">
-        <h3>{{ $t('joinlobby.join') }}.</h3>
-        <p>{{ $t('joinlobby.waiting') }}.</p>
-        <p>
-          <button
-            type="button"
-            class="btn btn-join"
-            data-toggle="modal"
-            data-target="#joinLobbyModal"
-          >
-            {{ $t('joinlobby.btn_join') }}
-          </button>
-        </p>
-      </div>
-    </div>
-    <!-- only for logged in users -->
-    <div v-if="isLoggedIn" class="container">
+    <div class="container">
       <div class="inner py-5 px-3 px-md-6 text-center">
         <h3>{{ $t('joinlobby.createPaper') }}.</h3>
         <p>{{ $t('joinlobby.steps') }}.</p>
@@ -33,8 +15,8 @@
         </p>
       </div>
     </div>
-    <p v-if="isLoggedIn" class="or-divider">OR</p>
-    <div v-if="isLoggedIn" class="container">
+    <p class="or-divider">OR</p>
+    <div class="container">
       <div class="inner py-5 px-3 px-md-6 text-center">
         <h3>{{ $t('joinlobby.join') }}.</h3>
         <p>{{ $t('joinlobby.waiting') }}.</p>
@@ -65,7 +47,11 @@ export default {
   },
   methods: {
     createConceptPaper() {
-      this.$router.push('conceptPaperCreator');
+      if (!this.isLoggedIn) {
+        this.$router.push('register');
+      } else {
+        this.$router.push('conceptPaperCreator');
+        }
     }
   }
 }
