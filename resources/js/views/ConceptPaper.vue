@@ -695,7 +695,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .btn-invite,
 .btn-pdf,
 .btn-docx {
@@ -716,5 +716,23 @@ export default {
   justify-content: center;
   align-content: center;
   flex-flow: column;
+}
+
+.dark {
+  .card {
+    background: #20232a !important;
+  }
+
+  table {
+    td {
+      label {
+          color: #fff;
+      }
+    }
+  }
+
+  .btn-json {
+    color: #fff;
+  }
 }
 </style>

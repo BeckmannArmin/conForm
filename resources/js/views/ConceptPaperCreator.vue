@@ -6,14 +6,16 @@
         <li class="breadcrumb-item">
           <router-link to="/">conForm</router-link>
         </li>
-        <li class="breadcrumb-item active"> {{ $t('conceptPaper.conceptPapers') }}</li>
+        <li class="breadcrumb-item active">
+          {{ $t("conceptPaper.conceptPapers") }}
+        </li>
       </ol>
 
       <div class="card mb-4">
         <div class="card-header d-flex">
           <span>
             <i class="fas fa-chart-area mr-1"></i>
-            {{ $t('conceptPaper.overview') }}
+            {{ $t("conceptPaper.overview") }}
           </span>
           <button
             class="btn btn-primary btn-sm ml-auto"
@@ -22,19 +24,40 @@
             <span>
               <i class="fa fa-plus" />
             </span>
-            {{ $t('conceptPaper.addNew') }}
+            {{ $t("conceptPaper.addNew") }}
           </button>
+        </div>
+        <div class="card-deck mt-4 ml-2">
+          <div
+            v-for="(conceptPaper, index) in conceptPapers"
+            :key="index"
+            class="card"
+            style="max-width: 300px"
+          >
+            <img
+              :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`"
+              class="image-wd img-h"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ conceptPaper.name }}</h5>
+              <p class="card-text">{{ conceptPaper.course }}</p>
+              <p class="card-text">{{ conceptPaper.currentSemester }}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
         </div>
         <div class="card-body">
           <table class="table">
             <thead>
               <tr>
                 <td>#id</td>
-                <td> {{ $t('conceptPaper.placeholders.name') }}</td>
-                <td>{{ $t('conceptPaper.placeholders.course') }}</td>
-                <td>{{ $t('conceptPaper.placeholders.semester') }}</td>
-                <td>{{ $t('conceptPaper.placeholders.image') }}</td>
-                <td>{{ $t('conceptPaper.placeholders.actions') }}</td>
+                <td>{{ $t("conceptPaper.placeholders.name") }}</td>
+                <td>{{ $t("conceptPaper.placeholders.course") }}</td>
+                <td>{{ $t("conceptPaper.placeholders.semester") }}</td>
+                <td>{{ $t("conceptPaper.placeholders.image") }}</td>
+                <td>{{ $t("conceptPaper.placeholders.actions") }}</td>
               </tr>
             </thead>
             <tbody>
@@ -78,7 +101,8 @@
               class="btn btn-primary btn-sm"
               v-on:click="loadMore"
             >
-              <span class="fa fa-arrow-down"></span>{{ $t('conceptPaper.placeholders.actions') }}
+              <span class="fa fa-arrow-down"></span
+              >{{ $t("conceptPaper.placeholders.actions") }}
             </button>
           </div>
         </div>
@@ -92,7 +116,7 @@
         <div class="d-block">
           <form v-on:submit.prevent="createConceptPaper">
             <div class="form-group">
-              <label for="name">{{ $t('conceptPaper.projectName') }}</label>
+              <label for="name">{{ $t("conceptPaper.projectName") }}</label>
               <input
                 type="text"
                 v-model="conceptPaperData.name"
@@ -105,7 +129,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="name">{{ $t('conceptPaper.courseName') }}</label>
+              <label for="name">{{ $t("conceptPaper.courseName") }}</label>
               <input
                 type="text"
                 v-model="conceptPaperData.course"
@@ -118,7 +142,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="name">{{ $t('conceptPaper.semester') }}</label>
+              <label for="name">{{ $t("conceptPaper.semester") }}</label>
               <input
                 type="text"
                 v-model="conceptPaperData.currentSemester"
@@ -131,7 +155,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="image">{{ $t('conceptPaper.addLogo') }}</label>
+              <label for="image">{{ $t("conceptPaper.addLogo") }}</label>
               <div v-if="conceptPaperData.image.name">
                 <img
                   src=""
@@ -147,7 +171,7 @@
                 id="image"
               />
             </div>
-            <div class="form-group" style="display:none">
+            <div class="form-group" style="display: none">
               <label for="name">UUID</label>
               <input
                 type="text"
@@ -165,10 +189,10 @@
                 class="btn btn-default"
                 v-on:click="hideNewconceptPaperModal"
               >
-                {{ $t('conceptPaper.cancel') }}
+                {{ $t("conceptPaper.cancel") }}
               </button>
               <button type="submit" class="btn btn-primary">
-                <span class="fa fa-check"></span>{{ $t('conceptPaper.addNew') }}
+                <span class="fa fa-check"></span>{{ $t("conceptPaper.addNew") }}
               </button>
             </div>
           </form>
@@ -183,7 +207,7 @@
         <div class="d-block">
           <form v-on:submit.prevent="updateConceptPaper">
             <div class="form-group">
-              <label for="name">{{ $t('conceptPaper.projectName') }}</label>
+              <label for="name">{{ $t("conceptPaper.projectName") }}</label>
               <input
                 type="text"
                 v-model="editConceptPaperData.name"
@@ -196,7 +220,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="name">{{ $t('conceptPaper.courseName') }}</label>
+              <label for="name">{{ $t("conceptPaper.courseName") }}</label>
               <input
                 type="text"
                 v-model="editConceptPaperData.course"
@@ -209,7 +233,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="name">{{ $t('conceptPaper.semester') }}</label>
+              <label for="name">{{ $t("conceptPaper.semester") }}</label>
               <input
                 type="text"
                 v-model="editConceptPaperData.currentSemester"
@@ -222,7 +246,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="image">{{ $t('conceptPaper.addLogo') }}</label>
+              <label for="image">{{ $t("conceptPaper.addLogo") }}</label>
               <div>
                 <img
                   :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
@@ -246,10 +270,10 @@
                 class="btn btn-default"
                 v-on:click="hideEditconceptPaperModal"
               >
-                {{ $t('conceptPaper.cancel') }}
+                {{ $t("conceptPaper.cancel") }}
               </button>
               <button type="submit" class="btn btn-primary">
-                <span class="fa fa-check"></span>{{ $t('conceptPaper.update') }}
+                <span class="fa fa-check"></span>{{ $t("conceptPaper.update") }}
               </button>
             </div>
           </form>
@@ -259,11 +283,17 @@
   </main>
 </template>
 
+<style scoped>
+.img-h {
+  height: 60px;
+}
+</style>
+
 <script>
 import * as conceptPaperService from "../services/conceptPaper_service";
 import { uuid } from "vue-uuid";
 import { http } from "../services/http_service";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "conceptPaper",
@@ -327,10 +357,10 @@ export default {
       this.$refs.newconceptPaperModal.hide();
       this.conceptPaperData = {
         name: "",
-          course: "",
-          currentSemester: "",
-          image: "",
-      }
+        course: "",
+        currentSemester: "",
+        image: "",
+      };
     },
     showNewconceptPaperModal() {
       this.generateUUID();
@@ -376,7 +406,9 @@ export default {
     },
     deleteConceptPaper: async function (conceptPaper) {
       if (
-        !window.confirm(`Bist du sicher, dass du das Paper ${conceptPaper.name} löschen willst?`)
+        !window.confirm(
+          `Bist du sicher, dass du das Paper ${conceptPaper.name} löschen willst?`
+        )
       ) {
         return;
       }
@@ -427,7 +459,10 @@ export default {
         formData.append("name", this.editConceptPaperData.name);
         formData.append("image", this.editConceptPaperData.image);
         formData.append("course", this.editConceptPaperData.course);
-        formData.append("currentSemester", this.editConceptPaperData.currentSemester);
+        formData.append(
+          "currentSemester",
+          this.editConceptPaperData.currentSemester
+        );
         formData.append("idea", "");
         formData.append("basics", "");
         formData.append("niceToHave", "");
