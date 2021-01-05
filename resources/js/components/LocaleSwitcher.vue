@@ -18,7 +18,7 @@ export default {
   },
   watch: {
     localLang(localLang) {
-     console.log(localLang);
+     localStorage.setItem('lang',localLang);
      this.$i18n.locale = localLang;
     }
   }
