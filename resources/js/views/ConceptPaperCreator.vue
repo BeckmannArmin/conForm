@@ -147,7 +147,7 @@
                 id="image"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none">
               <label for="name">UUID</label>
               <input
                 type="text"
@@ -168,7 +168,7 @@
                 {{ $t('conceptPaper.cancel') }}
               </button>
               <button type="submit" class="btn btn-primary">
-                <span class="fa fa-check"></span>{{ $t('conceptPaper.update') }}
+                <span class="fa fa-check"></span>{{ $t('conceptPaper.addNew') }}
               </button>
             </div>
           </form>
@@ -204,8 +204,8 @@
                 id="course"
                 placeholder="Kurs"
               />
-              <div class="invalid-feedback" v-if="errors.name">
-                {{ errors.name[0] }}
+              <div class="invalid-feedback" v-if="errors.course">
+                {{ errors.course[0] }}
               </div>
             </div>
             <div class="form-group">
@@ -217,8 +217,8 @@
                 id="currentSemester"
                 placeholder="Bsp.: WS20/21"
               />
-              <div class="invalid-feedback" v-if="errors.name">
-                {{ errors.name[0] }}
+              <div class="invalid-feedback" v-if="errors.currentSemester">
+                {{ errors.currentSemester[0] }}
               </div>
             </div>
             <div class="form-group">
@@ -325,6 +325,12 @@ export default {
     },
     hideNewconceptPaperModal() {
       this.$refs.newconceptPaperModal.hide();
+      this.conceptPaperData = {
+        name: "",
+          course: "",
+          currentSemester: "",
+          image: "",
+      }
     },
     showNewconceptPaperModal() {
       this.generateUUID();
@@ -447,10 +453,17 @@ export default {
           time: 5000,
         });
       } catch (error) {
-        this.flashMessage.error({
-          message: error.response.data.message,
-          time: 5000,
-        });
+        switch (error.response.status) {
+          case 422:
+            this.errors = error.response.data.errors;
+            break;
+          default:
+            this.flashMessage.error({
+              message: error.response.data.message,
+              time: 5000,
+            });
+            break;
+        }
       }
     },
     editconceptPaper(conceptPaper) {

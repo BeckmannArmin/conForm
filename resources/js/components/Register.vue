@@ -143,12 +143,28 @@ body {
 }
 
 .dark {
+  .content {
+    background-color: #20232a;
+  }
+
+  .form-control {
+    background-color: #20232a;
+  }
+
+  .col-md-6 {
+    .text-center {
+      a {
+        color: #f3f3f3;
+      }
+    }
+  }
+
   .signin-text {
-    color: #7a7780;
+    color: #fff;
   }
   .form-group {
     label {
-      color: #7a7780
+      color: #fff
     }
   }
 }

@@ -83,7 +83,7 @@ export default {
             localStorage.setItem("jwt", response.data.success.token);
 
             if (auth.isLoggedIn()) {
-              this.$router.go("/board");
+              this.$router.go("/");
             }
           })
           .catch(function (error) {
@@ -94,7 +94,7 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     if (auth.isLoggedIn()) {
-      return next("board");
+      return next("/");
     }
 
     next();
@@ -109,12 +109,28 @@ body {
 }
 
 .dark {
+  .content {
+    background-color: #20232a;
+  }
+
+  .form-control {
+    background-color: #20232a;
+  }
+
+  .col-md-6 {
+    .text-center {
+      a {
+        color: #f3f3f3;
+      }
+    }
+  }
+
   .signin-text {
-    color: #7a7780;
+    color: #fff;
   }
   .form-group {
     label {
-      color: #7a7780
+      color: #fff
     }
   }
 }

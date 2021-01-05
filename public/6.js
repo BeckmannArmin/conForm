@@ -377,6 +377,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     hideNewconceptPaperModal: function hideNewconceptPaperModal() {
       this.$refs.newconceptPaperModal.hide();
+      this.conceptPaperData = {
+        name: "",
+        course: "",
+        currentSemester: "",
+        image: ""
+      };
     },
     showNewconceptPaperModal: function showNewconceptPaperModal() {
       this.generateUUID();
@@ -554,18 +560,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   message: "conceptPaper updated succesfully!",
                   time: 5000
                 });
-                _context4.next = 23;
+                _context4.next = 29;
                 break;
 
               case 20:
                 _context4.prev = 20;
                 _context4.t0 = _context4["catch"](0);
+                _context4.t1 = _context4.t0.response.status;
+                _context4.next = _context4.t1 === 422 ? 25 : 27;
+                break;
+
+              case 25:
+                this.errors = _context4.t0.response.data.errors;
+                return _context4.abrupt("break", 29);
+
+              case 27:
                 this.flashMessage.error({
                   message: _context4.t0.response.data.message,
                   time: 5000
                 });
+                return _context4.abrupt("break", 29);
 
-              case 23:
+              case 29:
               case "end":
                 return _context4.stop();
             }
@@ -1029,35 +1045,42 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "name" } }, [_vm._v("UUID")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.conceptPaperData.uuid,
-                          expression: "conceptPaperData.uuid"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", id: "uuid", readonly: "" },
-                      domProps: { value: _vm.conceptPaperData.uuid },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group",
+                      staticStyle: { display: "none" }
+                    },
+                    [
+                      _c("label", { attrs: { for: "name" } }, [_vm._v("UUID")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.conceptPaperData.uuid,
+                            expression: "conceptPaperData.uuid"
                           }
-                          _vm.$set(
-                            _vm.conceptPaperData,
-                            "uuid",
-                            $event.target.value
-                          )
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", id: "uuid", readonly: "" },
+                        domProps: { value: _vm.conceptPaperData.uuid },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.conceptPaperData,
+                              "uuid",
+                              $event.target.value
+                            )
+                          }
                         }
-                      }
-                    })
-                  ]),
+                      })
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
@@ -1087,7 +1110,7 @@ var render = function() {
                       [
                         _c("span", { staticClass: "fa fa-check" }),
                         _vm._v(
-                          _vm._s(_vm.$t("conceptPaper.update")) +
+                          _vm._s(_vm.$t("conceptPaper.addNew")) +
                             "\n            "
                         )
                       ]
@@ -1199,11 +1222,11 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm.errors.name
+                    _vm.errors.course
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
                             "\n              " +
-                              _vm._s(_vm.errors.name[0]) +
+                              _vm._s(_vm.errors.course[0]) +
                               "\n            "
                           )
                         ])
@@ -1247,11 +1270,11 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm.errors.name
+                    _vm.errors.currentSemester
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
                             "\n              " +
-                              _vm._s(_vm.errors.name[0]) +
+                              _vm._s(_vm.errors.currentSemester[0]) +
                               "\n            "
                           )
                         ])

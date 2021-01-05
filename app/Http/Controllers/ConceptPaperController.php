@@ -35,9 +35,9 @@ class ConceptPaperController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3',
-            'course' => 'required|min:3',
-            'currentSemester' => 'required|min:4',
+            'name' => 'required|min:1',
+            'course' => 'required|min:1',
+            'currentSemester' => 'required|min:2',
             'image' => 'image|mimes:jpeg,png,jpg',
             'join_code' => 'min:4'
         ]);
@@ -78,9 +78,9 @@ class ConceptPaperController extends Controller
     public function update(Request $request, ConceptPaper $conceptPaper)
     {
         $request->validate([
-            'name' => 'required|min:3',
-            'course' => 'required|min:3',
-            'currentSemester' => 'required|min:4',
+            'name' => 'required|min:2',
+            'course' => 'required|min:2',
+            'currentSemester' => 'required|min:2',
             'join_code' => 'min:4',
 
         ]);

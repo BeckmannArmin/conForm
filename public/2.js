@@ -792,23 +792,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   message: "Konzeptpapier wurde erfolgreich geupdated!",
                   time: 5000
                 });
-                _context.next = 24;
+                _context.next = 23;
                 break;
 
               case 20:
                 _context.prev = 20;
                 _context.t0 = _context["catch"](0);
 
-                if (_context.t0.response.status === 401) {
-                  this.showModal = true;
+                switch (_context.t0.response.status) {
+                  case 401:
+                    this.showModal = true;
+
+                  case 422:
+                    this.errors = _context.t0.response.data.errors;
+
+                  default:
+                    this.flashMessage.error({
+                      message: _context.t0.response.data.message,
+                      time: 5000
+                    });
                 }
 
-                this.flashMessage.error({
-                  message: _context.t0.response.data.message,
-                  time: 5000
-                });
-
-              case 24:
+              case 23:
               case "end":
                 return _context.stop();
             }
@@ -1100,6 +1105,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $bell.addEventListener("animationend", function (event) {
         $bell.classList.remove("notify");
       });
+    }
+  },
+  beforeRouteLeave: function beforeRouteLeave(to, from, next) {
+    var answer = window.confirm('Do you really want to leave? You have unsaved changes!');
+
+    if (answer) {
+      next();
+    } else {
+      next(false);
     }
   }
 });

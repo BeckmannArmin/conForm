@@ -113,6 +113,7 @@ export default {
       try {
         auth.logout();
         this.$router.push("/login");
+        this.$router.go(0);
       } catch (error) {
         console.log(error);
       }

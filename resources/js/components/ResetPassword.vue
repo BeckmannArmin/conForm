@@ -136,7 +136,7 @@ export default {
     disableSubmission(btn) {
       btn.setAttribute('disabled', 'disabled');
       this.btnOldHtml = btn.innerHTML;
-      btn.innerHTML = '<span class="fa fa-spinner fa-spin></span> Please wait...'
+      btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Please wait...'
     },
     enableSubmission(btn) {
       btn.removeAttribute('disabled');
@@ -153,17 +153,28 @@ body {
 }
 
 .dark {
-  .col-md-6 {
-  .signin-text {
-    color: #7a7780;
+  .content {
+    background-color: #20232a;
   }
-    p {
-      color: #7a7780;
+
+  .form-control {
+    background-color: #20232a;
+  }
+
+  .col-md-6 {
+    .text-center {
+      a {
+        color: #f3f3f3;
+      }
     }
+  }
+
+  .signin-text {
+    color: #fff;
   }
   .form-group {
     label {
-      color: #7a7780
+      color: #fff
     }
   }
 }

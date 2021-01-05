@@ -376,13 +376,17 @@ export default {
           time: 5000,
         });
       } catch (error) {
-        if (error.response.status === 401) {
-          this.showModal = true;
+        switch(error.response.status) {
+          case 401:
+            this.showModal = true;
+          case 422:
+            this.errors = error.response.data.errors;
+          default:
+            this.flashMessage.error({
+              message: error.response.data.message,
+              time: 5000,
+            });
         }
-        this.flashMessage.error({
-          message: error.response.data.message,
-          time: 5000,
-        });
       }
     },
     editAttachedImage() {
@@ -680,6 +684,14 @@ export default {
       });
     },
   },
+  beforeRouteLeave (to, from , next) {
+  const answer = window.confirm('Do you really want to leave? You have unsaved changes!')
+  if (answer) {
+    next()
+  } else {
+    next(false)
+  }
+}
 };
 </script>
 
