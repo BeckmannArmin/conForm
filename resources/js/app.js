@@ -42,8 +42,11 @@ Vue.directive('scrollanimation', ScrollAnimation);
 Vue.use(VueI18n);
 Vue.component('downloadCsv', JsonCSV);
 
+var lang = localStorage.getItem('lang');
+lang = lang ? lang : 'de';
+
  const i18n = new VueI18n({
-    locale: 'en', // set locale
+    locale: lang, // set locale
     messages: {
         en,
         de
