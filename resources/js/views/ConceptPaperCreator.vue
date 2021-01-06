@@ -351,7 +351,8 @@ export default {
       }
     },
     attachImage() {
-      this.conceptPaperData.image = this.$refs.newconceptPaperImage.files[0];
+      const file = this.conceptPaperData.image;
+      file = this.$refs.newconceptPaperImage.files[0];
       let reader = new FileReader();
       reader.addEventListener(
         "load",
@@ -360,8 +361,9 @@ export default {
         }.bind(this),
         false
       );
-
-      reader.readAsDataURL(this.conceptPaperData.image);
+      if (file) {
+      reader.readAsDataURL(file);
+      }
     },
     hideNewconceptPaperModal() {
       this.$refs.newconceptPaperModal.hide();

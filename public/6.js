@@ -24,6 +24,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -408,12 +410,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return loadConceptPaper;
     }(),
     attachImage: function attachImage() {
-      this.conceptPaperData.image = this.$refs.newconceptPaperImage.files[0];
+      var file = this.conceptPaperData.image;
+      file = (_readOnlyError("file"), this.$refs.newconceptPaperImage.files[0]);
       var reader = new FileReader();
       reader.addEventListener("load", function () {
         this.$refs.newconceptPaperImageDisplay.src = reader.result;
       }.bind(this), false);
-      reader.readAsDataURL(this.conceptPaperData.image);
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
     },
     hideNewconceptPaperModal: function hideNewconceptPaperModal() {
       this.$refs.newconceptPaperModal.hide();

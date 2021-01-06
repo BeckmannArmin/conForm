@@ -19,7 +19,7 @@ class CreateConceptPapersTable extends Migration
             $table->string('name');
             $table->string('course');
             $table->string('currentSemester');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->text('idea');
             $table->text('basics');
             $table->text('niceToHave');

@@ -38,7 +38,7 @@ class ConceptPaperController extends Controller
             'name' => 'required|min:1',
             'course' => 'required|min:1',
             'currentSemester' => 'required|min:2',
-            'image' => 'image|mimes:jpeg,png,jpg',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg',
             'join_code' => 'min:4'
         ]);
 
@@ -46,10 +46,12 @@ class ConceptPaperController extends Controller
         $conceptPaper->name = $request->name;
         $conceptPaper->course = $request->course;
         $conceptPaper->currentSemester = $request->currentSemester;
-
-        $path = $request->file('image')->store('conceptPaper_images');
-
-        $conceptPaper->image = $path;
+        
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('conceptPaper_images');
+            $conceptPaper->image = $path;
+        }
+    
         $conceptPaper->idea = "";
         $conceptPaper->basics = "";
         $conceptPaper->niceToHave = "";
