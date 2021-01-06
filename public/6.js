@@ -300,25 +300,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -695,10 +676,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -707,22 +688,22 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.img-h[data-v-fb82538e] {\r\n  height: 60px;\n}\r\n", ""]);
+exports.push([module.i, ".card .card-body.center-all[data-v-fb82538e] {\n  justify-content: center;\n  align-items: center;\n}\n.card .max-300[data-v-fb82538e] {\n  max-width: 300px;\n  min-height: 300px;\n}\n.card .delete-papers[data-v-fb82538e] {\n  align-self: flex-end;\n}\n.card .img-h[data-v-fb82538e] {\n  height: 60px;\n}\n.card .fa-plus[data-v-fb82538e] {\n  font-size: 3rem;\n  color: #d3d3d3;\n}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -786,142 +767,77 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card mb-4" }, [
-          _c("div", { staticClass: "card-header d-flex" }, [
-            _c("span", [
-              _c("i", { staticClass: "fas fa-chart-area mr-1" }),
-              _vm._v(
-                "\n          " +
-                  _vm._s(_vm.$t("conceptPaper.overview")) +
-                  "\n        "
-              )
-            ]),
-            _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card mb-4", staticStyle: { border: "none" } },
+          [
             _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-sm ml-auto",
-                on: { click: _vm.showNewconceptPaperModal }
-              },
+              "div",
+              { staticClass: "card-deck mt-4 ml-2" },
               [
-                _vm._m(0),
-                _vm._v(
-                  "\n          " +
-                    _vm._s(_vm.$t("conceptPaper.addNew")) +
-                    "\n        "
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-deck mt-4 ml-2" },
-            _vm._l(_vm.conceptPapers, function(conceptPaper, index) {
-              return _c(
-                "div",
-                {
-                  key: index,
-                  staticClass: "card",
-                  staticStyle: { "max-width": "300px" }
-                },
-                [
-                  _c("img", {
-                    staticClass: "image-wd img-h",
-                    attrs: {
-                      src:
-                        _vm.$store.state.serverPath +
-                        "/storage/" +
-                        conceptPaper.image
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(conceptPaper.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(conceptPaper.course))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(conceptPaper.currentSemester))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1, true)
-                ]
-              )
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("table", { staticClass: "table" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("td", [_vm._v("#id")]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.name")))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.course")))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.semester")))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.image")))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(_vm.$t("conceptPaper.placeholders.actions")))
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
                 _vm._l(_vm.conceptPapers, function(conceptPaper, index) {
-                  return _c("tr", { key: index }, [
-                    _c("td", [_vm._v(_vm._s(conceptPaper.id))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(conceptPaper.name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(conceptPaper.course))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(conceptPaper.currentSemester))]),
-                    _vm._v(" "),
-                    _c("td", [
+                  return _c(
+                    "div",
+                    { key: index, staticClass: "card max-300" },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "block delete-papers p-2",
+                          staticStyle: { "z-index": "50000" }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger btn-sm",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteConceptPaper(conceptPaper)
+                                }
+                              }
+                            },
+                            [_c("span", { staticClass: "fa fa-trash" })]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
                       _c("img", {
-                        staticClass: "image-wd",
+                        staticClass: "image-wd img-h",
                         attrs: {
                           src:
                             _vm.$store.state.serverPath +
                             "/storage/" +
                             conceptPaper.image
                         }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
+                      }),
+                      _vm._v(" "),
                       _c(
-                        "button",
+                        "div",
                         {
-                          staticClass: "btn btn-primary btn-sm",
+                          staticClass: "card-body",
                           on: {
                             click: function($event) {
                               return _vm.showPaper(conceptPaper)
                             }
                           }
                         },
-                        [_c("span", { staticClass: "far fa-eye" })]
+                        [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(_vm._s(conceptPaper.name))
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(_vm._s(conceptPaper.course))
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(_vm._s(conceptPaper.currentSemester))
+                          ])
+                        ]
                       ),
+                      _vm._v(" "),
+                      _vm._m(0, true),
                       _vm._v(" "),
                       _c(
                         "button",
@@ -933,61 +849,81 @@ var render = function() {
                             }
                           }
                         },
-                        [_c("span", { staticClass: "fa fa-edit" })]
-                      ),
-                      _vm._v(" "),
+                        [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(_vm.$t("conceptPaper.edit")) +
+                              "\n          "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card max-300" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "card-body d-flex flex-column center-all text-center"
+                    },
+                    [
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-danger btn-sm",
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteConceptPaper(conceptPaper)
-                            }
-                          }
+                          staticClass: "btn",
+                          on: { click: _vm.showNewconceptPaperModal }
                         },
-                        [_c("span", { staticClass: "fa fa-trash" })]
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.$t("conceptPaper.addnew")) +
+                          "\n          "
                       )
-                    ])
-                  ])
-                }),
-                0
-              )
-            ]),
+                    ]
+                  )
+                ])
+              ],
+              2
+            ),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.moreExists,
-                    expression: "moreExists"
-                  }
-                ],
-                staticClass: "text-center"
-              },
-              [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary btn-sm",
-                    attrs: { type: "button" },
-                    on: { click: _vm.loadMore }
-                  },
-                  [
-                    _c("span", { staticClass: "fa fa-arrow-down" }),
-                    _vm._v(
-                      _vm._s(_vm.$t("conceptPaper.placeholders.actions")) +
-                        "\n          "
-                    )
-                  ]
-                )
-              ]
-            )
-          ])
-        ]),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.moreExists,
+                      expression: "moreExists"
+                    }
+                  ],
+                  staticClass: "text-center"
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary btn-sm",
+                      attrs: { type: "button" },
+                      on: { click: _vm.loadMore }
+                    },
+                    [
+                      _c("span", { staticClass: "fa fa-arrow-down" }),
+                      _vm._v(
+                        _vm._s(_vm.$t("conceptPaper.placeholders.actions")) +
+                          "\n          "
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "b-modal",
@@ -1480,12 +1416,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", [_c("i", { staticClass: "fa fa-plus" })])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-footer" }, [
       _c("small", { staticClass: "text-muted" }, [
         _vm._v("Last updated 3 mins ago")
@@ -1547,7 +1477,7 @@ function loadMore(nextPage) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ConceptPaperCreator_vue_vue_type_template_id_fb82538e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConceptPaperCreator.vue?vue&type=template&id=fb82538e&scoped=true& */ "./resources/js/views/ConceptPaperCreator.vue?vue&type=template&id=fb82538e&scoped=true&");
 /* harmony import */ var _ConceptPaperCreator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConceptPaperCreator.vue?vue&type=script&lang=js& */ "./resources/js/views/ConceptPaperCreator.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css& */ "./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true& */ "./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1589,18 +1519,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css&":
-/*!*************************************************************************************************************!*\
-  !*** ./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css& ***!
-  \*************************************************************************************************************/
+/***/ "./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ConceptPaperCreator.vue?vue&type=style&index=0&id=fb82538e&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ConceptPaperCreator_vue_vue_type_style_index_0_id_fb82538e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),

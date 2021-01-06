@@ -53,7 +53,7 @@
                     class="btn btn-sm btn-danger"
                     @click="deleteTask(task)"
                   >
-                    {{ $t('kanban.delete') }}
+                   <span class="fa fa-trash"></span>
                   </button>
                 </span>
                 <span class="block mb-2 text-xl text-gray-900">

@@ -11,34 +11,26 @@
         </li>
       </ol>
 
-      <div class="card mb-4">
-        <div class="card-header d-flex">
-          <span>
-            <i class="fas fa-chart-area mr-1"></i>
-            {{ $t("conceptPaper.overview") }}
-          </span>
-          <button
-            class="btn btn-primary btn-sm ml-auto"
-            v-on:click="showNewconceptPaperModal"
-          >
-            <span>
-              <i class="fa fa-plus" />
-            </span>
-            {{ $t("conceptPaper.addNew") }}
-          </button>
-        </div>
+      <div class="card mb-4" style="border: none">
         <div class="card-deck mt-4 ml-2">
           <div
             v-for="(conceptPaper, index) in conceptPapers"
             :key="index"
-            class="card"
-            style="max-width: 300px"
+            class="card max-300"
           >
+            <span class="block delete-papers p-2" style="z-index: 50000">
+              <button
+                class="btn btn-danger btn-sm"
+                @click="deleteConceptPaper(conceptPaper)"
+              >
+                <span class="fa fa-trash"></span>
+              </button>
+            </span>
             <img
               :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`"
               class="image-wd img-h"
             />
-            <div class="card-body">
+            <div class="card-body" @click="showPaper(conceptPaper)">
               <h5 class="card-title">{{ conceptPaper.name }}</h5>
               <p class="card-text">{{ conceptPaper.course }}</p>
               <p class="card-text">{{ conceptPaper.currentSemester }}</p>
@@ -46,55 +38,26 @@
             <div class="card-footer">
               <small class="text-muted">Last updated 3 mins ago</small>
             </div>
+            <button
+              class="btn btn-primary btn-sm"
+              @click="editconceptPaper(conceptPaper)"
+            >
+              {{ $t("conceptPaper.edit") }}
+            </button>
+          </div>
+           <div class="card max-300">
+            <div class="card-body d-flex flex-column center-all text-center">
+               <button
+            class="btn"
+            v-on:click="showNewconceptPaperModal"
+          >
+              <i class="fa fa-plus" />
+          </button>
+              {{ $t('conceptPaper.addnew') }}
+            </div>
           </div>
         </div>
         <div class="card-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <td>#id</td>
-                <td>{{ $t("conceptPaper.placeholders.name") }}</td>
-                <td>{{ $t("conceptPaper.placeholders.course") }}</td>
-                <td>{{ $t("conceptPaper.placeholders.semester") }}</td>
-                <td>{{ $t("conceptPaper.placeholders.image") }}</td>
-                <td>{{ $t("conceptPaper.placeholders.actions") }}</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(conceptPaper, index) in conceptPapers" :key="index">
-                <td>{{ conceptPaper.id }}</td>
-                <td>{{ conceptPaper.name }}</td>
-                <td>{{ conceptPaper.course }}</td>
-                <td>{{ conceptPaper.currentSemester }}</td>
-                <td>
-                  <img
-                    :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`"
-                    class="image-wd"
-                  />
-                </td>
-                <td>
-                  <button
-                    class="btn btn-primary btn-sm"
-                    v-on:click="showPaper(conceptPaper)"
-                  >
-                    <span class="far fa-eye"></span>
-                  </button>
-                  <button
-                    class="btn btn-primary btn-sm"
-                    v-on:click="editconceptPaper(conceptPaper)"
-                  >
-                    <span class="fa fa-edit"></span>
-                  </button>
-                  <button
-                    class="btn btn-danger btn-sm"
-                    v-on:click="deleteConceptPaper(conceptPaper)"
-                  >
-                    <span class="fa fa-trash"></span>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
           <div class="text-center" v-show="moreExists">
             <button
               type="button"
@@ -283,9 +246,27 @@
   </main>
 </template>
 
-<style scoped>
-.img-h {
-  height: 60px;
+<style lang="scss" scoped>
+.card {
+  .card-body.center-all {
+    justify-content: center;
+    align-items: center;
+  }
+  .max-300 {
+    max-width: 300px;
+    min-height: 300px;
+  }
+  .delete-papers {
+    align-self: flex-end;
+  }
+  .img-h {
+    height: 60px;
+  }
+
+  .fa-plus {
+    font-size: 3rem;
+    color: #d3d3d3;
+  }
 }
 </style>
 
