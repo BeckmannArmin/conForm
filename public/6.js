@@ -24,12 +24,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -410,16 +409,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return loadConceptPaper;
     }(),
     attachImage: function attachImage() {
-      var file = this.conceptPaperData.image;
-      file = (_readOnlyError("file"), this.$refs.newconceptPaperImage.files[0]);
+      this.conceptPaperData.image = this.$refs.newconceptPaperImage.files[0];
       var reader = new FileReader();
       reader.addEventListener("load", function () {
         this.$refs.newconceptPaperImageDisplay.src = reader.result;
       }.bind(this), false);
-
-      if (file) {
-        reader.readAsDataURL(file);
-      }
+      reader.readAsDataURL(this.conceptPaperData.image);
     },
     hideNewconceptPaperModal: function hideNewconceptPaperModal() {
       this.$refs.newconceptPaperModal.hide();
@@ -864,15 +859,17 @@ var render = function() {
                     "div",
                     { staticClass: "d-flex justify-content-center m-2" },
                     [
-                      _c("img", {
-                        staticClass: "image-wd img-h",
-                        attrs: {
-                          src:
-                            _vm.$store.state.serverPath +
-                            "/storage/" +
-                            conceptPaper.image
-                        }
-                      })
+                      conceptPaper.image
+                        ? _c("img", {
+                            staticClass: "image-wd img-h",
+                            attrs: {
+                              src:
+                                _vm.$store.state.serverPath +
+                                "/storage/" +
+                                conceptPaper.image
+                            }
+                          })
+                        : _vm._e()
                     ]
                   ),
                   _vm._v(" "),
@@ -1072,11 +1069,11 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm.errors.name
+                    _vm.errors.course
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
                             "\n              " +
-                              _vm._s(_vm.errors.name[0]) +
+                              _vm._s(_vm.errors.course[0]) +
                               "\n            "
                           )
                         ])
@@ -1118,11 +1115,11 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm.errors.name
+                    _vm.errors.currentSemester
                       ? _c("div", { staticClass: "invalid-feedback" }, [
                           _vm._v(
                             "\n              " +
-                              _vm._s(_vm.errors.name[0]) +
+                              _vm._s(_vm.errors.currentSemester[0]) +
                               "\n            "
                           )
                         ])

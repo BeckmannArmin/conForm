@@ -38,6 +38,7 @@
           </div>
             <div class="d-flex justify-content-center m-2">
             <img
+            v-if="conceptPaper.image"
               :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`"
               class="image-wd img-h"
             />
@@ -105,8 +106,8 @@
                 id="course"
                 placeholder="Kurs"
               />
-              <div class="invalid-feedback" v-if="errors.name">
-                {{ errors.name[0] }}
+              <div class="invalid-feedback" v-if="errors.course">
+                {{ errors.course[0] }}
               </div>
             </div>
             <div class="form-group">
@@ -118,8 +119,8 @@
                 id="currentSemester"
                 placeholder="Bsp.: WS20/21"
               />
-              <div class="invalid-feedback" v-if="errors.name">
-                {{ errors.name[0] }}
+              <div class="invalid-feedback" v-if="errors.currentSemester">
+                {{ errors.currentSemester[0] }}
               </div>
             </div>
             <div class="form-group">
@@ -351,8 +352,7 @@ export default {
       }
     },
     attachImage() {
-      const file = this.conceptPaperData.image;
-      file = this.$refs.newconceptPaperImage.files[0];
+      this.conceptPaperData.image = this.$refs.newconceptPaperImage.files[0];
       let reader = new FileReader();
       reader.addEventListener(
         "load",
@@ -361,9 +361,7 @@ export default {
         }.bind(this),
         false
       );
-      if (file) {
-      reader.readAsDataURL(file);
-      }
+      reader.readAsDataURL(this.conceptPaperData.image);
     },
     hideNewconceptPaperModal() {
       this.$refs.newconceptPaperModal.hide();
