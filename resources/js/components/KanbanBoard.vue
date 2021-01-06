@@ -1,10 +1,9 @@
 <template>
-  <div class="p-2 kanban-container">
+  <div v-if="statuses.length" class="p-2 kanban-container">
     <!-- Columns (Statuses) -->
     <div
       v-for="status in statuses"
       :key="status.slug"
-      v-if="statuses.length"
       class="mr-6 w-4/5 max-w-xs flex-1 flex-shrink-0"
     >
       <div class="rounded-md shadow-md overflow-hidden">
