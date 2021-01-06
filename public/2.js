@@ -712,7 +712,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showWatermark: false,
       showDocxWatermark: false,
       isLoggedIn: null,
-      fields: ['name', 'course', 'currentSemester', 'idea', 'basics', 'niceToHave', 'technologies', 'team']
+      fields: ["name", "course", "currentSemester", "idea", "basics", "niceToHave", "technologies", "team"]
     };
   },
   components: {
@@ -865,14 +865,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _exportAsDOCX = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var _this2 = this;
 
-        var img, calculateAspectRatioFit, globalWidth, globalHeight, imageToUint8Array, _imageToUint8Array, logo, documentCreator, _this$editConceptPape, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
+        var img, calculateAspectRatioFit, _calculateAspectRatio, widthImg, heightImg, hskl_branding, calculateAspectRatioFitHSKLBranding, _calculateAspectRatio2, widthHSKL, heightHSKL, imageToUint8Array, _imageToUint8Array, logo, hskl_branding_logo, documentCreator, _this$editConceptPape, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _imageToUint8Array = function _imageToUint8Array3() {
-                  _imageToUint8Array = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(image) {
+                  _imageToUint8Array = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(image, width, height) {
                     var canvas, context;
                     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
                       while (1) {
@@ -881,12 +881,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             canvas = document.createElement("canvas");
                             context = canvas.getContext("2d");
                             return _context2.abrupt("return", new Promise(function (resolve, reject) {
-                              var _calculateAspectRatio = calculateAspectRatioFit(image.naturalWidth || image.width, image.naturalHeight || image.height, 540, 120),
-                                  width = _calculateAspectRatio.width,
-                                  height = _calculateAspectRatio.height;
-
-                              globalWidth = width;
-                              globalHeight = height;
                               canvas.width = width;
                               canvas.height = height;
                               context.width = width;
@@ -909,27 +903,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   return _imageToUint8Array.apply(this, arguments);
                 };
 
-                imageToUint8Array = function _imageToUint8Array2(_x) {
+                imageToUint8Array = function _imageToUint8Array2(_x, _x2, _x3) {
                   return _imageToUint8Array.apply(this, arguments);
                 };
 
-                calculateAspectRatioFit = function _calculateAspectRatio2(srcWidth, srcHeight, maxWidth, maxHeight) {
+                calculateAspectRatioFitHSKLBranding = function _calculateAspectRatio4(srcWidth, srcHeight, maxWidth, maxHeight) {
                   var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
                   return {
-                    width: srcWidth * ratio,
-                    height: srcHeight * ratio
+                    widthHSKL: srcWidth * ratio,
+                    heightHSKL: srcHeight * ratio
+                  };
+                };
+
+                calculateAspectRatioFit = function _calculateAspectRatio3(srcWidth, srcHeight, maxWidth, maxHeight) {
+                  var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+                  return {
+                    widthImg: srcWidth * ratio,
+                    heightImg: srcHeight * ratio
                   };
                 };
 
                 img = document.getElementById("logo_image");
-                _context3.next = 6;
-                return imageToUint8Array(img);
+                _calculateAspectRatio = calculateAspectRatioFit(img.naturalWidth || img.width, img.naturalHeight || img.height, 540, 120), widthImg = _calculateAspectRatio.widthImg, heightImg = _calculateAspectRatio.heightImg;
+                hskl_branding = document.getElementById("hskl_branding");
+                console.log(widthImg, heightImg, img.naturalWidth, img.naturalHeight);
+                _calculateAspectRatio2 = calculateAspectRatioFitHSKLBranding(hskl_branding.naturalWidth || hskl_branding.width, hskl_branding.naturalHeight || hskl_branding.height, 540, 100), widthHSKL = _calculateAspectRatio2.widthHSKL, heightHSKL = _calculateAspectRatio2.heightHSKL;
+                _context3.next = 11;
+                return imageToUint8Array(img, widthImg, heightImg);
 
-              case 6:
+              case 11:
                 logo = _context3.sent;
+                _context3.next = 14;
+                return imageToUint8Array(hskl_branding, widthHSKL, heightHSKL);
+
+              case 14:
+                hskl_branding_logo = _context3.sent;
                 documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__["DocumentCreatorDOCX"]();
                 _this$editConceptPape = this.editConceptPaperData, name = _this$editConceptPape.name, course = _this$editConceptPape.course, currentSemester = _this$editConceptPape.currentSemester, idea = _this$editConceptPape.idea, basics = _this$editConceptPape.basics, niceToHave = _this$editConceptPape.niceToHave, technologies = _this$editConceptPape.technologies, team = _this$editConceptPape.team;
-                doc = documentCreator.create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
+                doc = documentCreator.create([name, course, currentSemester, logo, widthImg, heightImg, idea, basics, niceToHave, technologies, team, hskl_branding_logo, widthHSKL, heightHSKL]);
                 docx__WEBPACK_IMPORTED_MODULE_8__["Packer"].toBlob(doc).then(function (blob) {
                   console.log(blob);
                   Object(file_saver__WEBPACK_IMPORTED_MODULE_7__["saveAs"])(blob, "Konzeptpapier_" + _this2.editConceptPaperData.name + ".docx");
@@ -940,7 +951,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   });
                 });
 
-              case 11:
+              case 19:
               case "end":
                 return _context3.stop();
             }
@@ -1001,14 +1012,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _exportAsDOCXWithWatermark = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var _this3 = this;
 
-        var img, watermark, calculateAspectRatioFit, globalWidth, globalHeight, imageToUint8Array, _imageToUint8Array4, logo, documentCreator, _this$editConceptPape4, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
+        var img, calculateAspectRatioFit, _calculateAspectRatio5, widthImg, heightImg, hskl_branding, calculateAspectRatioFitHSKLBranding, _calculateAspectRatio6, widthHSKL, heightHSKL, wartermark, calculateAspectRatioFitWatermark, _calculateAspectRatio7, widthWatermark, heightWatermark, imageToUint8Array, _imageToUint8Array4, logo, hskl_branding_logo, watermark_logo, documentCreator, _this$editConceptPape4, name, course, currentSemester, idea, basics, niceToHave, technologies, team, doc;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
                 _imageToUint8Array4 = function _imageToUint8Array6() {
-                  _imageToUint8Array4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(image) {
+                  _imageToUint8Array4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(image, width, height) {
                     var canvas, context;
                     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
                       while (1) {
@@ -1017,12 +1028,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             canvas = document.createElement("canvas");
                             context = canvas.getContext("2d");
                             return _context4.abrupt("return", new Promise(function (resolve, reject) {
-                              var _calculateAspectRatio3 = calculateAspectRatioFit(image.naturalWidth || image.width, image.naturalHeight || image.height, 540, 120),
-                                  width = _calculateAspectRatio3.width,
-                                  height = _calculateAspectRatio3.height;
-
-                              globalWidth = width;
-                              globalHeight = height;
                               canvas.width = width;
                               canvas.height = height;
                               context.width = width;
@@ -1045,28 +1050,59 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   return _imageToUint8Array4.apply(this, arguments);
                 };
 
-                imageToUint8Array = function _imageToUint8Array5(_x2) {
+                imageToUint8Array = function _imageToUint8Array5(_x4, _x5, _x6) {
                   return _imageToUint8Array4.apply(this, arguments);
                 };
 
-                calculateAspectRatioFit = function _calculateAspectRatio4(srcWidth, srcHeight, maxWidth, maxHeight) {
+                calculateAspectRatioFitWatermark = function _calculateAspectRatio10(srcWidth, srcHeight, maxWidth, maxHeight) {
                   var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
                   return {
-                    width: srcWidth * ratio,
-                    height: srcHeight * ratio
+                    widthWatermark: srcWidth * ratio,
+                    heightWatermark: srcHeight * ratio
+                  };
+                };
+
+                calculateAspectRatioFitHSKLBranding = function _calculateAspectRatio9(srcWidth, srcHeight, maxWidth, maxHeight) {
+                  var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+                  return {
+                    widthHSKL: srcWidth * ratio,
+                    heightHSKL: srcHeight * ratio
+                  };
+                };
+
+                calculateAspectRatioFit = function _calculateAspectRatio8(srcWidth, srcHeight, maxWidth, maxHeight) {
+                  var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+                  return {
+                    widthImg: srcWidth * ratio,
+                    heightImg: srcHeight * ratio
                   };
                 };
 
                 img = document.getElementById("logo_image");
-                watermark = document.getElementById("docx_watermark");
-                _context5.next = 7;
-                return imageToUint8Array(img);
+                _calculateAspectRatio5 = calculateAspectRatioFit(img.naturalWidth || img.width, img.naturalHeight || img.height, 540, 120), widthImg = _calculateAspectRatio5.widthImg, heightImg = _calculateAspectRatio5.heightImg;
+                hskl_branding = document.getElementById("hskl_branding");
+                _calculateAspectRatio6 = calculateAspectRatioFitHSKLBranding(hskl_branding.naturalWidth || hskl_branding.width, hskl_branding.naturalHeight || hskl_branding.height, 540, 100), widthHSKL = _calculateAspectRatio6.widthHSKL, heightHSKL = _calculateAspectRatio6.heightHSKL;
+                wartermark = document.getElementById("watermark");
+                console.log(widthWatermark, heightWatermark, watermark.naturalWidth, wartermark.naturalHeight);
+                _calculateAspectRatio7 = calculateAspectRatioFitWatermark(watermark.naturalWidth || wartermark.width, watermark.naturalHeight || wartermark.height, 400, 400), widthWatermark = _calculateAspectRatio7.widthWatermark, heightWatermark = _calculateAspectRatio7.heightWatermark;
+                _context5.next = 14;
+                return imageToUint8Array(img, widthImg, heightImg);
 
-              case 7:
+              case 14:
                 logo = _context5.sent;
+                _context5.next = 17;
+                return imageToUint8Array(hskl_branding, widthHSKL, heightHSKL);
+
+              case 17:
+                hskl_branding_logo = _context5.sent;
+                _context5.next = 20;
+                return imageToUint8Array(watermark, widthWatermark, heightWatermark);
+
+              case 20:
+                watermark_logo = _context5.sent;
                 documentCreator = new _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_10__["DocumentCreatorDOCXWithWatermark"]();
                 _this$editConceptPape4 = this.editConceptPaperData, name = _this$editConceptPape4.name, course = _this$editConceptPape4.course, currentSemester = _this$editConceptPape4.currentSemester, idea = _this$editConceptPape4.idea, basics = _this$editConceptPape4.basics, niceToHave = _this$editConceptPape4.niceToHave, technologies = _this$editConceptPape4.technologies, team = _this$editConceptPape4.team;
-                doc = documentCreator.create([name, course, currentSemester, logo, watermark, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
+                doc = documentCreator.create([name, course, currentSemester, logo, widthImg, heightImg, idea, basics, niceToHave, technologies, team, hskl_branding_logo, widthHSKL, heightHSKL, watermark_logo, widthWatermark, heightWatermark]);
                 docx__WEBPACK_IMPORTED_MODULE_8__["Packer"].toBlob(doc).then(function (blob) {
                   console.log(blob);
                   Object(file_saver__WEBPACK_IMPORTED_MODULE_7__["saveAs"])(blob, "Konzeptpapier_" + _this3.editConceptPaperData.name + ".docx");
@@ -1077,7 +1113,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   });
                 });
 
-              case 12:
+              case 25:
               case "end":
                 return _context5.stop();
             }
@@ -1109,7 +1145,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   beforeRouteLeave: function beforeRouteLeave(to, from, next) {
-    var answer = window.confirm('Do you really want to leave? You have unsaved changes!');
+    var answer = window.confirm("Do you really want to leave? You have unsaved changes!");
 
     if (answer) {
       next();
@@ -3546,37 +3582,68 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
     key: "create",
     // tslint:disable-next-line: typedef
     value: function create(_ref) {
-      var _ref2 = _slicedToArray(_ref, 12),
+      var _ref2 = _slicedToArray(_ref, 17),
           name = _ref2[0],
           course = _ref2[1],
           currentSemester = _ref2[2],
           logo = _ref2[3],
-          watermark = _ref2[4],
-          globalWidth = _ref2[5],
-          globalHeight = _ref2[6],
-          idea = _ref2[7],
-          basics = _ref2[8],
-          niceToHave = _ref2[9],
-          technologies = _ref2[10],
-          team = _ref2[11];
+          widthImg = _ref2[4],
+          heightImg = _ref2[5],
+          idea = _ref2[6],
+          basics = _ref2[7],
+          niceToHave = _ref2[8],
+          technologies = _ref2[9],
+          team = _ref2[10],
+          hskl_branding_logo = _ref2[11],
+          widthHSKL = _ref2[12],
+          heightHSKL = _ref2[13],
+          watermark_logo = _ref2[14],
+          widthWatermark = _ref2[15],
+          HeightWatermark = _ref2[16];
 
       var document = new docx__WEBPACK_IMPORTED_MODULE_0__["Document"]();
-      var image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, logo, globalWidth, globalHeight);
-      console.log(basics);
+      var image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, logo, widthImg, heightImg);
+      var hskl_branding_image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, hskl_branding_logo, widthHSKL, heightHSKL, {
+        floating: {
+          horizontalPosition: {
+            offset: 4803569
+          },
+          verticalPosition: {
+            offset: 900000
+          }
+        }
+      });
+      var watermark_image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, watermark_logo, widthWatermark, HeightWatermark, {
+        floating: {
+          horizontalPosition: {
+            align: docx__WEBPACK_IMPORTED_MODULE_0__["VerticalPositionAlign"].CENTER
+          },
+          verticalPosition: {
+            align: docx__WEBPACK_IMPORTED_MODULE_0__["VerticalPositionAlign"].CENTER
+          }
+        }
+      });
       document.addSection({
-        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](hskl_branding_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](watermark_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
           children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: name,
             bold: true,
-            size: 28
-          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            underline: true,
+            size: 40,
+            color: "2E74B5"
+          })],
+          spacing: {
+            after: 120
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: course,
             bold: false,
-            size: 28
-          })["break"](), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            size: 22
+          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: currentSemester,
             bold: false,
-            size: 28
+            size: 22
           })["break"]()],
           spacing: {
             after: 200
@@ -3706,36 +3773,55 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
     key: "create",
     // tslint:disable-next-line: typedef
     value: function create(_ref) {
-      var _ref2 = _slicedToArray(_ref, 11),
+      var _ref2 = _slicedToArray(_ref, 14),
           name = _ref2[0],
           course = _ref2[1],
           currentSemester = _ref2[2],
           logo = _ref2[3],
-          globalWidth = _ref2[4],
-          globalHeight = _ref2[5],
+          widthImg = _ref2[4],
+          heightImg = _ref2[5],
           idea = _ref2[6],
           basics = _ref2[7],
           niceToHave = _ref2[8],
           technologies = _ref2[9],
-          team = _ref2[10];
+          team = _ref2[10],
+          hskl_branding_logo = _ref2[11],
+          widthHSKL = _ref2[12],
+          heightHSKL = _ref2[13];
 
       var document = new docx__WEBPACK_IMPORTED_MODULE_0__["Document"]();
-      var image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, logo, globalWidth, globalHeight);
-      console.log(basics);
+      var image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, logo, widthImg, heightImg);
+      var hskl_branding_image = docx__WEBPACK_IMPORTED_MODULE_0__["Media"].addImage(document, hskl_branding_logo, widthHSKL, heightHSKL, {
+        floating: {
+          horizontalPosition: {
+            offset: 4803569
+          },
+          verticalPosition: {
+            offset: 778372
+          }
+        }
+      });
       document.addSection({
-        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](hskl_branding_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
           children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: name,
             bold: true,
-            size: 28
-          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            underline: true,
+            size: 40,
+            color: "2E74B5"
+          })],
+          spacing: {
+            after: 120
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: course,
             bold: false,
-            size: 28
-          })["break"](), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            size: 22
+          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: currentSemester,
             bold: false,
-            size: 28
+            size: 22
           })["break"]()],
           spacing: {
             after: 200

@@ -3,31 +3,48 @@ import { AlignmentType, Document, HeadingLevel, Packer, Paragraph, TabStopPositi
 
 export class DocumentCreatorDOCX {
     // tslint:disable-next-line: typedef
-    create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]) {
+    create([name, course, currentSemester, logo, widthImg, heightImg, idea, basics, niceToHave, technologies, team, hskl_branding_logo, widthHSKL, heightHSKL]) {
         const document = new Document();
-        const image = Media.addImage(document, logo, globalWidth, globalHeight);
-
-
-        console.log(basics);
+        const image = Media.addImage(document, logo, widthImg, heightImg);
+        const hskl_branding_image = Media.addImage(document, hskl_branding_logo, widthHSKL, heightHSKL, {
+            floating: {
+                horizontalPosition: {
+                    offset: 4803569,
+                },
+                verticalPosition: {
+                    offset: 778372,
+                },
+            },
+        });
 
         document.addSection({
             children: [
+                new Paragraph(hskl_branding_image),
                 new Paragraph({
                     children: [
                         new TextRun({
                             text: name,
                             bold: true,
-                            size: 28,
+                            underline: true,
+                            size: 40,
+                            color: "2E74B5",
                         }),
+                    ],
+                    spacing: {
+                        after: 120,
+                    }
+                }),
+                new Paragraph({
+                    children: [
                         new TextRun({
                             text: course,
                             bold: false,
-                            size: 28,
-                        }).break(),
+                            size: 22,
+                        }),
                         new TextRun({
                             text: currentSemester,
                             bold: false,
-                            size: 28,
+                            size: 22,
                         }).break(),
                     ],
                     spacing: {
@@ -47,19 +64,19 @@ export class DocumentCreatorDOCX {
                         after: 200,
                     }
                 }),
-                
-                this.createHeading("Features"),              
+
+                this.createHeading("Features"),
                 this.createSubHeading("\tGrundfunktionalitäten"),
-                this.createList(basics, true),               
+                this.createList(basics, true),
                 this.createSubHeading("\tNice-To-Have Features"),
                 this.createList(niceToHave, true),
-                
+
                 this.createHeading("Technologien"),
                 this.createList(technologies, false),
-                
+
                 this.createHeading("Team"),
                 this.createList(team, false),
-           
+
             ],
         });
 
@@ -74,7 +91,7 @@ export class DocumentCreatorDOCX {
         var i;
         for (i = 0; i < stringArray.length; i++) {
             if (i == 0) {
-                if(tabBool == true) {
+                if (tabBool == true) {
                     var text = new TextRun({ text: "\t" + "\t" + stringArray[i], size: 22 });
                 }
                 else {
@@ -82,7 +99,7 @@ export class DocumentCreatorDOCX {
                 }
             }
             else {
-                if(tabBool == true) {
+                if (tabBool == true) {
                     var text = new TextRun({ text: "\t" + "\t" + stringArray[i], size: 22 }).break();
                 }
                 else {
@@ -103,21 +120,21 @@ export class DocumentCreatorDOCX {
         });
     }
 
-    createSubHeading(text){
+    createSubHeading(text) {
         return new Paragraph({
             text: text,
             heading: HeadingLevel.HEADING_2,
         });
     }
-    createHeading(text){
+    createHeading(text) {
         return new Paragraph({
             text: text,
             heading: HeadingLevel.HEADING_1,
         });
     }
-    createSpace(){
+    createSpace() {
         return new Paragraph({
-            
+
         });
     }
 }
