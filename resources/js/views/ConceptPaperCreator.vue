@@ -2,6 +2,7 @@
   <main>
     <div class="container-fluid" style="margin-top: 160px !important">
       <h1 class="mt-4">Dashboard</h1>
+      <h1 class="mt-2 text-muted">Hier kannst du deine Konzeptpapiere individualisieren</h1>
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item">
           <router-link to="/">conForm</router-link>
@@ -10,15 +11,19 @@
           {{ $t("conceptPaper.conceptPapers") }}
         </li>
       </ol>
-
-      <div class="card mb-4" style="border: none">
         <div class="card-deck mt-4 ml-2">
           <div
             v-for="(conceptPaper, index) in conceptPapers"
             :key="index"
-            class="card max-300"
+            class="card max-300 mt-4"
           >
-            <span class="block delete-papers p-2" style="z-index: 50000">
+            <span class="block delete-papers p-2">
+               <button
+              class="btn btn-primary btn-sm"
+              @click="editconceptPaper(conceptPaper)"
+            >
+              <span class="fa fa-edit"></span>
+            </button>
               <button
                 class="btn btn-danger btn-sm"
                 @click="deleteConceptPaper(conceptPaper)"
@@ -38,14 +43,8 @@
             <div class="card-footer">
               <small class="text-muted">Last updated 3 mins ago</small>
             </div>
-            <button
-              class="btn btn-primary btn-sm"
-              @click="editconceptPaper(conceptPaper)"
-            >
-              {{ $t("conceptPaper.edit") }}
-            </button>
           </div>
-           <div class="card max-300">
+           <div class="card max-300 mt-4">
             <div class="card-body d-flex flex-column center-all text-center">
                <button
             class="btn"
@@ -69,7 +68,6 @@
             </button>
           </div>
         </div>
-      </div>
 
       <b-modal
         ref="newconceptPaperModal"
@@ -252,10 +250,7 @@
     justify-content: center;
     align-items: center;
   }
-  .max-300 {
-    max-width: 300px;
-    min-height: 300px;
-  }
+
   .delete-papers {
     align-self: flex-end;
   }
@@ -266,6 +261,15 @@
   .fa-plus {
     font-size: 3rem;
     color: #d3d3d3;
+  }
+}
+
+@media (min-width: 576px)
+{
+.card-deck .card.max-300 {
+    max-width: 300px;
+    min-height: 300px;
+    min-width: 300px;
   }
 }
 </style>

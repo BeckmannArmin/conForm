@@ -110,7 +110,8 @@
         "docxdefault": "By default your DOCX export has an conForm watermark. To have a DOCX file without the watermark hit the register button",
         "downloadDocx": "Download DOCX",
         "addnew": "Add a new concept paper",
-        "edit": "Edit your concept paper"
+        "edit": "Edit your concept paper",
+        "editPaper": "Edit"
     },
     "kanban": {
         "addTask": "Add task",

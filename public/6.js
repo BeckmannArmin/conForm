@@ -300,6 +300,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -688,7 +692,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card .card-body.center-all[data-v-fb82538e] {\n  justify-content: center;\n  align-items: center;\n}\n.card .max-300[data-v-fb82538e] {\n  max-width: 300px;\n  min-height: 300px;\n}\n.card .delete-papers[data-v-fb82538e] {\n  align-self: flex-end;\n}\n.card .img-h[data-v-fb82538e] {\n  height: 60px;\n}\n.card .fa-plus[data-v-fb82538e] {\n  font-size: 3rem;\n  color: #d3d3d3;\n}", ""]);
+exports.push([module.i, ".card .card-body.center-all[data-v-fb82538e] {\n  justify-content: center;\n  align-items: center;\n}\n.card .delete-papers[data-v-fb82538e] {\n  align-self: flex-end;\n}\n.card .img-h[data-v-fb82538e] {\n  height: 60px;\n}\n.card .fa-plus[data-v-fb82538e] {\n  font-size: 3rem;\n  color: #d3d3d3;\n}\n@media (min-width: 576px) {\n.card-deck .card.max-300[data-v-fb82538e] {\n    max-width: 300px;\n    min-height: 300px;\n    min-width: 300px;\n}\n}", ""]);
 
 // exports
 
@@ -750,6 +754,10 @@ var render = function() {
       [
         _c("h1", { staticClass: "mt-4" }, [_vm._v("Dashboard")]),
         _vm._v(" "),
+        _c("h1", { staticClass: "mt-2 text-muted" }, [
+          _vm._v("Hier kannst du deine Konzeptpapiere individualisieren")
+        ]),
+        _vm._v(" "),
         _c("ol", { staticClass: "breadcrumb mb-4" }, [
           _c(
             "li",
@@ -769,161 +777,142 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "card mb-4", staticStyle: { border: "none" } },
+          { staticClass: "card-deck mt-4 ml-2" },
           [
-            _c(
-              "div",
-              { staticClass: "card-deck mt-4 ml-2" },
-              [
-                _vm._l(_vm.conceptPapers, function(conceptPaper, index) {
-                  return _c(
-                    "div",
-                    { key: index, staticClass: "card max-300" },
-                    [
-                      _c(
-                        "span",
-                        {
-                          staticClass: "block delete-papers p-2",
-                          staticStyle: { "z-index": "50000" }
-                        },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-danger btn-sm",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteConceptPaper(conceptPaper)
-                                }
-                              }
-                            },
-                            [_c("span", { staticClass: "fa fa-trash" })]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "image-wd img-h",
-                        attrs: {
-                          src:
-                            _vm.$store.state.serverPath +
-                            "/storage/" +
-                            conceptPaper.image
+            _vm._l(_vm.conceptPapers, function(conceptPaper, index) {
+              return _c(
+                "div",
+                { key: index, staticClass: "card max-300 mt-4" },
+                [
+                  _c("span", { staticClass: "block delete-papers p-2" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary btn-sm",
+                        on: {
+                          click: function($event) {
+                            return _vm.editconceptPaper(conceptPaper)
+                          }
                         }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card-body",
-                          on: {
-                            click: function($event) {
-                              return _vm.showPaper(conceptPaper)
-                            }
+                      },
+                      [_c("span", { staticClass: "fa fa-edit" })]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger btn-sm",
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteConceptPaper(conceptPaper)
                           }
-                        },
-                        [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(_vm._s(conceptPaper.name))
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(_vm._s(conceptPaper.course))
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(_vm._s(conceptPaper.currentSemester))
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0, true),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary btn-sm",
-                          on: {
-                            click: function($event) {
-                              return _vm.editconceptPaper(conceptPaper)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n            " +
-                              _vm._s(_vm.$t("conceptPaper.edit")) +
-                              "\n          "
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card max-300" }, [
+                        }
+                      },
+                      [_c("span", { staticClass: "fa fa-trash" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "image-wd img-h",
+                    attrs: {
+                      src:
+                        _vm.$store.state.serverPath +
+                        "/storage/" +
+                        conceptPaper.image
+                    }
+                  }),
+                  _vm._v(" "),
                   _c(
                     "div",
                     {
-                      staticClass:
-                        "card-body d-flex flex-column center-all text-center"
+                      staticClass: "card-body",
+                      on: {
+                        click: function($event) {
+                          return _vm.showPaper(conceptPaper)
+                        }
+                      }
                     },
                     [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn",
-                          on: { click: _vm.showNewconceptPaperModal }
-                        },
-                        [_c("i", { staticClass: "fa fa-plus" })]
-                      ),
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.$t("conceptPaper.addnew")) +
-                          "\n          "
-                      )
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(conceptPaper.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(conceptPaper.course))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(conceptPaper.currentSemester))
+                      ])
                     ]
-                  )
-                ])
-              ],
-              2
-            ),
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0, true)
+                ]
+              )
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "card max-300 mt-4" }, [
               _c(
                 "div",
                 {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.moreExists,
-                      expression: "moreExists"
-                    }
-                  ],
-                  staticClass: "text-center"
+                  staticClass:
+                    "card-body d-flex flex-column center-all text-center"
                 },
                 [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary btn-sm",
-                      attrs: { type: "button" },
-                      on: { click: _vm.loadMore }
+                      staticClass: "btn",
+                      on: { click: _vm.showNewconceptPaperModal }
                     },
-                    [
-                      _c("span", { staticClass: "fa fa-arrow-down" }),
-                      _vm._v(
-                        _vm._s(_vm.$t("conceptPaper.placeholders.actions")) +
-                          "\n          "
-                      )
-                    ]
+                    [_c("i", { staticClass: "fa fa-plus" })]
+                  ),
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.$t("conceptPaper.addnew")) +
+                      "\n          "
                   )
                 ]
               )
             ])
-          ]
+          ],
+          2
         ),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.moreExists,
+                  expression: "moreExists"
+                }
+              ],
+              staticClass: "text-center"
+            },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  attrs: { type: "button" },
+                  on: { click: _vm.loadMore }
+                },
+                [
+                  _c("span", { staticClass: "fa fa-arrow-down" }),
+                  _vm._v(
+                    _vm._s(_vm.$t("conceptPaper.placeholders.actions")) +
+                      "\n          "
+                  )
+                ]
+              )
+            ]
+          )
+        ]),
         _vm._v(" "),
         _c(
           "b-modal",

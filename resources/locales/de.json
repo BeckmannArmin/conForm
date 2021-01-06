@@ -112,7 +112,8 @@
         "docxdefault": "Standardmäßig hat dein DOCX-Export ein conForm-Wasserzeichen. Um eine DOCX-Datei ohne Wasserzeichen zu erhalten, klicke bitte auf die Schaltfläche Registrieren",
         "downloadDocx": "DOCX herunterladen",
         "addnew": "Füge ein neues Konzeptpapier hinzu",
-        "edit": "Editiere dein Konzeptpapier"
+        "edit": "Editiere dein Konzeptpapier",
+        "editPaper": "Bearbeiten"
     },
     "kanban": {
         "addTask": "Task hinzufügen",
