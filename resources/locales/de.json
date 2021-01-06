@@ -113,7 +113,8 @@
         "downloadDocx": "DOCX herunterladen",
         "addnew": "Füge ein neues Konzeptpapier hinzu",
         "edit": "Editiere dein Konzeptpapier",
-        "editPaper": "Bearbeiten"
+        "editPaper": "Bearbeiten",
+        "individualize": "Hier kannst du deine Konzeptpapiere individualisieren"
     },
     "kanban": {
         "addTask": "Task hinzufügen",

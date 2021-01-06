@@ -1208,7 +1208,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".btn-invite[data-v-22c7a2ba],\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  color: #fff;\n}\n.btn-invite[data-v-22c7a2ba] {\n  background-color: #5c55ba;\n}\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  background-color: #ff7e85;\n}\n.container[data-v-22c7a2ba] {\n  display: flex;\n  justify-content: center;\n  align-content: center;\n  flex-flow: column;\n}\n.dark .card[data-v-22c7a2ba] {\n  background: #20232a !important;\n}\n.dark table td label[data-v-22c7a2ba] {\n  color: #fff;\n}\n.dark .btn-json[data-v-22c7a2ba] {\n  color: #fff;\n}", ""]);
+exports.push([module.i, ".btn-invite[data-v-22c7a2ba],\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  color: #fff;\n}\n.btn-invite[data-v-22c7a2ba] {\n  background-color: #5c55ba;\n}\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  background-color: #ff7e85;\n}\n.container[data-v-22c7a2ba] {\n  display: flex;\n  justify-content: center;\n  align-content: center;\n  flex-flow: column;\n}\n.dark .breadcrumb[data-v-22c7a2ba] {\n  background-color: #20232a;\n}\n.dark .breadcrumb a[data-v-22c7a2ba] {\n  color: #fff;\n}\n.dark .bg-main[data-v-22c7a2ba] {\n  background-color: #121212 !important;\n}\n.dark .card[data-v-22c7a2ba] {\n  background: #20232a !important;\n}\n.dark table td label[data-v-22c7a2ba] {\n  color: #fff;\n}\n.dark .btn-json[data-v-22c7a2ba] {\n  color: #fff;\n}\n.breadcrumb a[data-v-22c7a2ba] {\n  color: #212529;\n}", ""]);
 
 // exports
 
@@ -2206,7 +2206,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "container-fluid",
+      staticClass: "container-fluid bg-main",
       staticStyle: { "margin-top": "160px !important" }
     },
     [

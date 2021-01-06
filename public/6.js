@@ -304,6 +304,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -692,7 +717,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card .card-body.center-all[data-v-fb82538e] {\n  justify-content: center;\n  align-items: center;\n}\n.card .delete-papers[data-v-fb82538e] {\n  align-self: flex-end;\n}\n.card .img-h[data-v-fb82538e] {\n  height: 60px;\n}\n.card .fa-plus[data-v-fb82538e] {\n  font-size: 3rem;\n  color: #d3d3d3;\n}\n@media (min-width: 576px) {\n.card-deck .card.max-300[data-v-fb82538e] {\n    max-width: 300px;\n    min-height: 300px;\n    min-width: 300px;\n}\n}", ""]);
+exports.push([module.i, ".dark .breadcrumb[data-v-fb82538e] {\n  background-color: #20232a;\n}\n.dark .breadcrumb a[data-v-fb82538e] {\n  color: #fff;\n}\n.dark .card[data-v-fb82538e] {\n  background-color: #20232a;\n  box-shadow: 0 1px 2px rgba(0, 0, 1, 0.9);\n}\n.breadcrumb a[data-v-fb82538e] {\n  color: #212529;\n}\n.card .card-body.center-all[data-v-fb82538e] {\n  justify-content: center;\n  align-items: center;\n}\n.card .img-h[data-v-fb82538e] {\n  height: 60px;\n}\n.card .fa-plus[data-v-fb82538e] {\n  font-size: 3rem;\n  color: #d3d3d3;\n}\n@media (min-width: 576px) {\n.card-deck .card.max-300[data-v-fb82538e] {\n    max-width: 300px;\n    min-height: 300px;\n    min-width: 300px;\n}\n}", ""]);
 
 // exports
 
@@ -755,7 +780,7 @@ var render = function() {
         _c("h1", { staticClass: "mt-4" }, [_vm._v("Dashboard")]),
         _vm._v(" "),
         _c("h1", { staticClass: "mt-2 text-muted" }, [
-          _vm._v("Hier kannst du deine Konzeptpapiere individualisieren")
+          _vm._v(_vm._s(_vm.$t("conceptPaper.individualize")))
         ]),
         _vm._v(" "),
         _c("ol", { staticClass: "breadcrumb mb-4" }, [
@@ -784,43 +809,66 @@ var render = function() {
                 "div",
                 { key: index, staticClass: "card max-300 mt-4" },
                 [
-                  _c("span", { staticClass: "block delete-papers p-2" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary btn-sm",
-                        on: {
-                          click: function($event) {
-                            return _vm.editconceptPaper(conceptPaper)
-                          }
-                        }
-                      },
-                      [_c("span", { staticClass: "fa fa-edit" })]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger btn-sm",
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteConceptPaper(conceptPaper)
-                          }
-                        }
-                      },
-                      [_c("span", { staticClass: "fa fa-trash" })]
-                    )
-                  ]),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "d-flex justify-content-between",
+                      staticStyle: { "align-items": "center" }
+                    },
+                    [
+                      _c("span", { staticClass: "block p-2 text-muted" }, [
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(conceptPaper.id) +
+                            "\n        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "block p-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary btn-sm",
+                            on: {
+                              click: function($event) {
+                                return _vm.editconceptPaper(conceptPaper)
+                              }
+                            }
+                          },
+                          [_c("span", { staticClass: "fa fa-edit" })]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger btn-sm",
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteConceptPaper(conceptPaper)
+                              }
+                            }
+                          },
+                          [_c("span", { staticClass: "fa fa-trash" })]
+                        )
+                      ])
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("img", {
-                    staticClass: "image-wd img-h",
-                    attrs: {
-                      src:
-                        _vm.$store.state.serverPath +
-                        "/storage/" +
-                        conceptPaper.image
-                    }
-                  }),
+                  _c(
+                    "div",
+                    { staticClass: "d-flex justify-content-center m-2" },
+                    [
+                      _c("img", {
+                        staticClass: "image-wd img-h",
+                        attrs: {
+                          src:
+                            _vm.$store.state.serverPath +
+                            "/storage/" +
+                            conceptPaper.image
+                        }
+                      })
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -847,7 +895,11 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(0, true)
+                  _c("div", { staticClass: "card-footer" }, [
+                    _c("small", { staticClass: "text-muted" }, [
+                      _vm._v("Last updated " + _vm._s(conceptPaper.updated_at))
+                    ])
+                  ])
                 ]
               )
             }),
@@ -1400,18 +1452,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("small", { staticClass: "text-muted" }, [
-        _vm._v("Last updated 3 mins ago")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

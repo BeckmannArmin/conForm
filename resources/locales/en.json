@@ -111,7 +111,8 @@
         "downloadDocx": "Download DOCX",
         "addnew": "Add a new concept paper",
         "edit": "Edit your concept paper",
-        "editPaper": "Edit"
+        "editPaper": "Edit",
+        "individualize": "Here you can individualize your concept papers"
     },
     "kanban": {
         "addTask": "Add task",

@@ -20,7 +20,7 @@
           </button>
         </div>
         <div
-          class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto task-body"
+          class="p-2 flex-1 flex flex-col h-full overflow-x-hidden overflow-y-auto task-body-bg-dark"
         >
           <!-- Tasks -->
 
@@ -182,6 +182,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .dark {
+
+    .p-3 {
+      background-color: #5c55ba !important;
+    }
+
+    .task-body-bg-dark {
+      background-color: #f3f3f3 !important;
+    }
+
+    .text-sm {
+      color: black;
+    }
+
+    .btn-wrapper {
+      color: white;
+    }
+  }
 .p-2.kanban-container {
   display: flex;
   justify-content: center;
@@ -194,24 +212,6 @@ export default {
 
   .task-card {
     border: 0.5px solid rgba(0, 0, 0, 0.2);
-  }
-
-  .dark {
-    .p-3 {
-      background-color: #5c55ba;
-    }
-
-    .task-body {
-      background-color: #f3f3f3;
-    }
-
-    .text-sm {
-      color: black;
-    }
-
-    .btn-wrapper {
-      color: white;
-    }
   }
 
   .p-3 {

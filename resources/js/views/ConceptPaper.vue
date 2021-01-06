@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" style="margin-top: 160px !important">
+  <div class="container-fluid bg-main" style="margin-top: 160px !important">
     <PageLoader :loaded="isLoading" />
     <h1 class="mt-4"></h1>
     <ol class="breadcrumb mb-4">
@@ -719,6 +719,18 @@ export default {
 }
 
 .dark {
+  .breadcrumb {
+    background-color: #20232a;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .bg-main {
+    background-color: #121212 !important;
+  }
+  
   .card {
     background: #20232a !important;
   }
@@ -735,4 +747,10 @@ export default {
     color: #fff;
   }
 }
+
+.breadcrumb {
+    a {
+      color: #212529;
+    }
+  }
 </style>

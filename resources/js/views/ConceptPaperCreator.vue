@@ -2,7 +2,7 @@
   <main>
     <div class="container-fluid" style="margin-top: 160px !important">
       <h1 class="mt-4">Dashboard</h1>
-      <h1 class="mt-2 text-muted">Hier kannst du deine Konzeptpapiere individualisieren</h1>
+      <h1 class="mt-2 text-muted">{{ $t('conceptPaper.individualize') }}</h1>
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item">
           <router-link to="/">conForm</router-link>
@@ -17,7 +17,11 @@
             :key="index"
             class="card max-300 mt-4"
           >
-            <span class="block delete-papers p-2">
+          <div class="d-flex justify-content-between" style="align-items: center">
+          <span class="block p-2 text-muted">
+            {{ conceptPaper.id }}
+          </span>
+            <span class="block p-2">
                <button
               class="btn btn-primary btn-sm"
               @click="editconceptPaper(conceptPaper)"
@@ -31,17 +35,20 @@
                 <span class="fa fa-trash"></span>
               </button>
             </span>
+          </div>
+            <div class="d-flex justify-content-center m-2">
             <img
               :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`"
               class="image-wd img-h"
             />
+            </div>
             <div class="card-body" @click="showPaper(conceptPaper)">
               <h5 class="card-title">{{ conceptPaper.name }}</h5>
               <p class="card-text">{{ conceptPaper.course }}</p>
               <p class="card-text">{{ conceptPaper.currentSemester }}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted">Last updated {{ conceptPaper.updated_at }}</small>
             </div>
           </div>
            <div class="card max-300 mt-4">
@@ -245,15 +252,33 @@
 </template>
 
 <style lang="scss" scoped>
+
+.dark {
+  .breadcrumb {
+    background-color: #20232a;
+
+    a {
+      color: #fff;
+    }
+  }
+  .card {
+    background-color: #20232a;
+    box-shadow: 0 1px 2px rgba(0, 0, 1, 0.9);
+  }
+}
+
+.breadcrumb {
+    a {
+      color: #212529;
+    }
+  }
+  
 .card {
   .card-body.center-all {
     justify-content: center;
     align-items: center;
   }
 
-  .delete-papers {
-    align-self: flex-end;
-  }
   .img-h {
     height: 60px;
   }
