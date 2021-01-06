@@ -49,6 +49,7 @@ export default {
   methods: {
     downloadDOCX() {
       this.$emit('downloaddocx');
+      this.$emit('close');
     }
   }
 }

@@ -49,6 +49,7 @@ export default {
   methods: {
     downloadPDF() {
       this.$emit('downloadpdf');
+      this.$emit('close');
     }
   }
 }

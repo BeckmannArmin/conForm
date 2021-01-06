@@ -202,6 +202,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     downloadDOCX: function downloadDOCX() {
       this.$emit('downloaddocx');
+      this.$emit('close');
     }
   }
 });
@@ -369,6 +370,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     downloadPDF: function downloadPDF() {
       this.$emit('downloadpdf');
+      this.$emit('close');
     }
   }
 });
