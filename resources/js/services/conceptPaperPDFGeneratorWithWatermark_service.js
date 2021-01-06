@@ -6,7 +6,8 @@ export class DocumentCreatorPDFWithWatermark {
     create([name, course, currentSemester, logo, watermark, idea, basics, niceToHave, technologies, team]) {
 
         const { width, height } = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30);
-        const { watermarkWidth, watermarkHeight } = this.calculateAspectRatioFit(watermark.naturalWidth || watermark.width, watermark.naturalHeight || watermark.height, 160, 30);
+        const { watermarkWidth, watermarkHeight } = this.calculateAspectRatioFitWatermark(watermark.naturalWidth || watermark.width, watermark.naturalHeight || watermark.height, 100, 100);
+        const { widthHSKL, heightHSKL } = this.calculateAspectRatioFitHSKLBranding(hskl_branding.naturalWidth || hskl_branding.width, hskl_branding.naturalHeight || hskl_branding.height, 160, 25);
 
         const doc = new jsPDF({
             orientation: 'p',
@@ -20,28 +21,37 @@ export class DocumentCreatorPDFWithWatermark {
         var left = 25;
         var leftTab1 = 35;
         var leftTab2 = 45;
-        var top = 50;
+        var top = 60;
         var helperTop = top;
 
-        const textSizeHeader = 14;
+        var watermarkLeft = (doc.internal.pageSize.getWidth()/2) - (watermarkWidth/2);
+        var watermarkTop = (doc.internal.pageSize.getHeight()/2) - (watermarkHeight/2);
+
+        const textSizeTitle = 20;
         const textSizeHeading = 16;
         const textSizeSubHeading = 13;
         const textSizeText = 11;
 
+
+        doc.addImage(hskl_branding, 135, 25, widthHSKL, heightHSKL);
+
         doc.setFont('times', 'bold');
-        doc.setFontSize(textSizeHeader);
-        doc.text(left, 30, name);
+        doc.setFontSize(textSizeTitle);
+        doc.setTextColor('#2E74B5');
+        doc.text(left, 40, name);
+        doc.setDrawColor('#2E74B5');
+        doc.setLineWidth(0.5);
+        doc.line(left, 41, left + doc.getTextDimensions(name).w, 41);
 
         doc.setFont('times', 'normal');
-        doc.setFontSize(textSizeHeader);
-        doc.text(left, 35, course);
-        doc.text(left, 40, currentSemester);
+        doc.setFontSize(textSizeText);
+        doc.setTextColor('#000000');
+        doc.text(left, 46, course);
+        doc.text(left, 50, currentSemester);
 
         doc.addImage(logo, left, top, width, height);
 
-        var fwidth = doc.internal.pageSize.getWidth();
-        var fheight = doc.internal.pageSize.getHeight();
-        doc.addImage(watermark, fwidth / 3, fheight / 3, watermarkWidth, watermarkHeight);
+        doc.addImage(watermark, watermarkLeft, watermarkTop, watermarkWidth, watermarkHeight);
 
         //---------------------
 
@@ -98,9 +108,6 @@ export class DocumentCreatorPDFWithWatermark {
             .splitTextToSize(team, 150);
 
         helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h;
-            /* + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h
-            + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h
-            + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h; */
 
         if (helperTop > 267) {
             doc.addPage();
@@ -208,5 +215,27 @@ export class DocumentCreatorPDFWithWatermark {
         var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
 
         return { width: srcWidth * ratio, height: srcHeight * ratio };
+    }
+
+    calculateAspectRatioFitWatermark(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+    ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { watermarkWidth: srcWidth * ratio, watermarkHeight: srcHeight * ratio };
+    }
+
+    calculateAspectRatioFitHSKLBranding(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+    ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { widthHSKL: srcWidth * ratio, heightHSKL: srcHeight * ratio };
     }
 }

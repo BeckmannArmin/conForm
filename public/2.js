@@ -397,18 +397,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! docx */ "./node_modules/docx/build/index.js");
 /* harmony import */ var docx__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(docx__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/conForm_watermark.png */ "./resources/assets/conForm_watermark.png");
-/* harmony import */ var _assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
-/* harmony import */ var _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/conceptPaperDOCXGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperDOCXGeneratorWithWatermark_service.js");
-/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
-/* harmony import */ var _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../services/conceptPaperPDFGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperPDFGeneratorWithWatermark_service.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
-/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
-/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
-/* harmony import */ var _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/modals/CreateAccountModal.vue */ "./resources/js/components/modals/CreateAccountModal.vue");
-/* harmony import */ var _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/modals/PdfWatermark.vue */ "./resources/js/components/modals/PdfWatermark.vue");
-/* harmony import */ var _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/modals/DocxWatermark.vue */ "./resources/js/components/modals/DocxWatermark.vue");
+/* harmony import */ var _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/conceptPaperDOCXGenerator_service */ "./resources/js/services/conceptPaperDOCXGenerator_service.js");
+/* harmony import */ var _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/conceptPaperDOCXGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperDOCXGeneratorWithWatermark_service.js");
+/* harmony import */ var _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/conceptPaperPDFGenerator_service */ "./resources/js/services/conceptPaperPDFGenerator_service.js");
+/* harmony import */ var _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/conceptPaperPDFGeneratorWithWatermark_service */ "./resources/js/services/conceptPaperPDFGeneratorWithWatermark_service.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+/* harmony import */ var _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/RightSidebar.vue */ "./resources/js/components/RightSidebar.vue");
+/* harmony import */ var _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/modals/InviteYourTeam.vue */ "./resources/js/components/modals/InviteYourTeam.vue");
+/* harmony import */ var _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/modals/CreateAccountModal.vue */ "./resources/js/components/modals/CreateAccountModal.vue");
+/* harmony import */ var _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/modals/PdfWatermark.vue */ "./resources/js/components/modals/PdfWatermark.vue");
+/* harmony import */ var _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/modals/DocxWatermark.vue */ "./resources/js/components/modals/DocxWatermark.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -666,7 +664,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
 
 
 
@@ -714,11 +717,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   components: {
     PageLoader: _components_PageLoader_PageLoader_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
-    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
-    CreateAccountModal: _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
-    PDFWatermark: _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
-    DOCXWatermark: _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_19__["default"]
+    RightSideBar: _components_RightSidebar_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+    InviteTeam: _components_modals_InviteYourTeam_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    CreateAccountModal: _components_modals_CreateAccountModal_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
+    PDFWatermark: _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
+    DOCXWatermark: _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_18__["default"]
   },
   mounted: function mounted() {
     this.loadConceptPaper();
@@ -888,7 +891,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                               canvas.height = height;
                               context.width = width;
                               context.height = height;
-                              console.log(width, height, image);
                               context.drawImage(image, 0, 0, width, height);
                               context.canvas.toBlob(function (blob) {
                                 return blob.arrayBuffer().then(function (buffer) {
@@ -925,8 +927,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 6:
                 logo = _context3.sent;
-                console.log(globalWidth, globalHeight);
-                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_10__["DocumentCreatorDOCX"]();
+                documentCreator = new _services_conceptPaperDOCXGenerator_service__WEBPACK_IMPORTED_MODULE_9__["DocumentCreatorDOCX"]();
                 _this$editConceptPape = this.editConceptPaperData, name = _this$editConceptPape.name, course = _this$editConceptPape.course, currentSemester = _this$editConceptPape.currentSemester, idea = _this$editConceptPape.idea, basics = _this$editConceptPape.basics, niceToHave = _this$editConceptPape.niceToHave, technologies = _this$editConceptPape.technologies, team = _this$editConceptPape.team;
                 doc = documentCreator.create([name, course, currentSemester, logo, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
                 docx__WEBPACK_IMPORTED_MODULE_8__["Packer"].toBlob(doc).then(function (blob) {
@@ -939,7 +940,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   });
                 });
 
-              case 12:
+              case 11:
               case "end":
                 return _context3.stop();
             }
@@ -955,7 +956,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }(),
     exportAsPDF: function exportAsPDF() {
       var logo = document.getElementById("logo_image");
-      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_12__["DocumentCreatorPDF"]();
+      var hskl_branding = document.getElementById("hskl_branding");
+      var documentCreatorPDF = new _services_conceptPaperPDFGenerator_service__WEBPACK_IMPORTED_MODULE_11__["DocumentCreatorPDF"]();
       var _this$editConceptPape2 = this.editConceptPaperData,
           name = _this$editConceptPape2.name,
           course = _this$editConceptPape2.course,
@@ -966,7 +968,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           niceToHave = _this$editConceptPape2.niceToHave,
           technologies = _this$editConceptPape2.technologies,
           team = _this$editConceptPape2.team;
-      var doc = documentCreatorPDF.create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]);
+      var doc = documentCreatorPDF.create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team, hskl_branding]);
       doc.save("Konzeptpapier_" + name + ".pdf");
       this.flashMessage.success({
         message: "PDF Document created successfully",
@@ -975,8 +977,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     exportAsPDFWithWatermark: function exportAsPDFWithWatermark() {
       var logo = document.getElementById("logo_image");
-      var watermark = _assets_conForm_watermark_png__WEBPACK_IMPORTED_MODULE_9___default.a;
-      var documentCreatorPDF = new _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_13__["DocumentCreatorPDFWithWatermark"]();
+      var hskl_branding = document.getElementById("hskl_branding");
+      var watermark = document.getElementById("watermark");
+      var documentCreatorPDF = new _services_conceptPaperPDFGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_12__["DocumentCreatorPDFWithWatermark"]();
       var _this$editConceptPape3 = this.editConceptPaperData,
           name = _this$editConceptPape3.name,
           course = _this$editConceptPape3.course,
@@ -1024,7 +1027,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                               canvas.height = height;
                               context.width = width;
                               context.height = height;
-                              console.log(width, height, image);
                               context.drawImage(image, 0, 0, width, height);
                               context.canvas.toBlob(function (blob) {
                                 return blob.arrayBuffer().then(function (buffer) {
@@ -1062,8 +1064,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 7:
                 logo = _context5.sent;
-                console.log(globalWidth, globalHeight);
-                documentCreator = new _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_11__["DocumentCreatorDOCXWithWatermark"]();
+                documentCreator = new _services_conceptPaperDOCXGeneratorWithWatermark_service__WEBPACK_IMPORTED_MODULE_10__["DocumentCreatorDOCXWithWatermark"]();
                 _this$editConceptPape4 = this.editConceptPaperData, name = _this$editConceptPape4.name, course = _this$editConceptPape4.course, currentSemester = _this$editConceptPape4.currentSemester, idea = _this$editConceptPape4.idea, basics = _this$editConceptPape4.basics, niceToHave = _this$editConceptPape4.niceToHave, technologies = _this$editConceptPape4.technologies, team = _this$editConceptPape4.team;
                 doc = documentCreator.create([name, course, currentSemester, logo, watermark, globalWidth, globalHeight, idea, basics, niceToHave, technologies, team]);
                 docx__WEBPACK_IMPORTED_MODULE_8__["Packer"].toBlob(doc).then(function (blob) {
@@ -1076,7 +1077,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   });
                 });
 
-              case 13:
+              case 12:
               case "end":
                 return _context5.stop();
             }
@@ -2867,7 +2868,16 @@ var render = function() {
         staticStyle: { display: "none" },
         attrs: {
           src: __webpack_require__(/*! ../../assets/conForm_watermark.png */ "./resources/assets/conForm_watermark.png"),
-          id: "docx_watermark"
+          id: "watermark"
+        }
+      }),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "image-wd",
+        staticStyle: { display: "none" },
+        attrs: {
+          src: __webpack_require__(/*! ../../assets/Logo_of_Hochschule_Kaiserslautern.png */ "./resources/assets/Logo_of_Hochschule_Kaiserslautern.png"),
+          id: "hskl_branding"
         }
       })
     ],
@@ -2878,6 +2888,17 @@ var staticRenderFns = []
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/assets/Logo_of_Hochschule_Kaiserslautern.png":
+/*!****************************************************************!*\
+  !*** ./resources/assets/Logo_of_Hochschule_Kaiserslautern.png ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Logo_of_Hochschule_Kaiserslautern.png?aced7e1e0d4300f1512cfd6eac577932";
 
 /***/ }),
 
@@ -3859,9 +3880,13 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
           width = _this$calculateAspect.width,
           height = _this$calculateAspect.height;
 
-      var _this$calculateAspect2 = this.calculateAspectRatioFit(watermark.naturalWidth || watermark.width, watermark.naturalHeight || watermark.height, 160, 30),
+      var _this$calculateAspect2 = this.calculateAspectRatioFitWatermark(watermark.naturalWidth || watermark.width, watermark.naturalHeight || watermark.height, 100, 100),
           watermarkWidth = _this$calculateAspect2.watermarkWidth,
           watermarkHeight = _this$calculateAspect2.watermarkHeight;
+
+      var _this$calculateAspect3 = this.calculateAspectRatioFitHSKLBranding(hskl_branding.naturalWidth || hskl_branding.width, hskl_branding.naturalHeight || hskl_branding.height, 160, 25),
+          widthHSKL = _this$calculateAspect3.widthHSKL,
+          heightHSKL = _this$calculateAspect3.heightHSKL;
 
       var doc = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]({
         orientation: 'p',
@@ -3874,23 +3899,250 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
       var left = 25;
       var leftTab1 = 35;
       var leftTab2 = 45;
-      var top = 50;
+      var top = 60;
       var helperTop = top;
-      var textSizeHeader = 14;
+      var watermarkLeft = doc.internal.pageSize.getWidth() / 2 - watermarkWidth / 2;
+      var watermarkTop = doc.internal.pageSize.getHeight() / 2 - watermarkHeight / 2;
+      var textSizeTitle = 20;
       var textSizeHeading = 16;
       var textSizeSubHeading = 13;
       var textSizeText = 11;
+      doc.addImage(hskl_branding, 135, 25, widthHSKL, heightHSKL);
       doc.setFont('times', 'bold');
-      doc.setFontSize(textSizeHeader);
-      doc.text(left, 30, name);
+      doc.setFontSize(textSizeTitle);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, 40, name);
+      doc.setDrawColor('#2E74B5');
+      doc.setLineWidth(0.5);
+      doc.line(left, 41, left + doc.getTextDimensions(name).w, 41);
       doc.setFont('times', 'normal');
-      doc.setFontSize(textSizeHeader);
-      doc.text(left, 35, course);
-      doc.text(left, 40, currentSemester);
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(left, 46, course);
+      doc.text(left, 50, currentSemester);
       doc.addImage(logo, left, top, width, height);
-      var fwidth = doc.internal.pageSize.getWidth();
-      var fheight = doc.internal.pageSize.getHeight();
-      doc.addImage(watermark, fwidth / 3, fheight / 3, watermarkWidth, watermarkHeight); //---------------------
+      doc.addImage(watermark, watermarkLeft, watermarkTop, watermarkWidth, watermarkHeight); //---------------------
+
+      top = top + 40;
+      var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, ideaHeadingLine);
+      top = top + doc.getTextDimensions(ideaHeadingLine).h;
+      var ideaLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(idea, 160);
+      doc.setTextColor('#000000');
+      doc.text(left, top, ideaLines);
+      top = top + doc.getTextDimensions(ideaLines).h + 5; //---------------------
+
+      var featuresHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
+      var basicsHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
+      var basicsLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(basics, 140);
+      var niceToHaveHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
+      var niceToHaveLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(niceToHave, 140);
+      var technologiesHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
+      var technologiesLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(technologies, 150);
+      var teamHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
+      var teamLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(team, 150);
+      helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h;
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText FeatureHeading
+
+
+      doc.setFontSize(textSizeHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, featuresHeadingLine);
+      top = top + doc.getTextDimensions(featuresHeadingLine).h; //setText BasicsHeading
+
+      doc.setFontSize(textSizeSubHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(leftTab1, top, basicsHeadingLine);
+      top = top + doc.getTextDimensions(basicsHeadingLine).h; //setText Basics
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab2, top, basicsLines);
+      top = top + doc.getTextDimensions(basicsLines).h + 5; //-----------------------
+
+      helperTop = top + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h;
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText NiceToHaveHeading
+
+
+      doc.setFontSize(textSizeSubHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(leftTab1, top, niceToHaveHeadingLine);
+      top = top + doc.getTextDimensions(niceToHaveHeadingLine).h; //setText NiceToHave
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab2, top, niceToHaveLines);
+      top = top + doc.getTextDimensions(niceToHaveLines).h + 5; //-----------------------
+
+      helperTop = top + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h;
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText TechHeading
+
+
+      doc.setFontSize(textSizeHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, technologiesHeadingLine);
+      top = top + doc.getTextDimensions(technologiesHeadingLine).h; //setText Tech
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab1, top, technologiesLines);
+      top = top + doc.getTextDimensions(technologiesLines).h + 5; //-----------------------
+
+      helperTop = top + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h;
+
+      if (helperTop > 267) {
+        doc.addPage();
+        top = 30;
+      } //setText TeamHeading
+
+
+      doc.setFontSize(textSizeHeading);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, top, teamHeadingLine);
+      top = top + doc.getTextDimensions(teamHeadingLine).h; //setText Team
+
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(leftTab1, top, teamLines);
+      return doc;
+    }
+  }, {
+    key: "calculateAspectRatioFit",
+    value: function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+      var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+      return {
+        width: srcWidth * ratio,
+        height: srcHeight * ratio
+      };
+    }
+  }, {
+    key: "calculateAspectRatioFitWatermark",
+    value: function calculateAspectRatioFitWatermark(srcWidth, srcHeight, maxWidth, maxHeight) {
+      var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+      return {
+        watermarkWidth: srcWidth * ratio,
+        watermarkHeight: srcHeight * ratio
+      };
+    }
+  }, {
+    key: "calculateAspectRatioFitHSKLBranding",
+    value: function calculateAspectRatioFitHSKLBranding(srcWidth, srcHeight, maxWidth, maxHeight) {
+      var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+      return {
+        widthHSKL: srcWidth * ratio,
+        heightHSKL: srcHeight * ratio
+      };
+    }
+  }]);
+
+  return DocumentCreatorPDFWithWatermark;
+}();
+
+/***/ }),
+
+/***/ "./resources/js/services/conceptPaperPDFGenerator_service.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/services/conceptPaperPDFGenerator_service.js ***!
+  \*******************************************************************/
+/*! exports provided: DocumentCreatorPDF */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreatorPDF", function() { return DocumentCreatorPDF; });
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+var DocumentCreatorPDF = /*#__PURE__*/function () {
+  function DocumentCreatorPDF() {
+    _classCallCheck(this, DocumentCreatorPDF);
+  }
+
+  _createClass(DocumentCreatorPDF, [{
+    key: "create",
+    // tslint:disable-next-line: typedef
+    value: function create(_ref) {
+      var _ref2 = _slicedToArray(_ref, 10),
+          name = _ref2[0],
+          course = _ref2[1],
+          currentSemester = _ref2[2],
+          logo = _ref2[3],
+          idea = _ref2[4],
+          basics = _ref2[5],
+          niceToHave = _ref2[6],
+          technologies = _ref2[7],
+          team = _ref2[8],
+          hskl_branding = _ref2[9];
+
+      var _this$calculateAspect = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30),
+          width = _this$calculateAspect.width,
+          height = _this$calculateAspect.height;
+
+      var _this$calculateAspect2 = this.calculateAspectRatioFitHSKLBranding(hskl_branding.naturalWidth || hskl_branding.width, hskl_branding.naturalHeight || hskl_branding.height, 160, 25),
+          widthHSKL = _this$calculateAspect2.widthHSKL,
+          heightHSKL = _this$calculateAspect2.heightHSKL;
+
+      var doc = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+        putOnlyUsedFonts: true,
+        floatPrecision: 16 // or "smart", default is 16
+
+      });
+      var left = 25;
+      var leftTab1 = 35;
+      var leftTab2 = 45;
+      var top = 60;
+      var helperTop = top;
+      var textSizeTitle = 20;
+      var textSizeHeading = 16;
+      var textSizeSubHeading = 13;
+      var textSizeText = 11;
+      doc.addImage(hskl_branding, 135, 25, widthHSKL, heightHSKL);
+      doc.setFont('times', 'bold');
+      doc.setFontSize(textSizeTitle);
+      doc.setTextColor('#2E74B5');
+      doc.text(left, 40, name);
+      doc.setDrawColor('#2E74B5');
+      doc.setLineWidth(0.5);
+      doc.line(left, 41, left + doc.getTextDimensions(name).w, 41);
+      doc.setFont('times', 'normal');
+      doc.setFontSize(textSizeText);
+      doc.setTextColor('#000000');
+      doc.text(left, 46, course);
+      doc.text(left, 50, currentSemester);
+      doc.addImage(logo, left, top, width, height); //---------------------
 
       top = top + 40;
       var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
@@ -4000,199 +4252,13 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
         height: srcHeight * ratio
       };
     }
-  }]);
-
-  return DocumentCreatorPDFWithWatermark;
-}();
-
-/***/ }),
-
-/***/ "./resources/js/services/conceptPaperPDFGenerator_service.js":
-/*!*******************************************************************!*\
-  !*** ./resources/js/services/conceptPaperPDFGenerator_service.js ***!
-  \*******************************************************************/
-/*! exports provided: DocumentCreatorPDF */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreatorPDF", function() { return DocumentCreatorPDF; });
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-var DocumentCreatorPDF = /*#__PURE__*/function () {
-  function DocumentCreatorPDF() {
-    _classCallCheck(this, DocumentCreatorPDF);
-  }
-
-  _createClass(DocumentCreatorPDF, [{
-    key: "create",
-    // tslint:disable-next-line: typedef
-    value: function create(_ref) {
-      var _ref2 = _slicedToArray(_ref, 9),
-          name = _ref2[0],
-          course = _ref2[1],
-          currentSemester = _ref2[2],
-          logo = _ref2[3],
-          idea = _ref2[4],
-          basics = _ref2[5],
-          niceToHave = _ref2[6],
-          technologies = _ref2[7],
-          team = _ref2[8];
-
-      var _this$calculateAspect = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30),
-          width = _this$calculateAspect.width,
-          height = _this$calculateAspect.height;
-
-      var doc = new jspdf__WEBPACK_IMPORTED_MODULE_0__["jsPDF"]({
-        orientation: 'p',
-        unit: 'mm',
-        format: 'a4',
-        putOnlyUsedFonts: true,
-        floatPrecision: 16 // or "smart", default is 16
-
-      });
-      var left = 25;
-      var leftTab1 = 35;
-      var leftTab2 = 45;
-      var top = 50;
-      var helperTop = top;
-      var textSizeHeader = 14;
-      var textSizeHeading = 16;
-      var textSizeSubHeading = 13;
-      var textSizeText = 11;
-      doc.setFont('times', 'bold');
-      doc.setFontSize(textSizeHeader);
-      doc.text(left, 30, name);
-      doc.setFont('times', 'normal');
-      doc.setFontSize(textSizeHeader);
-      doc.text(left, 35, course);
-      doc.text(left, 40, currentSemester);
-      doc.addImage(logo, left, top, width, height); //---------------------
-
-      top = top + 40;
-      var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
-      doc.setTextColor('#2E74B5');
-      doc.text(left, top, ideaHeadingLine);
-      top = top + doc.getTextDimensions(ideaHeadingLine).h;
-      var ideaLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(idea, 160);
-      doc.setTextColor('#000000');
-      doc.text(left, top, ideaLines);
-      top = top + doc.getTextDimensions(ideaLines).h + 5; //---------------------
-
-      var featuresHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
-      var basicsHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
-      var basicsLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(basics, 140);
-      var niceToHaveHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
-      var niceToHaveLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(niceToHave, 140);
-      var technologiesHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
-      var technologiesLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(technologies, 150);
-      var teamHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
-      var teamLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(team, 150);
-      helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h;
-      /* + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h
-      + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h
-      + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h; */
-
-      if (helperTop > 267) {
-        doc.addPage();
-        top = 30;
-      } //setText FeatureHeading
-
-
-      doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
-      doc.text(left, top, featuresHeadingLine);
-      top = top + doc.getTextDimensions(featuresHeadingLine).h; //setText BasicsHeading
-
-      doc.setFontSize(textSizeSubHeading);
-      doc.setTextColor('#2E74B5');
-      doc.text(leftTab1, top, basicsHeadingLine);
-      top = top + doc.getTextDimensions(basicsHeadingLine).h; //setText Basics
-
-      doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
-      doc.text(leftTab2, top, basicsLines);
-      top = top + doc.getTextDimensions(basicsLines).h + 5; //-----------------------
-
-      helperTop = top + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h;
-
-      if (helperTop > 267) {
-        doc.addPage();
-        top = 30;
-      } //setText NiceToHaveHeading
-
-
-      doc.setFontSize(textSizeSubHeading);
-      doc.setTextColor('#2E74B5');
-      doc.text(leftTab1, top, niceToHaveHeadingLine);
-      top = top + doc.getTextDimensions(niceToHaveHeadingLine).h; //setText NiceToHave
-
-      doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
-      doc.text(leftTab2, top, niceToHaveLines);
-      top = top + doc.getTextDimensions(niceToHaveLines).h + 5; //-----------------------
-
-      helperTop = top + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h;
-
-      if (helperTop > 267) {
-        doc.addPage();
-        top = 30;
-      } //setText TechHeading
-
-
-      doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
-      doc.text(left, top, technologiesHeadingLine);
-      top = top + doc.getTextDimensions(technologiesHeadingLine).h; //setText Tech
-
-      doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
-      doc.text(leftTab1, top, technologiesLines);
-      top = top + doc.getTextDimensions(technologiesLines).h + 5; //-----------------------
-
-      helperTop = top + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h;
-
-      if (helperTop > 267) {
-        doc.addPage();
-        top = 30;
-      } //setText TeamHeading
-
-
-      doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
-      doc.text(left, top, teamHeadingLine);
-      top = top + doc.getTextDimensions(teamHeadingLine).h; //setText Team
-
-      doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
-      doc.text(leftTab1, top, teamLines);
-      return doc;
-    }
   }, {
-    key: "calculateAspectRatioFit",
-    value: function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+    key: "calculateAspectRatioFitHSKLBranding",
+    value: function calculateAspectRatioFitHSKLBranding(srcWidth, srcHeight, maxWidth, maxHeight) {
       var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
       return {
-        width: srcWidth * ratio,
-        height: srcHeight * ratio
+        widthHSKL: srcWidth * ratio,
+        heightHSKL: srcHeight * ratio
       };
     }
   }]);

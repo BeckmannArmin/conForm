@@ -236,7 +236,13 @@
     />
     <img
       src="../../assets/conForm_watermark.png"
-      id="docx_watermark"
+      id="watermark"
+      style="display: none"
+    />
+    <img
+      src="../../assets/Logo_of_Hochschule_Kaiserslautern.png"
+      id="hskl_branding"
+      class="image-wd"
       style="display: none"
     />
   </div>
@@ -253,7 +259,6 @@ import { http } from "../services/http_service";
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
 
-import watermarkLogo from "../../assets/conForm_watermark.png";
 import { DocumentCreatorDOCX } from "../services/conceptPaperDOCXGenerator_service";
 import { DocumentCreatorDOCXWithWatermark } from "../services/conceptPaperDOCXGeneratorWithWatermark_service";
 
@@ -459,7 +464,6 @@ export default {
           canvas.height = height;
           context.width = width;
           context.height = height;
-          console.log(width, height, image);
           context.drawImage(image, 0, 0, width, height);
           context.canvas.toBlob((blob) =>
             blob
@@ -471,8 +475,6 @@ export default {
       }
 
       const logo = await imageToUint8Array(img);
-
-      console.log(globalWidth, globalHeight);
 
       const documentCreator = new DocumentCreatorDOCX();
       const {
@@ -513,6 +515,7 @@ export default {
     },
     exportAsPDF: function () {
       var logo = document.getElementById("logo_image");
+      var hskl_branding = document.getElementById("hskl_branding");
 
       const documentCreatorPDF = new DocumentCreatorPDF();
       const {
@@ -536,6 +539,7 @@ export default {
         niceToHave,
         technologies,
         team,
+        hskl_branding,
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
       this.flashMessage.success({
@@ -545,7 +549,9 @@ export default {
     },
     exportAsPDFWithWatermark: function () {
       var logo = document.getElementById("logo_image");
-      var watermark = watermarkLogo;
+      var hskl_branding = document.getElementById("hskl_branding");
+      var watermark = document.getElementById("watermark");
+
       const documentCreatorPDF = new DocumentCreatorPDFWithWatermark();
       const {
         name,
@@ -611,7 +617,6 @@ export default {
           canvas.height = height;
           context.width = width;
           context.height = height;
-          console.log(width, height, image);
           context.drawImage(image, 0, 0, width, height);
           context.canvas.toBlob((blob) =>
             blob
@@ -623,8 +628,6 @@ export default {
       }
 
       const logo = await imageToUint8Array(img);
-
-      console.log(globalWidth, globalHeight);
 
       const documentCreator = new DocumentCreatorDOCXWithWatermark();
       const {
