@@ -3,9 +3,10 @@ import { jsPDF } from "jspdf";
 export class DocumentCreatorPDF {
     // tslint:disable-next-line: typedef
 
-    create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team]) {
+    create([name, course, currentSemester, logo, idea, basics, niceToHave, technologies, team, hskl_branding]) {
 
         const { width, height } = this.calculateAspectRatioFit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, 160, 30);
+        const { widthHSKL, heightHSKL } = this.calculateAspectRatioFitHSKLBranding(hskl_branding.naturalWidth || hskl_branding.width, hskl_branding.naturalHeight || hskl_branding.height, 160, 25);
 
         const doc = new jsPDF({
             orientation: 'p',
@@ -19,22 +20,29 @@ export class DocumentCreatorPDF {
         var left = 25;
         var leftTab1 = 35;
         var leftTab2 = 45;
-        var top = 50;
+        var top = 60;
         var helperTop = top;
 
-        const textSizeHeader = 14;
+        const textSizeTitle = 20;
         const textSizeHeading = 16;
         const textSizeSubHeading = 13;
         const textSizeText = 11;
 
+        doc.addImage(hskl_branding, 135, 25, widthHSKL, heightHSKL);
+
         doc.setFont('times', 'bold');
-        doc.setFontSize(textSizeHeader);
-        doc.text(left, 30, name);
+        doc.setFontSize(textSizeTitle);
+        doc.setTextColor('#2E74B5');
+        doc.text(left, 40, name);
+        doc.setDrawColor('#2E74B5');
+        doc.setLineWidth(0.5);
+        doc.line(left, 41, left + doc.getTextDimensions(name).w, 41);
 
         doc.setFont('times', 'normal');
-        doc.setFontSize(textSizeHeader);
-        doc.text(left, 35, course);
-        doc.text(left, 40, currentSemester);
+        doc.setFontSize(textSizeText);
+        doc.setTextColor('#000000');
+        doc.text(left, 46, course);
+        doc.text(left, 50, currentSemester);
 
         doc.addImage(logo, left, top, width, height);
 
@@ -203,5 +211,16 @@ export class DocumentCreatorPDF {
         var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
 
         return { width: srcWidth * ratio, height: srcHeight * ratio };
+    }
+
+    calculateAspectRatioFitHSKLBranding(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+    ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { widthHSKL: srcWidth * ratio, heightHSKL: srcHeight * ratio };
     }
 }

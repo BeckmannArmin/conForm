@@ -236,7 +236,13 @@
     />
     <img
       src="../../assets/conForm_watermark.png"
-      id="docx_watermark"
+      id="watermark"
+      style="display: none"
+    />
+    <img
+      src="../../assets/Logo_of_Hochschule_Kaiserslautern.png"
+      id="hskl_branding"
+      class="image-wd"
       style="display: none"
     />
   </div>
@@ -253,7 +259,6 @@ import { http } from "../services/http_service";
 import { saveAs } from "file-saver";
 import { Packer } from "docx";
 
-import watermarkLogo from "../../assets/conForm_watermark.png";
 import { DocumentCreatorDOCX } from "../services/conceptPaperDOCXGenerator_service";
 import { DocumentCreatorDOCXWithWatermark } from "../services/conceptPaperDOCXGeneratorWithWatermark_service";
 
@@ -291,7 +296,16 @@ export default {
       showWatermark: false,
       showDocxWatermark: false,
       isLoggedIn: null,
-      fields: ['name', 'course', 'currentSemester', 'idea', 'basics', 'niceToHave', 'technologies', 'team'],
+      fields: [
+        "name",
+        "course",
+        "currentSemester",
+        "idea",
+        "basics",
+        "niceToHave",
+        "technologies",
+        "team",
+      ],
     };
   },
   components: {
@@ -376,7 +390,7 @@ export default {
           time: 5000,
         });
       } catch (error) {
-        switch(error.response.status) {
+        switch (error.response.status) {
           case 401:
             this.showModal = true;
           case 422:
@@ -427,7 +441,6 @@ export default {
     },
     exportAsDOCX: async function () {
       var img = document.getElementById("logo_image");
-
       function calculateAspectRatioFit(
         srcWidth,
         srcHeight,
@@ -436,30 +449,44 @@ export default {
       ) {
         var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
 
-        return { width: srcWidth * ratio, height: srcHeight * ratio };
+        return { widthImg: srcWidth * ratio, heightImg: srcHeight * ratio };
       }
+      const { widthImg, heightImg } = calculateAspectRatioFit(
+        img.naturalWidth || img.width,
+        img.naturalHeight || img.height,
+        540,
+        120
+      );
 
-      var globalWidth;
-      var globalHeight;
+      var hskl_branding = document.getElementById("hskl_branding");
 
-      async function imageToUint8Array(image) {
+      console.log(widthImg, heightImg, img.naturalWidth, img.naturalHeight);
+      function calculateAspectRatioFitHSKLBranding(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+      ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return { widthHSKL: srcWidth * ratio, heightHSKL: srcHeight * ratio };
+      }
+      const { widthHSKL, heightHSKL } = calculateAspectRatioFitHSKLBranding(
+        hskl_branding.naturalWidth || hskl_branding.width,
+        hskl_branding.naturalHeight || hskl_branding.height,
+        540,
+        100
+      );
+
+      async function imageToUint8Array(image, width, height) {
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
 
         return new Promise((resolve, reject) => {
-          const { width, height } = calculateAspectRatioFit(
-            image.naturalWidth || image.width,
-            image.naturalHeight || image.height,
-            540,
-            120
-          );
-          globalWidth = width;
-          globalHeight = height;
           canvas.width = width;
           canvas.height = height;
           context.width = width;
           context.height = height;
-          console.log(width, height, image);
           context.drawImage(image, 0, 0, width, height);
           context.canvas.toBlob((blob) =>
             blob
@@ -470,9 +497,12 @@ export default {
         });
       }
 
-      const logo = await imageToUint8Array(img);
-
-      console.log(globalWidth, globalHeight);
+      const logo = await imageToUint8Array(img, widthImg, heightImg);
+      const hskl_branding_logo = await imageToUint8Array(
+        hskl_branding,
+        widthHSKL,
+        heightHSKL
+      );
 
       const documentCreator = new DocumentCreatorDOCX();
       const {
@@ -490,13 +520,16 @@ export default {
         course,
         currentSemester,
         logo,
-        globalWidth,
-        globalHeight,
+        widthImg,
+        heightImg,
         idea,
         basics,
         niceToHave,
         technologies,
         team,
+        hskl_branding_logo,
+        widthHSKL,
+        heightHSKL,
       ]);
 
       Packer.toBlob(doc).then((blob) => {
@@ -513,6 +546,7 @@ export default {
     },
     exportAsPDF: function () {
       var logo = document.getElementById("logo_image");
+      var hskl_branding = document.getElementById("hskl_branding");
 
       const documentCreatorPDF = new DocumentCreatorPDF();
       const {
@@ -536,6 +570,7 @@ export default {
         niceToHave,
         technologies,
         team,
+        hskl_branding,
       ]);
       doc.save("Konzeptpapier_" + name + ".pdf");
       this.flashMessage.success({
@@ -545,7 +580,9 @@ export default {
     },
     exportAsPDFWithWatermark: function () {
       var logo = document.getElementById("logo_image");
-      var watermark = watermarkLogo;
+      var hskl_branding = document.getElementById("hskl_branding");
+      var watermark = document.getElementById("watermark");
+
       const documentCreatorPDF = new DocumentCreatorPDFWithWatermark();
       const {
         name,
@@ -578,8 +615,6 @@ export default {
     },
     exportAsDOCXWithWatermark: async function () {
       var img = document.getElementById("logo_image");
-      var watermark = document.getElementById("docx_watermark");
-
       function calculateAspectRatioFit(
         srcWidth,
         srcHeight,
@@ -588,30 +623,69 @@ export default {
       ) {
         var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
 
-        return { width: srcWidth * ratio, height: srcHeight * ratio };
+        return { widthImg: srcWidth * ratio, heightImg: srcHeight * ratio };
       }
+      const { widthImg, heightImg } = calculateAspectRatioFit(
+        img.naturalWidth || img.width,
+        img.naturalHeight || img.height,
+        540,
+        120
+      );
 
-      var globalWidth;
-      var globalHeight;
+      var hskl_branding = document.getElementById("hskl_branding");
+      function calculateAspectRatioFitHSKLBranding(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+      ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
 
-      async function imageToUint8Array(image) {
+        return { widthHSKL: srcWidth * ratio, heightHSKL: srcHeight * ratio };
+      }
+      const { widthHSKL, heightHSKL } = calculateAspectRatioFitHSKLBranding(
+        hskl_branding.naturalWidth || hskl_branding.width,
+        hskl_branding.naturalHeight || hskl_branding.height,
+        540,
+        100
+      );
+
+      var wartermark = document.getElementById("watermark");
+      console.log(
+        widthWatermark,
+        heightWatermark,
+        watermark.naturalWidth,
+        wartermark.naturalHeight
+      );
+      function calculateAspectRatioFitWatermark(
+        srcWidth,
+        srcHeight,
+        maxWidth,
+        maxHeight
+      ) {
+        var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+        return {
+          widthWatermark: srcWidth * ratio,
+          heightWatermark: srcHeight * ratio,
+        };
+      }
+      const { widthWatermark, heightWatermark } = calculateAspectRatioFitWatermark(
+        watermark.naturalWidth || wartermark.width,
+        watermark.naturalHeight || wartermark.height,
+        400,
+        400
+      );
+
+      async function imageToUint8Array(image, width, height) {
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
 
         return new Promise((resolve, reject) => {
-          const { width, height } = calculateAspectRatioFit(
-            image.naturalWidth || image.width,
-            image.naturalHeight || image.height,
-            540,
-            120
-          );
-          globalWidth = width;
-          globalHeight = height;
           canvas.width = width;
           canvas.height = height;
           context.width = width;
           context.height = height;
-          console.log(width, height, image);
           context.drawImage(image, 0, 0, width, height);
           context.canvas.toBlob((blob) =>
             blob
@@ -622,9 +696,9 @@ export default {
         });
       }
 
-      const logo = await imageToUint8Array(img);
-
-      console.log(globalWidth, globalHeight);
+      const logo = await imageToUint8Array(img, widthImg, heightImg);
+      const hskl_branding_logo = await imageToUint8Array(hskl_branding, widthHSKL, heightHSKL);
+      const watermark_logo = await imageToUint8Array(watermark, widthWatermark, heightWatermark);
 
       const documentCreator = new DocumentCreatorDOCXWithWatermark();
       const {
@@ -642,14 +716,19 @@ export default {
         course,
         currentSemester,
         logo,
-        watermark,
-        globalWidth,
-        globalHeight,
+        widthImg,
+        heightImg,
         idea,
         basics,
         niceToHave,
         technologies,
         team,
+        hskl_branding_logo,
+        widthHSKL,
+        heightHSKL,
+        watermark_logo,
+        widthWatermark,
+        heightWatermark
       ]);
 
       Packer.toBlob(doc).then((blob) => {
@@ -684,14 +763,16 @@ export default {
       });
     },
   },
-  beforeRouteLeave (to, from , next) {
-  const answer = window.confirm('Do you really want to leave? You have unsaved changes!')
-  if (answer) {
-    next()
-  } else {
-    next(false)
-  }
-}
+  beforeRouteLeave(to, from, next) {
+    const answer = window.confirm(
+      "Do you really want to leave? You have unsaved changes!"
+    );
+    if (answer) {
+      next();
+    } else {
+      next(false);
+    }
+  },
 };
 </script>
 
@@ -738,7 +819,7 @@ export default {
   table {
     td {
       label {
-          color: #fff;
+        color: #fff;
       }
     }
   }
