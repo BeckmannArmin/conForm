@@ -182,7 +182,6 @@ export default {
 
 <style lang="scss" scoped>
   .dark {
-
     .p-3 {
       background-color: #5c55ba !important;
     }

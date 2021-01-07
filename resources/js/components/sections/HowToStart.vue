@@ -51,7 +51,7 @@
                     $t("howtostart.headings.indi")
                   }}</span>
                   <p>
-                    {{ $t("howtostart.createacc") }}
+                    {{ $t("howtostart.customize") }}
                   </p>
                 </div>
               </div>

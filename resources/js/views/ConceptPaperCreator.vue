@@ -49,7 +49,7 @@
               <p class="card-text">{{ conceptPaper.currentSemester }}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated {{ conceptPaper.updated_at }}</small>
+              <small class="text-muted">Last updated 3 minutes ago</small>
             </div>
           </div>
            <div class="card max-300 mt-4">
@@ -281,7 +281,7 @@
   }
 
   .img-h {
-    height: 60px;
+    height: 100px;
   }
 
   .fa-plus {

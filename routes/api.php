@@ -3,8 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\CategoryController;
-
 //use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
@@ -32,8 +30,6 @@ use App\Http\Controllers\UserController;
 
 //Route::post('register', 'App\Http\Controllers\AuthController@register');
 //Route::post('login', 'App\Http\Controllers\AuthController@login');
-
-Route::resource('categories', 'App\Http\Controllers\CategoryController');
 
 Route::post('register', 'App\Http\Controllers\UserController@register');
 Route::post('login', 'App\Http\Controllers\UserController@login');

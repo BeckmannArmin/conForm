@@ -66,6 +66,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.resources {
+   background: url('../../../assets/feature-background.svg') no-repeat;
+  background-position: bottom;
+  background-size: cover ;
+}
 .resource-cards-left,
 .resource-cards-middle,
 .resource-cards-right {

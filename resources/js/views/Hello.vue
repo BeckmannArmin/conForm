@@ -25,7 +25,6 @@
     <JoinLobbySection />
     <HowToStartSection />
     <JoinLobbyModal />
-    <GetStarted />  
     <ResourceSection :mode="mode"/> 
   </div>
 </template>
