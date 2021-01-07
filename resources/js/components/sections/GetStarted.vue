@@ -1,66 +1,68 @@
 <template>
-  <div v-scrollanimation  class="demo-container" id="demo">
-    <div class="column has-text-centered" id="demo-top">
-      <h1 class="title is-2">{{ $t("getstarted.create") }}?</h1>
-    </div>
-    <br />
-    <div class="columns">
-      <!-- this is dynamic -->
-      <div class="column is-7 margin-center">
-        <!-- Tasks -->
-        <div
-          id="demo1"
-          class="box box-shadow-lift box-shadow-blue"
-          style="display: block"
-        >
-          <video
-            class
-            autoplay="autoplay"
-            loop="loop"
-            muted="muted"
-            src=""
-          ></video>
-          <hr />
+  <section class="getstarted-section pt-16 pb-16">
+    <div v-scrollanimation class="demo-container" id="demo">
+      <div class="column has-text-centered" id="demo-top">
+        <h1 class="title is-2">{{ $t("getstarted.create") }}?</h1>
+      </div>
+      <br />
+      <div class="columns">
+        <!-- this is dynamic -->
+        <div class="column is-7 margin-center">
+          <!-- Tasks -->
+          <div
+            id="demo1"
+            class="box box-shadow-lift box-shadow-blue"
+            style="display: block"
+          >
+            <video
+              class
+              autoplay="autoplay"
+              loop="loop"
+              muted="muted"
+              src=""
+            ></video>
+            <hr />
+          </div>
+          <!-- Concept Paper -->
+          <div
+            id="demo2"
+            class="box box-shadow-lift box-shadow-yellow"
+            style="display: none"
+          >
+            <video
+              class
+              autoplay="autoplay"
+              loop="loop"
+              muted="muted"
+              src=""
+            ></video>
+            <hr />
+          </div>
         </div>
-        <!-- Concept Paper -->
-        <div
-          id="demo2"
-          class="box box-shadow-lift box-shadow-yellow"
-          style="display: none"
-        >
-          <video
-            class
-            autoplay="autoplay"
-            loop="loop"
-            muted="muted"
-            src=""
-          ></video>
-          <hr />
+        <!-- click here to show the vid´s -->
+        <div class="column has-text-centered is-4">
+          <div class="box">
+            <p class="subtitle">{{ $t("getstarted.plan") }}</p>
+            <hr />
+            <button class="btn btn-block is-blue btn-lg">
+              <a target="_blank" rel="noopener" style="color: white !important"
+                >Task Planner</a
+              >
+            </button>
+          </div>
+          <div class="box">
+            <p class="subtitle">{{ $t("getstarted.concept") }}</p>
+            <hr />
+            <button class="btn btn-block btn-lg is-yellow">
+              <a target="_blank" rel="noopener" style="color: black !important"
+                >{{ $t("getstarted.conceptPaper") }} Creator</a
+              >
+            </button>
+          </div>
         </div>
       </div>
-      <!-- click here to show the vid´s -->
-      <div class="column has-text-centered is-4">
-        <div class="box">
-          <p class="subtitle">{{ $t("getstarted.plan") }}</p>
-          <hr />
-          <button class="btn btn-block is-blue btn-lg">
-            <a target="_blank" rel="noopener" style="color: white !important"
-              >Task Planner</a
-            >
-          </button>
-        </div>
-        <div class="box">
-          <p class="subtitle">{{ $t("getstarted.concept") }}</p>
-          <hr />
-          <button class="btn btn-block btn-lg is-yellow">
-            <a target="_blank" rel="noopener" style="color: black !important"
-              >{{ $t("getstarted.conceptPaper") }} Creator</a
-            >
-          </button>
-        </div>
-      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -70,13 +72,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.dark  {
+.dark {
   background: #20232a !important;
 
   .title {
-    color: #EBEDF0 !important;
+    color: #ebedf0 !important;
   }
+}
+
+.getstarted-section {
+  background: url('../../../assets/feature-background.svg') no-repeat;
+  background-position: bottom;
+  background-size: cover ;
 }
 
 .box {

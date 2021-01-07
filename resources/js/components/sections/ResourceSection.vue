@@ -196,10 +196,6 @@ img {
   max-width: 1140px;
   margin: 0 auto;
 }
-.resources {
-  background: url('../../../assets/feature-background.svg') no-repeat;
-  background-position: bottom;
-}
 
 .dark .resources {
   background-color: #121212;
