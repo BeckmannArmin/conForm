@@ -2940,6 +2940,17 @@ module.exports = "/images/Logo_of_Hochschule_Kaiserslautern.png?aced7e1e0d4300f1
 
 /***/ }),
 
+/***/ "./resources/assets/conForm_logo.png":
+/*!*******************************************!*\
+  !*** ./resources/assets/conForm_logo.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/conForm_logo.png?32c3ac79cc655cf0574e7496e3fbb122";
+
+/***/ }),
+
 /***/ "./resources/assets/conForm_watermark.png":
 /*!************************************************!*\
   !*** ./resources/assets/conForm_watermark.png ***!
