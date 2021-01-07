@@ -13,7 +13,7 @@
                  {{ $t('hello.conform_potential') }}
               </div>
             </div>
-            <a href="#resources" class="button hero--button"> {{ $t('hello.button_start') }}?</a>
+            <a href="#howstart" class="button hero--button"> {{ $t('hello.button_start') }}?</a>
           </div>
           <div class="col">
             <img src="../../assets/join-lobby.svg" />
@@ -23,44 +23,7 @@
     </div>
     </section>
     <JoinLobbySection />
-    <section id="cards" class="cards-section py-16">
-    <div class="cards">
-      <div class="cards-container">
-        <div class="cards-wrapper">
-          <div v-scrollanimation class="card col row-l">
-            <div class="cards-header">
-              <img src="../../assets/idea.svg" />
-            </div>
-            <div class="cards-body">
-              <span class="item-pink">{{ $t('hello.ideas') }}</span>
-              <p>{{ $t('hello.ideas_msg') }}</p>
-            </div>
-          </div>
-          <div v-scrollanimation class="card col row-m">
-            <div class="cards-header">
-              <img src="../../assets/brainstorm.svg" />
-            </div>
-            <div class="cards-body">
-              <span class="item-orange">{{ $t('hello.plan') }}</span>
-              <p>{{ $t('hello.plan_msg') }}</p>
-            </div>
-          </div>
-          <div v-scrollanimation class="card col row-r">
-            <div class="cards-header">
-              <img src="../../assets/colloboration.svg" />
-            </div>
-            <div class="cards-body">
-              <span class="item-green">{{ $t('hello.colloboration') }}</span>
-              <p>
-                {{ $t('hello.colloboration_msg') }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <GetStarted :mode="mode" />
-    </section>
+    <HowToStartSection />
     <JoinLobbyModal />
     <ResourceSection :mode="mode"/>   
   </div>
@@ -69,22 +32,9 @@
 <style lang="scss" scoped>
 @import "../../assets/scss/_animations.scss";
 
-@media (max-width: 1024px) {
-.cards-wrapper {
-    grid-template-columns: 1fr !important;
-    grid-row-gap: 7.8125vmin;
-}
-}
-
 .hero-section {
- // background-color: #f2f6fa;
   background: url('../../assets/background-banner.png') no-repeat;
   background-size: 100% 80%;
-}
-
-.cards-section {
-  background: url('../../assets/feature-background.svg') no-repeat;
-  background-size: cover;
 }
 
 .hero {
@@ -94,120 +44,10 @@
 .dark .main-content-wrapper {
   background-color: #121212;
 
-  .cards-section {
-     background: #20232a !important;
-  }
-
   .hero-section {
     background: none !important;
   }
 
-  .card {
-    background-color: #20232a;
-    box-shadow: 0 1px 2px rgba(0,0,1,0.9);
-  }
-
-  .cards-body p {
-    color: #EBEDF0;
-  }
-}
-
-.cards-action {
-  margin-top: 10px;
-}
-
-.cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 50px;
-}
-
-.item-pink {
-  color: #cc68d8;
-}
-.item-orange {
-  color: #fd804e;
-}
-
-.item-green {
-  color: #40ac76;
-}
-
-.cards-body {
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 31px;
-  color: #7a7780;
-  letter-spacing: 0;
-}
-
-.cards-container .card {
-  background-color: #fff;
-  border-radius: calc(0.4rem * 2);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  padding: 25px 27px 28px;
-}
-
-.cards-header {
-  display: flex;
-  justify-content: center;
-}
-
-.cards-container .col {
-  max-width: 100%;
-  flex: 1 0;
-  margin-left: 0;
-}
-
-.cards-container {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-.cards-container .col {
-  max-width: 100%;
-}
-
-.cards-header img {
-  height: 125px;
-  max-width: 100%;
-  margin: 20px 15px;
-}
-
-.row-l,
-.row-m,
-.row-r {
-  display: flex;
-  flex-flow: column;
-}
-
-.cards {
-  margin-bottom: 110px;
-}
-
-.cards-container {
-  display: flex;
-  justify-content: center;
-}
-
-.container,
-.row .col {
-  padding: 0 1rem;
-  width: 100%;
-}
-
-.row .col {
-  max-width: 100%;
-  flex: 1 0;
-  margin-left: 0;
-}
-
-.row .col,
-img {
-  max-width: 100%;
 }
 
 .hero--illustration {
@@ -304,6 +144,7 @@ import JoinLobbyModal from "../components/modals/JoinLobbyModal.vue";
 import ResourceSection from "../components/sections/ResourceSection.vue";
 import GetStarted from "../components/sections/GetStarted.vue";
 import JoinLobbySection from "../components/sections/JoinLobbySection.vue";
+import HowToStartSection from "../components/sections/HowToStart.vue";
 
 export default {
   components: {
@@ -312,7 +153,8 @@ export default {
     ResourceSection,
     JoinLobbyModal,
     GetStarted,
-    JoinLobbySection
+    JoinLobbySection,
+    HowToStartSection
   },
   data() {
     return {

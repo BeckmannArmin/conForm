@@ -1,5 +1,5 @@
 <template>
-  <section id="resources" class="resources">
+  <section id="resources" class="resources pt-16 pb-16">
     <div class="resources-container">
       <div class="row">
         <!-- TODO: Look over this, this does not seem right for ipads -->
@@ -197,11 +197,8 @@ img {
   margin: 0 auto;
 }
 .resources {
-  padding: 5rem 0;
-  //background-color: #f2f6fa;
-  background: url('../../../assets/features-background.png') no-repeat;
-  background-size: 40% 100%;
-  background-position: left center ;
+  background: url('../../../assets/feature-background.svg') no-repeat;
+  background-position: bottom;
 }
 
 .dark .resources {

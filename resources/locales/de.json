@@ -138,5 +138,18 @@
     },
     "joincode": {
         "incorrect": "Der Join Code den du eingegeben hast ist inkorrekt"
+    },
+    "howtostart": {
+        "howstart": "Wie kann ich loslegen",
+        "whatisit": "conForm ist ein kein Laravel Package",
+        "webapp": "Es ist eine Web-Applikation, die im Rahmen eines Studienprojektes entwickelt wurde und das herkömmliche ausfüllen, herunterladen und erneut hochladen von Konzeptpapieren ersetzen soll",
+        "createacc": "Erstelle einen Account um von allen Features und Vorteilen zu profitieren",
+        "viewdownload": "Sieh dir deine Konzeptpapiere jederzeit an und lade sie runter",
+        "customize": "Deine Konzeptpapiere kannst du jederzeit anpassen",
+        "headings": {
+            "createacc": "Account erstellen",
+            "viewload": "Alles auf einen Blick",
+            "indi": "Individualisiere"
+        }
     }
 }

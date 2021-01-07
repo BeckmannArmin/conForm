@@ -136,5 +136,18 @@
     },
     "joincode": {
         "incorrect": "The join code you entered is incorrect"
+    },
+    "howtostart": {
+        "howstart": "How can I start",
+        "whatisit": "conForm is not a Laravel package",
+        "webapp": "It is a web application that was developed as part of a study project and is intended to replace the conventional filling out, downloading and re-uploading of concept papers",
+        "createacc": "Create an account to benefit from all the features and advantages",
+        "viewdownload": "Review and download your concept papers anytime",
+        "customize": "You can customize your concept papers at any time",
+        "headings": {
+            "createacc": "Create account",
+            "viewload": "Everything at a glance",
+            "indi": "Customize"
+        }
     }
 }

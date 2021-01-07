@@ -76,9 +76,9 @@ export default {
 }
 
 .page-footer {
-  background: url("../../assets/footer-bg.png") no-repeat;
+  background: url("../../assets/features-background.png") no-repeat;
   background-size: 40% 100%;
-  background-position: right center;
+  background-position: left center;
 }
 .list-unstyled {
   display: flex;
