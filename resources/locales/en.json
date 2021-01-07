@@ -121,7 +121,7 @@
         "cancel": "Cancel",
         "add": "Add",
         "title": "Add a task",
-        "description": "Add a description (optional)"
+        "description": "Add a description"
     },
     "inviteTeam": {
         "share": "Share your paper",
