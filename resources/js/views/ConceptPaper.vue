@@ -266,7 +266,6 @@ import { DocumentCreatorPDF } from "../services/conceptPaperPDFGenerator_service
 import { DocumentCreatorPDFWithWatermark } from "../services/conceptPaperPDFGeneratorWithWatermark_service";
 
 import { jsPDF } from "jspdf";
-import RightSideBar from "../components/RightSidebar.vue";
 import InviteTeam from "../components/modals/InviteYourTeam.vue";
 import CreateAccountModal from "../components/modals/CreateAccountModal.vue";
 import PDFWatermark from "../components/modals/PdfWatermark.vue";
@@ -310,7 +309,6 @@ export default {
   },
   components: {
     PageLoader,
-    RightSideBar,
     InviteTeam,
     CreateAccountModal,
     PDFWatermark,

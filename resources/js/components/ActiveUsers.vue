@@ -1,3 +1,4 @@
+<!--
 <template>
 <div class="media-body">
   <div v-for="user in users" :key="user.id" class="media">
@@ -43,3 +44,4 @@ export default {
   },
 };
 </script>
+-->
