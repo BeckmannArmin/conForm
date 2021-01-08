@@ -16,13 +16,13 @@
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0.3",
         "jquery": "^3.2",
-        "laravel-echo": "^1.9.0",
+        "laravel-echo": "^1.10.0",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "pusher-js": "^4.3.1",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.30.0",
+        "sass": "^1.32.2",
         "sass-loader": "^8.0.0",
         "vue": "^2.6.12",
         "vue-template-compiler": "^2.6.10"
@@ -30,16 +30,16 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
         "@smartweb/vue-flash-message": "^0.6.10",
-        "@syncfusion/ej2-vue-documenteditor": "^18.3.53",
-        "@syncfusion/ej2-vue-grids": "^18.3.53",
-        "bootstrap-vue": "^2.20.1",
+        "@syncfusion/ej2-vue-documenteditor": "^18.4.33",
+        "@syncfusion/ej2-vue-grids": "^18.4.33",
+        "bootstrap-vue": "^2.21.2",
         "docx": "^5.4.1",
         "file-saver": "^2.0.5",
         "jsonwebtoken": "^8.5.1",
         "jspdf": "^2.2.0",
         "qrcode.vue": "^1.7.0",
         "query": "^0.2.0",
-        "vue-i18n": "^8.22.2",
+        "vue-i18n": "^8.22.3",
         "vue-json-csv": "^1.2.12",
         "vue-router": "^3.4.9",
         "vue-uuid": "^2.0.2",
@@ -48,5 +48,5 @@
     },
     "engines": {
         "node": "14.x"
-      }
+    }
 }
