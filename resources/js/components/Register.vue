@@ -100,7 +100,7 @@ export default {
         this.user.password.length > 0
       ) {
         try {
-          await auth.register(this.user);
+          await axios.post("api/register", this.user);
           this.errors = {};
           this.$router.push("/login");
         } catch (error) {
