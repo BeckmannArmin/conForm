@@ -10,8 +10,8 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
         "postinstall": "npm run prod",
         "start": "node app.js",
-        "heroku-prebuild": "npm install -f --no-optional",
-        "heroku-postbuild": "npm run prod"
+        "build": "ng build",
+        "heroku-postbuild": "ng build --prod"
     },
     "devDependencies": {
         "axios": "^0.19",
@@ -47,5 +47,8 @@
         "vue-uuid": "^2.0.2",
         "vuedraggable": "^2.24.3",
         "vuex": "^3.6.0"
-    }
+    },
+    "engines": {
+        "node": "14.x"
+      }
 }
