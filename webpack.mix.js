@@ -11,5 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.webpackConfig(webpack => {
+    return {
+        plugins: [
+            new webpack.EnvironmentPlugin (
+                ['APP_URL']
+            )
+        ]
+    };
+});
+
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
