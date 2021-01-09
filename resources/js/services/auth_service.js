@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import {http, httpFile} from './http_service';
 
 export function register(user) {
-    http().post('/register', user);
+    http().post('/register/', user);
 }
 
 export function logout() {
