@@ -20,13 +20,13 @@ class UserController extends Controller
      * created an account for the user and generated an access token for the user.
      */
     
-    public function login()
+    public function login(Request $request)
         {
-            $credentials = [
-                'email' => request('email'), 
-                'password' => request('password')
-            ];
-
+            $credentials =  $request->validate([
+                'email' => 'required|string|email',
+                'password' => 'required|string',
+            ]);
+            
             if (Auth::attempt($credentials)) {
 
                 $user = Auth::user();
@@ -39,12 +39,12 @@ class UserController extends Controller
                 return response()->json(['success' => $success,
                 'user' => $user,
                 ]);
+            } else {
+                return response()->json([
+                    'message' => 'Invalid user name or password',
+                    'status_code' => 401
+                ], 401);
             }
-
-            $status = 401;
-            $response = ['error' => 'Unauthorized'];
-
-            return response()->json($response, $status);
         }
 
         public function logout()
@@ -62,24 +62,28 @@ class UserController extends Controller
 
         public function register(Request $request)
         {
-            $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'email' => 'required|email',
-                'password' => 'required',
-            ]);
+          $request->validate([
+              'name' => 'required|string|max:255',
+              'email' => 'required|string|email',
+              'password' => 'required|string|confirmed',
+          ]);
 
-            if ($validator->fails()) {
-                return response()->json(['error' => $validator->errors()], 401);
-            }
+          $user = new User();
+          $user->name = $request->name;
+          $user->email = $request->email;
+          $user->password = bcrypt($request->password);
 
-            $input = $request->all();
-            $input['password'] = bcrypt($input['password']);
-
-            $user = User::create($input);
-            $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['name'] = $user->name;
-
-            return response()->json(['success' => $success]);
+          if ($user ->save()) {
+              return response()->json([
+                  'message' => 'User created successfully',
+                  'status_code' => 201
+              ], 201);
+          } else {
+            return response()->json([
+                'message' => 'Some error occured, please try again',
+                'status_code' => 500
+            ], 500);
+          }
         }
 
         public function profile(Request $request) 

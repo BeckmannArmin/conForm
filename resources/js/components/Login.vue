@@ -21,10 +21,13 @@
               id="email"
               type="email"
               class="form-control"
-              v-model="email"
+              v-model="user.email"
               required
               autofocus
             />
+            <div class="invalid-feedback" v-if="errors.email">
+              {{ errors.email[0] }}
+            </div>
           </div>
 
           <div class="form-group">
@@ -33,9 +36,12 @@
               id="password"
               type="password"
               class="form-control"
-              v-model="password"
+              v-model="user.password"
               required
             />
+            <div class="invalid-feedback" v-if="errors.password">
+              {{ errors.password[0] }}
+            </div>
           </div>
 
           <!-- submit button -->
@@ -64,20 +70,19 @@
 export default {
   data() {
     return {
-      email: "",
-      password: "",
+      user: {
+        email: "",
+        password: ""
+      },
+      errors: {}
     };
   },
   methods: {
     handleSubmit(e) {
       e.preventDefault();
-
-      if (this.password.length > 0) {
+        this.errors = {};
         axios
-          .post("api/login", {
-            email: this.email,
-            password: this.password,
-          })
+          .post("api/login", this.user)
           .then((response) => {
             localStorage.setItem("user", response.data.user.name);
             localStorage.setItem("jwt", response.data.success.token);
@@ -86,10 +91,31 @@ export default {
               this.$router.go("/");
             }
           })
-          .catch(function (error) {
-            console.error(error);
-          });
-      }
+          .catch (error => {
+          switch (error.response.status) {
+            case 422:
+            this.errors = error.response.data.errors;
+            break;
+          case 401:
+            this.flashMessage.error({
+              message: error.response.data.message,
+              time: 5000,
+            });
+            break;
+          case 500:
+            this.flashMessage.error({
+              message: "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
+              time: 5000,
+            });
+            break;
+          default:
+            this.flashMessage.error({
+              message: "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
+              time: 5000,
+            });
+            break;
+        }
+      }) 
     },
   },
   beforeRouteEnter(to, from, next) {

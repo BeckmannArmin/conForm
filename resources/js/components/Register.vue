@@ -12,9 +12,13 @@
 
       <!-- right side register card -->
       <div class="col-md-6">
-        <h3 class="signin-text mb-3">{{ $t("login.register")}}</h3>
+        <h3 class="signin-text mb-3">{{ $t("login.register") }}</h3>
 
-        <form method="POST" action="/register">
+        <form
+          v-on:submit.prevent="handleSubmit"
+          method="POST"
+          action="/register"
+        >
           <div class="form-group">
             <label for="name">Name</label>
             <input
@@ -24,36 +28,48 @@
               v-model="user.name"
               autofocus
             />
+            <div class="invalid-feedback" v-if="errors.name">
+              {{ errors.name[0] }}
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="email">{{ $t("login.email")}}</label>
+            <label for="email">{{ $t("login.email") }}</label>
             <input
               id="email"
               type="email"
               class="form-control"
               v-model="user.email"
             />
+            <div class="invalid-feedback" v-if="errors.email">
+              {{ errors.email[0] }}
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="password">{{ $t("login.password")}}</label>
+            <label for="password">{{ $t("login.password") }}</label>
             <input
               id="password"
               type="password"
               class="form-control"
               v-model="user.password"
             />
+            <div class="invalid-feedback" v-if="errors.password">
+              {{ errors.password[0] }}
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="password-confirm">{{ $t("login.confirm")}}</label>
+            <label for="password-confirm">{{ $t("login.confirm") }}</label>
             <input
               id="password-confirm"
               type="password"
               class="form-control"
               v-model="user.password_confirmation"
             />
+            <div class="invalid-feedback" v-if="errors.password">
+              {{ errors.password[0] }}
+            </div>
           </div>
 
           <!-- we have a handleSubmit method that is called when a 
@@ -62,24 +78,28 @@
 
           <!-- register button -->
           <div class="form-group">
-            <button type="submit" class="btn btn-class" @click="handleSubmit">
-              {{ $t("login.register")}}
+            <button class="btn btn-class">
+              {{ $t("login.register") }}
             </button>
           </div>
         </form>
-      <div class="text-center">
-        <router-link to="/login" class="d-block small mt-3">{{ $t("login.signin")}}</router-link>
-        <router-link to="/reset-password-request" class="d-block small mt-3"
-          >{{ $t("login.reset")}}</router-link
-        >
+        <div class="text-center">
+          <router-link to="/login" class="d-block small mt-3">{{
+            $t("login.signin")
+          }}</router-link>
+          <router-link
+            to="/reset-password-request"
+            class="d-block small mt-3"
+            >{{ $t("login.reset") }}</router-link
+          >
+        </div>
       </div>
-       </div>
     </div>
   </div>
 </template>
 
-     <script>
-import axios from "axios";
+<script>
+import axios from 'axios';
 import * as auth from "../services/auth_service";
 export default {
   data() {
@@ -94,32 +114,32 @@ export default {
     };
   },
   methods: {
-    handleSubmit: async function () {
-      if (
-        this.user.password === this.user.password_confirmation &&
-        this.user.password.length > 0
-      ) {
-        try {
-          await auth.register(this.user);
-          this.errors = {};
-          this.$router.push("/login");
-        } catch (error) {
+    handleSubmit() {
+        this.errors = {};
+        axios.post("api/register", this.user)
+       .then(response => {
+         console.log(response);
+         this.$router.push("/login");
+       })
+      .catch (error => {
           switch (error.response.status) {
-            case 422:
-              this.errors = error.response.data.errors;
-              break;
-            default:
-              this.flashMessage.error({
-                message: "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
-                time: 5000,
-              });
-              break;
-          }
+          case 422:
+            this.errors = error.response.data.errors;
+            break;
+          case 500:
+            this.flashMessage.error({
+              message: "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
+              time: 5000,
+            });
+            break;
+          default:
+            this.flashMessage.error({
+              message: "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
+              time: 5000,
+            });
+            break;
         }
-      } else {
-        this.user.password = "";
-        this.user.password_confirmation = "";
-      }
+      }) 
     },
   },
 
@@ -164,7 +184,7 @@ body {
   }
   .form-group {
     label {
-      color: #fff
+      color: #fff;
     }
   }
 }
