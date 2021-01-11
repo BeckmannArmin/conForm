@@ -42,6 +42,11 @@
               :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`"
               class="image-wd img-h"
             />
+             <img
+              v-if="!conceptPaper.image"
+              src="../../assets/conForm_logo.png"
+              class="image-wd img-h"
+            />
             </div>
             <div class="card-body" @click="showPaper(conceptPaper)">
               <h5 class="card-title">{{ conceptPaper.name }}</h5>
@@ -161,7 +166,7 @@
                 {{ $t("conceptPaper.cancel") }}
               </button>
               <button type="submit" class="btn btn-primary">
-                <span class="fa fa-check"></span>{{ $t("conceptPaper.addNew") }}
+                <span class="fa fa-check p-1.5"></span>{{ $t("conceptPaper.addNew") }}
               </button>
             </div>
           </form>

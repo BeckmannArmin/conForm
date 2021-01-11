@@ -15,7 +15,6 @@
         {{ $t("conceptPaper.conceptPaper") }}
       </li>
     </ol>
-    <RightSideBar />
     <div class="container">
       <h1 class="mt-4">
         {{ $t("conceptPaper.conceptPaper") }}: {{ conceptPaper.name }}
@@ -119,11 +118,17 @@
               <label for="image">{{ $t("conceptPaper.logo") }}</label>
               <div>
                 <img
+                  v-if="editConceptPaperData.image"
                   :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
                   id="logo_image"
                   class="image-wd"
                   ref="editConceptPaperImageDisplay"
                 />
+             <img
+              v-if="!editConceptPaperData.image"
+              src="../../assets/conForm_logo.png"
+              class="image-wd img-h"
+            />
               </div>
               <input
                 type="file"

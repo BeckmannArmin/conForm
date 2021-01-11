@@ -5,7 +5,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">{{ $t('inviteTeam.share') }}</h5>
-        <p class="text-muted">{{ $t('inviteTeam.shareText') }}.</p>
+        <p class="text-muted">{{ $t('inviteTeam.shareText') }}</p>
         <button type="button" class="button-close r-10" data-dismiss="modal" aria-label="Close">
             <i class="fas fa-times"></i>
         </button>
@@ -18,7 +18,7 @@
                     <p class="text-muted"> {{ $t('inviteTeam.shareLink') }}:</p>
                 </div>
                 <div class="grid grid-column-7">
-                    <input id="join-code" class="input js-board-link input-readonly" type="text" readonly :value="joinCode">
+                    <input id="join-code" class="input js-board-link input-readonly" type="text" readonly :value="`${$store.state.serverPath}/#/conceptPaper/lobby/${joinCode}`">
                 </div>
                 <div class="grid grid-column-2">
                      <button ref="btnCopy" class="btn btn-sm btn-copy" @click.stop.prevent="copyLink">
@@ -29,7 +29,7 @@
             </div>
             <!-- QR Code -->
             <div class="flex-middle wh-100 mb-2">
-                <div class="grid grid-column-3">
+                <div class="grid grid-column-35">
                     <p class="text-muted"> {{ $t('inviteTeam.shareQr') }}:</p>
                 </div>
                  <div class="grid grid-column-7">
@@ -192,11 +192,16 @@ props: ['joinCode'],
     max-width: 25%;
     justify-content: flex-start;
 }
+.grid-column-35 {
+    flex-basis: 35%;
+    max-width: 35%;
+}
+
 .modal {
     border-radius: 24px;
 }
 .modal-dialog {
-    max-width: 700px;
+    max-width: 800px;
 }
 .modal-content {
     border-radius: 24px;
@@ -215,6 +220,7 @@ props: ['joinCode'],
     display: flex;
     flex-wrap: wrap;
     margin: 0 -4px;
+    width: 100%;
 }
 .modal-title {
     font-size: 32px;

@@ -51,20 +51,20 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Produkte
+                {{ $t('navbar.products') }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item">
                   <router-link
                     :to="{ name: 'conceptPaperCreator' }"
                     class="nav-link"
-                    >Konzeptpapier Creator</router-link
+                    >{{ $t('navbar.papers') }}</router-link
                   ></a
                 >
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">
                   <router-link :to="{ name: 'kanban' }" class="nav-link"
-                    >Kanban Board</router-link
+                    >{{ $t('navbar.tasks') }}</router-link
                   ></a
                 >
               </div>
@@ -149,6 +149,12 @@ export default {
   }
   .img-dark {
     display: block !important;
+  }
+
+  .dropdown-item {
+    .nav-link {
+      color: #20232a !important;
+    }
   }
 }
 

@@ -149,5 +149,10 @@
             "viewload": "Everything at a glance",
             "indi": "Customize"
         }
+    },
+    "navbar": {
+        "products": "Products",
+        "papers": "Concept papers",
+        "tasks": "Kanban Board"
     }
 }

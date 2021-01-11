@@ -85,7 +85,7 @@
         "cancel": "Abbrechen",
         "update": "Aktualisieren und speichern",
         "pdfExport": "Als PDF exportieren",
-        "jsonExport": "Als JSON exportiere",
+        "jsonExport": "Als JSON exportieren",
         "technologies": "Technologien",
         "chooseFile": "Datei auswählen",
         "noneSelected": "Keine ausgewählt",
@@ -127,7 +127,7 @@
     },
     "inviteTeam": {
         "share": "Teile dein Konzeptpapier",
-        "shareText": "Hier kannst du dein Konzeptpapier teilen und mit anderen zusammenarbeiten.",
+        "shareText": "Hier kannst du dein Konzeptpapier teilen und mit anderen zusammenarbeiten",
         "shareLink": "Teile es über einen Link",
         "copyLink": "Kopieren",
         "copied": "Kopiert",
@@ -151,5 +151,10 @@
             "viewload": "Alles auf einen Blick",
             "indi": "Individualisieren"
         }
+    },
+    "navbar": {
+        "products": "Produkte",
+        "papers": "Konzeptpapiere",
+        "tasks": "Kanban Tafel"
     }
 }

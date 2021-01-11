@@ -330,6 +330,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -869,6 +874,15 @@ var render = function() {
                                 conceptPaper.image
                             }
                           })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !conceptPaper.image
+                        ? _c("img", {
+                            staticClass: "image-wd img-h",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../assets/conForm_logo.png */ "./resources/assets/conForm_logo.png")
+                            }
+                          })
                         : _vm._e()
                     ]
                   ),
@@ -1208,7 +1222,7 @@ var render = function() {
                         attrs: { type: "submit" }
                       },
                       [
-                        _c("span", { staticClass: "fa fa-check" }),
+                        _c("span", { staticClass: "fa fa-check p-1.5" }),
                         _vm._v(
                           _vm._s(_vm.$t("conceptPaper.addNew")) +
                             "\n            "
@@ -1466,6 +1480,17 @@ var staticRenderFns = [
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/assets/conForm_logo.png":
+/*!*******************************************!*\
+  !*** ./resources/assets/conForm_logo.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/conForm_logo.png?32c3ac79cc655cf0574e7496e3fbb122";
 
 /***/ }),
 

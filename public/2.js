@@ -554,6 +554,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -1146,7 +1151,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.btn-primary[data-v-4bdf7707] {\r\n    background-color: #6c72ae;\r\n    border-color: #6c72ae;\n}\n.button-close[data-v-4bdf7707] {\r\n    position: absolute;\r\n    right: 42px;\r\n    top: 10px;\r\n    color: #333;\r\n    background-color: #EDEDED;\r\n    width: 44px;\r\n    height: 44px;\r\n    padding: 0;\r\n    border-radius: 24px;\n}\n.button-close.r-10[data-v-4bdf7707] {\r\n    right: 10px;\n}\n.modal-popup .modal-content-qr[data-v-4bdf7707] {\r\n    max-width: 320px;\r\n    max-height: 320px;\r\n    width: 100%;\r\n    display: block;\n}\n.modal-body[data-v-4bdf7707] {\r\n    display: block;\r\n    flex: 1 1 auto;\r\n    padding: 1rem;\r\n    position: unset;\n}\n.modal-popup.isvisible[data-v-4bdf7707] {\r\n    display: flex;\n}\n.modal-popup[data-v-4bdf7707] {\r\n    display: none;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    background: rgba(255,255,255,.95);\r\n    border-radius: 24px;\r\n    z-index: 300;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.input-readonly[data-v-4bdf7707] {\r\n    color: #000;\r\n    background-color: #f8f8f8;\n}\n.input[data-v-4bdf7707] {\r\n    width: 90%;\r\n    padding: 0 16px;\r\n    font-size: 15px;\r\n    height: 40px;\r\n    color: #b3b3b3;\r\n    background-color: #fff;\r\n    font-family: inherit;\r\n    border-color: #ddd;\r\n    border-radius: 8px;\r\n    line-height: 1;\r\n    width: 100%;\n}\n.btn-copy[data-v-4bdf7707] {\r\n    color: #fff;\r\n    background-color: #6c72ae ;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    text-decoration: none;\r\n    outline: 0;\r\n    overflow: hidden;\r\n    min-width: 90px;\r\n    font-weight: 700;\r\n    text-align: center;\r\n    border-radius: 24px;\r\n    transition: .6s cubic-bezier(.165,.84,.44,1);\n}\n.text-muted[data-v-4bdf7707] {\r\n    margin: 0;\r\n    font-weight: 700;\r\n    color: #b3b3b3;\n}\n.grid-column-2[data-v-4bdf7707] {\r\n    flex-basis: 16.66667%;\r\n    max-width: 16.66667%;\r\n    justify-content: flex-end;\n}\n.grid-column-7[data-v-4bdf7707] {\r\n    flex-basis: 58.33333%;\r\n    max-width: 58.33333%;\n}\n.grid-column-3[data-v-4bdf7707] {\r\n    flex-basis: 25%;\r\n    max-width: 25%;\r\n    justify-content: flex-start;\n}\n.modal[data-v-4bdf7707] {\r\n    border-radius: 24px;\n}\n.modal-dialog[data-v-4bdf7707] {\r\n    max-width: 700px;\n}\n.modal-content[data-v-4bdf7707] {\r\n    border-radius: 24px;\r\n    height: 450px;\n}\n.modal-header[data-v-4bdf7707] {\r\n    display: flex;\r\n    flex-flow: column;\n}\n.modal-body[data-v-4bdf7707] {\r\n    display: flex;\n}\n.modal-body .grid[data-v-4bdf7707]  {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    margin: 0 -4px;\n}\n.modal-title[data-v-4bdf7707] {\r\n    font-size: 32px;\r\n    font-weight: 400;\r\n    color: #191919;\r\n    margin-right: 20px;\n}\n.grid .flex-middle[data-v-4bdf7707] {\r\n    display: flex!important;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.wh-100[data-v-4bdf7707] {\r\n    width: 100%;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.btn-primary[data-v-4bdf7707] {\r\n    background-color: #6c72ae;\r\n    border-color: #6c72ae;\n}\n.button-close[data-v-4bdf7707] {\r\n    position: absolute;\r\n    right: 42px;\r\n    top: 10px;\r\n    color: #333;\r\n    background-color: #EDEDED;\r\n    width: 44px;\r\n    height: 44px;\r\n    padding: 0;\r\n    border-radius: 24px;\n}\n.button-close.r-10[data-v-4bdf7707] {\r\n    right: 10px;\n}\n.modal-popup .modal-content-qr[data-v-4bdf7707] {\r\n    max-width: 320px;\r\n    max-height: 320px;\r\n    width: 100%;\r\n    display: block;\n}\n.modal-body[data-v-4bdf7707] {\r\n    display: block;\r\n    flex: 1 1 auto;\r\n    padding: 1rem;\r\n    position: unset;\n}\n.modal-popup.isvisible[data-v-4bdf7707] {\r\n    display: flex;\n}\n.modal-popup[data-v-4bdf7707] {\r\n    display: none;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    background: rgba(255,255,255,.95);\r\n    border-radius: 24px;\r\n    z-index: 300;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.input-readonly[data-v-4bdf7707] {\r\n    color: #000;\r\n    background-color: #f8f8f8;\n}\n.input[data-v-4bdf7707] {\r\n    width: 90%;\r\n    padding: 0 16px;\r\n    font-size: 15px;\r\n    height: 40px;\r\n    color: #b3b3b3;\r\n    background-color: #fff;\r\n    font-family: inherit;\r\n    border-color: #ddd;\r\n    border-radius: 8px;\r\n    line-height: 1;\r\n    width: 100%;\n}\n.btn-copy[data-v-4bdf7707] {\r\n    color: #fff;\r\n    background-color: #6c72ae ;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    text-decoration: none;\r\n    outline: 0;\r\n    overflow: hidden;\r\n    min-width: 90px;\r\n    font-weight: 700;\r\n    text-align: center;\r\n    border-radius: 24px;\r\n    transition: .6s cubic-bezier(.165,.84,.44,1);\n}\n.text-muted[data-v-4bdf7707] {\r\n    margin: 0;\r\n    font-weight: 700;\r\n    color: #b3b3b3;\n}\n.grid-column-2[data-v-4bdf7707] {\r\n    flex-basis: 16.66667%;\r\n    max-width: 16.66667%;\r\n    justify-content: flex-end;\n}\n.grid-column-7[data-v-4bdf7707] {\r\n    flex-basis: 58.33333%;\r\n    max-width: 58.33333%;\n}\n.grid-column-3[data-v-4bdf7707] {\r\n    flex-basis: 25%;\r\n    max-width: 25%;\r\n    justify-content: flex-start;\n}\n.grid-column-35[data-v-4bdf7707] {\r\n    flex-basis: 35%;\r\n    max-width: 35%;\n}\n.modal[data-v-4bdf7707] {\r\n    border-radius: 24px;\n}\n.modal-dialog[data-v-4bdf7707] {\r\n    max-width: 800px;\n}\n.modal-content[data-v-4bdf7707] {\r\n    border-radius: 24px;\r\n    height: 450px;\n}\n.modal-header[data-v-4bdf7707] {\r\n    display: flex;\r\n    flex-flow: column;\n}\n.modal-body[data-v-4bdf7707] {\r\n    display: flex;\n}\n.modal-body .grid[data-v-4bdf7707]  {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    margin: 0 -4px;\r\n    width: 100%;\n}\n.modal-title[data-v-4bdf7707] {\r\n    font-size: 32px;\r\n    font-weight: 400;\r\n    color: #191919;\r\n    margin-right: 20px;\n}\n.grid .flex-middle[data-v-4bdf7707] {\r\n    display: flex!important;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.wh-100[data-v-4bdf7707] {\r\n    width: 100%;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -1629,7 +1634,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("p", { staticClass: "text-muted" }, [
-              _vm._v(_vm._s(_vm.$t("inviteTeam.shareText")) + ".")
+              _vm._v(_vm._s(_vm.$t("inviteTeam.shareText")))
             ]),
             _vm._v(" "),
             _vm._m(0)
@@ -1648,7 +1653,12 @@ var render = function() {
                   _c("input", {
                     staticClass: "input js-board-link input-readonly",
                     attrs: { id: "join-code", type: "text", readonly: "" },
-                    domProps: { value: _vm.joinCode }
+                    domProps: {
+                      value:
+                        _vm.$store.state.serverPath +
+                        "/#/conceptPaper/lobby/" +
+                        _vm.joinCode
+                    }
                   })
                 ]),
                 _vm._v(" "),
@@ -1684,7 +1694,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex-middle wh-100 mb-2" }, [
-                _c("div", { staticClass: "grid grid-column-3" }, [
+                _c("div", { staticClass: "grid grid-column-35" }, [
                   _c("p", { staticClass: "text-muted" }, [
                     _vm._v(" " + _vm._s(_vm.$t("inviteTeam.shareQr")) + ":")
                   ])
@@ -1965,8 +1975,6 @@ var render = function() {
           )
         ])
       ]),
-      _vm._v(" "),
-      _c("RightSideBar"),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("h1", { staticClass: "mt-4" }, [
@@ -2259,17 +2267,26 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", [
-                  _c("img", {
-                    ref: "editConceptPaperImageDisplay",
-                    staticClass: "image-wd",
-                    attrs: {
-                      src:
-                        _vm.$store.state.serverPath +
-                        "/storage/" +
-                        _vm.editConceptPaperData.image,
-                      id: "logo_image"
-                    }
-                  })
+                  _vm.editConceptPaperData.image
+                    ? _c("img", {
+                        ref: "editConceptPaperImageDisplay",
+                        staticClass: "image-wd",
+                        attrs: {
+                          src:
+                            _vm.$store.state.serverPath +
+                            "/storage/" +
+                            _vm.editConceptPaperData.image,
+                          id: "logo_image"
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.editConceptPaperData.image
+                    ? _c("img", {
+                        staticClass: "image-wd img-h",
+                        attrs: { src: __webpack_require__(/*! ../../assets/conForm_logo.png */ "./resources/assets/conForm_logo.png") }
+                      })
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("input", {

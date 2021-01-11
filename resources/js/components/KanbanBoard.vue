@@ -186,6 +186,10 @@ export default {
       background-color: #5c55ba !important;
     }
 
+    .form-text-dark {
+      color: black;
+    }
+
     .task-body-bg-dark {
       background-color: #f3f3f3 !important;
     }

@@ -1,6 +1,6 @@
 <template>
   <form
-    class="relative mb-3 flex flex-col justify-between bg-white rounded-md shadow overflow-hidden"
+    class="form-text-dark relative mb-3 flex flex-col justify-between bg-white rounded-md shadow overflow-hidden"
     @submit.prevent="handleAddNewTask"
   >
     <div class="p-3 flex-1">
