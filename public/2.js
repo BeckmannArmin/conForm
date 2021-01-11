@@ -559,6 +559,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2284,7 +2285,10 @@ var render = function() {
                   !_vm.editConceptPaperData.image
                     ? _c("img", {
                         staticClass: "image-wd img-h",
-                        attrs: { src: __webpack_require__(/*! ../../assets/conForm_logo.png */ "./resources/assets/conForm_logo.png") }
+                        attrs: {
+                          id: "logo_image",
+                          src: __webpack_require__(/*! ../../assets/conForm_logo.png */ "./resources/assets/conForm_logo.png")
+                        }
                       })
                     : _vm._e()
                 ]),
