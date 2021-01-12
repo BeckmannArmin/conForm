@@ -17,58 +17,59 @@ export class DocumentCreatorPDFWithWatermark {
             floatPrecision: 16 // or "smart", default is 16
         });
 
+        var watermarkLeft = (doc.internal.pageSize.getWidth()/2) - (watermarkWidth/2);
+        var watermarkTop = (doc.internal.pageSize.getHeight()/2) - (watermarkHeight/2);
+        doc.addImage(watermark, watermarkLeft, watermarkTop, watermarkWidth, watermarkHeight);
 
         var left = 25;
         var leftTab1 = 35;
         var leftTab2 = 45;
-        var top = 60;
+        var top = 115;
         var helperTop = top;
 
-        var watermarkLeft = (doc.internal.pageSize.getWidth()/2) - (watermarkWidth/2);
-        var watermarkTop = (doc.internal.pageSize.getHeight()/2) - (watermarkHeight/2);
-
-        const textSizeTitle = 20;
-        const textSizeHeading = 16;
-        const textSizeSubHeading = 13;
+        const textSizeTitle = 22;
+        const textSizeHeading = 14;
+        const textSizeSubHeading = 12;
         const textSizeText = 11;
-
 
         doc.addImage(hskl_branding, 135, 25, widthHSKL, heightHSKL);
 
-        doc.setFont('times', 'bold');
-        doc.setFontSize(textSizeTitle);
-        doc.setTextColor('#2E74B5');
-        doc.text(left, 40, name);
-        doc.setDrawColor('#2E74B5');
-        doc.setLineWidth(0.5);
-        doc.line(left, 41, left + doc.getTextDimensions(name).w, 41);
+        var courseHeadline = doc.setFont('times', 'bold')
+            .setFontSize(textSizeTitle)
+            .splitTextToSize(course, 160);
+        doc.text((doc.internal.pageSize.getWidth()/2) - (doc.getTextDimensions(courseHeadline).w/2), 70, courseHeadline);
 
-        doc.setFont('times', 'normal');
-        doc.setFontSize(textSizeText);
-        doc.setTextColor('#000000');
-        doc.text(left, 46, course);
-        doc.text(left, 50, currentSemester);
+        var titleHeadline = doc.setFont('times', 'normal')
+            .setFontSize(textSizeHeading)
+            .splitTextToSize("Konzeptpapier für die Projektarbeit/Prüfungsleistung", 160);
+        doc.text((doc.internal.pageSize.getWidth()/2) - (doc.getTextDimensions(titleHeadline).w/2), 78, titleHeadline);
+
+        var currentSemesterHeadline = doc.setFont('times', 'normal')
+            .setFontSize(textSizeHeading)
+            .splitTextToSize(currentSemester, 160);
+        doc.text((doc.internal.pageSize.getWidth()/2) - (doc.getTextDimensions(currentSemesterHeadline).w/2), 86, currentSemesterHeadline);
+
+        doc.setFont('times', 'bold');
+        doc.setFontSize(17);
+        doc.text(left, 110, name);
 
         doc.addImage(logo, left, top, width, height);
-
-        doc.addImage(watermark, watermarkLeft, watermarkTop, watermarkWidth, watermarkHeight);
 
         //---------------------
 
         top = top + 40;
 
-        var ideaHeadingLine = doc.setFont('times', 'normal')
+        var ideaHeadingLine = doc.setFont('times', 'bold')
             .setFontSize(textSizeHeading)
             .splitTextToSize("Grundidee", 160);
-        doc.setTextColor('#2E74B5');
         doc.text(left, top, ideaHeadingLine);
-
+        
+        top = top + 3;
         top = top + doc.getTextDimensions(ideaHeadingLine).h;
 
         var ideaLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(idea, 160);
-        doc.setTextColor('#000000');
         doc.text(left, top, ideaLines);
 
         top = top + doc.getTextDimensions(ideaLines).h + 5;
@@ -76,31 +77,31 @@ export class DocumentCreatorPDFWithWatermark {
 
         //---------------------
 
-        var featuresHeadingLine = doc.setFont('times', 'normal')
+        var featuresHeadingLine = doc.setFont('times', 'bold')
             .setFontSize(textSizeHeading)
             .splitTextToSize("Features", 160);
-        var basicsHeadingLine = doc.setFont('times', 'normal')
+        var basicsHeadingLine = doc.setFont('times', 'bold')
             .setFontSize(textSizeSubHeading)
             .splitTextToSize("Grundfunktionalitäten", 150);
         var basicsLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(basics, 140);
 
-        var niceToHaveHeadingLine = doc.setFont('times', 'normal')
+        var niceToHaveHeadingLine = doc.setFont('times', 'bold')
             .setFontSize(textSizeSubHeading)
             .splitTextToSize("Nice-To-Have Features", 150);
         var niceToHaveLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(niceToHave, 140);
 
-        var technologiesHeadingLine = doc.setFont('times', 'normal')
+        var technologiesHeadingLine = doc.setFont('times', 'bold')
             .setFontSize(textSizeHeading)
             .splitTextToSize("Technologien", 160);
         var technologiesLines = doc.setFont('times', 'normal')
             .setFontSize(textSizeText)
             .splitTextToSize(technologies, 150);
 
-        var teamHeadingLine = doc.setFont('times', 'normal')
+        var teamHeadingLine = doc.setFont('times', 'bold')
             .setFontSize(textSizeHeading)
             .splitTextToSize("Team", 160);
         var teamLines = doc.setFont('times', 'normal')
@@ -115,22 +116,23 @@ export class DocumentCreatorPDFWithWatermark {
         }
 
         //setText FeatureHeading
+        doc.setFont('times', 'bold');
         doc.setFontSize(textSizeHeading);
-        doc.setTextColor('#2E74B5');
         doc.text(left, top, featuresHeadingLine);
 
+        top = top + 3;
         top = top + doc.getTextDimensions(featuresHeadingLine).h;
 
         //setText BasicsHeading
         doc.setFontSize(textSizeSubHeading);
-        doc.setTextColor('#2E74B5');
         doc.text(leftTab1, top, basicsHeadingLine);
 
+        top = top + 3;
         top = top + doc.getTextDimensions(basicsHeadingLine).h;
 
         //setText Basics
+        doc.setFont('times', 'normal')
         doc.setFontSize(textSizeText);
-        doc.setTextColor('#000000');
         doc.text(leftTab2, top, basicsLines);
 
         top = top + doc.getTextDimensions(basicsLines).h + 5;
@@ -145,15 +147,16 @@ export class DocumentCreatorPDFWithWatermark {
         }
 
         //setText NiceToHaveHeading
+        doc.setFont('times', 'bold');
         doc.setFontSize(textSizeSubHeading)
-        doc.setTextColor('#2E74B5');
         doc.text(leftTab1, top, niceToHaveHeadingLine);
 
+        top = top + 3;
         top = top + doc.getTextDimensions(niceToHaveHeadingLine).h;
 
         //setText NiceToHave
+        doc.setFont('times', 'normal')
         doc.setFontSize(textSizeText)
-        doc.setTextColor('#000000');
         doc.text(leftTab2, top, niceToHaveLines);
 
         top = top + doc.getTextDimensions(niceToHaveLines).h + 5;
@@ -168,15 +171,16 @@ export class DocumentCreatorPDFWithWatermark {
         }
 
         //setText TechHeading
+        doc.setFont('times', 'bold');
         doc.setFontSize(textSizeHeading);
-        doc.setTextColor('#2E74B5');
         doc.text(left, top, technologiesHeadingLine);
 
+        top = top + 3;
         top = top + doc.getTextDimensions(technologiesHeadingLine).h;
 
         //setText Tech
+        doc.setFont('times', 'normal')
         doc.setFontSize(textSizeText);
-        doc.setTextColor('#000000');
         doc.text(leftTab1, top, technologiesLines);
 
         top = top + doc.getTextDimensions(technologiesLines).h + 5;
@@ -191,15 +195,16 @@ export class DocumentCreatorPDFWithWatermark {
         }
 
         //setText TeamHeading
+        doc.setFont('times', 'bold');
         doc.setFontSize(textSizeHeading);
-        doc.setTextColor('#2E74B5');
         doc.text(left, top, teamHeadingLine);
 
+        top = top + 3;
         top = top + doc.getTextDimensions(teamHeadingLine).h;
 
         //setText Team
+        doc.setFont('times', 'normal')
         doc.setFontSize(textSizeText);
-        doc.setTextColor('#000000');
         doc.text(leftTab1, top, teamLines);
 
         return doc;
