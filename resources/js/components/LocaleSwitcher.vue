@@ -28,11 +28,15 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin: 1rem 0 1rem !important;
+
+   select {
+      background: #fff;
+   }
 }
   
   .dark {
     select {
-      background: #20232a;
+      background: #20232a !important;
       color: #EBEDF0;
     .choose-lang {
       color: #EBEDF0;

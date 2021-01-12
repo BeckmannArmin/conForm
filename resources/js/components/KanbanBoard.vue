@@ -145,6 +145,10 @@ export default {
         (status) => status.id === task.status_id
       );
 
+       const taskIndex = this.statuses[statusIndex].tasks.findIndex(
+          (taskIndex) => taskIndex.id === task.id
+        )
+
       if (
         !window.confirm(
           `Bist du sicher, dass du den Task ${task.title} löschen willst?`
@@ -156,9 +160,7 @@ export default {
       try {
         await http().delete(`tasks/${task.id}`);
 
-        const taskIndex = this.statuses[statusIndex].tasks.findIndex((taskIndex) => taskIndex.id === task.id);
-
-        this.statuses[statusIndex].tasks.pop(taskIndex);
+        this.statuses[statusIndex].tasks.splice(taskIndex, 1);
 
         this.flashMessage.success({
           message: "Task erfolgreich gelöscht!",

@@ -16,6 +16,7 @@
             v-for="(conceptPaper, index) in conceptPapers"
             :key="index"
             class="card max-300 mt-4"
+            @click="showPaper(conceptPaper)"
           >
           <div class="d-flex justify-content-between" style="align-items: center">
           <span class="block p-2 text-muted">
@@ -48,7 +49,7 @@
               class="image-wd img-h"
             />
             </div>
-            <div class="card-body" @click="showPaper(conceptPaper)">
+            <div class="card-body">
               <h5 class="card-title">{{ conceptPaper.name }}</h5>
               <p class="card-text">{{ conceptPaper.course }}</p>
               <p class="card-text">{{ conceptPaper.currentSemester }}</p>
@@ -223,7 +224,14 @@
               <label for="image">{{ $t("conceptPaper.addLogo") }}</label>
               <div>
                 <img
+                  v-if="editConceptPaperData.image"
                   :src="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
+                  ref="editconceptPaperImageDisplay"
+                  class="image-wd"
+                />
+                <img
+                  v-if="!editConceptPaperData.image"
+                  src="../../assets/conForm_logo.png"
                   ref="editconceptPaperImageDisplay"
                   class="image-wd"
                 />

@@ -335,6 +335,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -813,7 +821,15 @@ var render = function() {
             _vm._l(_vm.conceptPapers, function(conceptPaper, index) {
               return _c(
                 "div",
-                { key: index, staticClass: "card max-300 mt-4" },
+                {
+                  key: index,
+                  staticClass: "card max-300 mt-4",
+                  on: {
+                    click: function($event) {
+                      return _vm.showPaper(conceptPaper)
+                    }
+                  }
+                },
                 [
                   _c(
                     "div",
@@ -887,30 +903,19 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      on: {
-                        click: function($event) {
-                          return _vm.showPaper(conceptPaper)
-                        }
-                      }
-                    },
-                    [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(conceptPaper.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(conceptPaper.course))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(conceptPaper.currentSemester))
-                      ])
-                    ]
-                  ),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(conceptPaper.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(conceptPaper.course))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(conceptPaper.currentSemester))
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm._m(0, true)
                 ]
@@ -1401,16 +1406,28 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", [
-                      _c("img", {
-                        ref: "editconceptPaperImageDisplay",
-                        staticClass: "image-wd",
-                        attrs: {
-                          src:
-                            _vm.$store.state.serverPath +
-                            "/storage/" +
-                            _vm.editConceptPaperData.image
-                        }
-                      })
+                      _vm.editConceptPaperData.image
+                        ? _c("img", {
+                            ref: "editconceptPaperImageDisplay",
+                            staticClass: "image-wd",
+                            attrs: {
+                              src:
+                                _vm.$store.state.serverPath +
+                                "/storage/" +
+                                _vm.editConceptPaperData.image
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.editConceptPaperData.image
+                        ? _c("img", {
+                            ref: "editconceptPaperImageDisplay",
+                            staticClass: "image-wd",
+                            attrs: {
+                              src: __webpack_require__(/*! ../../assets/conForm_logo.png */ "./resources/assets/conForm_logo.png")
+                            }
+                          })
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("input", {

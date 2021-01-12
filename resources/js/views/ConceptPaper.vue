@@ -126,6 +126,7 @@
                 />
              <img
               v-if="!editConceptPaperData.image"
+               id="logo_image"
               src="../../assets/conForm_logo.png"
               class="image-wd img-h"
             />

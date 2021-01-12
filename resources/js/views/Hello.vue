@@ -24,8 +24,8 @@
     </section>
     <JoinLobbySection />
     <HowToStartSection />
+    <ResourcesAnimated />
     <JoinLobbyModal />
-    <ResourceSection :mode="mode"/> 
   </div>
 </template>
 
@@ -141,20 +141,20 @@
 import Footer from "../components/Footer.vue";
 import NavBar from "../components/NavBar.vue";
 import JoinLobbyModal from "../components/modals/JoinLobbyModal.vue";
-import ResourceSection from "../components/sections/ResourceSection.vue";
 import GetStarted from "../components/sections/GetStarted.vue";
 import JoinLobbySection from "../components/sections/JoinLobbySection.vue";
 import HowToStartSection from "../components/sections/HowToStart.vue";
+import ResourcesAnimated from "../components/sections/Resources_animated.vue";
 
 export default {
   components: {
     Footer,
     NavBar,
-    ResourceSection,
     JoinLobbyModal,
     GetStarted,
     JoinLobbySection,
-    HowToStartSection
+    HowToStartSection,
+    ResourcesAnimated
   },
   data() {
     return {
