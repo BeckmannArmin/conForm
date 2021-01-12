@@ -3171,27 +3171,46 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
         }
       });
       document.addSection({
-        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](hskl_branding_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](watermark_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
-            text: name,
-            bold: true,
-            underline: true,
-            size: 40,
-            color: "2E74B5"
-          })],
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](watermark_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [hskl_branding_image],
           spacing: {
-            after: 120
+            after: 1750
           }
         }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
           children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: course,
-            bold: false,
-            size: 22
-          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            bold: true,
+            size: 44
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: "Konzeptpapier für die Projektarbeit/Prüfungsleistung",
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: currentSemester,
             bold: false,
-            size: 22
-          })["break"]()],
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 1000
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: name,
+            bold: true,
+            size: 34
+          })],
           spacing: {
             after: 200
           }
@@ -3241,7 +3260,6 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
           }
         }
 
-        console.log(text);
         children.push(text);
       }
 
@@ -3256,22 +3274,39 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
     key: "createSubHeading",
     value: function createSubHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_2
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 24,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createHeading",
     value: function createHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_1
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 28,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createSpace",
-    value: function createSpace() {
-      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({});
+    value: function createSpace(spaceSize) {
+      console.log(spaceSize);
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        spacing: {
+          after: spaceSize
+        }
+      });
     }
   }]);
 
@@ -3349,27 +3384,46 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
         }
       });
       document.addSection({
-        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](hskl_branding_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
-            text: name,
-            bold: true,
-            underline: true,
-            size: 40,
-            color: "2E74B5"
-          })],
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [hskl_branding_image],
           spacing: {
-            after: 120
+            after: 1750
           }
         }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
           children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: course,
-            bold: false,
-            size: 22
-          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            bold: true,
+            size: 44
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: "Konzeptpapier für die Projektarbeit/Prüfungsleistung",
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: currentSemester,
             bold: false,
-            size: 22
-          })["break"]()],
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 1000
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: name,
+            bold: true,
+            size: 34
+          })],
           spacing: {
             after: 200
           }
@@ -3419,7 +3473,6 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
           }
         }
 
-        console.log(text);
         children.push(text);
       }
 
@@ -3434,22 +3487,39 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
     key: "createSubHeading",
     value: function createSubHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_2
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 24,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createHeading",
     value: function createHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_1
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 28,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createSpace",
-    value: function createSpace() {
-      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({});
+    value: function createSpace(spaceSize) {
+      console.log(spaceSize);
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        spacing: {
+          after: spaceSize
+        }
+      });
     }
   }]);
 
@@ -3529,51 +3599,47 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
         floatPrecision: 16 // or "smart", default is 16
 
       });
+      var watermarkLeft = doc.internal.pageSize.getWidth() / 2 - watermarkWidth / 2;
+      var watermarkTop = doc.internal.pageSize.getHeight() / 2 - watermarkHeight / 2;
+      doc.addImage(watermark, watermarkLeft, watermarkTop, watermarkWidth, watermarkHeight);
       var left = 25;
       var leftTab1 = 35;
       var leftTab2 = 45;
-      var top = 60;
+      var top = 115;
       var helperTop = top;
-      var watermarkLeft = doc.internal.pageSize.getWidth() / 2 - watermarkWidth / 2;
-      var watermarkTop = doc.internal.pageSize.getHeight() / 2 - watermarkHeight / 2;
-      var textSizeTitle = 20;
-      var textSizeHeading = 16;
-      var textSizeSubHeading = 13;
+      var textSizeTitle = 22;
+      var textSizeHeading = 14;
+      var textSizeSubHeading = 12;
       var textSizeText = 11;
       doc.addImage(hskl_branding, 135, 25, widthHSKL, heightHSKL);
+      var courseHeadline = doc.setFont('times', 'bold').setFontSize(textSizeTitle).splitTextToSize(course, 160);
+      doc.text(doc.internal.pageSize.getWidth() / 2 - doc.getTextDimensions(courseHeadline).w / 2, 70, courseHeadline);
+      var titleHeadline = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Konzeptpapier für die Projektarbeit/Prüfungsleistung", 160);
+      doc.text(doc.internal.pageSize.getWidth() / 2 - doc.getTextDimensions(titleHeadline).w / 2, 78, titleHeadline);
+      var currentSemesterHeadline = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize(currentSemester, 160);
+      doc.text(doc.internal.pageSize.getWidth() / 2 - doc.getTextDimensions(currentSemesterHeadline).w / 2, 86, currentSemesterHeadline);
       doc.setFont('times', 'bold');
-      doc.setFontSize(textSizeTitle);
-      doc.setTextColor('#2E74B5');
-      doc.text(left, 40, name);
-      doc.setDrawColor('#2E74B5');
-      doc.setLineWidth(0.5);
-      doc.line(left, 41, left + doc.getTextDimensions(name).w, 41);
-      doc.setFont('times', 'normal');
-      doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
-      doc.text(left, 46, course);
-      doc.text(left, 50, currentSemester);
-      doc.addImage(logo, left, top, width, height);
-      doc.addImage(watermark, watermarkLeft, watermarkTop, watermarkWidth, watermarkHeight); //---------------------
+      doc.setFontSize(17);
+      doc.text(left, 110, name);
+      doc.addImage(logo, left, top, width, height); //---------------------
 
       top = top + 40;
-      var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
-      doc.setTextColor('#2E74B5');
+      var ideaHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
       doc.text(left, top, ideaHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(ideaHeadingLine).h;
       var ideaLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(idea, 160);
-      doc.setTextColor('#000000');
       doc.text(left, top, ideaLines);
       top = top + doc.getTextDimensions(ideaLines).h + 5; //---------------------
 
-      var featuresHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
-      var basicsHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
+      var featuresHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
+      var basicsHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
       var basicsLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(basics, 140);
-      var niceToHaveHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
+      var niceToHaveHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
       var niceToHaveLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(niceToHave, 140);
-      var technologiesHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
+      var technologiesHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
       var technologiesLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(technologies, 150);
-      var teamHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
+      var teamHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
       var teamLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(team, 150);
       helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h;
 
@@ -3583,18 +3649,19 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
       } //setText FeatureHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(left, top, featuresHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(featuresHeadingLine).h; //setText BasicsHeading
 
       doc.setFontSize(textSizeSubHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(leftTab1, top, basicsHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(basicsHeadingLine).h; //setText Basics
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab2, top, basicsLines);
       top = top + doc.getTextDimensions(basicsLines).h + 5; //-----------------------
 
@@ -3606,13 +3673,14 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
       } //setText NiceToHaveHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeSubHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(leftTab1, top, niceToHaveHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(niceToHaveHeadingLine).h; //setText NiceToHave
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab2, top, niceToHaveLines);
       top = top + doc.getTextDimensions(niceToHaveLines).h + 5; //-----------------------
 
@@ -3624,13 +3692,14 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
       } //setText TechHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(left, top, technologiesHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(technologiesHeadingLine).h; //setText Tech
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab1, top, technologiesLines);
       top = top + doc.getTextDimensions(technologiesLines).h + 5; //-----------------------
 
@@ -3642,13 +3711,14 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
       } //setText TeamHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(left, top, teamHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(teamHeadingLine).h; //setText Team
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab1, top, teamLines);
       return doc;
     }
@@ -3697,6 +3767,8 @@ var DocumentCreatorPDFWithWatermark = /*#__PURE__*/function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreatorPDF", function() { return DocumentCreatorPDF; });
 /* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3714,6 +3786,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 var DocumentCreatorPDF = /*#__PURE__*/function () {
@@ -3756,50 +3829,43 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
       var left = 25;
       var leftTab1 = 35;
       var leftTab2 = 45;
-      var top = 60;
+      var top = 115;
       var helperTop = top;
-      var textSizeTitle = 20;
-      var textSizeHeading = 16;
-      var textSizeSubHeading = 13;
+      var textSizeTitle = 22;
+      var textSizeHeading = 14;
+      var textSizeSubHeading = 12;
       var textSizeText = 11;
       doc.addImage(hskl_branding, 135, 25, widthHSKL, heightHSKL);
+      var courseHeadline = doc.setFont('times', 'bold').setFontSize(textSizeTitle).splitTextToSize(course, 160);
+      doc.text(doc.internal.pageSize.getWidth() / 2 - doc.getTextDimensions(courseHeadline).w / 2, 70, courseHeadline);
+      var titleHeadline = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Konzeptpapier für die Projektarbeit/Prüfungsleistung", 160);
+      doc.text(doc.internal.pageSize.getWidth() / 2 - doc.getTextDimensions(titleHeadline).w / 2, 78, titleHeadline);
+      var currentSemesterHeadline = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize(currentSemester, 160);
+      doc.text(doc.internal.pageSize.getWidth() / 2 - doc.getTextDimensions(currentSemesterHeadline).w / 2, 86, currentSemesterHeadline);
       doc.setFont('times', 'bold');
-      doc.setFontSize(textSizeTitle);
-      doc.setTextColor('#2E74B5');
-      doc.text(left, 40, name);
-      doc.setDrawColor('#2E74B5');
-      doc.setLineWidth(0.5);
-      doc.line(left, 41, left + doc.getTextDimensions(name).w, 41);
-      doc.setFont('times', 'normal');
-      doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
-      doc.text(left, 46, course);
-      doc.text(left, 50, currentSemester);
+      doc.setFontSize(17);
+      doc.text(left, 110, name);
       doc.addImage(logo, left, top, width, height); //---------------------
 
       top = top + 40;
-      var ideaHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
-      doc.setTextColor('#2E74B5');
+      var ideaHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Grundidee", 160);
       doc.text(left, top, ideaHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(ideaHeadingLine).h;
       var ideaLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(idea, 160);
-      doc.setTextColor('#000000');
       doc.text(left, top, ideaLines);
       top = top + doc.getTextDimensions(ideaLines).h + 5; //---------------------
 
-      var featuresHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
-      var basicsHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
+      var featuresHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Features", 160);
+      var basicsHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeSubHeading).splitTextToSize("Grundfunktionalitäten", 150);
       var basicsLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(basics, 140);
-      var niceToHaveHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
+      var niceToHaveHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeSubHeading).splitTextToSize("Nice-To-Have Features", 150);
       var niceToHaveLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(niceToHave, 140);
-      var technologiesHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
+      var technologiesHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Technologien", 160);
       var technologiesLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(technologies, 150);
-      var teamHeadingLine = doc.setFont('times', 'normal').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
+      var teamHeadingLine = doc.setFont('times', 'bold').setFontSize(textSizeHeading).splitTextToSize("Team", 160);
       var teamLines = doc.setFont('times', 'normal').setFontSize(textSizeText).splitTextToSize(team, 150);
       helperTop = top + doc.getTextDimensions(featuresHeadingLine).h + doc.getTextDimensions(basicsHeadingLine).h + doc.getTextDimensions(basicsLines).h;
-      /* + doc.getTextDimensions(niceToHaveHeadingLine).h + doc.getTextDimensions(niceToHaveLines).h
-      + doc.getTextDimensions(technologiesHeadingLine).h + doc.getTextDimensions(technologiesLines).h
-      + doc.getTextDimensions(teamHeadingLine).h + doc.getTextDimensions(teamLines).h; */
 
       if (helperTop > 267) {
         doc.addPage();
@@ -3807,18 +3873,19 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
       } //setText FeatureHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(left, top, featuresHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(featuresHeadingLine).h; //setText BasicsHeading
 
       doc.setFontSize(textSizeSubHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(leftTab1, top, basicsHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(basicsHeadingLine).h; //setText Basics
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab2, top, basicsLines);
       top = top + doc.getTextDimensions(basicsLines).h + 5; //-----------------------
 
@@ -3830,13 +3897,14 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
       } //setText NiceToHaveHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeSubHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(leftTab1, top, niceToHaveHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(niceToHaveHeadingLine).h; //setText NiceToHave
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab2, top, niceToHaveLines);
       top = top + doc.getTextDimensions(niceToHaveLines).h + 5; //-----------------------
 
@@ -3848,13 +3916,14 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
       } //setText TechHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(left, top, technologiesHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(technologiesHeadingLine).h; //setText Tech
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab1, top, technologiesLines);
       top = top + doc.getTextDimensions(technologiesLines).h + 5; //-----------------------
 
@@ -3866,13 +3935,14 @@ var DocumentCreatorPDF = /*#__PURE__*/function () {
       } //setText TeamHeading
 
 
+      doc.setFont('times', 'bold');
       doc.setFontSize(textSizeHeading);
-      doc.setTextColor('#2E74B5');
       doc.text(left, top, teamHeadingLine);
+      top = top + 3;
       top = top + doc.getTextDimensions(teamHeadingLine).h; //setText Team
 
+      doc.setFont('times', 'normal');
       doc.setFontSize(textSizeText);
-      doc.setTextColor('#000000');
       doc.text(leftTab1, top, teamLines);
       return doc;
     }
