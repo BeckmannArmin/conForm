@@ -19,33 +19,57 @@ export class DocumentCreatorDOCX {
 
         document.addSection({
             children: [
-                new Paragraph(hskl_branding_image),
                 new Paragraph({
-                    children: [
-                        new TextRun({
-                            text: name,
-                            bold: true,
-                            underline: true,
-                            size: 40,
-                            color: "2E74B5",
-                        }),
-                    ],
+                    children: [hskl_branding_image],
                     spacing: {
-                        after: 120,
+                        after: 1750,
                     }
                 }),
                 new Paragraph({
                     children: [
                         new TextRun({
                             text: course,
-                            bold: false,
-                            size: 22,
+                            bold: true,
+                            size: 44,
                         }),
+                    ],
+                    alignment: AlignmentType.CENTER,
+                    spacing: {
+                        after: 200,
+                    }
+                }),
+                new Paragraph({
+                    children: [
+                        new TextRun({
+                            text: "Konzeptpapier für die Projektarbeit/Prüfungsleistung",
+                            size: 28,
+                        }),
+                    ],
+                    alignment: AlignmentType.CENTER,
+                    spacing: {
+                        after: 200,
+                    }
+                }),
+                new Paragraph({
+                    children: [
                         new TextRun({
                             text: currentSemester,
                             bold: false,
-                            size: 22,
-                        }).break(),
+                            size: 28,
+                        }),
+                    ],
+                    alignment: AlignmentType.CENTER,
+                    spacing: {
+                        after: 1000,
+                    }
+                }),
+                new Paragraph({
+                    children: [
+                        new TextRun({
+                            text: name,
+                            bold: true,
+                            size: 34,
+                        }),
                     ],
                     spacing: {
                         after: 200,
@@ -106,7 +130,6 @@ export class DocumentCreatorDOCX {
                     var text = new TextRun({ text: "\t" + stringArray[i], size: 22 }).break();
                 }
             }
-            console.log(text)
             children.push(text);
         }
 
@@ -122,19 +145,38 @@ export class DocumentCreatorDOCX {
 
     createSubHeading(text) {
         return new Paragraph({
-            text: text,
-            heading: HeadingLevel.HEADING_2,
+            children: [
+                new TextRun({
+                    text: text,
+                    size: 24,
+                    bold: true
+                }),
+            ],
+            spacing: {
+                after: 200,
+            }
         });
     }
     createHeading(text) {
         return new Paragraph({
-            text: text,
-            heading: HeadingLevel.HEADING_1,
+            children: [
+                new TextRun({
+                    text: text,
+                    size: 28,
+                    bold: true,
+                }),
+            ],
+            spacing: {
+                after: 200,
+            }
         });
     }
-    createSpace() {
+    createSpace(spaceSize) {
+        console.log(spaceSize)
         return new Paragraph({
-
+            spacing: {
+                after: spaceSize,
+            }
         });
     }
 }

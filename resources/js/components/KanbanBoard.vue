@@ -156,7 +156,9 @@ export default {
       try {
         await http().delete(`tasks/${task.id}`);
 
-        this.statuses[statusIndex].tasks.pop(task);
+        const taskIndex = this.statuses[statusIndex].tasks.findIndex((taskIndex) => taskIndex.id === task.id);
+
+        this.statuses[statusIndex].tasks.pop(taskIndex);
 
         this.flashMessage.success({
           message: "Task erfolgreich gelöscht!",

@@ -3167,27 +3167,46 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
         }
       });
       document.addSection({
-        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](hskl_branding_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](watermark_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
-            text: name,
-            bold: true,
-            underline: true,
-            size: 40,
-            color: "2E74B5"
-          })],
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](watermark_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [hskl_branding_image],
           spacing: {
-            after: 120
+            after: 1750
           }
         }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
           children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: course,
-            bold: false,
-            size: 22
-          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            bold: true,
+            size: 44
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: "Konzeptpapier für die Projektarbeit/Prüfungsleistung",
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: currentSemester,
             bold: false,
-            size: 22
-          })["break"]()],
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 1000
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: name,
+            bold: true,
+            size: 34
+          })],
           spacing: {
             after: 200
           }
@@ -3237,7 +3256,6 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
           }
         }
 
-        console.log(text);
         children.push(text);
       }
 
@@ -3252,22 +3270,39 @@ var DocumentCreatorDOCXWithWatermark = /*#__PURE__*/function () {
     key: "createSubHeading",
     value: function createSubHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_2
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 24,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createHeading",
     value: function createHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_1
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 28,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createSpace",
-    value: function createSpace() {
-      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({});
+    value: function createSpace(spaceSize) {
+      console.log(spaceSize);
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        spacing: {
+          after: spaceSize
+        }
+      });
     }
   }]);
 
@@ -3345,27 +3380,46 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
         }
       });
       document.addSection({
-        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"](hskl_branding_image), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
-            text: name,
-            bold: true,
-            underline: true,
-            size: 40,
-            color: "2E74B5"
-          })],
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [hskl_branding_image],
           spacing: {
-            after: 120
+            after: 1750
           }
         }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
           children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: course,
-            bold: false,
-            size: 22
-          }), new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            bold: true,
+            size: 44
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: "Konzeptpapier für die Projektarbeit/Prüfungsleistung",
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 200
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
             text: currentSemester,
             bold: false,
-            size: 22
-          })["break"]()],
+            size: 28
+          })],
+          alignment: docx__WEBPACK_IMPORTED_MODULE_0__["AlignmentType"].CENTER,
+          spacing: {
+            after: 1000
+          }
+        }), new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+          children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+            text: name,
+            bold: true,
+            size: 34
+          })],
           spacing: {
             after: 200
           }
@@ -3415,7 +3469,6 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
           }
         }
 
-        console.log(text);
         children.push(text);
       }
 
@@ -3430,22 +3483,39 @@ var DocumentCreatorDOCX = /*#__PURE__*/function () {
     key: "createSubHeading",
     value: function createSubHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_2
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 24,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createHeading",
     value: function createHeading(text) {
       return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
-        text: text,
-        heading: docx__WEBPACK_IMPORTED_MODULE_0__["HeadingLevel"].HEADING_1
+        children: [new docx__WEBPACK_IMPORTED_MODULE_0__["TextRun"]({
+          text: text,
+          size: 28,
+          bold: true
+        })],
+        spacing: {
+          after: 200
+        }
       });
     }
   }, {
     key: "createSpace",
-    value: function createSpace() {
-      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({});
+    value: function createSpace(spaceSize) {
+      console.log(spaceSize);
+      return new docx__WEBPACK_IMPORTED_MODULE_0__["Paragraph"]({
+        spacing: {
+          after: spaceSize
+        }
+      });
     }
   }]);
 
