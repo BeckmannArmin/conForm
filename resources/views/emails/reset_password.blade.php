@@ -71,11 +71,6 @@
 
                                                         </tr>
                                                             <tr>
-                                                                <td style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; color:#666666; font-weight:bold; text-transform:uppercase;" mc:edit="fm-39" valign="top" align="center" height="40">
-                                                                    <multiline></multiline>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
                                                                 <td style="font-family:'Open Sans', sans-serif, Verdana; font-size:20px; color:#3b3a3a; font-weight:bold; line-height:50px; text-transform:none;" mc:edit="fm-40" valign="top" align="center">
                                                                     <multiline>Anweisungen zum zurücksetzen deines Passwortes</multiline>
                                                                 </td>

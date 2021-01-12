@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
 
 class UserController extends Controller
 {
@@ -74,10 +75,30 @@ class UserController extends Controller
           $user->password = bcrypt($request->password);
 
           if ($user ->save()) {
-              return response()->json([
-                  'message' => 'User created successfully',
-                  'status_code' => 201
-              ], 201);
+              
+            $userData = array(
+                'email' => $user->email,
+                'full_name' => $user->name,
+            );
+
+            Mail::send('emails.welcome', $userData, function ($message) use ($userData) {
+                $message->from('no-reply@conform.de', 'Welcome');
+                $message->to($userData['email'], $userData['full_name']);
+                $message->subject('Welcome to conForm');
+            });
+
+            if (Mail::failures()) {
+                return response()->json([
+                    'message' => 'Some error occured. Please try it again.',
+                    'status_code' => 500
+                ], 500);
+            } else {
+                return response()->json([
+                    'message' => 'We have sent a welcome email',
+                    'status_code' => 200
+                ], 200);
+            }
+
           } else {
             return response()->json([
                 'message' => 'Some error occured, please try again',
