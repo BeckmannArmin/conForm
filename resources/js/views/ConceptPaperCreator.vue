@@ -16,7 +16,6 @@
             v-for="(conceptPaper, index) in conceptPapers"
             :key="index"
             class="card max-300 mt-4"
-            @click="showPaper(conceptPaper)"
           >
           <div class="d-flex justify-content-between" style="align-items: center">
           <span class="block p-2 text-muted">
@@ -37,7 +36,8 @@
               </button>
             </span>
           </div>
-            <div class="d-flex justify-content-center m-2">
+            <div class="card-body" @click="showPaper(conceptPaper)">
+              <div class="d-flex justify-content-center m-2">
             <img
             v-if="conceptPaper.image"
               :src="`${$store.state.serverPath}/storage/${conceptPaper.image}`"
@@ -49,7 +49,6 @@
               class="image-wd img-h"
             />
             </div>
-            <div class="card-body">
               <h5 class="card-title">{{ conceptPaper.name }}</h5>
               <p class="card-text">{{ conceptPaper.course }}</p>
               <p class="card-text">{{ conceptPaper.currentSemester }}</p>

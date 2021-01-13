@@ -145,11 +145,13 @@
         "webapp": "Es ist eine Web-Applikation, die im Rahmen eines Studienprojektes entwickelt wurde und das herkömmliche ausfüllen, herunterladen und erneut hochladen von Konzeptpapieren ersetzen soll",
         "createacc": "Erstelle einen Account um von allen Features und Vorteilen zu profitieren",
         "viewdownload": "Sieh dir deine Konzeptpapiere jederzeit an und lade sie runter",
-        "customize": "Deine Konzeptpapiere kannst du jederzeit anpassen",
+        "customize": "Du kannst deine Konzeptpapiere jederzeit anpassen",
+        "letsgo": "Warte nicht länger und lege direkt los",
         "headings": {
             "createacc": "Account erstellen",
             "viewload": "Alles auf einen Blick",
-            "indi": "Individualisieren"
+            "indi": "Individualisieren",
+            "signup": "Anmelden"
         }
     },
     "navbar": {

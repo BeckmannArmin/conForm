@@ -23,7 +23,7 @@
     </div>
     </section>
     <JoinLobbySection />
-    <HowToStartSection />
+    <HowToStartSectionAnimated v-if="!isLoggedIn" />
     <ResourcesAnimated />
     <JoinLobbyModal />
   </div>
@@ -143,7 +143,7 @@ import NavBar from "../components/NavBar.vue";
 import JoinLobbyModal from "../components/modals/JoinLobbyModal.vue";
 import GetStarted from "../components/sections/GetStarted.vue";
 import JoinLobbySection from "../components/sections/JoinLobbySection.vue";
-import HowToStartSection from "../components/sections/HowToStart.vue";
+import HowToStartSectionAnimated from "../components/sections/HowToStart_animated.vue";
 import ResourcesAnimated from "../components/sections/Resources_animated.vue";
 
 export default {
@@ -153,7 +153,7 @@ export default {
     JoinLobbyModal,
     GetStarted,
     JoinLobbySection,
-    HowToStartSection,
+    HowToStartSectionAnimated,
     ResourcesAnimated
   },
   data() {

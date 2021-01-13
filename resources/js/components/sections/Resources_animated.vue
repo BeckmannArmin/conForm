@@ -1,6 +1,6 @@
 <template>
   <section id="resources" class="resources pt-16 pb-16">
-    <div class="resources-container">
+    <div class="container">
       <div class="row">
         <div class="col-offset">
           <div class="headline-resources">
@@ -142,7 +142,7 @@ export default {};
   background-position: bottom;
   background-size: cover ;
 }
-.resources-container,
+.container,
 .row {
   padding: 0 1rem;
   width: 100%;
@@ -165,8 +165,7 @@ export default {};
     font-size: 2.8rem;
   }
 }
-.resources-container {
-  max-width: 1140px;
+.container {
   margin: 0 auto;
 }
 

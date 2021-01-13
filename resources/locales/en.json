@@ -144,10 +144,12 @@
         "createacc": "Create an account to benefit from all the features and advantages",
         "viewdownload": "Review and download your concept papers anytime",
         "customize": "You can customize your concept papers at any time",
+        "letsgo": "Don´t wait any longer. Start now",
         "headings": {
             "createacc": "Create account",
             "viewload": "Everything at a glance",
-            "indi": "Customize"
+            "indi": "Customize",
+            "signup": "Sign up"
         }
     },
     "navbar": {

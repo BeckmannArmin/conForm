@@ -342,7 +342,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 
@@ -821,15 +820,7 @@ var render = function() {
             _vm._l(_vm.conceptPapers, function(conceptPaper, index) {
               return _c(
                 "div",
-                {
-                  key: index,
-                  staticClass: "card max-300 mt-4",
-                  on: {
-                    click: function($event) {
-                      return _vm.showPaper(conceptPaper)
-                    }
-                  }
-                },
+                { key: index, staticClass: "card max-300 mt-4" },
                 [
                   _c(
                     "div",
@@ -878,44 +869,55 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "d-flex justify-content-center m-2" },
+                    {
+                      staticClass: "card-body",
+                      on: {
+                        click: function($event) {
+                          return _vm.showPaper(conceptPaper)
+                        }
+                      }
+                    },
                     [
-                      conceptPaper.image
-                        ? _c("img", {
-                            staticClass: "image-wd img-h",
-                            attrs: {
-                              src:
-                                _vm.$store.state.serverPath +
-                                "/storage/" +
-                                conceptPaper.image
-                            }
-                          })
-                        : _vm._e(),
+                      _c(
+                        "div",
+                        { staticClass: "d-flex justify-content-center m-2" },
+                        [
+                          conceptPaper.image
+                            ? _c("img", {
+                                staticClass: "image-wd img-h",
+                                attrs: {
+                                  src:
+                                    _vm.$store.state.serverPath +
+                                    "/storage/" +
+                                    conceptPaper.image
+                                }
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !conceptPaper.image
+                            ? _c("img", {
+                                staticClass: "image-wd img-h",
+                                attrs: {
+                                  src: __webpack_require__(/*! ../../assets/conForm_logo.png */ "./resources/assets/conForm_logo.png")
+                                }
+                              })
+                            : _vm._e()
+                        ]
+                      ),
                       _vm._v(" "),
-                      !conceptPaper.image
-                        ? _c("img", {
-                            staticClass: "image-wd img-h",
-                            attrs: {
-                              src: __webpack_require__(/*! ../../assets/conForm_logo.png */ "./resources/assets/conForm_logo.png")
-                            }
-                          })
-                        : _vm._e()
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(conceptPaper.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(conceptPaper.course))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(conceptPaper.currentSemester))
+                      ])
                     ]
                   ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(conceptPaper.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(conceptPaper.course))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(conceptPaper.currentSemester))
-                    ])
-                  ]),
                   _vm._v(" "),
                   _vm._m(0, true)
                 ]
