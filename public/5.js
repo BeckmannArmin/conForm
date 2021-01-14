@@ -352,6 +352,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -739,7 +745,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".dark .breadcrumb[data-v-fb82538e] {\n  background-color: #20232a;\n}\n.dark .breadcrumb a[data-v-fb82538e] {\n  color: #fff;\n}\n.dark .card[data-v-fb82538e] {\n  background-color: #20232a;\n  box-shadow: 0 1px 2px rgba(0, 0, 1, 0.9);\n}\n.breadcrumb a[data-v-fb82538e] {\n  color: #212529;\n}\n.card .card-body.center-all[data-v-fb82538e] {\n  justify-content: center;\n  align-items: center;\n}\n.card .img-h[data-v-fb82538e] {\n  height: 100px;\n}\n.card .fa-plus[data-v-fb82538e] {\n  font-size: 3rem;\n  color: #d3d3d3;\n}\n@media (min-width: 576px) {\n.card-deck .card.max-300[data-v-fb82538e] {\n    max-width: 300px;\n    min-height: 300px;\n    min-width: 300px;\n}\n}", ""]);
+exports.push([module.i, ".dark .breadcrumb[data-v-fb82538e] {\n  background-color: #20232a;\n}\n.dark .breadcrumb a[data-v-fb82538e] {\n  color: #fff;\n}\n.dark .card[data-v-fb82538e] {\n  background-color: #20232a;\n  box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.2);\n}\n.breadcrumb a[data-v-fb82538e] {\n  color: #212529;\n}\n.card[data-v-fb82538e] {\n  box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.2);\n}\n.card .card-body.center-all[data-v-fb82538e] {\n  justify-content: center;\n  align-items: center;\n}\n.card .img-h[data-v-fb82538e] {\n  height: 100px;\n}\n.card .fa-plus[data-v-fb82538e] {\n  font-size: 3rem;\n  color: #d3d3d3;\n}\n.card.transition-up[data-v-fb82538e] {\n  transition: 0.2s;\n}\n.card.transition-up[data-v-fb82538e]:hover {\n  transform: translateY(-5px);\n}\n@media (min-width: 576px) {\n.card-deck .card.max-300[data-v-fb82538e] {\n    max-width: 300px;\n    min-height: 300px;\n    min-width: 300px;\n}\n}", ""]);
 
 // exports
 
@@ -829,7 +835,7 @@ var render = function() {
             _vm._l(_vm.conceptPapers, function(conceptPaper, index) {
               return _c(
                 "div",
-                { key: index, staticClass: "card max-300 mt-4" },
+                { key: index, staticClass: "card max-300 mt-4 transition-up" },
                 [
                   _c(
                     "div",
@@ -926,9 +932,7 @@ var render = function() {
                         _vm._v(_vm._s(conceptPaper.currentSemester))
                       ])
                     ]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(0, true)
+                  )
                 ]
               )
             }),
@@ -1523,18 +1527,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c("small", { staticClass: "text-muted" }, [
-        _vm._v("Last updated 3 minutes ago")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

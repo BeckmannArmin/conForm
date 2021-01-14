@@ -16,7 +16,7 @@
           class="articles__article"
           style="--animation-order: 1"
         >
-          <a class="articles__link">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm/wiki" target="_blank" class="articles__link">
             <div class="articles__content articles__content--lhs">
               <h2 class="articles__title">
                 {{ $t("resources.checkdocs") }}
@@ -43,7 +43,7 @@
           class="articles__article"
           style="--animation-order: 3"
         >
-          <a class="articles__link">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm/issues" target="_blank" class="articles__link">
             <div class="articles__content articles__content--lhs">
               <h2 class="articles__title">
                 {{ $t('resources.updates') }}
@@ -70,7 +70,7 @@
           class="articles__article"
           style="--animation-order: 2"
         >
-          <a class="articles__link">
+          <a href="https://github.com/BeckmannArmin/laravel-conForm/pulls" target="_blank" class="articles__link">
             <div class="articles__content articles__content--lhs">
               <h2 class="articles__title">
                 {{ $t("resources.improve") }}

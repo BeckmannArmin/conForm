@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\ConceptPaper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 
 class ConceptPaperController extends Controller
@@ -133,9 +134,6 @@ class ConceptPaperController extends Controller
             $conceptPaper->team = $request->team;
         }
 
-        //$conceptPaper->join_code = $request->join_code;
-
-        //$conceptPaper->user_id = $request->user_id;
         $conceptPaper->join_code = $request->join_code;
         $conceptPaper->user_id = Auth::user()->id;
 

@@ -15,7 +15,7 @@
           <div
             v-for="(conceptPaper, index) in conceptPapers"
             :key="index"
-            class="card max-300 mt-4"
+            class="card max-300 mt-4 transition-up"
           >
           <div class="d-flex justify-content-between" style="align-items: center">
           <span class="block p-2 text-muted">
@@ -52,9 +52,6 @@
               <h5 class="card-title">{{ conceptPaper.name }}</h5>
               <p class="card-text">{{ conceptPaper.course }}</p>
               <p class="card-text">{{ conceptPaper.currentSemester }}</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 minutes ago</small>
             </div>
           </div>
            <div class="card max-300 mt-4">
@@ -286,7 +283,7 @@
   }
   .card {
     background-color: #20232a;
-    box-shadow: 0 1px 2px rgba(0, 0, 1, 0.9);
+    box-shadow: 0 12px 32px 4px rgba(0,0,0, .2);
   }
 }
 
@@ -297,6 +294,7 @@
   }
   
 .card {
+  box-shadow: 0 12px 32px 4px rgba(0,0,0, .2);
   .card-body.center-all {
     justify-content: center;
     align-items: center;
@@ -309,6 +307,14 @@
   .fa-plus {
     font-size: 3rem;
     color: #d3d3d3;
+  }
+}
+
+.card.transition-up {
+ transition: .2s;
+
+  &:hover {
+    transform: translateY(-5px);
   }
 }
 
