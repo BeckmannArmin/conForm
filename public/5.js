@@ -342,6 +342,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -593,13 +603,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.append("basics", "");
                 formData.append("niceToHave", "");
                 formData.append("technologies", "");
-                formData.append("team", ""); //formData.append('uuid', this.editConceptPaperData.uuid);
-
+                formData.append("team", "");
+                formData.append('join_code', this.editConceptPaperData.join_code);
                 formData.append("_method", "put");
-                _context4.next = 14;
+                _context4.next = 15;
                 return _services_conceptPaper_service__WEBPACK_IMPORTED_MODULE_1__["updateConceptPaper"](this.editConceptPaperData.id, formData);
 
-              case 14:
+              case 15:
                 response = _context4.sent;
                 this.conceptPapers.map(function (conceptPaper) {
                   if (conceptPaper.id == response.data.id) {
@@ -613,33 +623,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   message: "conceptPaper updated succesfully!",
                   time: 5000
                 });
-                _context4.next = 29;
+                _context4.next = 30;
                 break;
 
-              case 20:
-                _context4.prev = 20;
+              case 21:
+                _context4.prev = 21;
                 _context4.t0 = _context4["catch"](0);
                 _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 422 ? 25 : 27;
+                _context4.next = _context4.t1 === 422 ? 26 : 28;
                 break;
 
-              case 25:
+              case 26:
                 this.errors = _context4.t0.response.data.errors;
-                return _context4.abrupt("break", 29);
+                return _context4.abrupt("break", 30);
 
-              case 27:
+              case 28:
                 this.flashMessage.error({
                   message: _context4.t0.response.data.message,
                   time: 5000
                 });
-                return _context4.abrupt("break", 29);
+                return _context4.abrupt("break", 30);
 
-              case 29:
+              case 30:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this, [[0, 20]]);
+        }, _callee4, this, [[0, 21]]);
       }));
 
       function updateConceptPaper() {
@@ -653,8 +663,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.showEditconceptPaperModal();
     },
     showPaper: function showPaper(conceptPaper) {
-      var joinCode = conceptPaper.join_code; //this.$router.push({ path: `/conceptPaper/lobby/${joinCode}` })
-
+      var joinCode = conceptPaper.join_code;
       this.$router.push({
         name: "conceptPaper",
         params: {
@@ -1403,6 +1412,36 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "name" } }, [_vm._v("UUID")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.editConceptPaperData.join_code,
+                          expression: "editConceptPaperData.join_code"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "uuid", readonly: "" },
+                      domProps: { value: _vm.editConceptPaperData.join_code },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.editConceptPaperData,
+                            "join_code",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "image" } }, [
                       _vm._v(_vm._s(_vm.$t("conceptPaper.addLogo")))
                     ]),
@@ -1466,7 +1505,7 @@ var render = function() {
                         attrs: { type: "submit" }
                       },
                       [
-                        _c("span", { staticClass: "fa fa-check" }),
+                        _c("span", { staticClass: "fa fa-check p-2" }),
                         _vm._v(
                           _vm._s(_vm.$t("conceptPaper.update")) +
                             "\n            "

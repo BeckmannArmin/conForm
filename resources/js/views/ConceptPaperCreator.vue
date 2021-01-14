@@ -219,6 +219,16 @@
                 {{ errors.currentSemester[0] }}
               </div>
             </div>
+             <div class="form-group">
+              <label for="name">UUID</label>
+              <input
+                type="text"
+                v-model="editConceptPaperData.join_code"
+                class="form-control"
+                id="uuid"
+                readonly
+              />
+            </div>
             <div class="form-group">
               <label for="image">{{ $t("conceptPaper.addLogo") }}</label>
               <div>
@@ -254,7 +264,7 @@
                 {{ $t("conceptPaper.cancel") }}
               </button>
               <button type="submit" class="btn btn-primary">
-                <span class="fa fa-check"></span>{{ $t("conceptPaper.update") }}
+                <span class="fa fa-check p-2"></span>{{ $t("conceptPaper.update") }}
               </button>
             </div>
           </form>
@@ -490,7 +500,7 @@ export default {
         formData.append("niceToHave", "");
         formData.append("technologies", "");
         formData.append("team", "");
-        //formData.append('uuid', this.editConceptPaperData.uuid);
+        formData.append('join_code', this.editConceptPaperData.join_code);
         formData.append("_method", "put");
 
         const response = await conceptPaperService.updateConceptPaper(
@@ -524,12 +534,11 @@ export default {
       }
     },
     editconceptPaper(conceptPaper) {
-      this.editConceptPaperData = { ...conceptPaper };
+      this.editConceptPaperData = {...conceptPaper};
       this.showEditconceptPaperModal();
     },
     showPaper(conceptPaper) {
       const joinCode = conceptPaper.join_code;
-      //this.$router.push({ path: `/conceptPaper/lobby/${joinCode}` })
       this.$router.push({
         name: "conceptPaper",
         params: { joincode: joinCode },

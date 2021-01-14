@@ -133,9 +133,11 @@ class ConceptPaperController extends Controller
             $conceptPaper->team = $request->team;
         }
 
-        $conceptPaper->join_code = $request->join_code;
+        //$conceptPaper->join_code = $request->join_code;
 
-        $conceptPaper->user_id = $request->user_id;
+        //$conceptPaper->user_id = $request->user_id;
+        $conceptPaper->join_code = $request->join_code;
+        $conceptPaper->user_id = Auth::user()->id;
 
         if ($conceptPaper->save()) {
             return response()->json($conceptPaper, 200);
