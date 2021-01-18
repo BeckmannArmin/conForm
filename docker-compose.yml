@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+
+  laravel:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: laravel
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - net
+
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - net
+
+  mysql:
+    container_name: "mysql"
+    restart: unless-stopped
+    image: mysql:5.7
+    env_file: 
+      - ./docker/mysql.env
+    volumes:
+      - data:/var/lib/mysql
+      - ./docker/mysql/mysql.sql:/docker-entrypoint-initdb.d/mysql.sql
+    ports:
+      - "3306:3306"
+    networks:
+      - net
+
+  phpmyadmin:
+    container_name: "phpmyadmin"
+    restart: unless-stopped
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+    ports:
+      - "8081:80"
+    networks:
+      - net
+
+
+volumes:
+  data:
+    driver: local
+networks:
+  net:

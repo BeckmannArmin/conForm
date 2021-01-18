@@ -560,6 +560,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -601,7 +604,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showWatermark: false,
       showDocxWatermark: false,
       isLoggedIn: null,
-      fields: ["name", "course", "currentSemester", "idea", "basics", "niceToHave", "technologies", "team"]
+      fields: ["name", "course", "currentSemester", "idea", "basics", "niceToHave", "technologies", "team"],
+      cachedFormData: null
     };
   },
   components: {
@@ -611,11 +615,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     PDFWatermark: _components_modals_PdfWatermark_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
     DOCXWatermark: _components_modals_DocxWatermark_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
   },
+  created: function created() {
+    // Create a cache when component/app is created
+    document.addEventListener("beforeunload", this.handlerClose);
+  },
+  computed: {
+    // Compares cached user data to live data
+    hasChanged: function hasChanged() {
+      return this.cachedFormData !== this.formDataForComparison();
+    }
+  },
   mounted: function mounted() {
     this.loadConceptPaper();
     this.isLoggedIn = localStorage.getItem("jwt");
   },
   methods: {
+    // Callback handler
+    handlerClose: function handlerClose() {
+      if (this.hasChanged) {// Logic when change is detected
+        // e.g. you can show a confirm() dialog to ask if user wants to proceed
+      } else {// Logic when no change is detected
+        }
+    },
+    // Helper method that generates JSON for string comparison
+    formDataForComparison: function formDataForComparison() {
+      return JSON.stringify({
+        name: this.conceptPaper.name,
+        course: this.conceptPaper.course,
+        idea: this.conceptPaper.idea,
+        basics: this.conceptPaper.basics,
+        niceToHave: this.conceptPaper.niceToHave,
+        technologies: this.conceptPaper.technologies,
+        team: this.conceptPaper.team
+      });
+    },
     loadConceptPaper: function loadConceptPaper() {
       var _this = this;
 
@@ -638,11 +671,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         setTimeout(function () {
           _this.isLoading = false;
         }, 500);
+        _this.cachedFormData = _this.formDataForComparison();
       })["catch"](function (error) {
         if (error.response.status === 404) {
           _router__WEBPACK_IMPORTED_MODULE_2__["default"].push("/notFound");
         }
       });
+    },
+    loadEditConceptPaperData: function loadEditConceptPaperData() {
+      this.editConceptPaperData.name = this.conceptPaper.name;
+      this.editConceptPaperData.course = this.conceptPaper.course;
+      this.editConceptPaperData.idea = this.conceptPaper.idea;
+      this.editConceptPaperData.basics = this.conceptPaper.basics;
+      this.editConceptPaperData.niceToHave = this.conceptPaper.niceToHave;
+      this.editConceptPaperData.technologies = this.conceptPaper.technologies;
+      this.editConceptPaperData.team = this.conceptPaper.team;
+      this.updateConceptPaper();
     },
     updateConceptPaper: function () {
       var _updateConceptPaper = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -1017,28 +1061,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }(),
     exportAsJSON: function exportAsJSON() {
       console.log("json");
-    },
-    notify: function notify() {
-      var $button = document.getElementById("notifyBtn");
-      var $bell = document.getElementById("notification");
-      $button.addEventListener("click", function (event) {
-        var count = Number($bell.getAttribute("data-count")) || 0;
-        $bell.setAttribute("data-count", count + 1);
-        $bell.classList.add("show-count");
-        $bell.classList.add("notify");
-      });
-      $bell.addEventListener("animationend", function (event) {
-        $bell.classList.remove("notify");
-      });
     }
   },
   beforeRouteLeave: function beforeRouteLeave(to, from, next) {
-    var answer = window.confirm("Do you really want to leave? You have unsaved changes!");
+    if (this.hasChanged) {
+      var answer = window.confirm("Do you really want to leave? You have unsaved changes!");
 
-    if (answer) {
-      next();
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
     } else {
-      next(false);
+      next();
     }
   }
 });
@@ -1133,7 +1168,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".btn-invite[data-v-22c7a2ba],\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  color: #fff;\n}\n.btn-invite[data-v-22c7a2ba] {\n  background-color: #5c55ba;\n}\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  background-color: #ff7e85;\n}\n.container[data-v-22c7a2ba] {\n  display: flex;\n  justify-content: center;\n  align-content: center;\n  flex-flow: column;\n}\n.dark .breadcrumb[data-v-22c7a2ba] {\n  background-color: #20232a;\n}\n.dark .breadcrumb a[data-v-22c7a2ba] {\n  color: #fff;\n}\n.dark .bg-main[data-v-22c7a2ba] {\n  background-color: #121212 !important;\n}\n.dark .card[data-v-22c7a2ba] {\n  background: #20232a !important;\n}\n.dark table td label[data-v-22c7a2ba] {\n  color: #fff;\n}\n.dark .btn-json[data-v-22c7a2ba] {\n  color: #fff;\n}\n.breadcrumb a[data-v-22c7a2ba] {\n  color: #212529;\n}", ""]);
+exports.push([module.i, ".btn-invite[data-v-22c7a2ba],\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  color: #fff;\n}\n.btn-invite[data-v-22c7a2ba] {\n  background-color: #5c55ba;\n}\n.btn-json[data-v-22c7a2ba] {\n  border: 0.5px solid rgba(0, 0, 0, 0.5);\n}\n.btn-pdf[data-v-22c7a2ba],\n.btn-docx[data-v-22c7a2ba] {\n  background-color: #ff7e85;\n}\n.container[data-v-22c7a2ba] {\n  display: flex;\n  justify-content: center;\n  align-content: center;\n  flex-flow: column;\n}\n.dark .breadcrumb[data-v-22c7a2ba] {\n  background-color: #20232a;\n}\n.dark .breadcrumb a[data-v-22c7a2ba] {\n  color: #fff;\n}\n.dark .bg-main[data-v-22c7a2ba] {\n  background-color: #121212 !important;\n}\n.dark .card[data-v-22c7a2ba] {\n  background: #20232a !important;\n}\n.dark table td label[data-v-22c7a2ba] {\n  color: #fff;\n}\n.dark .btn-json[data-v-22c7a2ba] {\n  color: #fff;\n  border: 0.5px solid rgba(255, 255, 255, 0.5);\n}\n.breadcrumb a[data-v-22c7a2ba] {\n  color: #212529;\n}", ""]);
 
 // exports
 
@@ -1978,6 +2013,11 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
+        _c("span", [
+          _vm._v("Has user changed data? "),
+          _c("strong", [_vm._v(_vm._s(_vm.hasChanged))])
+        ]),
+        _vm._v(" "),
         _c("h1", { staticClass: "mt-4" }, [
           _vm._v(
             "\n      " +
@@ -2127,8 +2167,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.editConceptPaperData.name,
-                          expression: "editConceptPaperData.name"
+                          value: _vm.conceptPaper.name,
+                          expression: "conceptPaper.name"
                         }
                       ],
                       staticClass: "form-control",
@@ -2137,14 +2177,14 @@ var render = function() {
                         id: "name",
                         placeholder: _vm.$t("conceptPaper.placeholders.name")
                       },
-                      domProps: { value: _vm.editConceptPaperData.name },
+                      domProps: { value: _vm.conceptPaper.name },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.editConceptPaperData,
+                            _vm.conceptPaper,
                             "name",
                             $event.target.value
                           )
@@ -2173,8 +2213,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.editConceptPaperData.course,
-                          expression: "editConceptPaperData.course"
+                          value: _vm.conceptPaper.course,
+                          expression: "conceptPaper.course"
                         }
                       ],
                       staticClass: "form-control",
@@ -2183,14 +2223,14 @@ var render = function() {
                         id: "course",
                         placeholder: _vm.$t("conceptPaper.placeholders.course")
                       },
-                      domProps: { value: _vm.editConceptPaperData.course },
+                      domProps: { value: _vm.conceptPaper.course },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.editConceptPaperData,
+                            _vm.conceptPaper,
                             "course",
                             $event.target.value
                           )
@@ -2219,29 +2259,26 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.editConceptPaperData.currentSemester,
-                          expression: "editConceptPaperData.currentSemester"
+                          value: _vm.conceptPaper.currentSemester,
+                          expression: "conceptPaper.currentSemester"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: {
                         type: "text",
                         id: "currentSemester",
-                        placeholder:
-                          _vm.$store.state.serverPath +
-                          "/storage/" +
-                          _vm.editConceptPaperData.image
+                        placeholder: _vm.$t(
+                          "conceptPaper.placeholders.semester"
+                        )
                       },
-                      domProps: {
-                        value: _vm.editConceptPaperData.currentSemester
-                      },
+                      domProps: { value: _vm.conceptPaper.currentSemester },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.editConceptPaperData,
+                            _vm.conceptPaper,
                             "currentSemester",
                             $event.target.value
                           )
@@ -2321,8 +2358,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.editConceptPaperData.idea,
-                      expression: "editConceptPaperData.idea"
+                      value: _vm.conceptPaper.idea,
+                      expression: "conceptPaper.idea"
                     }
                   ],
                   staticClass: "form-control",
@@ -2331,17 +2368,13 @@ var render = function() {
                     placeholder: _vm.$t("conceptPaper.placeholders.idea"),
                     rows: "6"
                   },
-                  domProps: { value: _vm.editConceptPaperData.idea },
+                  domProps: { value: _vm.conceptPaper.idea },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(
-                        _vm.editConceptPaperData,
-                        "idea",
-                        $event.target.value
-                      )
+                      _vm.$set(_vm.conceptPaper, "idea", $event.target.value)
                     }
                   }
                 }),
@@ -2367,8 +2400,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.editConceptPaperData.basics,
-                      expression: "editConceptPaperData.basics"
+                      value: _vm.conceptPaper.basics,
+                      expression: "conceptPaper.basics"
                     }
                   ],
                   staticClass: "form-control",
@@ -2377,17 +2410,13 @@ var render = function() {
                     placeholder: _vm.$t("conceptPaper.placeholders.basics"),
                     rows: "8"
                   },
-                  domProps: { value: _vm.editConceptPaperData.basics },
+                  domProps: { value: _vm.conceptPaper.basics },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(
-                        _vm.editConceptPaperData,
-                        "basics",
-                        $event.target.value
-                      )
+                      _vm.$set(_vm.conceptPaper, "basics", $event.target.value)
                     }
                   }
                 }),
@@ -2413,8 +2442,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.editConceptPaperData.niceToHave,
-                      expression: "editConceptPaperData.niceToHave"
+                      value: _vm.conceptPaper.niceToHave,
+                      expression: "conceptPaper.niceToHave"
                     }
                   ],
                   staticClass: "form-control",
@@ -2423,14 +2452,14 @@ var render = function() {
                     placeholder: _vm.$t("conceptPaper.placeholders.niceToHave"),
                     rows: "8"
                   },
-                  domProps: { value: _vm.editConceptPaperData.niceToHave },
+                  domProps: { value: _vm.conceptPaper.niceToHave },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
                       _vm.$set(
-                        _vm.editConceptPaperData,
+                        _vm.conceptPaper,
                         "niceToHave",
                         $event.target.value
                       )
@@ -2459,8 +2488,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.editConceptPaperData.technologies,
-                      expression: "editConceptPaperData.technologies"
+                      value: _vm.conceptPaper.technologies,
+                      expression: "conceptPaper.technologies"
                     }
                   ],
                   staticClass: "form-control",
@@ -2469,14 +2498,14 @@ var render = function() {
                     placeholder: _vm.$t("conceptPaper.placeholders.tech"),
                     rows: "5"
                   },
-                  domProps: { value: _vm.editConceptPaperData.technologies },
+                  domProps: { value: _vm.conceptPaper.technologies },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
                       _vm.$set(
-                        _vm.editConceptPaperData,
+                        _vm.conceptPaper,
                         "technologies",
                         $event.target.value
                       )
@@ -2505,8 +2534,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.editConceptPaperData.team,
-                      expression: "editConceptPaperData.team"
+                      value: _vm.conceptPaper.team,
+                      expression: "conceptPaper.team"
                     }
                   ],
                   staticClass: "form-control",
@@ -2515,17 +2544,13 @@ var render = function() {
                     placeholder: _vm.$t("conceptPaper.placeholders.team"),
                     rows: "5"
                   },
-                  domProps: { value: _vm.editConceptPaperData.team },
+                  domProps: { value: _vm.conceptPaper.team },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(
-                        _vm.editConceptPaperData,
-                        "team",
-                        $event.target.value
-                      )
+                      _vm.$set(_vm.conceptPaper, "team", $event.target.value)
                     }
                   }
                 }),
@@ -2559,7 +2584,7 @@ var render = function() {
                   {
                     staticClass: "btn btn-primary",
                     attrs: { id: "notifyBtn" },
-                    on: { click: _vm.updateConceptPaper }
+                    on: { click: _vm.loadEditConceptPaperData }
                   },
                   [
                     _c("span", { staticClass: "fa fa-check" }),

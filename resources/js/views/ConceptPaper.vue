@@ -16,6 +16,9 @@
       </li>
     </ol>
     <div class="container">
+      <span
+        >Has user changed data? <strong>{{ hasChanged }}</strong></span
+      >
       <h1 class="mt-4">
         {{ $t("conceptPaper.conceptPaper") }}: {{ conceptPaper.name }}
       </h1>
@@ -73,7 +76,7 @@
                   <label for="name">{{ $t("conceptPaper.projectName") }}</label>
                   <input
                     type="text"
-                    v-model="editConceptPaperData.name"
+                    v-model="conceptPaper.name"
                     class="form-control"
                     id="name"
                     :placeholder="$t('conceptPaper.placeholders.name')"
@@ -88,7 +91,7 @@
                   }}</label>
                   <input
                     type="text"
-                    v-model="editConceptPaperData.course"
+                    v-model="conceptPaper.course"
                     class="form-control"
                     id="course"
                     :placeholder="$t('conceptPaper.placeholders.course')"
@@ -103,10 +106,10 @@
                   }}</label>
                   <input
                     type="text"
-                    v-model="editConceptPaperData.currentSemester"
+                    v-model="conceptPaper.currentSemester"
                     class="form-control"
                     id="currentSemester"
-                    :placeholder="`${$store.state.serverPath}/storage/${editConceptPaperData.image}`"
+                    :placeholder="$t('conceptPaper.placeholders.semester')"
                   />
                   <div class="invalid-feedback" v-if="errors.currentSemester">
                     {{ errors.currentSemester[0] }}
@@ -124,12 +127,12 @@
                   class="image-wd"
                   ref="editConceptPaperImageDisplay"
                 />
-             <img
-              v-if="!editConceptPaperData.image"
-               id="logo_image"
-              src="../../assets/conForm_logo.png"
-              class="image-wd img-h"
-            />
+                <img
+                  v-if="!editConceptPaperData.image"
+                  id="logo_image"
+                  src="../../assets/conForm_logo.png"
+                  class="image-wd img-h"
+                />
               </div>
               <input
                 type="file"
@@ -145,7 +148,7 @@
             <div class="form-group">
               <label for="idea">{{ $t("conceptPaper.idea") }}</label>
               <textarea
-                v-model="editConceptPaperData.idea"
+                v-model="conceptPaper.idea"
                 class="form-control"
                 id="idea"
                 :placeholder="$t('conceptPaper.placeholders.idea')"
@@ -158,7 +161,7 @@
             <div class="form-group">
               <label for="basics">{{ $t("conceptPaper.mustHave") }}</label>
               <textarea
-                v-model="editConceptPaperData.basics"
+                v-model="conceptPaper.basics"
                 class="form-control"
                 id="basics"
                 :placeholder="$t('conceptPaper.placeholders.basics')"
@@ -173,7 +176,7 @@
                 $t("conceptPaper.niceToHave")
               }}</label>
               <textarea
-                v-model="editConceptPaperData.niceToHave"
+                v-model="conceptPaper.niceToHave"
                 class="form-control"
                 id="niceToHave"
                 :placeholder="$t('conceptPaper.placeholders.niceToHave')"
@@ -188,7 +191,7 @@
                 $t("conceptPaper.technologies")
               }}</label>
               <textarea
-                v-model="editConceptPaperData.technologies"
+                v-model="conceptPaper.technologies"
                 class="form-control"
                 id="technologies"
                 :placeholder="$t('conceptPaper.placeholders.tech')"
@@ -201,7 +204,7 @@
             <div class="form-group">
               <label for="team">{{ $t("conceptPaper.team") }}</label>
               <textarea
-                v-model="editConceptPaperData.team"
+                v-model="conceptPaper.team"
                 class="form-control"
                 id="team"
                 :placeholder="$t('conceptPaper.placeholders.team')"
@@ -218,7 +221,7 @@
               <button
                 id="notifyBtn"
                 class="btn btn-primary"
-                @click="updateConceptPaper"
+                @click="loadEditConceptPaperData"
               >
                 <span class="fa fa-check"></span>
                 {{ $t("conceptPaper.update") }}
@@ -311,6 +314,7 @@ export default {
         "technologies",
         "team",
       ],
+      cachedFormData: null,
     };
   },
   components: {
@@ -320,11 +324,42 @@ export default {
     PDFWatermark,
     DOCXWatermark,
   },
+  created: function () {
+    // Create a cache when component/app is created
+    document.addEventListener("beforeunload", this.handlerClose);
+  },
+  computed: {
+    // Compares cached user data to live data
+    hasChanged() {
+      return this.cachedFormData !== this.formDataForComparison();
+    },
+  },
   mounted() {
     this.loadConceptPaper();
     this.isLoggedIn = localStorage.getItem("jwt");
   },
   methods: {
+    // Callback handler
+    handlerClose: function () {
+      if (this.hasChanged) {
+        // Logic when change is detected
+        // e.g. you can show a confirm() dialog to ask if user wants to proceed
+      } else {
+        // Logic when no change is detected
+      }
+    },
+    // Helper method that generates JSON for string comparison
+    formDataForComparison: function () {
+      return JSON.stringify({
+        name : this.conceptPaper.name,
+        course : this.conceptPaper.course,
+        idea : this.conceptPaper.idea,
+        basics : this.conceptPaper.basics,
+        niceToHave : this.conceptPaper.niceToHave,
+        technologies : this.conceptPaper.technologies,
+        team : this.conceptPaper.team,
+      });
+    },
     loadConceptPaper() {
       this.isLoading = true;
       axios
@@ -350,12 +385,24 @@ export default {
           setTimeout(() => {
             this.isLoading = false;
           }, 500);
+
+          this.cachedFormData = this.formDataForComparison();
         })
         .catch(function (error) {
           if (error.response.status === 404) {
             router.push("/notFound");
           }
         });
+    },
+    loadEditConceptPaperData() {
+      this.editConceptPaperData.name = this.conceptPaper.name;
+      this.editConceptPaperData.course = this.conceptPaper.course;
+      this.editConceptPaperData.idea = this.conceptPaper.idea;
+      this.editConceptPaperData.basics = this.conceptPaper.basics;
+      this.editConceptPaperData.niceToHave = this.conceptPaper.niceToHave;
+      this.editConceptPaperData.technologies = this.conceptPaper.technologies;
+      this.editConceptPaperData.team = this.conceptPaper.team;
+      this.updateConceptPaper();
     },
     updateConceptPaper: async function () {
       try {
@@ -674,7 +721,10 @@ export default {
           heightWatermark: srcHeight * ratio,
         };
       }
-      const { widthWatermark, heightWatermark } = calculateAspectRatioFitWatermark(
+      const {
+        widthWatermark,
+        heightWatermark,
+      } = calculateAspectRatioFitWatermark(
         watermark.naturalWidth || wartermark.width,
         watermark.naturalHeight || wartermark.height,
         400,
@@ -701,8 +751,16 @@ export default {
       }
 
       const logo = await imageToUint8Array(img, widthImg, heightImg);
-      const hskl_branding_logo = await imageToUint8Array(hskl_branding, widthHSKL, heightHSKL);
-      const watermark_logo = await imageToUint8Array(watermark, widthWatermark, heightWatermark);
+      const hskl_branding_logo = await imageToUint8Array(
+        hskl_branding,
+        widthHSKL,
+        heightHSKL
+      );
+      const watermark_logo = await imageToUint8Array(
+        watermark,
+        widthWatermark,
+        heightWatermark
+      );
 
       const documentCreator = new DocumentCreatorDOCXWithWatermark();
       const {
@@ -732,7 +790,7 @@ export default {
         heightHSKL,
         watermark_logo,
         widthWatermark,
-        heightWatermark
+        heightWatermark,
       ]);
 
       Packer.toBlob(doc).then((blob) => {
@@ -750,31 +808,19 @@ export default {
     exportAsJSON: function () {
       console.log("json");
     },
-    notify() {
-      const $button = document.getElementById("notifyBtn");
-      const $bell = document.getElementById("notification");
-
-      $button.addEventListener("click", function (event) {
-        const count = Number($bell.getAttribute("data-count")) || 0;
-
-        $bell.setAttribute("data-count", count + 1);
-        $bell.classList.add("show-count");
-        $bell.classList.add("notify");
-      });
-
-      $bell.addEventListener("animationend", function (event) {
-        $bell.classList.remove("notify");
-      });
-    },
   },
   beforeRouteLeave(to, from, next) {
-    const answer = window.confirm(
-      "Do you really want to leave? You have unsaved changes!"
-    );
-    if (answer) {
-      next();
+    if (this.hasChanged) {
+      const answer = window.confirm(
+        "Do you really want to leave? You have unsaved changes!"
+      );
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
     } else {
-      next(false);
+      next();
     }
   },
 };
@@ -789,6 +835,10 @@ export default {
 
 .btn-invite {
   background-color: #5c55ba;
+}
+
+.btn-json {
+   border: 0.5px solid rgba(0,0,0,0.5);
 }
 
 .btn-pdf,
@@ -815,7 +865,7 @@ export default {
   .bg-main {
     background-color: #121212 !important;
   }
-  
+
   .card {
     background: #20232a !important;
   }
@@ -830,12 +880,13 @@ export default {
 
   .btn-json {
     color: #fff;
+    border: 0.5px solid rgba(#fff,0.5);
   }
 }
 
 .breadcrumb {
-    a {
-      color: #212529;
-    }
+  a {
+    color: #212529;
   }
+}
 </style>
