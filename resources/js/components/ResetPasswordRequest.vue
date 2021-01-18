@@ -111,8 +111,15 @@ body {
     background-color: #20232a;
   }
 
-  .form-control {
-    background-color: #20232a;
+  .form-group {
+    label {
+      color: #fff;
+    }
+    
+      input {
+        background-color: #20232a !important;
+        color: #f3f3f3 !important;
+      }
   }
 
   .col-md-6 {
@@ -125,11 +132,6 @@ body {
 
   .signin-text {
     color: #fff;
-  }
-  .form-group {
-    label {
-      color: #fff
-    }
   }
 }
 .content {

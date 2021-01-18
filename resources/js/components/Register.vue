@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 import * as auth from "../services/auth_service";
 export default {
   data() {
@@ -115,31 +115,34 @@ export default {
   },
   methods: {
     handleSubmit() {
-        this.errors = {};
-        axios.post("api/register", this.user)
-       .then(response => {
-         console.log(response);
-         this.$router.push("/login");
-       })
-      .catch (error => {
+      this.errors = {};
+      axios
+        .post("api/register", this.user)
+        .then((response) => {
+          console.log(response);
+          this.$router.push("/login");
+        })
+        .catch((error) => {
           switch (error.response.status) {
-          case 422:
-            this.errors = error.response.data.errors;
-            break;
-          case 500:
-            this.flashMessage.error({
-              message: "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
-              time: 5000,
-            });
-            break;
-          default:
-            this.flashMessage.error({
-              message: "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
-              time: 5000,
-            });
-            break;
-        }
-      }) 
+            case 422:
+              this.errors = error.response.data.errors;
+              break;
+            case 500:
+              this.flashMessage.error({
+                message:
+                  "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
+                time: 5000,
+              });
+              break;
+            default:
+              this.flashMessage.error({
+                message:
+                  "Oop, etwas ist schiefgelaufen. Versuch es noch einmal.",
+                time: 5000,
+              });
+              break;
+          }
+        });
     },
   },
 
@@ -167,8 +170,15 @@ body {
     background-color: #20232a;
   }
 
-  .form-control {
-    background-color: #20232a;
+  .form-group {
+    label {
+      color: #fff;
+    }
+    
+      input {
+        background-color: #20232a !important;
+        color: #f3f3f3 !important;
+      }
   }
 
   .col-md-6 {
@@ -181,11 +191,6 @@ body {
 
   .signin-text {
     color: #fff;
-  }
-  .form-group {
-    label {
-      color: #fff;
-    }
   }
 }
 .content {

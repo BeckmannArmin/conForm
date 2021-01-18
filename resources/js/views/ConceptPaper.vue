@@ -881,7 +881,28 @@ export default {
     color: #fff;
     border: 0.5px solid rgba(#fff,0.5);
   }
+  .content {
+    background-color: #20232a;
+  }
+
+  .form-group {
+    label {
+      color: #fff;
+    }
+    
+      input {
+        background-color: #20232a !important;
+        color: #f3f3f3 !important;
+      }
+
+      textarea {
+        background-color: #20232a !important;
+        color: #f3f3f3 !important;
+      }
+  }
+
 }
+
 
 .breadcrumb {
   a {

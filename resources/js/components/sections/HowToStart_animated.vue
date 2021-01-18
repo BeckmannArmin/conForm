@@ -91,6 +91,10 @@ $itemColors: (
   .howstart-area {
     background: none;
 
+    .title.is-2 {
+      color: $pr-font-dark !important;
+    }
+
     .card:hover {
       .face.face1 {
         .content {
