@@ -16,11 +16,8 @@
       </li>
     </ol>
     <div class="container">
-      <span
-        >Has user changed data? <strong>{{ hasChanged }}</strong></span
-      >
       <h1 class="mt-4">
-        {{ $t("conceptPaper.conceptPaper") }}: {{ conceptPaper.name }}
+        {{ $t("conceptPaper.conceptPaper") }}: {{ conceptPaperName }}
       </h1>
       <div class="card mb-4">
         <div class="card-header d-flex flex-row-reverse">
@@ -315,6 +312,7 @@ export default {
         "team",
       ],
       cachedFormData: null,
+      conceptPaperName: ''
     };
   },
   components: {
@@ -365,6 +363,7 @@ export default {
       axios
         .get(`conceptPaper/lobby/${this.joinCode}`)
         .then((response) => {
+          this.conceptPaperName = response.data.name;
           this.conceptPaper.name = response.data.name;
           this.conceptPaper.course = response.data.course;
           this.conceptPaper.currentSemester = response.data.currentSemester;
@@ -812,7 +811,7 @@ export default {
   beforeRouteLeave(to, from, next) {
     if (this.hasChanged) {
       const answer = window.confirm(
-        "Do you really want to leave? You have unsaved changes!"
+        
       );
       if (answer) {
         next();

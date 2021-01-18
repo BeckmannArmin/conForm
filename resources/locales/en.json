@@ -112,7 +112,8 @@
         "addnew": "Add a new concept paper",
         "edit": "Edit your concept paper",
         "editPaper": "Edit",
-        "individualize": "Here you can individualize your concept papers"
+        "individualize": "Here you can individualize your concept papers",
+        "leave": "You have uncommited changes. Do you really want to leave?"
     },
     "kanban": {
         "addTask": "Add task",

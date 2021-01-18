@@ -560,9 +560,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 
@@ -605,7 +602,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showDocxWatermark: false,
       isLoggedIn: null,
       fields: ["name", "course", "currentSemester", "idea", "basics", "niceToHave", "technologies", "team"],
-      cachedFormData: null
+      cachedFormData: null,
+      conceptPaperName: ''
     };
   },
   components: {
@@ -654,6 +652,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("conceptPaper/lobby/".concat(this.joinCode)).then(function (response) {
+        _this.conceptPaperName = response.data.name;
         _this.conceptPaper.name = response.data.name;
         _this.conceptPaper.course = response.data.course;
         _this.conceptPaper.currentSemester = response.data.currentSemester;
@@ -1065,7 +1064,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   beforeRouteLeave: function beforeRouteLeave(to, from, next) {
     if (this.hasChanged) {
-      var answer = window.confirm("Do you really want to leave? You have unsaved changes!");
+      var answer = window.confirm();
 
       if (answer) {
         next();
@@ -2013,17 +2012,12 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _c("span", [
-          _vm._v("Has user changed data? "),
-          _c("strong", [_vm._v(_vm._s(_vm.hasChanged))])
-        ]),
-        _vm._v(" "),
         _c("h1", { staticClass: "mt-4" }, [
           _vm._v(
             "\n      " +
               _vm._s(_vm.$t("conceptPaper.conceptPaper")) +
               ": " +
-              _vm._s(_vm.conceptPaper.name) +
+              _vm._s(_vm.conceptPaperName) +
               "\n    "
           )
         ]),

@@ -114,7 +114,8 @@
         "addnew": "Füge ein neues Konzeptpapier hinzu",
         "edit": "Editiere dein Konzeptpapier",
         "editPaper": "Bearbeiten",
-        "individualize": "Hier kannst du deine Konzeptpapiere individualisieren"
+        "individualize": "Hier kannst du deine Konzeptpapiere individualisieren",
+        "leave": "Deine nicht gespeicherten Änderungen werden verworfen. Bist du sicher, dass du gehen möchtest?"
     },
     "kanban": {
         "addTask": "Task hinzufügen",
