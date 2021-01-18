@@ -1064,7 +1064,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   beforeRouteLeave: function beforeRouteLeave(to, from, next) {
     if (this.hasChanged) {
-      var answer = window.confirm();
+      var answer = window.confirm(this.$t('conceptPaper.leave'));
 
       if (answer) {
         next();

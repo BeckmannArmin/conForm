@@ -811,7 +811,7 @@ export default {
   beforeRouteLeave(to, from, next) {
     if (this.hasChanged) {
       const answer = window.confirm(
-        
+        this.$t('conceptPaper.leave')
       );
       if (answer) {
         next();
