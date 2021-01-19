@@ -88,6 +88,10 @@ export default {
 </script>
 
 <style scoped>
+.dark .modal-title {
+  color: #20232a !important;
+}
+
 .animated {
   -webkit-animation: shake 1s linear;
   animation: shake 1s linear;
