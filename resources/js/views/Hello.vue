@@ -1,6 +1,6 @@
  <template>
   <div class="main-content-wrapper h-100">
-    <section id="hero" class="hero-section hero bg-top">
+    <section v-if="!isLoggedIn" id="hero" class="hero-section hero bg-top">
     <div class="hero">
       <div class="container">
         <div class="row">
