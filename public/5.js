@@ -358,6 +358,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -452,6 +458,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         currentSemester: "",
         image: ""
       };
+      this.errors = {};
     },
     showNewconceptPaperModal: function showNewconceptPaperModal() {
       this.generateUUID();
@@ -580,6 +587,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }(),
     hideEditconceptPaperModal: function hideEditconceptPaperModal() {
       this.$refs.editconceptPaperModal.hide();
+      this.errors = {};
     },
     showEditconceptPaperModal: function showEditconceptPaperModal() {
       this.$refs.editconceptPaperModal.show();
@@ -1176,7 +1184,17 @@ var render = function() {
                       staticClass: "form-control",
                       attrs: { type: "file", id: "image" },
                       on: { change: _vm.attachImage }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.image
+                      ? _c("div", { staticClass: "invalid-feedback" }, [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(_vm.errors.image[1]) +
+                              "\n            "
+                          )
+                        ])
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _c(
@@ -1480,7 +1498,17 @@ var render = function() {
                       staticClass: "form-control",
                       attrs: { type: "file", id: "image" },
                       on: { change: _vm.editAttachedImage }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.image
+                      ? _c("div", { staticClass: "invalid-feedback" }, [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(_vm.errors.image[1]) +
+                              "\n            "
+                          )
+                        ])
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _c("hr"),

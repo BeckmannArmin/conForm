@@ -139,7 +139,7 @@
                 id="image"
               />
               <div class="invalid-feedback" v-if="errors.image">
-                {{ errors.image[0] }}
+                {{ errors.image[1] }}
               </div>
             </div>
             <div class="form-group">
@@ -212,7 +212,7 @@
               </div>
             </div>
             <div class="text-right">
-              <button type="button" class="btn btn-default">
+              <button type="button" class="btn btn-default" @click="undoChanges">
                 {{ $t("conceptPaper.cancel") }}
               </button>
               <button
@@ -807,6 +807,9 @@ export default {
     exportAsJSON: function () {
       console.log("json");
     },
+    undoChanges() {
+      window.location.reload()
+    }
   },
   beforeRouteLeave(to, from, next) {
     if (this.hasChanged) {

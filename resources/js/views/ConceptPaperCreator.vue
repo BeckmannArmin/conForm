@@ -141,6 +141,9 @@
                 class="form-control"
                 id="image"
               />
+              <div class="invalid-feedback" v-if="errors.image">
+                {{ errors.image[1] }}
+              </div>
             </div>
             <div class="form-group" style="display: none">
               <label for="name">UUID</label>
@@ -249,6 +252,9 @@
                 class="form-control"
                 id="image"
               />
+              <div class="invalid-feedback" v-if="errors.image">
+                {{ errors.image[1] }}
+              </div>
             </div>
 
             <hr />
@@ -399,6 +405,7 @@ export default {
         currentSemester: "",
         image: "",
       };
+      this.errors = {};
     },
     showNewconceptPaperModal() {
       this.generateUUID();
@@ -474,6 +481,7 @@ export default {
     },
     hideEditconceptPaperModal() {
       this.$refs.editconceptPaperModal.hide();
+      this.errors = {};
     },
     showEditconceptPaperModal() {
       this.$refs.editconceptPaperModal.show();

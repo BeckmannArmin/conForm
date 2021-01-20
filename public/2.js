@@ -1060,6 +1060,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }(),
     exportAsJSON: function exportAsJSON() {
       console.log("json");
+    },
+    undoChanges: function undoChanges() {
+      window.location.reload();
     }
   },
   beforeRouteLeave: function beforeRouteLeave(to, from, next) {
@@ -2335,7 +2338,7 @@ var render = function() {
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
                         "\n              " +
-                          _vm._s(_vm.errors.image[0]) +
+                          _vm._s(_vm.errors.image[1]) +
                           "\n            "
                       )
                     ])
@@ -2563,7 +2566,11 @@ var render = function() {
               _c("div", { staticClass: "text-right" }, [
                 _c(
                   "button",
-                  { staticClass: "btn btn-default", attrs: { type: "button" } },
+                  {
+                    staticClass: "btn btn-default",
+                    attrs: { type: "button" },
+                    on: { click: _vm.undoChanges }
+                  },
                   [
                     _vm._v(
                       "\n              " +
