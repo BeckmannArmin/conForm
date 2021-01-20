@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
+    image: laravel-php
     container_name: laravel
     restart: unless-stopped
     tty: true
@@ -15,6 +16,16 @@ services:
     volumes:
       - .:/var/www
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - net
+
+  composer:
+    restart: 'no'
+    container_name: "composer"
+    image: "composer"
+    command: "install"
+    volumes:
+      - .:/app
     networks:
       - net
 
@@ -54,6 +65,23 @@ services:
       - PMA_PORT=3306
     ports:
       - "8081:80"
+    networks:
+      - net
+
+  setup:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    image: laravel-php
+    restart: 'no'
+    container_name: setup
+    command: "bash /wait-for-it.sh mysql:3306 -- sh -c 'sleep 40 && php artisan key:generate && php artisan migrate:refresh --seed && php artisan passport:install && php artisan config:cache'"
+    depends_on:
+      - mysql
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+      - ./docker/setup/wait-for-it.sh:/wait-for-it.sh
     networks:
       - net
 
