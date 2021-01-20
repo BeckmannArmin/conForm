@@ -14,11 +14,7 @@ RUN apt-get update && apt-get install -y \
     libxslt-dev libxml2-dev libpam-dev libedit-dev \
     libjpeg62-turbo-dev \
     locales \
-    zip \
     jpegoptim optipng pngquant gifsicle \
-    vim \
-    unzip \
-    git \
     npm \
     nano \
     iputils-ping \

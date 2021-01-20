@@ -75,7 +75,13 @@ class UserController extends Controller
           $user->password = bcrypt($request->password);
 
           if ($user ->save()) {
+
+            return response()->json([
+                'message' => 'User registered succesfully',
+                'status_code' => 201
+            ], 201);
               
+            /**
             $userData = array(
                 'email' => $user->email,
                 'full_name' => $user->name,
@@ -98,6 +104,7 @@ class UserController extends Controller
                     'status_code' => 200
                 ], 200);
             }
+             */
 
           } else {
             return response()->json([
