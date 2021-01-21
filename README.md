@@ -1,55 +1,27 @@
-<p align="center"><img src="./resources/assets/conForm_logo.png" width="400"></a></p>
+<p align="left"><img src="./resources/assets/conForm_logo.png" width="400"></a></p>
 
 
-## About Laravel
+## About conForm
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+For optimal planning and realization of a project or a task, it is necessary to prepare an overview in advance  of what the project should roughly look  like later. Such a form is called a concept paper. It contains the most important elements of the planned project, meaning a description, the necessary/nice-to-have functions, the technologies used and the team. To facilitate the creation and editing of such a document within the team, this project deals with the implementation of a web application, which enables exactly these functions without any problems.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**conForm** is a program that allows the user to create, edit and save multiple concept papers. In order to use the full range of functions, the user must first create an account and log in. Once a document is created, he can invite his team to the lobby using a join code and each participant can make changes and save them. This also works without registration, but in this case the download as PDF and DOCX document is only possible with Watermark. The application also allows  to add an own logo directly, which has already been created in advance. Otherwise the conForm logo is used by default.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+In addition, a Kanban board has been implemented to improve the flow of teamwork. This allows the user to divide the task and the requirements into sub-items and to monitor the work progress.
 
-## Learning Laravel
+In summary, the application is a useful tool to make the joint work of several participants on a project as simple and efficient as possible.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## How to get started
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+You can find our Setup Guide in the [Setup Guide](https://github.com/BeckmannArmin/laravel-conForm/wiki) to build and deploy it yourself.
 
-## Laravel Sponsors
+If there are any problems you can try to fix it with the help of our [Troubleshooting](https://github.com/BeckmannArmin/laravel-conForm/wiki/Troubleshoot)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## More
 
-### Premium Partners
+In our [Wiki - Section]() you can find all further information about the project. 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+## Contributors
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Armin Beckmann
+- Noah Semar
