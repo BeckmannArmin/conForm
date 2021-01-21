@@ -1,4 +1,4 @@
-<p align="left"><img src="./resources/assets/conForm_logo.png" width="400"></a></p>
+<p align="left"><img src="./resources/assets/conForm_logo.png" width="250"></a></p>
 
 
 ## About conForm
