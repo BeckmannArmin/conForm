@@ -14,14 +14,14 @@ import ScrollAnimation from './directives/scrollanimation';
 
 import BootstrapVue from 'bootstrap-vue';
 import FlashMessage from '@smartweb/vue-flash-message';
-import JsonCSV from 'vue-json-csv'
+import VueBlobJsonCsv from 'vue-blob-json-csv';
 
 Vue.use(UUID);
 Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
 Vue.directive('scrollanimation', ScrollAnimation);
 Vue.use(VueI18n);
-Vue.component('downloadCsv', JsonCSV);
+Vue.use(VueBlobJsonCsv);
 
 var lang = localStorage.getItem('lang');
 lang = lang ? lang : 'de';

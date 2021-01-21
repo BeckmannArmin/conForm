@@ -30,15 +30,15 @@
             {{ $t("conceptPaper.inviteTeam") }}
           </button>
           <div style="padding-right: 20px">
-            <download-csv
+            <vue-blob-json-csv
               class="btn btn-json"
+              tag-name="div"
+              file-type="json"
+              :file-name="conceptPaper.name"
+              :title="$t('conceptPaper.jsonExport')"
               :data="[editConceptPaperData]"
-              :fields="fields"
-              :separator-excel="true"
-              :name="conceptPaper.name + '.csv'"
             >
-              {{ $t("conceptPaper.jsonExport") }}
-            </download-csv>
+            </vue-blob-json-csv>
             <button v-if="isLoggedIn" class="btn btn-pdf" @click="exportAsPDF">
               {{ $t("conceptPaper.pdfExport") }}
             </button>
@@ -803,9 +803,6 @@ export default {
           time: 5000,
         });
       });
-    },
-    exportAsJSON: function () {
-      console.log("json");
     },
     undoChanges() {
       window.location.reload()

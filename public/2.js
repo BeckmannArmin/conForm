@@ -1058,9 +1058,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return exportAsDOCXWithWatermark;
     }(),
-    exportAsJSON: function exportAsJSON() {
-      console.log("json");
-    },
     undoChanges: function undoChanges() {
       window.location.reload();
     }
@@ -2050,25 +2047,16 @@ var render = function() {
               "div",
               { staticStyle: { "padding-right": "20px" } },
               [
-                _c(
-                  "download-csv",
-                  {
-                    staticClass: "btn btn-json",
-                    attrs: {
-                      data: [_vm.editConceptPaperData],
-                      fields: _vm.fields,
-                      "separator-excel": true,
-                      name: _vm.conceptPaper.name + ".csv"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.$t("conceptPaper.jsonExport")) +
-                        "\n          "
-                    )
-                  ]
-                ),
+                _c("vue-blob-json-csv", {
+                  staticClass: "btn btn-json",
+                  attrs: {
+                    "tag-name": "div",
+                    "file-type": "json",
+                    "file-name": _vm.conceptPaper.name,
+                    title: _vm.$t("conceptPaper.jsonExport"),
+                    data: [_vm.editConceptPaperData]
+                  }
+                }),
                 _vm._v(" "),
                 _vm.isLoggedIn
                   ? _c(
