@@ -78,7 +78,7 @@
 
           <!-- register button -->
           <div class="form-group">
-            <button class="btn btn-class">
+            <button class="btn btn-class btn-register" ref="btnSubmit">
               {{ $t("login.register") }}
             </button>
           </div>
@@ -111,10 +111,12 @@ export default {
         password_confirmation: "",
       },
       errors: {},
+      btnOldHtml: '',
     };
   },
   methods: {
     handleSubmit() {
+      this.disableSubmission(this.$refs.btnSubmit);
       this.errors = {};
       axios
         .post("api/register", this.user)
@@ -142,8 +144,18 @@ export default {
               });
               break;
           }
+          this.enableSubmission(this.$refs.btnSubmit);
         });
     },
+      disableSubmission(btn) {
+      btn.setAttribute('disabled', 'disabled');
+      this.btnOldHtml = btn.innerHTML;
+      btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Please wait...'
+    },
+    enableSubmission(btn) {
+      btn.removeAttribute('disabled');
+      btn.innerHTML = this.btnOldHtml;
+    }
   },
 
   /**
@@ -228,6 +240,10 @@ body {
   border-color: #fff;
   outline: 0;
   box-shadow: none;
+}
+
+.btn-register:hover {
+  color: white;
 }
 
 .btn-class {

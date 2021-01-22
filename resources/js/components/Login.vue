@@ -46,7 +46,7 @@
 
           <!-- submit button -->
           <div class="form-group">
-            <button type="submit" class="btn btn-class" @click="handleSubmit">
+            <button type="submit" class="btn btn-class btn-login" @click="handleSubmit" ref="btnSubmit">
               {{ $t("login.signin")}}
             </button>
           </div>
@@ -74,12 +74,14 @@ export default {
         email: "",
         password: ""
       },
-      errors: {}
+      errors: {},
+      btnOldHtml: '',
     };
   },
   methods: {
     handleSubmit(e) {
       e.preventDefault();
+        this.disableSubmission(this.$refs.btnSubmit);
         this.errors = {};
         axios
           .post("api/login", this.user)
@@ -115,8 +117,18 @@ export default {
             });
             break;
         }
+        this.enableSubmission(this.$refs.btnSubmit);
       }) 
     },
+      disableSubmission(btn) {
+      btn.setAttribute('disabled', 'disabled');
+      this.btnOldHtml = btn.innerHTML;
+      btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Please wait...'
+    },
+    enableSubmission(btn) {
+      btn.removeAttribute('disabled');
+      btn.innerHTML = this.btnOldHtml;
+    }
   },
   beforeRouteEnter(to, from, next) {
     if (auth.isLoggedIn()) {
@@ -175,6 +187,9 @@ body {
   font-weight: 600 !important;
 }
 
+.btn-login:hover {
+  color: white;
+}
 .form-control {
   display: block;
   width: 100%;
